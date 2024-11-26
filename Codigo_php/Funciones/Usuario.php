@@ -48,3 +48,16 @@ $eliminar_usuario=function (){
   
   $usuarios->eliminar_datos(['tabla'=>'personal_administrativo','campos'=>['ci'],'valor'=>$ci]);
 };
+
+$activarUsuario = function (){
+  extract($_GET);
+  $usuarios = new Personal_Administrativo;
+  $usuarios->editar_datos(['tabla'=>'personal_administrativo','campos'=>['ci','estado'],'valores'=>[$ci,'activo'],'valor'=>$ci]);
+  
+};
+
+$desactivarUsuario = function (){
+  extract($_GET);
+  $usuarios = new Personal_Administrativo;
+  $usuarios->editar_datos(['tabla'=>'personal_administrativo','campos'=>['ci','estado'],'valores'=>[$ci,'desactivo'],'valor'=>$ci]);
+};

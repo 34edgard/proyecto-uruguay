@@ -6,12 +6,15 @@ contenedor.innerHTML = `<div class="spinner-border text-primary" role="status">
 await	fetch('../Codigo_php/Modulos/Gestion_Usuario.php')
      	.then(res=>res.json())
      	.then(res=>{
-     	  let resul = '',estado='';
+     	  let resul = '',usuarioEstado='',estado='';
  for(let usuario of res.lista_usuarios){
    
       if(usuario[4] == 'activo'){
+        usuarioEstado = 'desactivo';
         estado = 'success';
       }else{
+        usuarioEstado = 'activo';
+        
         estado = 'secondary';
       }
      resul +=  `<tr>
@@ -19,7 +22,7 @@ await	fetch('../Codigo_php/Modulos/Gestion_Usuario.php')
           <td>${usuario[1]}</td>
           <td>${usuario[2]}</td>
           <td>${usuario[3]}</td>
-          <td><button class='btn btn-${estado}'>${usuario[4]}</button></td>
+          <td><button class='btn btn-${estado}'  onclick="${usuarioEstado}Usuario(${usuario[0]})">${usuario[4]}</button></td>
       <td><button class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#firefoxModal' onclick="insertarDatosUsuario(${usuario[0]})">editar</button></td>`;
           
      if(res.rol ==1){

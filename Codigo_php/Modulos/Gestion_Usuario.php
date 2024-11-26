@@ -8,4 +8,8 @@ $PETICION->metodo_get($consultar_usuario_ci,['consultar_usuario_ci','ci']);
 
 $PETICION->metodo_get($eliminar_usuario,['eliminarUsuario','ci']);
 
+$PETICION->metodo_get($activarUsuario,['activarUsuario','ci']);
+$PETICION->metodo_get($desactivarUsuario,['desactivarUsuario','ci']);
+
+
 $PETICION->metodo_post($editar_usuario,['EditarUsuario','ci','nombre','apellido','contraseña','rol']);

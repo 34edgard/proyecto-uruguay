@@ -159,3 +159,4 @@
 <script src="../Codigo_js/Funciones/CrearUsuario.js"></script>
 <script src="../Codigo_js/Funciones/EditarUsuario.js"></script>
 <script src="../Codigo_js/Funciones/eliminarUsuario.js"></script>
+<script src="../Codigo_js/Funciones/estadoUsuario.js"></script>
