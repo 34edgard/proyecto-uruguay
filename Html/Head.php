@@ -8,6 +8,9 @@
     <meta name="generator" content="Hugo 0.88.1">
         <link rel="shortcut icon" href="<?php if($op <> 0){ echo ".";}?>./Img/Logo.jpg" type="image/x-icon" />
       <title>
+        <?php
+        Enunciado($op);
+        ?>
   </title>
 
     

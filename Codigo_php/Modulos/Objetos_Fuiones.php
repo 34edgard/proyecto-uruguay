@@ -11,5 +11,7 @@ include '../Clases/Datos_Inscripcion.php';
 include '../Clases/Gestion_Escolar.php';
 
 include '../Funciones/Usuario.php';
-include '../Funciones/sesion.php';
+include '../Funciones/Sesion.php';
+include '../Funciones/Docente.php';
+include '../Funciones/Niños.php';
 $PETICION = new Peticion;

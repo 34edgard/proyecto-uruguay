@@ -25,7 +25,7 @@ class Persona_Normal implements Personas {
     
     $this->Consultas_BD->ejecutar_consulta($sql);
   }
-  public function consultar_datos($datos){
+  public  function consultar_datos($datos){
     $where="";
     if(isset($datos['valor'])){
       $where = " WHERE `".$datos['campos'][0]."` = ".$datos['valor'];
@@ -74,5 +74,21 @@ class Docente extends Personal_Plantel {
   
 }
 class Personal_Administrativo extends Personal_Plantel{
-  
+  public $tabla = 'personal_administrativo';
+  public function registrar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::registrar_datos($datos);
+  }
+  public function consultar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::consultar_datos($datos);
+  }
+  public function editar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::editar_datos($datos);
+  }
+  public function eliminar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::eliminar_datos($datos);
+  }
 }

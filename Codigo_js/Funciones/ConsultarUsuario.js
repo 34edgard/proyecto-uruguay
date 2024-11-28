@@ -46,8 +46,11 @@ let insertarDatosUsuario =ci=>{
       
          let i= 0;
     for(let input of document.forms.item(1)){
-      if(input.name != ''){
-        
+   if(input.name != ''){
+      if(input.type == 'password'){
+        i++;
+        continue;
+      }
    input.value = usuario[i];
    i++;
       }
