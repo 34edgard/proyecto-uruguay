@@ -14,16 +14,16 @@ interface Personal_Institucional extends Personas{
 
 class Persona_Normal implements Personas {
   public function __construct(){
-    $this->Consultas_BD = new Consultas_BD;
-    $this->consultar = new consultar;
-    $this->registrar = new registrar;
-    $this->editar = new editar;
-    $this->eliminar = new eliminar;
+    $this->Consultas_BD = new ConsultasBD;
+    $this->consultar = new Consultar;
+    $this->registrar = new Registrar;
+    $this->editar = new Editar;
+    $this->eliminar = new Eliminar;
   }
   public function registrar_datos($datos){
     $sql = $this->registrar->generar_sql($datos);
     
-    $this->Consultas_BD->ejecutar_consulta($sql);
+    $this->Consultas_BD->ejecutarConsulta($sql);
   }
   public  function consultar_datos($datos){
     $where="";
@@ -32,21 +32,22 @@ class Persona_Normal implements Personas {
     }
     
    $sql = $this->consultar->generar_sql($datos) .$where;
-    
-  return  $this->Consultas_BD->consultar_registro($sql,$datos['longitud']);
+   // echo $sql;
+  return  $this->Consultas_BD->consultarRegistro($sql,$datos['longitud']);
   }
   public function editar_datos($datos){
     $where = " `".$datos['campos'][0]."` = ".$datos['valor'];
     $sql = $this->editar->generar_sql($datos);
     $sql = $sql.$where;
-    
-    $this->Consultas_BD->ejecutar_consulta($sql);
+    //echo $where;
+   // echo $sql;
+    $this->Consultas_BD->ejecutarConsulta($sql);
   }
   public function eliminar_datos($datos){
     $sql = $this->eliminar->generar_sql($datos);
    $sql = $sql." `".$datos['campos'][0]."` = ".$datos['valor'];
     
-    $this->Consultas_BD->ejecutar_consulta($sql);
+    $this->Consultas_BD->ejecutarConsulta($sql);
   }
   
 }

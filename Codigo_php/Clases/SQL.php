@@ -1,122 +1,120 @@
 <?php
 
+?>
+<?php
+
 interface iSql {
-  public function generar_sql(array $propiedades, array $datos);
+    public function generar_sql(array $propiedades, array $datos);
 }
 
-class centencias_sql {
-  public function añadir_campo($campo) {
-    $this->sql = $this->sql ." `$campo`";
-  }
-  public function añadir_valor($valor) {
+abstract class SentenciasSql {
+    protected $sql = '';
 
-    $this->sql = $this->sql. $this->determinar_tipo($valor);
-  }
-  public function determinar_tipo($valor):string {
-    if (is_numeric($valor)) {
-
-      return " $valor";
-    } else if (is_string($valor)) {
-
-      return " '$valor'";
+    protected function añadirCampo($campo) {
+        $this->sql .= " `$campo` ";
     }
-  }
-  public function añadir_propiedades(array $propiedades, string $propiedad) {
-    foreach ($propiedades[$propiedad] as $contenido) {
 
-      if (sizeof($propiedades[$propiedad]) == 1) {
-        if ($propiedad == 'campos') {
-          $this->añadir_campo($contenido);
-        } elseif ($propiedad == 'valores') {
-          $this->añadir_valor($contenido);
+    protected function añadirValor($valor) {
+        $this->sql .= $this->determinarTipo($valor);
+    }
+
+    protected function determinarTipo($valor): string {
+        return is_numeric($valor) ? " $valor" : " '" . addslashes($valor) . "'";
+    }
+
+    protected function añadirPropiedades(array $propiedades, string $nombrePropiedad) {
+        $longitud = count($propiedades[$nombrePropiedad]);
+        foreach ($propiedades[$nombrePropiedad] as $indice => $contenido) {
+            $this->añadirCampoORNumericORString($nombrePropiedad, $contenido);
+            if ($indice < $longitud - 1) {
+                $this->sql .= ', ';
+            }
+        }
+    }
+
+    protected function añadirCampoORNumericORString($tipo, $contenido) {
+        if ($tipo === 'campos') {
+            $this->añadirCampo($contenido);
+        } elseif ($tipo === 'valores') {
+            $this->añadirValor($contenido);
+        }
+    }
+
+    protected function añadirTabla($tabla) {
+        $this->sql .= " `$tabla` ";
+    }
+
+    public function getSql(): string {
+        return $this->sql;
+    }
+}
+
+class Consultar extends SentenciasSql implements iSql {
+    public function generar_sql(array $propiedades = ['tabla' => '', 'campos' => ['*']], array $datos = []) {
+        if (empty($propiedades['tabla'])) {
+            return 'Seleccione una tabla';
+        }
+        $this->sql = 'SELECT';
+        $this->añadirPropiedades($propiedades, 'campos');
+        $this->sql .= " FROM ";
+        $this->añadirTabla($propiedades['tabla']);
+        return $this->sql;
+    }
+}
+
+class Registrar extends SentenciasSql implements iSql {
+    public function generar_sql(array $propiedades, array $datos = []) {
+        if (empty($propiedades['tabla'])) {
+            return 'Seleccione una tabla';
+        } else if (count($propiedades['campos']) !== count($propiedades['valores'])) {
+            return 'Los valores no son suficientes para los campos';
         }
 
-      } else if ($contenido != $propiedades[$propiedad][sizeof($propiedades[$propiedad])-1]) {
+        $this->sql = "INSERT INTO ";
+        $this->añadirTabla($propiedades['tabla']);
+        $this->sql .= " (";
+        $this->añadirPropiedades($propiedades, 'campos');
+        $this->sql .= ") VALUES (";
+        $this->añadirPropiedades($propiedades, 'valores');
+        $this->sql .= ") ";
+        return $this->sql;
+    }
+}
 
-        if ($propiedad == 'campos') {
-          $this->añadir_campo($contenido);
-        } elseif ($propiedad == 'valores') {
-          $this->añadir_valor($contenido);
+class Editar extends SentenciasSql implements iSql {
+    public function generar_sql(array $propiedades, array $datos = []) {
+        if (empty($propiedades['tabla'])) {
+            return 'Seleccione una tabla';
+        }
+        $this->sql = "UPDATE ";
+        $this->añadirTabla($propiedades['tabla']);
+        $this->sql .= " SET ";
+
+    //    $this->añadirPropiedades($propiedades, 'campos');
+        foreach ($propiedades['campos'] as $index => $campo) {
+          $this->añadirCampo($propiedades['campos'][$index]);
+            $this->sql .= " = ";
+            $this->añadirValor($propiedades['valores'][$index]);
+            if ($index < count($propiedades['campos']) - 1) {
+                $this->sql .= ", ";
+            }
         }
 
-        $this->sql = $this->sql.',';
-      } else {
-        if ($propiedad == 'campos') {
-          $this->añadir_campo($contenido);
-        } elseif ($propiedad == 'valores') {
-          $this->añadir_valor($contenido);
+        $this->sql .= " WHERE ";
+        return $this->sql;
+    }
+}
+
+class Eliminar extends SentenciasSql implements iSql {
+    public function generar_sql(array $propiedades, array $datos = []) {
+        if (empty($propiedades['tabla'])) {
+            return 'Seleccione una tabla';
         }
-      }
+        $this->sql = "DELETE FROM ";
+        $this->añadirTabla($propiedades['tabla']);
+        $this->sql .= " WHERE ";
+        return $this->sql;
     }
-  }
-  public function añadir_tabla($tabla) {
-    $this->sql = $this->sql ." `$tabla` ";
-  }
 }
 
-class consultar extends centencias_sql implements iSql {
-  public $sql = 'SELECT ';
 
-  public function generar_sql(array $propiedades = ['tabla' => '', 'campos' => ['*']], array $datos = ['datos' => '']) {
-
-    if ($propiedades['tabla'] == '') {
-      return 'selecione una tabla';
-    }
-    $this->añadir_propiedades($propiedades, 'campos');
-
-    $this->sql = $this->sql." FROM ";
-    $this->añadir_tabla($propiedades['tabla']);
-
-    return $this->sql;
-  }
-}
-class registrar extends centencias_sql implements iSql {
-  public $sql = "INSERT INTO ";
-  public function generar_sql(array $propiedades, array $datos = ['datos' => '']) {
-    if ($propiedades['tabla'] == '') {
-      return 'selecione una tabla';
-    } else if (sizeof($propiedades['campos']) != sizeof($propiedades['valores'])) {
-      return 'los valores no son suficientes para los campos';
-    }
-
-
-
-    $this->añadir_tabla($propiedades['tabla']);
-    $this->sql = $this->sql." (";
-    $this->añadir_propiedades($propiedades, 'campos');
-
-    $this->sql = $this->sql.") VALUES (";
-    $this->añadir_propiedades($propiedades, 'valores');
-    $this->sql = $this->sql.") ";
-    return $this->sql;
-
-  }
-}
-
-class editar extends centencias_sql implements iSql {
-  public $sql = "UPDATE ";
-  public function generar_sql(array $propiedades = ['tabla' => '', 'campos' => ['*']], array $datos = ['datos' => '']) {
-    $this->añadir_tabla($propiedades['tabla']);
-    $this->sql = $this->sql." SET ";
-    for ($i = 0; $i < sizeof($propiedades['campos']); $i++) {
-      $this->añadir_campo($propiedades['campos'][$i]);
-      $this->sql = $this->sql." = ";
-      $this->añadir_valor($propiedades['valores'][$i]);
-      if (sizeof($propiedades['campos']) > 1 && $i+1 != sizeof($propiedades['campos'])) {
-        $this->sql = $this->sql.", ";
-      }
-
-    }
-
-    $this->sql = $this->sql." WHERE ";
-    return $this->sql;
-  }
-}
-class eliminar extends centencias_sql implements iSql {
-  public $sql = "DELETE FROM ";
-  public function generar_sql(array $propiedades, array $datos = ['datos' => '']) {
-    $this->añadir_tabla($propiedades['tabla']);
-    return $this->sql = $this->sql." WHERE ";
-
-  }
-}

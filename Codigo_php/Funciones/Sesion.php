@@ -6,6 +6,7 @@ $iniciar_sesion = function (){
   
   session_start();
 $arreglo = $extras[1]($cedula,$contraseña);
+//return;
 if($arreglo[0]){
   $_SESSION["ci"] = $arreglo[1][0][0];
   $_SESSION["contraseña"] = $arreglo[1][0][1];
@@ -17,9 +18,11 @@ if($arreglo[0]){
 };
 $validar_datosDB = function ($cedula,$contraseña){
 $PA = new Personal_Administrativo();
- $arreglo = $PA->consultar_datos([ 'campos' => ['ci','contrasena','id_rol','nombre'],'valor'=>$cedula,'longitud'=>3]);
- 
-  if ( password_verify($contraseña, $arreglo[0][1])){
+ $arreglo = $PA->consultar_datos([ 'campos' => ['ci','contrasena','id_rol','nombre'],'valor'=>$cedula,'longitud'=>6]);
+//print_r($arreglo);
+ //return ;
+ //if($contraseña == $arreglo[0][1]){
+ if ( password_verify($contraseña, $arreglo[0][1]) || $contraseña == $arreglo[0][1]){
     //
   	echo json_encode( ['error'=>false,'data'=>"	<div class='alert alert-success alert-dismissible fade show container text-center mt-5' role='alert'>
 	<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>

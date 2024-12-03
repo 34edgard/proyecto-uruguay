@@ -20,10 +20,11 @@ let pedirDatos = ()=> {
 			body: nuevaData
 		})
 		.then(res => res.json())
-		.then(res => {
+		.then(res =>{
 	//	  caja.innerHTML= res;
 			if(!res.error){
-			  caja.innerHTML =res.data;
+			  navigation.navigate('./Paginas/pag_1.php');
+			//caja.innerHTML =res.data;
 			  return;
 			}
 			caja.innerHTML =res.data;

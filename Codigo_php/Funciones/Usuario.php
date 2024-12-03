@@ -1,6 +1,6 @@
 <?php
 $consultar_usuario_ci = function (){
-   $datos =[ 'campos' => ['ci', 'nombre', 'apellido','contrasena', 'id_rol'], 'longitud' => 4,'valor'=>$_GET['ci']];
+   $datos =[ 'campos' => ['ci', 'nombre', 'apellido','contrasena', 'id_rol'], 'longitud' => 8,'valor'=>$_GET['ci']];
    
    $usuarios = new Personal_Administrativo;
   $lista_usuarios = $usuarios->consultar_datos($datos);
@@ -13,10 +13,10 @@ $consultar_usuario_ci = function (){
 
 $consultar_usuario = function () {
   session_start();
-  $datos = [ 'campos' => ['ci', 'nombre', 'apellido', 'id_rol','estado'], 'longitud' => 4];
+  $datos = [ 'campos' => ['ci', 'nombre', 'apellido', 'id_rol','estado'], 'longitud' => 8];
   
   if($_SESSION['rol'] == 3){
-    $datos =[ 'campos' => ['ci', 'nombre', 'apellido', 'id_rol','estado'], 'longitud' => 4,'valor'=>$_SESSION['ci']];
+    $datos =[ 'campos' => ['ci', 'nombre', 'apellido', 'id_rol','estado'], 'longitud' => 8,'valor'=>$_SESSION['ci']];
   }
   
   $usuarios = new Personal_Administrativo;

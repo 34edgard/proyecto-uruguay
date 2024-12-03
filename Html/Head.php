@@ -17,6 +17,7 @@
 
       
       <link rel="stylesheet" href="      <?php if($op <> 0){ echo ".";}?>./Estilos/css/bootstrap.min.css">
+      <link rel="stylesheet" href="      <?php if($op <> 0){ echo ".";}?>./Estilos/css/estilos.css">
 
     </head>
     <body>

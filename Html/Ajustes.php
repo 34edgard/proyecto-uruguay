@@ -6,7 +6,7 @@
   <ul class="nav nav-tabs" role="tablist">
 
     <li class="nav-item" role="presentation">
-      <button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#usuarios" role="tab">usuarios</button>
+      <button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tablaUsuarios" role="tab">usuarios</button>
     </li>
     <?php if ($_SESSION['rol'] < 3) {
       ?>
@@ -69,7 +69,7 @@
       </div>
       <?php
     } ?>
-    <div class="tab-pane active table-responsive"  role="tabpanel">
+    <div class="tab-pane active table-responsive"  role="tabpanel" id="tablaUsuarios">
       <table class="table table-bordered">
         <tr>
           <td>ci</td>

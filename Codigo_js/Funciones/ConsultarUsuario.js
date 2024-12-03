@@ -6,9 +6,14 @@ contenedor.innerHTML = `<div class="spinner-border text-primary" role="status">
 await	fetch('../Codigo_php/Modulos/Gestion_Usuario.php')
      	.then(res=>res.json())
      	.then(res=>{
+     	  
+     	  
+     	  
      	  let resul = '',usuarioEstado='',estado='';
  for(let usuario of res.lista_usuarios){
-   
+     
+      
+  
       if(usuario[4] == 'activo'){
         usuarioEstado = 'desactivo';
         estado = 'success';
