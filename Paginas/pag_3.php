@@ -1,5 +1,5 @@
 <?php
-$op =2;
+$op =3;
 include "./validar_sesion.php";
 include "./enunciado.php";
 include "../Html/Head.php";

@@ -9,22 +9,23 @@
           echo ".";
         }
         ?>./Img/Logo.jpg" style="width:80px; height:80px" class=" rounded-circle bi me-2 m-3" style="border:1px solid black;">
-        	        <?php
+        	    <h2>    <?php
         Enunciado($op);
-        ?>
+        ?></h2>
       </a>
           <?php
           if(isset($_SESSION['nombre'])){
 	?>
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 btn btn-outline-white link-secondary">inicio</a></li>
-        <li><a href="#" class="nav-link px-2 btn btn-outline-white ">inscripciones</a></li>
-        <li><a href="#" class="nav-link btn btn-outline-white px-2 ">Docentes</a></li>
-        <li><a href="#" class="nav-link btn btn-outline-white px-2 ">reportes</a></li>
+        <li><a href="/Paginas/pag_1.php" class="nav-link px-2 btn btn-outline-white link-secondary">inicio</a></li>
+        <li><a href="/Paginas/pag_2.php" class="nav-link px-2 btn btn-outline-white ">inscripciones</a></li>
+        <li><a href="/Paginas/pag_3.php" class="nav-link btn btn-outline-white px-2 ">Docentes</a></li>
+        <li><a href="/Paginas/pag_4.php" class="nav-link btn btn-outline-white px-2 ">reportes</a></li>
+        <li><a href="/Paginas/pag_5.php" class="nav-link btn btn-outline-white px-2 ">Aulas</a></li>
       </ul>
 
       <div class="col-md-3 text-end">
-        <a href="../Paginas/pag_9.php" class="btn btn-outline-white me-2">ajustes</a>
+        <a href="/Paginas/pag_6.php" class="btn btn-outline-white me-2">cambiar contraseña</a>
         <button type="button" class="btn btn-primary" id="cerrarSesion">cerrarSesion</button>
         <script src="../Codigo_js/Funciones/Cerrar_Sesion.js"></script>
 	<?php   } ?>
