@@ -22,6 +22,7 @@ let pedirDatos = ()=> {
 		.then(res => res.json())
 		.then(res =>{
 	//	  caja.innerHTML= res;
+	
 			if(!res.error){
 			  navigation.navigate('./Paginas/pag_1.php');
 			//caja.innerHTML =res.data;
