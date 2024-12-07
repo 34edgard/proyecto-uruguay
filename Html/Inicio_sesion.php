@@ -1,18 +1,17 @@
-<form action="Inicio_secion.php" method="post" class=" container ">
-	<center>
-		<fieldset class="thumbnail m-5 " style="width:200px; ">
+<form action="Inicio_secion.php" method="post">
 
-			<label class="label-control m-2 " style="width:180px">cedula
-				<input type="number" id="cedula" name="cedula" class="form-control " required ></label><br>
-			<label class="label-control m-2 " style="width:180px">contraseña
-				<input type="password" id="contraseña" name="contraseña" class="form-control  " required="ingrese la contraseña" value="12345678"></label><br>
-			<button type="button" class="btn btn-primary w-75" name="Inicio_secion" value="1bjj" id="enviar">enviar</button><br>
-			
-		</fieldset>
-		<div id="caja"></div>
-	</center>
+  <fieldset class="thumbnail container d-flex flex-column justify-content-center flex-wrap align-items-center p-3">
+    <h1 class="text-center text-primary">iniciar sesion</h1>
+    <label class="label-control  w-50   p-3">Usuario
+      <input type="number" id="cedula" name="cedula" class="form-control " required placeholder="ingrese su usuario"></label>
+    <label class="label-control  w-50   p-3">contraseña
+      <input type="password" id="contraseña" name="contraseña" class="form-control  " required placeholder="ingrese la contraseña" value="12345678"></label>
+    <button type="button" class="btn btn-primary w-50 m-auto" name="Inicio_secion" value="1bjj" id="enviar">enviar</button>
+
+    <div id="caja"></div>
+  </fieldset>
+
 </form>
-<div class="h-75" id="caja"></div>
+
 <script src="./Codigo_js/Funciones/validar_formulario.js"></script>
 <script src="./Codigo_js/Funciones/Iniciar_Sesion.js"></script>
-

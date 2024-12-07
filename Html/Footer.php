@@ -1,4 +1,4 @@
-</main>
+
 <footer class="footer mt-auto container-flex px-2 py-5">
 <div class="row p-1">
 <div class="col-md-2 themed-grid-col">
