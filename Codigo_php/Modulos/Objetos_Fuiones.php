@@ -14,4 +14,5 @@ include '../Funciones/Usuario.php';
 include '../Funciones/Sesion.php';
 include '../Funciones/Docente.php';
 include '../Funciones/Niños.php';
+include '../Funciones/Telefono.php';
 $PETICION = new Peticion;

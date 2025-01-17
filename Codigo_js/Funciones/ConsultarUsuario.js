@@ -7,8 +7,8 @@ await	fetch('../Codigo_php/Modulos/Gestion_Usuario.php')
      	.then(res=>res.json())
      	.then(res=>{
      	  
-     	  
-     	  
+    // 	  alert(res);
+     //	  return
      	  let resul = '',usuarioEstado='',estado='';
  for(let usuario of res.lista_usuarios){
      

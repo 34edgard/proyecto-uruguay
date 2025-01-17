@@ -1,5 +1,5 @@
 <?php
 
-include './Objetos_Fuiones.php';
-
-$PETICION->metodo_get();
+include './includer.php';
+print_r($_POST);
+//Peticion::metodo_get();

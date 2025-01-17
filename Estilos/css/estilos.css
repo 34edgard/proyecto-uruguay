@@ -31,3 +31,7 @@
 .color-5{
   background: rgb(var(--ulti));
 }
+
+.link-white{
+  color: #fff;
+}

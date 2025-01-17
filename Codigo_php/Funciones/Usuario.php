@@ -1,5 +1,8 @@
 <?php
+(function (){
+global $consultar_usuario_ci ;
 $consultar_usuario_ci = function (){
+  
    $datos =[ 'campos' => ['ci', 'nombre', 'apellido','contrasena', 'id_rol'], 'longitud' => 8,'valor'=>$_GET['ci']];
    
    $usuarios = new Personal_Administrativo;
@@ -11,6 +14,7 @@ $consultar_usuario_ci = function (){
 
 
 
+global $consultar_usuario;
 $consultar_usuario = function () {
   session_start();
   $datos = [ 'campos' => ['ci', 'nombre', 'apellido', 'id_rol','estado'], 'longitud' => 8];
@@ -27,6 +31,7 @@ $consultar_usuario = function () {
   
 };
 
+global $crear_usuario ;
 $crear_usuario = function () {
   extract($_POST);
 
@@ -35,6 +40,7 @@ $crear_usuario = function () {
   $usuarios->registrar_datos(['campos'=>['ci','nombre','apellido','id_rol','contrasena'],'valores'=>[$cedula,$nombre,$apellido,$rol,$contraseña_hash]]);
 };
 
+global $editar_usuario ;
 $editar_usuario =function (){
 extract($_POST);
   $usuarios = new Personal_Administrativo;
@@ -48,6 +54,7 @@ extract($_POST);
   }
 };
 
+global $eliminar_usuario;
 $eliminar_usuario=function (){
   extract($_GET);
   $usuarios = new Personal_Administrativo;
@@ -55,6 +62,7 @@ $eliminar_usuario=function (){
   $usuarios->eliminar_datos(['campos'=>['ci'],'valor'=>$ci]);
 };
 
+global $activarUsuario;
 $activarUsuario = function (){
   extract($_GET);
   $usuarios = new Personal_Administrativo;
@@ -62,8 +70,10 @@ $activarUsuario = function (){
   
 };
 
+global $desactivarUsuario ;
 $desactivarUsuario = function (){
   extract($_GET);
   $usuarios = new Personal_Administrativo;
   $usuarios->editar_datos(['campos'=>['ci','estado'],'valores'=>[$ci,'desactivo'],'valor'=>$ci]);
 };
+})();

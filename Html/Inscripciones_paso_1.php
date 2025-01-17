@@ -1,4 +1,4 @@
-<form action="Pag_3.2.php" method="post">
+<form action="./Inscripciones_paso_2.php" method="post">
   <h1 class="text-primary text-center m-1">Paso 1 Registrar los datos de los niños/as</h1>
   <fieldset class="container-fluid  img-thumbnail row">
 
@@ -22,7 +22,7 @@
 
     <div class="tab-content" role="tablist">
       <div class="tab-pane active table-responsive" id="niño" role="tabpanel">
-        <legend class="legend"><u> 1-datos del niño o niña:</u></legend>
+        <h3 class="legend text-primary">Datos del niño o niña:</h3>
         <label class="control-label col-md-6 themed-grid-col"
           >apellidos:
 
@@ -270,7 +270,7 @@ class="form-control m-1"
 
 <div class="tab-pane table-responsive" id="madre" role="tabpanel">
 
-<h3><u>2-Datos de la Madre:</u></h3>
+<h3 class="text-primary">Datos de la Madre:</h3>
 
 <label class="col-md-6 themed-grid-col"
 >Apellidos de la Madre:
@@ -437,7 +437,7 @@ class="form-control m-1"
 </div>
 <div class="tab-pane table-responsive" id="padre" role="tabpanel">
 
-<h3><u>datos del Padre </u></h3>
+<h3 class="text-primary">Datos del Padre </h3>
 <label class="col-md-6 themed-grid-col"
 >Apellidos del padre:
 <input require
@@ -604,7 +604,7 @@ class="form-control m-1"
 </div>
 <div class="tab-pane table-responsive" id="representante" role="tabpanel">
 
-<h3><u>datos del representante </u></h3>
+<h3 class="text-primary">datos del representante </h3>
 <label class="col-md-6 themed-grid-col"
 >Apellidos del representante:
 <input require
@@ -777,6 +777,8 @@ class="btn btn-primary"
 value="n"
 name="n"
 id="guardar"
+onclick="Registrar_niños()"
+
 >
 guardar
 </button>
@@ -785,4 +787,4 @@ guardar
 </form>
 
 
-<script src="../Codigo_js/Funciones_js/Registrar_niños.js"></script>
+<script src="../Codigo_js/Funciones/Registrar_niños.js"></script>

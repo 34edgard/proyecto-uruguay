@@ -1,4 +1,6 @@
 <?php
+(function (){
+  global $iniciar_sesion;
 $iniciar_sesion = function (){
   
  $extras = func_get_args();
@@ -16,6 +18,7 @@ if($arreglo[0]){
 }
 
 };
+global $validar_datosDB;
 $validar_datosDB = function ($cedula,$contraseña){
 $PA = new Personal_Administrativo();
  $arreglo = $PA->consultar_datos([ 'campos' => ['ci','contrasena','id_rol','nombre'],'valor'=>$cedula,'longitud'=>6]);
@@ -36,9 +39,11 @@ $PA = new Personal_Administrativo();
 	return [false];
 		
 };
-
+global $cerrar_sesion;
 $cerrar_sesion = function (){
 session_start();
 session_unset();
 session_destroy();
 };
+
+})();

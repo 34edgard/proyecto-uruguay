@@ -22,7 +22,7 @@ class Persona_Normal implements Personas {
   }
   public function registrar_datos($datos){
     $sql = $this->registrar->generar_sql($datos);
-    
+    echo "<br>$sql<br>";
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
   public  function consultar_datos($datos){
@@ -64,15 +64,63 @@ class Personal_Plantel extends Persona_Normal implements Personal_Institucional 
 
 
 class Estudiante extends Persona_Normal{
-  
+  public $tabla = 'estudiante';
+  public function registrar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::registrar_datos($datos);
+  }
+  public function consultar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::consultar_datos($datos);
+  }
+  public function editar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::editar_datos($datos);
+  }
+  public function eliminar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::eliminar_datos($datos);
+  }
 }
 
 class Reprecentante extends Persona_Normal{
-  
+  public $tabla = 'representantes';
+  public function registrar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::registrar_datos($datos);
+  }
+  public function consultar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::consultar_datos($datos);
+  }
+  public function editar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::editar_datos($datos);
+  }
+  public function eliminar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::eliminar_datos($datos);
+  }
 }
 
 class Docente extends Personal_Plantel {
-  
+  public $tabla = 'docente';
+  public function registrar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::registrar_datos($datos);
+  }
+  public function consultar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::consultar_datos($datos);
+  }
+  public function editar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::editar_datos($datos);
+  }
+  public function eliminar_datos($datos){
+    $datos['tabla'] = $this->tabla;
+   return parent::eliminar_datos($datos);
+  }
 }
 class Personal_Administrativo extends Personal_Plantel{
   public $tabla = 'personal_administrativo';

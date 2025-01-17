@@ -1,15 +1,15 @@
 <?php
 
-include './Objetos_Fuiones.php';
+include './includer.php';
 
-$PETICION->metodo_post($crear_usuario,['Crear_usuario','cedula','nombre','apellido','rol','contraseña']);
-$PETICION->metodo_get($consultar_usuario);
-$PETICION->metodo_get($consultar_usuario_ci,['consultar_usuario_ci','ci']);
+Peticion::metodo_post($crear_usuario,['Crear_usuario','cedula','nombre','apellido','rol','contraseña']);
+Peticion::metodo_get($consultar_usuario);
+Peticion::metodo_get($consultar_usuario_ci,['consultar_usuario_ci','ci']);
 
-$PETICION->metodo_get($eliminar_usuario,['eliminarUsuario','ci']);
+Peticion::metodo_get($eliminar_usuario,['eliminarUsuario','ci']);
 
-$PETICION->metodo_get($activarUsuario,['activarUsuario','ci']);
-$PETICION->metodo_get($desactivarUsuario,['desactivarUsuario','ci']);
+Peticion::metodo_get($activarUsuario,['activarUsuario','ci']);
+Peticion::metodo_get($desactivarUsuario,['desactivarUsuario','ci']);
 
 
-$PETICION->metodo_post($editar_usuario,['EditarUsuario','ci','nombre','apellido','contraseña','rol']);
+Peticion::metodo_post($editar_usuario,['EditarUsuario','ci','nombre','apellido','contraseña','rol']);
