@@ -6,6 +6,9 @@ function Enunciado($op) {
     case '0':
       $En = 'sistema de  inscripción del jardín de infancia "República del Uruguay" ';
       break;
+    case '9':
+      $En = "Iniciar Sesión";
+      break;
     case '1':
       $En = "inicio";
       break;

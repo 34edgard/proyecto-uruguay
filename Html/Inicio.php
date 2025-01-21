@@ -1,4 +1,10 @@
 <div class="container mt-5">
+  <div class="container d-flex ">
+    <a class="btn btn-primary" href="../Paginas/pag_0.php">
+      Iniciar Sesión 
+    </a>
+  </div>
+  
   <h1 class="text-center">Bienvenida al sistema</h1>
 <div class="offcanvas-body p-3 row">
 	  <div class="col-md-10 themed-grid-col my-3">

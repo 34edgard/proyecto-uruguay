@@ -15,7 +15,7 @@ let pedirDatos = ()=> {
 		caja.innerHTML =`        <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>`;
-		fetch('./Codigo_php/Modulos/Gestion_Sesion.php', {
+		fetch('/Codigo_php/Modulos/Gestion_Sesion.php', {
 			method: "POST",
 			body: nuevaData
 		})
@@ -24,7 +24,7 @@ let pedirDatos = ()=> {
 	//	  caja.innerHTML= res;
 	
 			if(!res.error){
-			  navigation.navigate('./Paginas/pag_1.php');
+			  navigation.navigate('/Paginas/pag_1.php');
 			//caja.innerHTML =res.data;
 			  return;
 			}
