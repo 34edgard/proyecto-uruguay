@@ -13,10 +13,10 @@ interface ConexionesBaseDatos {
 }
 
 class ConexionesBD implements ConexionesBaseDatos {
-    protected $puerto = "0.0.0.0:3306"; // Cambia según sea necesario
-    protected $usuario = "root";
-    protected $contrasena = "root";
-    protected $baseDeDatos = "Proyecto_v7";
+    protected $puerto = puerto; // Cambia según sea necesario
+    protected $usuario = usuario_BD ;
+    protected $contrasena = contraceña_BD;
+    protected $baseDeDatos = nombre_BD;
 
     public function crearConexion(): ?mysqli {
         $conexion = mysqli_connect($this->puerto, $this->usuario, $this->contrasena);
@@ -73,6 +73,30 @@ class ConsultasBD extends ConexionesBD {
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {
                 $arreglo[] = array_slice($row, 0, $logitud + 1); // Limitar el tamaño del array
+            }
+            mysqli_free_result($result);
+        }
+
+        $this->cerrarConexion($conexion); // Cerrar la conexión después de obtener los datos
+        return $arreglo;
+    }
+    public function consultarRegistro2(string $sql): array {
+        $conexion = $this->crearConexion();
+        if (!$conexion) {
+            return []; // Retorna un array vacío si no hay conexión
+        }
+
+        $result = mysqli_query($conexion, $sql);
+        $arreglo = [];
+
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+              foreach ($row as $index => $col){
+                if(is_numeric($index)) continue; 
+                $a[$index] = $col;
+              }
+              $arreglo[] = $a;
+                  // Limitar el tamaño del array
             }
             mysqli_free_result($result);
         }

@@ -43,10 +43,14 @@ function incluirArchivos($archivos, $url) {
 }
 $p ='../';
 $urlF = $p . 'Funciones/';
+$urlConf = $p . 'Configuracion/';
 $urlC = $p . 'Clases/';
 
 $clases = listarArchivosEnDirectorio($urlC);
+$conf = listarArchivosEnDirectorio($urlConf);
 $funciones = listarArchivosEnDirectorio($urlF);
+
+incluirArchivos($conf,$urlConf);
 incluirArchivos($clases,$urlC);
 incluirArchivos($funciones,$urlF);
 

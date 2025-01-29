@@ -2,14 +2,15 @@
   justify-content-center justify-content-md-between py-3 mb-4 border-bottom  px-1">
   <a href="/" class="d-flex align-items-center col-md-4 mb-2 mb-md-0 text-white  text-decoration-none">
     <img src="/Img/Logo.jpg" style="width:80px; height:80px" class=" rounded-circle bi me-2 m-3" style="border:1px solid black;">
-    <h2>    <?php
+    <h2 id="titulo"
+    >    <?php
   if (isset($_SESSION['nombre']))     Enunciado($op);
       ?></h2>
   </a>
   
   <?php
   
-  if (!isset($_SESSION['nombre'])) { echo "<div class='col-6 col-md-auto mb-2  '><div class='text-white h1 w-75'>";
+  if (!isset($_SESSION['nombre'])) { echo "<div class='col-4 col-md-auto mb-2  '><div class='text-white h1'>";
   Enunciado($op);
   echo "</div></div>";
   }
@@ -26,9 +27,22 @@
     inscripciones
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/Paginas/pag_2_p1.php">inscribir</a></li>
-    <li><a class="dropdown-item" href="#">planillas de inscripción</a></li>
-    <li><a class="dropdown-item" href="#">promovidos</a></li>
+    <li><a class="dropdown-item" href="#"
+    hx-post="/Html/Inscripcion/RegistrarDatos.php" hx-target="#main" hx-swap="innerHTML"
+     hx-trigger="click"
+    onclick="cambiarTitulo('inscribir')"
+    >inscribir</a></li>
+    <li><a class="dropdown-item" href="#"
+    
+        
+    onclick="cambiarTitulo('planilla de inscripción')"
+    >planilla de inscripción</a></li>
+    <li><a class="dropdown-item" href="#"
+        hx-post="/Html/Inscripcion/Promovidos.php" hx-target="#main" hx-swap="innerHTML"
+     hx-trigger="click"
+    
+    onclick="cambiarTitulo('promovidos')"
+    >promovidos</a></li>
     <li><hr class="dropdown-divider"></li>
     
   </ul>
@@ -45,9 +59,14 @@
     Docentes
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/Paginas/pag_3.php">registrar</a></li>
+    <li><a class="dropdown-item" href="#"
+    onclick="cambiarTitulo('registrar')"
+    hx-post="/Html/Docente/Registrar.php" hx-target="#main" hx-swap="innerHTML"
+     hx-trigger="click"
+    >registrar</a></li>
     <li><a class="dropdown-item"
-    hx-post="/Html/Reportes.php" hx-target="#main" hx-swap="innerHTML"
+    onclick="cambiarTitulo('Reportes')"
+    hx-post="/Html/Docente/Consultar.php" hx-target="#main" hx-swap="innerHTML"
      hx-trigger="click">reportes</a></li>
 
    
@@ -67,9 +86,16 @@
     reportes
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/Paginas/pag_4.php">matrícula </a></li>
-    <li><a class="dropdown-item" href="#">planilla</a></li>
-    <li><a class="dropdown-item" href="#">diploma</a></li>
+    <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Matricula')"
+    hx-post="/Html/Reportes/Matricula.php" hx-target="#main" hx-swap="innerHTML"
+     hx-trigger="click"
+    >Matrícula </a></li>
+    <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Planilla')"
+   hx-post="/Html/Reportes/Planilla.php" hx-target="#main" hx-swap="innerHTML"
+     hx-trigger="click" 
+    >planilla</a></li>
+    <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Diploma')"  hx-post="/Html/Reportes/Diploma.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click" >Diploma</a></li>
+    <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Estadistica')"  hx-post="/Html/Reportes/Estadisticas.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click" >Estadistica</a></li>
    
   </ul>
 </div>
@@ -84,6 +110,7 @@
       <a href="/Paginas/pag_6.php" class="btn btn-warning me-2">Administrar</a>
       <button type="button" class="btn btn-danger" id="cerrarSesion">Cerrar Sesion</button>
       <script src="/Codigo_js/Funciones/Cerrar_Sesion.js"></script>
+      <script src="../Codigo_js/Funciones/CambiarTitulo.js"></script>
       <?php
     } ?>
 

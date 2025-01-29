@@ -1,0 +1,6 @@
+<?php
+//cra un archivo con este código 
+const puerto = "tu puerto";
+const usuario_BD = "tu usuario";
+const contraceña_BD = "tu contraceña";
+const nombre_BD = "tu base de datos";

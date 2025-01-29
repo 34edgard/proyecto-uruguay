@@ -2,4 +2,5 @@
 
 include './includer.php';
 
-Peticion::metodo_get();
+
+Peticion::metodo_post($optenerSexos,['optenerSexos']);
