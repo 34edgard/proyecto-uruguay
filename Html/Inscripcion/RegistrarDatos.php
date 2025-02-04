@@ -624,7 +624,7 @@ class="form-control m-1"
       name="Datos_Niño_Sexo"
       id="sexo"
       class="form-control m-1"
-      hx-post="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php?optenerSexos" hx-target="#sexo" hx-swap="innerHTML"
+      hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
      hx-trigger="click"
       >
       

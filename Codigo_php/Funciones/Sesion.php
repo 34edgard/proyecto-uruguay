@@ -9,10 +9,10 @@
     $arreglo = $extras[1][0]($cedula, $contraseña);
     //return;
     if ($arreglo[0]) {
-      $_SESSION["ci"] = $arreglo[1][0][0];
-      $_SESSION["contraseña"] = $arreglo[1][0][1];
-      $_SESSION["rol"] = $arreglo[1][0][2];
-      $_SESSION["nombre"] = $arreglo[1][0][3];
+      $_SESSION["ci"] = $arreglo[1][0]['ci'];
+      $_SESSION["contraseña"] = $arreglo[1][0]['contrasena'];
+      $_SESSION["rol"] = $arreglo[1][0]['id_rol'];
+      $_SESSION["nombre"] = $arreglo[1][0]['nombre'];
     }
   };
   global $validar_datosDB;
@@ -23,20 +23,21 @@
       "valor" => $cedula,
       "longitud" => 6,
     ]);
-    //print_r($arreglo);
+  //  print_r($arreglo);
     //return ;
     //if($contraseña == $arreglo[0][1]){
-    if (!isset($arreglo[0][0])) {
+ //   print_r($arreglo);
+    if (!isset($arreglo[0]['ci'])) {
       echo json_encode([
         "error" => true,
         "data" =>
           '<h2 class="text-center text-danger">el usuario no existe </h2>',
       ]);
-      return [true, $arreglo];
+      return [false, $arreglo];
     }
     if (
-      password_verify($contraseña, $arreglo[0][1]) ||
-      $contraseña == $arreglo[0][1]
+      password_verify($contraseña, $arreglo[0]['contrasena']) ||
+      $contraseña == $arreglo[0]['contrasena']
     ) {
       //
       echo json_encode(["error" => false, "data" => ""]);

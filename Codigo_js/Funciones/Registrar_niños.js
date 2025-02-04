@@ -40,10 +40,7 @@ const prueba=()=>{
   datap.append('text',"hola");
   datap.append('objeto',ob);
   
-  fetch('/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php',{
-    method: "POST",
-    body: datap
-  })
+  fetch('/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php')
   .then(res=>res.text())
   .then(res=>loader.innerHTML = res)
   .catch(err=>alert(err));

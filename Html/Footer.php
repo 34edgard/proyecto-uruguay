@@ -50,7 +50,7 @@ Alvis Zacarias
 </footer>-->
 <?php } ?>
 
-<script src='/Estilos/js/bootstrap.js'></script>
+
 <script src='/Estilos/js/bootstrap.bundle.min.js'></script>
 
 

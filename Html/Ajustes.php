@@ -1,7 +1,4 @@
 <div class="container mt-5">
-  <h1><small>ajustes</small></h1>
-
-
 
   <ul class="nav nav-tabs" role="tablist">
 

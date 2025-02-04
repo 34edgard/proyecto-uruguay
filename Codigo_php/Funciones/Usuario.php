@@ -3,7 +3,7 @@
 global $consultar_usuario_ci ;
 $consultar_usuario_ci = function (){
   
-   $datos =[ 'campos' => ['ci', 'nombre', 'apellido','contrasena', 'id_rol'], 'longitud' => 8,'valor'=>$_GET['ci']];
+   $datos =[ 'campos' => ['ci', 'nombre', 'apellido','contrasena', 'id_rol'],'valor'=>$_GET['ci']];
    
    $usuarios = new Personal_Administrativo;
   $lista_usuarios = $usuarios->consultar_datos($datos);

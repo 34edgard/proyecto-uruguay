@@ -32,18 +32,14 @@
      hx-trigger="click"
     onclick="cambiarTitulo('inscribir')"
     >inscribir</a></li>
-    <li><a class="dropdown-item" href="#"
-    
-        
-    onclick="cambiarTitulo('planilla de inscripción')"
-    >planilla de inscripción</a></li>
+ 
     <li><a class="dropdown-item" href="#"
         hx-post="/Html/Inscripcion/Promovidos.php" hx-target="#main" hx-swap="innerHTML"
      hx-trigger="click"
     
     onclick="cambiarTitulo('promovidos')"
     >promovidos</a></li>
-    <li><hr class="dropdown-divider"></li>
+    
     
   </ul>
 </div>

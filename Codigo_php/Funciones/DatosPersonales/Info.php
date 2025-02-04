@@ -5,11 +5,16 @@
     $con = new ConsultasBD;
     $sql = "SELECT * FROM `sexo`";
    $datos =  $con->consultarRegistro2($sql);
+   $campo = '';
    foreach ($datos as $dato){
-     echo "<option value='{$dato['id_sexo']}'>
-     {$dato['nombre_sexo']}
+   $value = $dato['id_sexo'];
+   $nombre = $dato['nombre_sexo'];
+     $campo .="<option value='$value'>
+     $nombre
      </option>";
+     
    }
+   echo $campo;
   };
   
   })();

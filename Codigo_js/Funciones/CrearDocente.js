@@ -24,7 +24,8 @@
     .then(res=>res.text())
     .then(data=>{
 	mensaje.innerHTML= data;
-  consultarDatosDeDocente();
+	
+ // consultarDatosDeDocente();
 	
     })
     .catch(err=>alert(err));

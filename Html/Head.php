@@ -12,7 +12,7 @@
   </title>
 
     
-       <script src="../Codigo_js/Librerias/htmx.js"></script>
+       <script src="/Codigo_js/Librerias/htmx.js"></script>
       
       <link rel="stylesheet" href="/Estilos/css/bootstrap.min.css">
       <link rel="stylesheet" href="/Estilos/css/estilos.css">

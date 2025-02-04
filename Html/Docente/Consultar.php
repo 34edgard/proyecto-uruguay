@@ -13,7 +13,7 @@
       <th scope="col">Edad</th>
       
     
-      <th scope="col">aula</th>
+     <!-- <th scope="col">aula</th>-->
       <th scope="col">telefono</th>
       <th scope="col"></th>
     </tr>
@@ -24,3 +24,4 @@
 </table>
 <div id="mesajesDelServidor"></div>
 </div>
+<script src="/Codigo_js/Funciones/consultarDocentes.js"></script>

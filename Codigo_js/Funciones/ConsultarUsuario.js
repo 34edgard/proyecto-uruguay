@@ -7,14 +7,14 @@ await	fetch('../Codigo_php/Modulos/Gestion_Usuario.php')
      	.then(res=>res.json())
      	.then(res=>{
      	  
-    // 	  alert(res);
-     //	  return
+    //  alert(res);
+    //   return
      	  let resul = '',usuarioEstado='',estado='';
  for(let usuario of res.lista_usuarios){
      
       
   
-      if(usuario[4] == 'activo'){
+      if(usuario.estado == 'activo'){
         usuarioEstado = 'desactivo';
         estado = 'success';
       }else{
@@ -23,15 +23,15 @@ await	fetch('../Codigo_php/Modulos/Gestion_Usuario.php')
         estado = 'secondary';
       }
      resul +=  `<tr>
-          <td>${usuario[0]}</td>
-          <td>${usuario[1]}</td>
-          <td>${usuario[2]}</td>
-          <td>${usuario[3]}</td>
-          <td><button class='btn btn-${estado}'  onclick="${usuarioEstado}Usuario(${usuario[0]})">${usuario[4]}</button></td>
-      <td><button class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#firefoxModal' onclick="insertarDatosUsuario(${usuario[0]})">editar</button></td>`;
+          <td>${usuario.ci}</td>
+          <td>${usuario.nombre}</td>
+          <td>${usuario.apellido}</td>
+          <td>${usuario.id_rol}</td>
+          <td><button class='btn btn-${estado}'  onclick="${usuarioEstado}Usuario(${usuario.ci})">${usuario.estado}</button></td>
+      <td><button class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#firefoxModal' onclick="insertarDatosUsuario(${usuario.ci})">editar</button></td>`;
           
      if(res.rol ==1){
-  resul +=  `<td><button class='btn btn-danger' onclick="eliminarUsuario(${usuario[0]})">eliminar</button></td>`;
+  resul +=  `<td><button class='btn btn-danger' onclick="eliminarUsuario(${usuario.ci})">eliminar</button></td>`;
     }
      resul += "</tr>";
     }
@@ -47,21 +47,22 @@ let insertarDatosUsuario =ci=>{
   fetch(`../Codigo_php/Modulos/Gestion_Usuario.php?ci=${ci}&consultar_usuario_ci`)
      	.then(res=>res.json())
      	.then(res=>{
-     for (let usuario of res.lista_usuarios){
-      
-         let i= 0;
-    for(let input of document.forms.item(1)){
-   if(input.name != ''){
-      if(input.type == 'password'){
-        i++;
-        continue;
-      }
-   input.value = usuario[i];
-   i++;
-      }
-    
+     let inputs = document.forms.item(1);
+     let userDate = res.lista_usuarios[0];
+     let campos=[],i=0;
+     for(let input of inputs){
+       if (input.name != ''){
+         campos[i] = input;
+         i++;
        }
      }
+     campos[0].value = userDate.ci;
+     campos[1].value = userDate.nombre;
+     campos[2].value = userDate.apellido;
+     
+     campos[4].value =userDate. id_rol;
+     
+     
      	})
      	.catch(err=>alert(err));
 };
