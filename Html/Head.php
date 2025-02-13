@@ -6,7 +6,7 @@
     <meta name="description" content="sistema de inscripción República del Uruguay">
     <meta name="author" content="Edgard Patete">
     <meta name="generator" content="Hugo 0.88.1">
-        <link rel="shortcut icon" href="/Img/Logo.jpg" type="image/x-icon" />
+        <link rel="shortcut icon" href="/Publico/Img/Logo.jpg" type="image/x-icon" />
       <title>
         <?php Enunciado($op); ?>
   </title>
