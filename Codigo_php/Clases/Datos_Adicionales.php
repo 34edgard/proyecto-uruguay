@@ -34,7 +34,7 @@ abstract class DatosExtras implements IDatosExtra{
     
    $sql = $this->consultar->generar_sql($dato) .$where;
    
-  return  $this->Consultas_BD->consultarRegistro2($sql,$dato['longitud']);
+  return  $this->Consultas_BD->consultarRegistro2($sql);
  }
  public function editarDato($dato){
    $dato['tabla'] = $this->tabla;

@@ -23,8 +23,8 @@ let pedirDatos = ()=> {
 		.then(res =>{
 	//	  caja.innerHTML= res;
 	
-		//	caja.innerHTML =res;
-		//	return;
+	//	caja.innerHTML =res;
+	//		return;
 			if(!res.error){
 			  navigation.navigate('/Paginas/pag_1.php');
 			//caja.innerHTML =res.data;

@@ -96,39 +96,55 @@ class="form-control m-1"
 />
 </label>
 
-<h4 class="text-primary">direccion de habitación</h4>
+<h4 class="text-primary"
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
+id="fo"
+hx-target="#parroquia1"
+hx-trigger="click"
+  >direccion de habitación</h4>
 
-<label class="col-md-4 themed-grid-col"
->calle
+<label class="col-md-4 themed-grid-col">parroquia
 <select
-name="Datos_familiares_Direccion_Habitacion_Reprecentante_Calle"
+id="parroquia1"
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+name="parroquia"
+hx-target="#sector1"
+hx-trigger="change"
+
 class="form-control m-1"
 >
-<?php ?>
+
 </select>
 </label>
 
 <label class="col-md-4 themed-grid-col"
 >sector
 <select
-name="Datos_familiares_Direccion_Habitacion_Reprecentante_Sector"
+id="sector1"
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?calle"
+
+hx-target="#calle1"
+hx-trigger="change"
+
 class="form-control m-1"
 >
 
 </select>
 </label>
-
-<label class="col-md-4 themed-grid-col"
->parroquia
+<label class="col-md-4 themed-grid-col">calle
 <select
-name="Datos_familiares_Direccion_Habitacion_Reprecentante_Parroquia"
+name="calle"
+id="calle1"
+
 class="form-control m-1"
 >
 <?php ?>
 </select>
 </label>
 
-<h4 class="text-primary">direccion de trabajo</h4>
+<h4 class="text-primary"
+
+  >direccion de trabajo</h4>
 
 <label class="col-md-4 themed-grid-col"
 >calle
