@@ -13,7 +13,7 @@
 			
 			i++;
 		}
-		fetch('../Codigo_php/Modulos/Gestion_Usuario.php', {
+		fetch('/Codigo_php/Modulos/Gestion_Usuario.php', {
 			method: "POST",
 			body: datos
 		})

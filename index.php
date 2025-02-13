@@ -1,9 +1,9 @@
 <?php
 $op = 0;
-include "./Paginas/enunciado.php";
-include "./Html/Head.php";
-include "./Html/Header.php";
-include "./Html/Inicio.php";
-include "./Html/Footer.php";
+include "./Publico/Paginas/enunciado.php";
+include "./Publico/Html/Head.php";
+include "./Publico/Html/Header.php";
+include "./Publico/Html/Inicio.php";
+include "./Publico/Html/Footer.php";
 
 //inicio de la aplicación 

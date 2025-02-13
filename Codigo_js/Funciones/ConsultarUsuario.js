@@ -3,7 +3,7 @@ let contenedor = document.getElementById('usuarios');
 contenedor.innerHTML = `<div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>`;
-await	fetch('../Codigo_php/Modulos/Gestion_Usuario.php')
+await	fetch('/Codigo_php/Modulos/Gestion_Usuario.php')
      	.then(res=>res.json())
      	.then(res=>{
      	  
@@ -44,7 +44,7 @@ await	fetch('../Codigo_php/Modulos/Gestion_Usuario.php')
 
 cosultarUsuarios();
 let insertarDatosUsuario =ci=>{
-  fetch(`../Codigo_php/Modulos/Gestion_Usuario.php?ci=${ci}&consultar_usuario_ci`)
+  fetch(`/Codigo_php/Modulos/Gestion_Usuario.php?ci=${ci}&consultar_usuario_ci`)
      	.then(res=>res.json())
      	.then(res=>{
      let inputs = document.forms.item(1);

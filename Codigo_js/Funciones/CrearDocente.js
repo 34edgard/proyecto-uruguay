@@ -17,7 +17,7 @@
 			
 			i++;
 		}
-		fetch('../Codigo_php/Modulos/Gestionar_Docente.php', {
+		fetch('/Codigo_php/Modulos/Gestionar_Docente.php', {
 			method: "POST",
 			body: datos
 		})

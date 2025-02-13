@@ -26,7 +26,7 @@ let pedirDatos = ()=> {
 	//	caja.innerHTML =res;
 	//		return;
 			if(!res.error){
-			  navigation.navigate('/Paginas/pag_1.php');
+			  navigation.navigate('/Publico/Paginas/pag_1.php');
 			//caja.innerHTML =res.data;
 			  return;
 			}
