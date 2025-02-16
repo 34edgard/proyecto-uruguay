@@ -9,17 +9,17 @@
     $arreglo = $extras[1][0]($cedula, $contraseña);
     //return;
     if ($arreglo[0]) {
-      $_SESSION["ci"] = $arreglo[1][0]['ci'];
+      $_SESSION["ci"] = $arreglo[1][0]['cedula'];
       $_SESSION["contraseña"] = $arreglo[1][0]['contrasena'];
       $_SESSION["rol"] = $arreglo[1][0]['id_rol'];
-      $_SESSION["nombre"] = $arreglo[1][0]['nombre'];
+      $_SESSION["nombre"] = $arreglo[1][0]['nombres'];
     }
   };
   global $validar_datosDB;
   $validar_datosDB = function ($cedula, $contraseña) {
     $PA = new Personal_Administrativo();
     $arreglo = $PA->consultar_datos([
-      "campos" => ["ci", "contrasena", "id_rol", "nombre"],
+      "campos" => ["cedula", "contrasena", "id_rol", "nombres"],
       "valor" => $cedula,
       "longitud" => 6,
     ]);
@@ -27,7 +27,7 @@
     //return ;
     //if($contraseña == $arreglo[0][1]){
  //   print_r($arreglo);
-    if (!isset($arreglo[0]['ci'])) {
+    if (!isset($arreglo[0]['cedula'])) {
       echo json_encode([
         "error" => true,
         "data" =>
@@ -36,8 +36,8 @@
       return [false, $arreglo];
     }
     if (
-      password_verify($contraseña, $arreglo[0]['contrasena']) ||
-      $contraseña == $arreglo[0]['contrasena']
+      password_verify($contraseña, $arreglo[0]['contrasena'])  ||
+     $contraseña == $arreglo[0]['contrasena']
     ) {
       //
       echo json_encode(["error" => false, "data" => ""]);
@@ -46,7 +46,7 @@
     echo json_encode([
       "error" => true,
       "data" =>
-        '<h2 class="text-center text-danger">el usuario o la contraseña son incorrectos</h2>',
+        '<h2 class="text-center text-danger"> la contraseña son incorrectos</h2>',
     ]);
     return [false];
   };

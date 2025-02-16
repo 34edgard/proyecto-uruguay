@@ -123,7 +123,7 @@ class Docente extends Personal_Plantel {
   }
 }
 class Personal_Administrativo extends Personal_Plantel{
-  public $tabla = 'personal_administrativo';
+  public $tabla = 'usuario';
   public function registrar_datos($datos){
     $datos['tabla'] = $this->tabla;
    return parent::registrar_datos($datos);
