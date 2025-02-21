@@ -20,8 +20,7 @@
     $PA = new Personal_Administrativo();
     $arreglo = $PA->consultar_datos([
       "campos" => ["cedula", "contrasena", "id_rol", "nombres"],
-      "valor" => $cedula,
-      "longitud" => 6,
+      "valor" => $cedula
     ]);
   //  print_r($arreglo);
     //return ;

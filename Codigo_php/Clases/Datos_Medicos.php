@@ -1,9 +1,9 @@
 <?php
 interface iDatos_Medicos{
-  public function registrar(string $dato);
-  public function consultar(string $dato);
-  public function editar(string $dato);
-  public function eliminar(string  $dato);
+  public function registrar( $dato);
+  public function consultar( $dato);
+  public function editar($dato);
+  public function eliminar( $dato);
 }
 class datos_medicos implements iDatos_Medicos{
   protected  $tabla ;
@@ -18,14 +18,14 @@ class datos_medicos implements iDatos_Medicos{
   
   
   
-  public function registrar(string $dato){
+  public function registrar( $dato){
     $dato['tabla'] = $this->tabla;
     $sql = $this->registrar->generar_sql($dato);
   //  echo "<br>$sql<br>";
     $this->Consultas_BD->ejecutarConsulta($sql);
     
   }
-  public function consultar(string $dato){
+  public function consultar( $dato){
     $dato['tabla'] = $this->tabla;
   
    $where="";
@@ -37,7 +37,7 @@ class datos_medicos implements iDatos_Medicos{
    
   return  $this->Consultas_BD->consultarRegistro2($sql);
   }
-  public function editar(string $dato){
+  public function editar( $dato){
     $dato['tabla'] = $this->tabla;
   
    $where = " `".$datos['campos'][0]."` = ".$datos['valor'];
@@ -47,7 +47,7 @@ class datos_medicos implements iDatos_Medicos{
    // echo $sql;
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
-  public function eliminar(string $dato){
+  public function eliminar( $dato){
     $dato['tabla'] = $this->tabla;
   
    $sql = $this->eliminar->generar_sql($datos);
@@ -74,7 +74,7 @@ class discapacidad extends datos_medicos{
   public function __construct(){
     parent::__construct($this->tabla);
   }
-}
+} 
 class Estado_Nutricional extends datos_medicos{
    protected  $tabla = 'Estado_Nutricional';
   public function __construct(){

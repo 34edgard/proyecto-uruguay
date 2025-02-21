@@ -50,9 +50,9 @@ abstract class DatosExtras implements IDatosExtra{
    $dato['tabla'] = $this->tabla;
     $sql = $this->consultar->generar_sql($dato) ." ORDER BY `".$dato['campos'][0]."` DESC LIMIT 1 ";
    
-    echo "<br>$sql<br>";
     
-   return $this->Consultas_BD->consultarRegistro($sql,0);
+    
+   return $this->Consultas_BD->consultarRegistro2($sql);
     
     
   }
@@ -68,18 +68,13 @@ abstract class DatosExtras implements IDatosExtra{
 }
 
 class Telefono extends DatosExtras{
-  protected  $tabla = 'telefono';
+  protected  $tabla = 'telefonos';
   public function __construct(){
     parent::__construct($this->tabla);
   }
   
 }
-class sexo extends DatosExtras{
-  protected $tabla = 'sexo';
-  public function __construct(){
-    parent::__construct($this->tabla);
-  }
-}
+
 class ocupacion extends DatosExtras{
 protected  $tabla = 'ocupacion';
   public function __construct(){
@@ -96,6 +91,14 @@ class nivel_instruccion extends DatosExtras{
 class rol extends DatosExtras{
   
   protected  $tabla = 'roles';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+  
+}
+class correo extends DatosExtras{
+  
+  protected  $tabla = 'correo';
   public function __construct(){
     parent::__construct($this->tabla);
   }

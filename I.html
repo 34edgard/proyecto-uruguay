@@ -18,16 +18,16 @@
 
     <button onclick="cambiarTitulo('1')">1</button>
     <button onclick="cambiarTitulo('puo')">2</button>
-
+<p id="p">gkkn</p>
     <script>
-        function cambiarTitulo(titulo) {
-            const tituloElement = document.getElementById('titulo');
-            if (tituloElement) {
-                tituloElement.textContent = titulo;
-            } else {
-                console.error("Elemento con ID 'titulo' no encontrado.");
-            }
-        }
+    console.log('aaa')
+      !(  ()=>{
+          fetch('/M.js')
+          .then(res=>res.text())
+          .then(res=>document.getElementById('p').innerHTML = res)
+          .catch(err=>alert(err))
+        })();
+    console.log('aaa')
     </script>
 </body>
 </html>

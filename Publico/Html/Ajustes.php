@@ -33,6 +33,16 @@
               apellido
               <input type="text" name="apellido" class="form-control w-75">
             </label>
+            
+                          <label class="form-label">
+              nombre de usuario 
+              <input type="text" name="usuario" class= "form-control w-75">
+            </label>
+              <label class="form-label">
+              correo 
+              <input type="email" name="correo" class= "form-control w-75">
+            </label>
+            
             <?php if ($_SESSION["rol"] < 3) {
               ?>
               <label class="form-label">
@@ -72,6 +82,7 @@
           <td>ci</td>
           <td>nombre</td>
           <td>apellido</td>
+          
           <td>rol</td>
           <td>estado</td>
           <td colspan="2"></td>

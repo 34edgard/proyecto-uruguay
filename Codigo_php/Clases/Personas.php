@@ -33,7 +33,7 @@ class Persona_Normal implements Personas {
     
    $sql = $this->consultar->generar_sql($datos) .$where;
    // echo $sql;
-  return  $this->Consultas_BD->consultarRegistro2($sql,$datos['longitud']);
+  return  $this->Consultas_BD->consultarRegistro2($sql);
   }
   public function editar_datos($datos){
     $where = " `".$datos['campos'][0]."` = ".$datos['valor'];

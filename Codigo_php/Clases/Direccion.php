@@ -88,8 +88,15 @@ class sector extends lugar{
     parent::__construct($this->tabla);
   }
 }
-class calle extends lugar{
-  protected  $tabla = 'calle';
+class ubicacion extends lugar{
+  protected  $tabla = 'ubicacion';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+}
+
+class lugar_nacimiento extends lugar{
+  protected $tabla = 'lugar_nacimiento';
   public function __construct(){
     parent::__construct($this->tabla);
   }

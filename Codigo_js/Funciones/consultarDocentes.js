@@ -1,4 +1,4 @@
-let consultarDatosDeDocente = async()=>{
+!(async()=>{
 		let tablaDocente = document.getElementById('tablaDeDocentes');
 		tablaDocente.innerHTML=`        <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
@@ -7,5 +7,4 @@ let consultarDatosDeDocente = async()=>{
 		.then(res=>res.text())
 		.then(res=>tablaDocente.innerHTML=res)
 		.catch(err=>tablaDocente.innerHTML='error ');
-	};
-	consultarDatosDeDocente();
+	})();
