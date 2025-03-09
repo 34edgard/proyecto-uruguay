@@ -2,23 +2,23 @@
 
 interface iPlantel{
   
-  public function registrar();
-  public function consultar();
-  public function editar();
-  public function eliminar();
+  public function registrar($datos);
+  public function consultar($datos);
+  public function editar($datos);
+  public function eliminar($datos);
 }
 
 class plantel implements iPlantel{
-  public function registrar(){
+  public function registrar($datos){
     
   }
-  public function consultar(){
+  public function consultar($datos){
     
   }
-  public function editar(){
+  public function editar($datos){
     
   }
-  public function eliminar(){
+  public function eliminar($datos){
     
   }
 }

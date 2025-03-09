@@ -39,18 +39,18 @@
 
   <!-- Input pilihan kelas, dengan validasi -->
   <div class="mb-3">
-    <label for="aula" class="form-label">aula</label>
-    <select class="form-select w-75" id="aula" name="aula" required>
-      <option value="">P</option>  <!-- Tambah opsi kosong -->
-      <option value="1">Kelas 1</option>
-      <option value="2">Kelas 2</option>
-      <option value="3">Kelas 3</option>
+    <label for="tipo_telefono" class="form-label">tipo telefono</label>
+    <select class="form-select w-75" id="tipo_telefono" name="tipo_telefono" required>
+      <option value=""></option>  <!-- Tambah opsi kosong -->
+      <option value="fijo">fijo</option>  <!-- Tambah opsi kosong -->
+      <option value="celular">celular</option>
+
     </select>
     <div class="invalid-feedback">Mohon pilih kelas.</div>
   </div>
 
   <!-- Tombol submit, dengan validasi  -->
-  <button type="button" class="btn btn-primary" id="crearDocente" name="formulario" value="crear">Daftar</button>
+  <button type="button" class="btn btn-primary" id="crearDocente" name="formulario" value="id_docente">registrar</button>
 </form>
 <div id="mensaje"></div>
 

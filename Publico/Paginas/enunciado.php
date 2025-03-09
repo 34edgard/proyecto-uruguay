@@ -4,35 +4,30 @@
 function Enunciado($op) {
   switch ($op) {
     case '0':
-      $En = ' "República del Uruguay" ';
+      return "\"República del Uruguay\" ";
       break;
     case '9':
-      $En = "Inicio de  Sesión";
+      return "Inicio de sesion";
       break;
     case '1':
-      $En = "inicio";
+      return "Inicio";
       break;
     case '2':
-      $En = "Inscripciónes ";
+      return "Inscripciónes";
       break;
     case '3':
-      $En = "Docentes";
+      return "Docentes";
       break;
 
     case '4':
-      $En = "Reportes";
+      return "Reportes";
       break;
 
     case '5':
-      $En = "Aulas";
+      return "Aulas";
       break;
     case '6':
-      $En = "cambiar contraseña";
+      return "Administración";
       break;
-
-
-
   }
-  
-  echo $En;
 }

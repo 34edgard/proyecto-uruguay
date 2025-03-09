@@ -2,7 +2,7 @@
           <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-success" type="submit">Search</button>
         </form>
-<table class="table my-auto">
+<table class="table my-auto container">
   <thead>
     <tr>
       <th scope="col">#</th>

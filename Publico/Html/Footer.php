@@ -1,5 +1,5 @@
 </main>
-<?php if($op ==0){ ?>
+<?php if($op ==0): ?>
 <!--<footer class="footer mt-auto container-flex px-2 py-5">
 <div class="row p-1">
 <div class="col-md-2 themed-grid-col">
@@ -48,7 +48,7 @@ Alvis Zacarias
 
 </div>
 </footer>-->
-<?php } ?>
+<?php endif; ?>
 
 
 <script src='/Publico/Estilos/js/bootstrap.bundle.min.js'></script>

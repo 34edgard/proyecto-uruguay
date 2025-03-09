@@ -1,5 +1,10 @@
 <div class="container mt-5">
-
+<button hx-get='/Codigo_php/Modulos/Gestion_Usuario.php?cambiarEstadoUsuario&ci=309309'
+hx-trigger='click'
+hx-target='#mesajesDelServidor'
+  >
+  cssssd
+</button>
   <ul class="nav nav-tabs" role="tablist">
 
     <li class="nav-item" role="presentation">
@@ -79,15 +84,20 @@
     <div class="tab-pane active table-responsive"  role="tabpanel" id="tablaUsuarios">
       <table class="table table-bordered">
         <tr>
-          <td>ci</td>
-          <td>nombre</td>
-          <td>apellido</td>
+          <td>cedula</td>
+          <td>nombres</td>
+          <td>apellidos</td>
           
-          <td>rol</td>
+          <td>correo</td>
           <td>estado</td>
           <td colspan="2"></td>
         </tr>
-<tbody id="usuarios">
+<tbody id="usuarios"
+hx-get="/Codigo_php/Modulos/Gestion_Usuario.php"
+hx-trigger="load" 
+hx-target="#usuarios" 
+
+  >
   
 </tbody>
       </table>
@@ -162,8 +172,8 @@
 
 
 
-<div class="container" id="mesajesDelServidor"></div>
-<script src="/Codigo_js/Funciones/ConsultarUsuario.js"></script>
+<div class="container" id="mesajesDelServidor">vvvvvvhh</div>
+<!--<script src="/Codigo_js/Funciones/ConsultarUsuario.js"></script>-->
 <script src="/Codigo_js/Funciones/CrearUsuario.js"></script>
 <script src="/Codigo_js/Funciones/EditarUsuario.js"></script>
 <script src="/Codigo_js/Funciones/eliminarUsuario.js"></script>

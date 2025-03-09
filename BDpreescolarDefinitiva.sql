@@ -24,8 +24,8 @@ CREATE TABLE `usuario` (
   `contrasena` varchar(166) NOT NULL,
   `estado` enum('activo', 'inactivo') NOT NULL DEFAULT 'activo',
   PRIMARY KEY (`id_usuario`)
-  -- FOREIGN KEY (`id_rol`) REFERENCES `roles`(`id_rol`),
-  -- FOREIGN KEY (`id_correo`) REFERENCES `correo`(`id_correo`)
+  FOREIGN KEY (`id_rol`) REFERENCES `roles`(`id_rol`),
+  FOREIGN KEY (`id_correo`) REFERENCES `correo`(`id_correo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `pais`
@@ -41,7 +41,7 @@ CREATE TABLE `estado` (
   `id_pais` int(11) NOT NULL,
   `nombre_estado` varchar(45) NOT NULL,
   PRIMARY KEY (`id_estado`)
-  -- FOREIGN KEY (`id_pais`) REFERENCES `pais`(`id_pais`)
+  FOREIGN KEY (`id_pais`) REFERENCES `pais`(`id_pais`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `municipio`
@@ -50,7 +50,7 @@ CREATE TABLE `municipio` (
   `id_estado` int(11) NOT NULL,
   `nombre_municipio` varchar(45) NOT NULL,
   PRIMARY KEY (`id_municipio`)
-  -- FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
+  FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `parroquia`
@@ -59,7 +59,7 @@ CREATE TABLE `parroquia` (
   `id_municipio` int(11) NOT NULL,
   `nombre_parroquia` varchar(45) NOT NULL,
   PRIMARY KEY (`id_parroquia`)
-  -- FOREIGN KEY (`id_municipio`) REFERENCES `municipio`(`id_municipio`)
+  FOREIGN KEY (`id_municipio`) REFERENCES `municipio`(`id_municipio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `sector`
@@ -68,7 +68,7 @@ CREATE TABLE `sector` (
   `id_parroquia` int(11) NOT NULL,
   `nombre_sector` varchar(45) NOT NULL,
   PRIMARY KEY (`id_sector`)
-  -- FOREIGN KEY (`id_parroquia`) REFERENCES `parroquia`(`id_parroquia`)
+  FOREIGN KEY (`id_parroquia`) REFERENCES `parroquia`(`id_parroquia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `ubicacion`
@@ -78,7 +78,7 @@ CREATE TABLE `ubicacion` (
   `nro_vivienda` varchar(45) NOT NULL,
   `calle_vereda_avenida` varchar(45) NOT NULL,
   PRIMARY KEY (`id_ubicacion`)
-  -- FOREIGN KEY (`id_sector`) REFERENCES `sector`(`id_sector`)
+  FOREIGN KEY (`id_sector`) REFERENCES `sector`(`id_sector`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `lugar_nacimiento`
@@ -88,9 +88,9 @@ CREATE TABLE `lugar_nacimiento` (
   `id_municipio` int(11) NOT NULL,
   `id_parroquia` int(11) NOT NULL,
   PRIMARY KEY (`id_lugar_nacimiento`)
-  -- FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`),
-  -- FOREIGN KEY (`id_municipio`) REFERENCES `municipio`(`id_municipio`),
-  -- FOREIGN KEY (`id_parroquia`) REFERENCES `parroquia`(`id_parroquia`)
+  FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`),
+  FOREIGN KEY (`id_municipio`) REFERENCES `municipio`(`id_municipio`),
+  FOREIGN KEY (`id_parroquia`) REFERENCES `parroquia`(`id_parroquia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `nacionalidad`
@@ -111,9 +111,9 @@ CREATE TABLE `telefonos` (
   `operadora` varchar(10) DEFAULT NULL,
   `numero_telefono` varchar(15) NOT NULL, 
   PRIMARY KEY (`id_telefono`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
-  -- FOREIGN KEY (`id_representante`) REFERENCES `representantes`(`id_representante`),
-  -- FOREIGN KEY (`id_docente`) REFERENCES `docente`(`id_docente`),
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
+  FOREIGN KEY (`id_representante`) REFERENCES `representantes`(`id_representante`),
+  FOREIGN KEY (`id_docente`) REFERENCES `docente`(`id_docente`),
   CONSTRAINT `chk_tipo_persona` CHECK (
     (ci_escolar IS NOT NULL AND id_representante IS NULL AND id_docente IS NULL) OR
     (id_representante IS NOT NULL AND ci_escolar IS NULL AND id_docente IS NULL) OR
@@ -134,7 +134,7 @@ CREATE TABLE `procedencia` (
   `id_tipo_procedencia` int(11) NOT NULL,
   `nombre_procedencia` varchar(40) NOT NULL,
   PRIMARY KEY (`id_procedencia`)
-  -- FOREIGN KEY (`id_tipo_procedencia`) REFERENCES `tipo_procedencia`(`id_tipo_procedencia`)
+  FOREIGN KEY (`id_tipo_procedencia`) REFERENCES `tipo_procedencia`(`id_tipo_procedencia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `prendas`
@@ -151,8 +151,8 @@ CREATE TABLE `tallas` (
   `id_prenda` int(11) NOT NULL,
   `talla` varchar(10) NOT NULL,
   PRIMARY KEY (`id_talla`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
-  -- FOREIGN KEY (`id_prenda`) REFERENCES `prendas`(`id_prenda`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
+  FOREIGN KEY (`id_prenda`) REFERENCES `prendas`(`id_prenda`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `peso`
@@ -161,7 +161,7 @@ CREATE TABLE `peso` (
   `ci_escolar` int(11) NOT NULL,
   `peso` int(11) NOT NULL,
   PRIMARY KEY (`id_peso`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `estudiante`
@@ -181,13 +181,13 @@ CREATE TABLE `estudiante` (
   `id_discapacidad` int(11) NOT NULL,
   `id_estado_nutricional` int(11) NOT NULL,
   PRIMARY KEY (`ci_escolar`)
-  -- FOREIGN KEY (`id_lugar_nacimiento`) REFERENCES `lugar_nacimiento`(`id_lugar_nacimiento`),
-  -- FOREIGN KEY (`id_nacionalidad`) REFERENCES `nacionalidad`(`id_nacionalidad`),
-  -- FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicacion`(`id_ubicacion`),
-  -- FOREIGN KEY (`id_procedencia`) REFERENCES `procedencia`(`id_procedencia`),
-  -- FOREIGN KEY (`id_condicion_medica`) REFERENCES `condicion_medica`(`id_condicion_medica`),
-  -- FOREIGN KEY (`id_discapacidad`) REFERENCES `discapacidad`(`id_discapacidad`),
-  -- FOREIGN KEY (`id_estado_nutricional`) REFERENCES `estado_nutricional`(`id_estado_nutricional`)
+  FOREIGN KEY (`id_lugar_nacimiento`) REFERENCES `lugar_nacimiento`(`id_lugar_nacimiento`),
+  FOREIGN KEY (`id_nacionalidad`) REFERENCES `nacionalidad`(`id_nacionalidad`),
+  FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicacion`(`id_ubicacion`),
+  FOREIGN KEY (`id_procedencia`) REFERENCES `procedencia`(`id_procedencia`),
+  FOREIGN KEY (`id_condicion_medica`) REFERENCES `condicion_medica`(`id_condicion_medica`),
+  FOREIGN KEY (`id_discapacidad`) REFERENCES `discapacidad`(`id_discapacidad`),
+  FOREIGN KEY (`id_estado_nutricional`) REFERENCES `estado_nutricional`(`id_estado_nutricional`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `tipo_parentesco`
@@ -203,9 +203,9 @@ CREATE TABLE `parentesco` (
   `cedula` int(11) NOT NULL,
   `ci_escolar` int(11) NOT NULL,
   PRIMARY KEY (`id_tipo_parentesco`, `cedula`, `ci_escolar`)
-  -- FOREIGN KEY (`id_tipo_parentesco`) REFERENCES `tipo_parentesco`(`id_tipo_parentesco`),
-  -- FOREIGN KEY (`cedula`) REFERENCES `representantes`(`cedula`),
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
+  FOREIGN KEY (`id_tipo_parentesco`) REFERENCES `tipo_parentesco`(`id_tipo_parentesco`),
+  FOREIGN KEY (`cedula`) REFERENCES `representantes`(`cedula`),
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `nivel_instruccion`
@@ -228,7 +228,7 @@ CREATE TABLE `direccion` (
   `id_ubicacion` int(11) NOT NULL,
   `tipo_direccion` enum('habitacion', 'trabajo') NOT NULL,
   PRIMARY KEY (`id_direccion`)
-  -- FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicacion`(`id_ubicacion`)
+  FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicacion`(`id_ubicacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `representantes`
@@ -245,11 +245,11 @@ CREATE TABLE `representantes` (
   `id_direccion_habitacion` int(11) NOT NULL,
   `id_direccion_trabajo` int(11) NOT NULL,
   PRIMARY KEY (`id_representante`)
-  -- FOREIGN KEY (`id_nacionalidad`) REFERENCES `nacionalidad`(`id_nacionalidad`),
-  -- FOREIGN KEY (`id_nivel_instruccion`) REFERENCES `nivel_instruccion`(`id_nivel_instruccion`),
-  -- FOREIGN KEY (`id_ocupacion`) REFERENCES `ocupacion`(`id_ocupacion`),
-  -- FOREIGN KEY (`id_direccion_habitacion`) REFERENCES `direccion`(`id_direccion`),
-  -- FOREIGN KEY (`id_direccion_trabajo`) REFERENCES `direccion`(`id_direccion`)
+  FOREIGN KEY (`id_nacionalidad`) REFERENCES `nacionalidad`(`id_nacionalidad`),
+  FOREIGN KEY (`id_nivel_instruccion`) REFERENCES `nivel_instruccion`(`id_nivel_instruccion`),
+  FOREIGN KEY (`id_ocupacion`) REFERENCES `ocupacion`(`id_ocupacion`),
+  FOREIGN KEY (`id_direccion_habitacion`) REFERENCES `direccion`(`id_direccion`),
+  FOREIGN KEY (`id_direccion_trabajo`) REFERENCES `direccion`(`id_direccion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `docente`
@@ -275,7 +275,7 @@ CREATE TABLE `niveles` (
   `id_nivel` int(11) NOT NULL AUTO_INCREMENT,
   `id_tipo_nivel` int(11) NOT NULL,
   PRIMARY KEY (`id_nivel`)
-  -- FOREIGN KEY (`id_tipo_nivel`) REFERENCES `tipo_nivel`(`id_tipo_nivel`)
+  FOREIGN KEY (`id_tipo_nivel`) REFERENCES `tipo_nivel`(`id_tipo_nivel`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `secciones`
@@ -284,7 +284,7 @@ CREATE TABLE `secciones` (
   `nombre_seccion` varchar(20) NOT NULL,
   `id_nivel` int(11) NOT NULL,
   PRIMARY KEY (`id_seccion`)
-  -- FOREIGN KEY (`id_nivel`) REFERENCES `niveles`(`id_nivel`)
+  FOREIGN KEY (`id_nivel`) REFERENCES `niveles`(`id_nivel`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `aulas`
@@ -293,7 +293,7 @@ CREATE TABLE `aulas` (
   `nombre_aula` varchar(20) NOT NULL,
   `id_seccion` int(11) NOT NULL,
   PRIMARY KEY (`id_aula`)
-  -- FOREIGN KEY (`id_seccion`) REFERENCES `secciones`(`id_seccion`)
+  FOREIGN KEY (`id_seccion`) REFERENCES `secciones`(`id_seccion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `periodo_escolar`
@@ -311,9 +311,9 @@ CREATE TABLE `anio_escolar` (
   `id_aula` int(11) NOT NULL,
   `ci_escolar` int(11) NOT NULL,
   PRIMARY KEY (`id_anio_escolar`)
-  -- FOREIGN KEY (`id_periodo_escolar`) REFERENCES `periodo_escolar`(`id_periodo_escolar`),
-  -- FOREIGN KEY (`id_aula`) REFERENCES `aulas`(`id_aula`),
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
+  FOREIGN KEY (`id_periodo_escolar`) REFERENCES `periodo_escolar`(`id_periodo_escolar`),
+  FOREIGN KEY (`id_aula`) REFERENCES `aulas`(`id_aula`),
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `inscripciones`
@@ -322,7 +322,7 @@ CREATE TABLE `inscripciones` (
   `ci_escolar` int(11) NOT NULL,
   `fecha_inscripcion` date NOT NULL,
   PRIMARY KEY (`id_inscripcion`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `condicion_medica`
@@ -345,7 +345,7 @@ CREATE TABLE `tratamiento` (
   `id_condicion_medica` int(11) NOT NULL,
   `nombre_tratamiento` varchar(100) NOT NULL,
   PRIMARY KEY (`id_tratamiento`)
-  -- FOREIGN KEY (`id_condicion_medica`) REFERENCES `condicion_medica`(`id_condicion_medica`)
+  FOREIGN KEY (`id_condicion_medica`) REFERENCES `condicion_medica`(`id_condicion_medica`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `estado_nutricional`
@@ -370,8 +370,8 @@ CREATE TABLE `documentos_inscripcion` (
   `estado` enum('entregado', 'pendiente') NOT NULL DEFAULT 'pendiente',
   `observaciones` text DEFAULT NULL,
   PRIMARY KEY (`id_documento`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
-  -- FOREIGN KEY (`id_tipo_documento`) REFERENCES `tipo_documento`(`id_tipo_documento`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
+  FOREIGN KEY (`id_tipo_documento`) REFERENCES `tipo_documento`(`id_tipo_documento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `notificaciones`
@@ -382,7 +382,7 @@ CREATE TABLE `notificaciones` (
   `fecha_envio` datetime NOT NULL,
   `estado` enum('enviada', 'leida') NOT NULL DEFAULT 'enviada',
   PRIMARY KEY (`id_notificacion`)
-  -- FOREIGN KEY (`id_representante`) REFERENCES `representantes`(`id_representante`)
+  FOREIGN KEY (`id_representante`) REFERENCES `representantes`(`id_representante`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `eventos`
@@ -402,7 +402,7 @@ CREATE TABLE `asistencia` (
   `asistio` enum('si', 'no') NOT NULL DEFAULT 'si',
   `observaciones` text DEFAULT NULL,
   PRIMARY KEY (`id_asistencia`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `conceptos_pago`
@@ -421,8 +421,8 @@ CREATE TABLE `pagos` (
   `fecha_pago` date NOT NULL,
   `estado` enum('pendiente', 'pagado') NOT NULL DEFAULT 'pendiente',
   PRIMARY KEY (`id_pago`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
-  -- FOREIGN KEY (`id_concepto_pago`) REFERENCES `conceptos_pago`(`id_concepto_pago`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
+  FOREIGN KEY (`id_concepto_pago`) REFERENCES `conceptos_pago`(`id_concepto_pago`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `incidentes`
@@ -433,7 +433,7 @@ CREATE TABLE `incidentes` (
   `descripcion` text NOT NULL,
   `acciones_tomadas` text DEFAULT NULL,
   PRIMARY KEY (`id_incidente`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `salud_estudiante`
@@ -444,7 +444,7 @@ CREATE TABLE `salud_estudiante` (
   `medicamentos` text DEFAULT NULL,
   `observaciones` text DEFAULT NULL,
   PRIMARY KEY (`id_salud`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `horarios`
@@ -456,7 +456,7 @@ CREATE TABLE `horarios` (
   `hora_fin` time NOT NULL,
   `actividad` varchar(100) NOT NULL,
   PRIMARY KEY (`id_horario`)
-  -- FOREIGN KEY (`id_aula`) REFERENCES `aulas`(`id_aula`)
+  FOREIGN KEY (`id_aula`) REFERENCES `aulas`(`id_aula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `archivos`
@@ -467,7 +467,7 @@ CREATE TABLE `archivos` (
   `ruta_archivo` varchar(255) NOT NULL,
   `tipo_archivo` enum('documento', 'foto', 'otro') NOT NULL,
   PRIMARY KEY (`id_archivo`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `configuracion`
@@ -483,8 +483,8 @@ CREATE TABLE `condicion_medica_estudiante` (
   `ci_escolar` int(11) NOT NULL,
   `id_condicion_medica` int(11) NOT NULL,
   PRIMARY KEY (`ci_escolar`, `id_condicion_medica`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
-  -- FOREIGN KEY (`id_condicion_medica`) REFERENCES `condicion_medica`(`id_condicion_medica`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
+  FOREIGN KEY (`id_condicion_medica`) REFERENCES `condicion_medica`(`id_condicion_medica`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `discapacidad_estudiante`
@@ -492,8 +492,8 @@ CREATE TABLE `discapacidad_estudiante` (
   `ci_escolar` int(11) NOT NULL,
   `id_discapacidad` int(11) NOT NULL,
   PRIMARY KEY (`ci_escolar`, `id_discapacidad`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
-  -- FOREIGN KEY (`id_discapacidad`) REFERENCES `discapacidad`(`id_discapacidad`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
+  FOREIGN KEY (`id_discapacidad`) REFERENCES `discapacidad`(`id_discapacidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `estado_nutricional_estudiante`
@@ -501,8 +501,8 @@ CREATE TABLE `estado_nutricional_estudiante` (
   `ci_escolar` int(11) NOT NULL,
   `id_estado_nutricional` int(11) NOT NULL,
   PRIMARY KEY (`ci_escolar`, `id_estado_nutricional`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
-  -- FOREIGN KEY (`id_estado_nutricional`) REFERENCES `estado_nutricional`(`id_estado_nutricional`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
+  FOREIGN KEY (`id_estado_nutricional`) REFERENCES `estado_nutricional`(`id_estado_nutricional`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `anio_escolar_estudiante`
@@ -510,8 +510,8 @@ CREATE TABLE `anio_escolar_estudiante` (
   `ci_escolar` int(11) NOT NULL,
   `id_anio_escolar` int(11) NOT NULL,
   PRIMARY KEY (`ci_escolar`, `id_anio_escolar`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
-  -- FOREIGN KEY (`id_anio_escolar`) REFERENCES `anio_escolar`(`id_anio_escolar`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
+  FOREIGN KEY (`id_anio_escolar`) REFERENCES `anio_escolar`(`id_anio_escolar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `inscripciones_estudiante`
@@ -519,8 +519,8 @@ CREATE TABLE `inscripciones_estudiante` (
   `ci_escolar` int(11) NOT NULL,
   `id_inscripcion` int(11) NOT NULL,
   PRIMARY KEY (`ci_escolar`, `id_inscripcion`)
-  -- FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
-  -- FOREIGN KEY (`id_inscripcion`) REFERENCES `inscripciones`(`id_inscripcion`)
+  FOREIGN KEY (`ci_escolar`) REFERENCES `estudiante`(`ci_escolar`),
+  FOREIGN KEY (`id_inscripcion`) REFERENCES `inscripciones`(`id_inscripcion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `docente_aula`
@@ -528,8 +528,8 @@ CREATE TABLE `docente_aula` (
   `id_docente` int(11) NOT NULL,
   `id_aula` int(11) NOT NULL,
   PRIMARY KEY (`id_docente`, `id_aula`)
-  -- FOREIGN KEY (`id_docente`) REFERENCES `docente`(`id_docente`),
-  -- FOREIGN KEY (`id_aula`) REFERENCES `aulas`(`id_aula`)
+  FOREIGN KEY (`id_docente`) REFERENCES `docente`(`id_docente`),
+  FOREIGN KEY (`id_aula`) REFERENCES `aulas`(`id_aula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `docente_seccion`
@@ -537,8 +537,8 @@ CREATE TABLE `docente_seccion` (
   `id_docente` int(11) NOT NULL,
   `id_seccion` int(11) NOT NULL,
   PRIMARY KEY (`id_docente`, `id_seccion`)
-  -- FOREIGN KEY (`id_docente`) REFERENCES `docente`(`id_docente`),
-  -- FOREIGN KEY (`id_seccion`) REFERENCES `secciones`(`id_seccion`)
+  FOREIGN KEY (`id_docente`) REFERENCES `docente`(`id_docente`),
+  FOREIGN KEY (`id_seccion`) REFERENCES `secciones`(`id_seccion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Tabla `docente_nivel`
@@ -546,6 +546,6 @@ CREATE TABLE `docente_nivel` (
   `id_docente` int(11) NOT NULL,
   `id_nivel` int(11) NOT NULL,
   PRIMARY KEY (`id_docente`, `id_nivel`)
-  -- FOREIGN KEY (`id_docente`) REFERENCES `docente`(`id_docente`),
-  -- FOREIGN KEY (`id_nivel`) REFERENCES `niveles`(`id_nivel`)
+  FOREIGN KEY (`id_docente`) REFERENCES `docente`(`id_docente`),
+  FOREIGN KEY (`id_nivel`) REFERENCES `niveles`(`id_nivel`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

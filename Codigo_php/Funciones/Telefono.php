@@ -1,12 +1,15 @@
 <?php
 (function (){
   global $registrarTelefono;
-$registrarTelefono =function ($numero){
+$registrarTelefono =function ($numero, $Propietario,$tipo,$id_Propietario){
+  //echo 'ddddl';
+ // $id_Propietario = ['ci_escolar','id_representante','id_docente'];
+  
   $TELEFONO = new Telefono;
-  $TELEFONO->registrarDato([ 'campos' => [ 'numero_telefono'],'valores' =>[$numero],'campo'=>['id_telefono'], 'longitud' => 0]);
-  $id = $TELEFONO->consultarId([ 'campos' => [ 'id_telefono'], 'longitud' => 0]);
-  print_r($id);
-  return $id[0][0];
+  $TELEFONO->registrarDato([ 'campos' => ['tipo_telefono', 'numero_telefono',$Propietario],'valores' =>[$tipo,$numero,$id_Propietario]]);
+ // $id = $TELEFONO->consultarId([ 'campos' => [ 'id_telefono']]);
+  
+//  return $id[0][0];
 };
   
 })();

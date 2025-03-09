@@ -1,9 +1,9 @@
-let cosultarUsuarios = async()=>{
+let cosultarUsuarios = ()=>{
 let contenedor = document.getElementById('usuarios');
 contenedor.innerHTML = `<div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>`;
-await	fetch('/Codigo_php/Modulos/Gestion_Usuario.php')
+	fetch('/Codigo_php/Modulos/Gestion_Usuario.php')
      	.then(res=>res.text())
      	.then(res=>{
      	  
