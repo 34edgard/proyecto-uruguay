@@ -1,20 +1,5 @@
 <?php
-(function () {
-  global $iniciar_sesion;
-  $iniciar_sesion = function () {
-    $extras = func_get_args();
-    extract($_POST);
-    // var_dump($extras);
-    session_start();
-    $arreglo = $extras[1][0]($cedula, $contraseña);
-    //return;
-    if ($arreglo[0]) {
-      $_SESSION["ci"] = $arreglo[1][0]['cedula'];
-      $_SESSION["contraseña"] = $arreglo[1][0]['contrasena'];
-      $_SESSION["rol"] = $arreglo[1][0]['id_rol'];
-      $_SESSION["nombre"] = $arreglo[1][0]['nombres'];
-    }
-  };
+(function (){
   global $validar_datosDB;
   $validar_datosDB = function ($cedula, $contraseña) {
     $PA = new Personal_Administrativo();
@@ -49,10 +34,5 @@
     ]);
     return [false];
   };
-  global $cerrar_sesion;
-  $cerrar_sesion = function () {
-    session_start();
-    session_unset();
-    session_destroy();
-  };
-})();
+  
+  })();
