@@ -20,7 +20,7 @@ abstract class DatosExtras implements IDatosExtra{
   public function registrarDato($dato){
     $dato['tabla'] = $this->tabla;
     $sql = $this->registrar->generar_sql($dato);
-   echo "<br>$sql<br>";
+ //  echo "<br>$sql<br>";
     $this->Consultas_BD->ejecutarConsulta($sql);
     
   }
@@ -60,9 +60,9 @@ abstract class DatosExtras implements IDatosExtra{
  public function eliminarDato($dato){
    $dato['tabla'] = $this->tabla;
   
-   $sql = $this->eliminar->generar_sql($datos);
-   $sql = $sql." `".$datos['campos'][0]."` = ".$datos['valor'];
-    
+   $sql = $this->eliminar->generar_sql($dato);
+   $sql = $sql." `".$dato['campos'][0]."` = ".$dato['valor'];
+   // echo $sql;
     $this->Consultas_BD->ejecutarConsulta($sql);
  }
 }

@@ -22,7 +22,7 @@ class Persona_Normal implements Personas {
   }
   public function registrar_datos($datos){
     $sql = $this->registrar->generar_sql($datos);
-    echo "<br>$sql<br>";
+  //  echo "<br>$sql<br>";
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
   public  function consultar_datos($datos){
@@ -46,7 +46,7 @@ class Persona_Normal implements Personas {
   public function eliminar_datos($datos){
     $sql = $this->eliminar->generar_sql($datos);
    $sql = $sql." `".$datos['campos'][0]."` = ".$datos['valor'];
-    
+  //  echo $sql;
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
   

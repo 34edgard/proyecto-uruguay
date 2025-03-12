@@ -25,14 +25,14 @@ if(isset($_SESSION['nombre']))     $titulo = Enunciado($op);
   </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#"
-    hx-post="/Publico/Html/Inscripcion/RegistrarDatos.php" hx-target="#main" hx-swap="innerHTML"
+    hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"
      hx-trigger="click"
-    onclick="cambiarTitulo('inscribir')"
+    onclick="cambiarTitulo('Nuevo Ingreso')"
     >Nuevo Ingreso</a></li>
     <li><a class="dropdown-item" href="#"
-        hx-post="/Publico/Html/Inscripcion/Promovidos.php" hx-target="#main" hx-swap="innerHTML"
+        hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"
      hx-trigger="click"
-    onclick="cambiarTitulo('promovidos')"
+    onclick="cambiarTitulo('Promovidos')"
     >Promovidos</a></li>
   </ul>
 </div>
@@ -44,12 +44,12 @@ if(isset($_SESSION['nombre']))     $titulo = Enunciado($op);
   </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#"
-    onclick="cambiarTitulo('registrar')"
+    onclick="cambiarTitulo('Registrar')"
     hx-post="/Publico/Html/Docente/Registrar.php" hx-target="#main" hx-swap="innerHTML"
      hx-trigger="click"
     >Registrar</a></li>
     <li><a class="dropdown-item"
-    onclick="cambiarTitulo('Reportes')"
+    onclick="cambiarTitulo('Consultar')"
     hx-post="/Publico/Html/Docente/Consultar.php" hx-target="#main" hx-swap="innerHTML"
      hx-trigger="click">Consultar</a></li>
 
@@ -65,20 +65,23 @@ if(isset($_SESSION['nombre']))     $titulo = Enunciado($op);
   </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Matricula')"
-    hx-post="/Publico/Html/Reportes/Matricula.php" hx-target="#main" hx-swap="innerHTML"
+    hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"
      hx-trigger="click"
     >Matrícula </a></li>
     <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Planilla')"
-   hx-post="/Publico/Html/Reportes/Planilla.php" hx-target="#main" hx-swap="innerHTML"
+   hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"
      hx-trigger="click" 
     >Planilla</a></li>
-    <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Diploma')"  hx-post="/Publico/Html/Reportes/Diploma.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click" >Diploma</a></li>
-    <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Estadistica')"  hx-post="/Publico/Html/Reportes/Estadisticas.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click" >Estadistica</a></li>
+    <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Diploma')"  hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click" >Diploma</a></li>
+    <li><a class="dropdown-item" href="#" onclick="cambiarTitulo('Estadistica')"  hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click" >Estadistica</a></li>
    
   </ul>
 </div>
         </li>
-      <li class=""><a href="/Publico/Paginas/pag_5.php" class="nav-link link-white px-2 ">Aulas</a>
+      <li class=""><a 
+      hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click"
+      onclick="cambiarTitulo('Aulas')"
+      class="nav-link link-white px-2 ">Aulas</a>
       </li>
     </ul>
     <div class="col-md-2 text-end">

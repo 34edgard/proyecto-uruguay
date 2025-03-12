@@ -48,10 +48,23 @@
          hx-target='#estado{$usuario["cedula"]}'
           hx-trigger='click'
           >{$usuario["estado"]}</button></td>
-      <td><button class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#firefoxModal' onclick='insertarDatosUsuario({$usuario["cedula"]})'>editar</button></td>";
+      <td><button class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#firefoxModal'
+      name=\"formularioEdicion\"
+      value=\"{$usuario["cedula"]}\"
+      hx-get=\"/Codigo_php/Modulos/Gestion_Usuario.php\"
+      hx-trigger=\"click\"
+      hx-target=\"#modal-form\"
+      >editar</button></td>";
 
       if ($_SESSION["rol"] == 1) {
-        $resul .= "<td><button class='btn btn-danger' onclick='eliminarUsuario({$usuario["cedula"]})'>eliminar</button></td>";
+        $resul .= "<td><button class='btn btn-danger' 
+        data-bs-toggle='modal' data-bs-target='#firefoxModal'
+        name=\"confimarEliminacion\"
+      value=\"{$usuario["cedula"]}\"
+      hx-get=\"/Codigo_php/Modulos/Gestion_Usuario.php\"
+      hx-trigger=\"click\"
+      hx-target=\"#modal-form\"
+        >eliminar</button></td>";
       }
       $resul .= "</tr>";
     }
