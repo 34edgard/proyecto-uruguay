@@ -16,7 +16,11 @@
     <?php if ($_SESSION['rol'] < 2):
       ?>
       <div class="tab-pane  table-responsive" id="general" role="tabpanel">
-        <form action="Pag_.php" method="post">
+        <form 
+        hx-post="/Codigo_php/Modulos/Gestion_Usuario.php"
+        hx-trigger="submit"
+        hx-target="#usuarios"
+        >
           <fieldset class="thumbnail container mt-5">
             <label class="form-label">
               cedula
@@ -45,6 +49,8 @@
 
                 rol
                 <select name="rol" class="form-control"
+                hx-target="#crear_user_rol"
+                id="crear_user_rol"
                 hx-get="/Codigo_php/Modulos/Gestion_Usuario.php"
                 hx-trigger="load"
                 >
@@ -60,7 +66,7 @@
               contraseña
               <input type="password" name="contraseña" class="form-control " >
             </label>
-            <button type="button" class="btn btn-primary" name="Crear_usuario" value="crear" id="formulario-crearUsuario">Registrar</button>
+            <button type="submit" class="btn btn-primary" name="Crear_usuario" value="crear" id="formulario-crearUsuario">Registrar</button>
             <button type="reset" class="btn btn-danger">borrar</button>
           </fieldset>
         </form>

@@ -1,10 +1,14 @@
-        <form method="post">
+        <form 
+        hx-post="/Codigo_php/Modulos/Gestion_Usuario.php"
+        hx-trigger="submit"
+        hx-target="#usuarios"
+        >
           <fieldset class="thumbnail container mt-5">
             <label class="form-label">
               cedula
               <input type="number" name="ci" class="form-control w-75" 
               value="<?= $cedula ?>"
-              disabled>
+              >
             </label>
             <label class="form-label">
               nombre
@@ -29,7 +33,9 @@
               <label>id_rol
 
                 <select name="rol" class="form-control w-75 "
+                id="editar_rol"
                 hx-get="/Codigo_php/Modulos/Gestion_Usuario.php"
+                hx-target="#editar_rol"
                 hx-trigger="load"
                 >
                   
@@ -37,10 +43,10 @@
 
                 </select>
               <?php else: ?>
-              <input type="number" name="rol" hidden value="2">
+              <input type="number" name="rol" hidden value="<?= $id_rol ?>">
               <?php endif ?>
               </label>
-            <button type="button" data-bs-dismiss="modal" class="btn btn-primary" name="EditarUsuario" value="1" onclick="editarUsuario(1)">cambiar</button>
+            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary" name="EditarUsuario" value="1" >cambiar</button>
 
           </fieldset>
         </form>

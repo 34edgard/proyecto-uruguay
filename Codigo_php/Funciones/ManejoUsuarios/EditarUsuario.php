@@ -19,6 +19,9 @@
         "valor" => $ci,
       ]);
     }
+    $extras = func_get_args();
+  //  var_dump($extras);
+    $extras[1][0]();
   };
 
   
