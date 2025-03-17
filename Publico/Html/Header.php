@@ -1,5 +1,6 @@
 <?php 
-if(isset($_SESSION['nombre']))     $titulo = Enunciado($op); 
+$titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : ''; 
+//echo "ti ".$titulo;
 ?>
 
 <header class="d-flex flex-wrap align-items-center bg-primary
@@ -11,8 +12,10 @@ if(isset($_SESSION['nombre']))     $titulo = Enunciado($op);
       </h2>
   </a>
 <?php if(!isset($_SESSION['nombre'])): ?>
-  <div class='col-2 col-md-auto mb-2   '><div class='text-white h1'>
+<h1 class="text-white text-center">
 <?= Enunciado($op) ?>
+</h1>
+  <div class='col-2 col-md-auto mb-2   '><div class='text-white h1'>
   </div></div>
  <?php else: ?>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">

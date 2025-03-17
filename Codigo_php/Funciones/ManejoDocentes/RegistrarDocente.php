@@ -22,5 +22,6 @@
     ])[0]['id_docente'];
     
   $extras[1][0]($telefono,$formulario,$tipo_telefono,$id_docente);
+  plantilla('MensajeExito',["mensajeExito"=>'el docente se a creado correctamente']);
   };
 })();

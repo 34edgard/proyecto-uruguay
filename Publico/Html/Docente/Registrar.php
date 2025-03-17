@@ -1,7 +1,11 @@
 
     
     <!-- Formulir pendaftaran dosen yang di-bootstrap -->
-<form method="post" action="Pag_5.php" class="needs-validation container" novalidate>
+<form 
+hx-post="/Codigo_php/Modulos/Gestionar_Docente.php"
+hx-trigger="submit"
+hx-target="#modal-form"
+class="needs-validation container" novalidate>
   <!-- Input nama, dengan validasi -->
   <div class="mb-3">
     <label for="nombre" class="form-label">Nombre</label>
@@ -50,28 +54,31 @@
   </div>
 
   <!-- Tombol submit, dengan validasi  -->
-  <button type="button" class="btn btn-primary" id="crearDocente" name="formulario" value="id_docente">registrar</button>
+  <button type="submit" class="btn btn-primary" id="crearDocente"
+  data-bs-toggle='modal'
+  data-bs-target='#firefoxModal'
+       
+  name="formulario" value="id_docente">registrar</button>
 </form>
-<div id="mensaje"></div>
+
+<div class="modal fade" id="firefoxModal" tabindex="-1" aria-labelledby="firefoxModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body " id="modal-form">
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
 
 <!-- JavaScript untuk validasi -->
-<script>
-  //Pilih semua elemen formulir
-  (function () {
-    'use strict';
-    var forms = document.querySelectorAll('.needs-validation');
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-  })();
-</script>
+
     
-    
-    <script src="/Codigo_js/Funciones/CrearDocente.js"></script>
+<!--    <script src="/Codigo_js/Funciones/CrearDocente.js"></script>-->

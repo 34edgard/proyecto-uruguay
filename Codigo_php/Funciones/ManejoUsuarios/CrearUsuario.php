@@ -35,5 +35,6 @@ global $crear_usuario;
     ]);
     $extras=func_get_args();
     $extras[1][0]();
+    echo "<script >alert('el usuario fue creado correctamente')</script>";
   };
 })();

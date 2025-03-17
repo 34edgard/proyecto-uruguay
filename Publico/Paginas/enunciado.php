@@ -7,7 +7,7 @@ function Enunciado($op) {
       return "\"República del Uruguay\" ";
       break;
     case '9':
-      return "Inicio de sesion";
+      return "";
       break;
     case '1':
       return "Inicio";
