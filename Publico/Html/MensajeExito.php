@@ -1,5 +1,10 @@
 
-<div class="alert alert-success alert-dismissible fade show container" role="alert">
+<h1 class="text-center text-success p-2" >
           <?= $mensajeExito ?>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        </h1>
+          <button type="button"
+          class="btn-primary"
+          data-bs-toggle='modal' 
+          data-bs-target='#firefoxModal'
+          
+          >ok</button>

@@ -1,102 +1,108 @@
-        <form class=" d-grid">
+        <form 
+        hx-post="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="submit"
+hx-target="#InicioInscripcion"
+        >
         <h3 class="legend text-primary">Datos del niño o niña:</h3>
-        <label class="control-label col-md-6 themed-grid-col"
-          >apellidos:
+        <label >apellidos:
 
           <input require
           tipe="text"
-          name="Datos_Niño_Apellidos"
+          name="apellidos"
           placeholder="apellidos"
           class="form-control m-1"
           id="apellidos"
           />
       </label>
 
-      <label class="control-label col-md-6 themed-grid-col"
+      <label class="control-label "
         >nombres:
 
         <input require
         type="text"
-        name="Datos_Niño_Nombres"
+        name="nombres"
         placeholder="nombres"
         class="form-control m-1"
         id="nombres"
         />
     </label>
 
-    <label class="control-label m-1 col-md-3 themed-grid-col"
+    <label class="control-label m-1 "
       >fecha de nacimiento:
 
       <input require
       type="date"
-      name="Datos_Niño_Fecha"
+      name="fecha_nacimiento"
       placeholder="fecha de nacimiento"
       class="form-control m-1"
       id="fecha"
       />
   </label>
 
-  <label class="control-label m-1 p-1 col-md-4 themed-grid-col"
+  <label class="control-label m-1 p-1 "
     >lugar de nacimiento:
 
     <select
-      name="Datos_Niño_Lugar_Nacimiento"
+      name="id_lugar_nacimiento"
       class="form-control m-1"
       id="procedencia"
       id="lugar"
       >
-      <?php ?>
+      <option value=""></option>
     </select>
   </label>
 
-  <label class="m-1 p-1 col-md-3 themed-grid-col"
+  <label class="m-1 p-1 "
     >procedencia:
     <select
-      name="Datos_Niño_Procedencia"
+      name="id_procedencia"
       class="form-control m-1"
       id="procedencia"
       >
-      <?php ?>
+      <option value=""></option>
     </select>
   </label>
 
-  <label class="control-label m-1 p-1 col-md-3 themed-grid-col"
+  <label class="control-label m-1 p-1 "
     >municipio:
     <select
-      name="Datos_Niño_Municipio"
+      
       class="form-control m-1"
       id="municipio"
       >
-      <?php ?>
+      <option value=""></option>
     </select>
   </label>
 
-  <label class="control-label m-1 p-1 col-md-3 themed-grid-col"
+  <label class="control-label m-1 p-1 "
     >estado:
     <select
-      name="Datos_Niño_Estado"
+      
       class="form-control m-1"
       id="estado"
       >
-      <?php ?>
+      <option value=""></option>
     </select>
   </label>
 
-  <label class="control-label m-1 p-1 col-md-3 themed-grid-col"
+  <label class="control-label m-1 p-1 "
     >nacionalidad:
     <select
-      name="Datos_Niño_Nacionalidad"
+    hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="load"
+hx-target="#nacionalidad"
+      name="id_nacionalidad"
       placeholder="nacionalidad"
       class="form-control m-1"
       id="nacionalidad"
       >
-      <?php ?>
+      <option value=""></option>
     </select>
   </label>
 
   <label class="control-label col-md-2 themed-grid-col">sexo:
     <select
-      name="Datos_Niño_Sexo"
+      name="sexo"
       id="sexo"
       class="form-control m-1"
       hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
@@ -107,72 +113,12 @@
   </label>
 
 
-<label class="control-label m-1 p-1 col-md-3 themed-grid-col">
-  Talla de camisa
-  <input require
-  type="text"
-  name="Datos_Niño_Talla_Camisa"
-  class="form-control m-1"
-  id="Talla_camisa"
-  />
-</label>
-<label class="control-label m-1 p-1 col-md-3 themed-grid-col">
-pantalón
-<input require
-type="text"
-name="Datos_Niño_Talla_PadrendaPantalon"
-class="form-control m-1"
-id="pantalon"
-/>
-</label>
-<label class="control-label m-1 p-1 col-md-3 themed-grid-col">
-zapato
-<input require
-type="text"
-name="Datos_Niño_Talla_Zapato"
-id="zapato"
-class="form-control m-1"
-/>
-</label>
-
-<label class="control-label m-1 p-1 col-md-3 themed-grid-col">
-peso
-
-<input require
-type="text"
-name="Datos_Niño_Talla_Peso"
-class="form-control m-1"
-id="peso"
-/>
-</label>
-
-<label class="control-label m-1 p-1 col-md-3 themed-grid-col">
-talla
-<input require
-type="text"
-name="Datos_Niño_Talla"
-class="form-control m-1"
-id="talla"
-/>
-</label>
-
-<label class="control-label m-1 p-1 col-md-3 themed-grid-col">
-circunferencia braquial
-
-<input require
-type="text"
-name="Datos_Niño_Talla_Circunferencia_Braquial"
-class="form-control m-1"
-id="cb"
-/>
-</label>
-
 <h4 class="text-primary">direccion</h4>
 
 <label class="control-label col-md-4 themed-grid-col"
 >calle
 <select
-name="Datos_Niño_Calle"
+
 class="form-control m-1"
 >
 </select>
@@ -181,20 +127,20 @@ class="form-control m-1"
 <label class="control-label col-md-4 themed-grid-col"
 >sector
 <select
-name="Datos_Niño_Sector"
+
 class="form-control m-1"
 >
-<?php ?>
+<option value=""></option>
 </select>
 </label>
 
 <label class="control-label col-md-4 themed-grid-col"
 >parroquia
 <select
-name="Datos_Niño_Padrerroquia"
+
 class="form-control m-1"
 >
-<?php ?>
+<option value=""></option>
 </select>
 </label>
 
@@ -203,7 +149,11 @@ class="form-control m-1"
 <label class="control-label col-md-4 themed-grid-col"
 >estado nutricional
 <select
-name="Datos_Niño_Estado_Nutricional"
+hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="load"
+hx-target="#estado_nutricional"
+id="estado_nutricional"
+name="id_estado_nutricional"
 class="form-control m-1"
 >
 
@@ -213,26 +163,26 @@ class="form-control m-1"
 <label class="control-label col-md-4 themed-grid-col"
 >condicion medica
 <select
-name="Datos_Niño_Condicion_medica"
+name="id_condicion_medica"
 class="form-control m-1"
 >
-<?php ?>
+<option value=""></option>
 </select>
 </label>
 
-<label class="control-label col-md-4 themed-grid-col"
+<label class="control-label"
 >discapacidad
 <select
-name="Datos_Niño_Discapacidad"
+name="id_discapacidad"
 class="form-control m-1"
 >
-<?php ?>
+<option value=""></option>
 </select>
 </label>
 
-
-
-
-
-
+<button type="submit"
+class="btn btn-primary"
+  >
+  guarda 
+</button>
 </form>

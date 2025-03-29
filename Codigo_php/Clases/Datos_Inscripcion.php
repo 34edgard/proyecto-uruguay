@@ -1,15 +1,15 @@
 <?php
 
 interface IDatosInscripcion{
-  public function registrarDato(string $dato);
-  public function consultarDato(string $dato);
-  public function editarDato(string $dato);
-  public function eliminarDato(string $dato);
+  public function registrarDato( $dato);
+  public function consultarDato( $dato);
+  public function editarDato( $dato);
+  public function eliminarDato( $dato);
 }
 
 abstract class datosInscripcion implements IDatosInscripcion {
    protected  $tabla ;
-  public function __construct(string $tabla){
+  public function __construct( $tabla){
     $this->tabla = $tabla;
     $this->Consultas_BD = new ConsultasBD;
     $this->consultar = new Consultar;
@@ -19,14 +19,14 @@ abstract class datosInscripcion implements IDatosInscripcion {
   }
   
   
-  public function registrarDato(string $dato){
+  public function registrarDato( $dato){
     $dato['tabla'] = $this->tabla;
     $sql = $this->registrar->generar_sql($dato);
   //  echo "<br>$sql<br>";
     $this->Consultas_BD->ejecutarConsulta($sql);
     
   }
-  public function consultarDato(string $dato){
+  public function consultarDato( $dato){
     $dato['tabla'] = $this->tabla;
   
    $where="";
@@ -38,7 +38,7 @@ abstract class datosInscripcion implements IDatosInscripcion {
    
   return  $this->Consultas_BD->consultarRegistro2($sql);
   }
-  public function editarDato(string $dato){
+  public function editarDato( $dato){
     $dato['tabla'] = $this->tabla;
   
    $where = " `".$datos['campos'][0]."` = ".$datos['valor'];
@@ -48,7 +48,7 @@ abstract class datosInscripcion implements IDatosInscripcion {
    // echo $sql;
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
-  public function eliminarDato(string $dato){
+  public function eliminarDato( $dato){
     $dato['tabla'] = $this->tabla;
   
    $sql = $this->eliminar->generar_sql($datos);

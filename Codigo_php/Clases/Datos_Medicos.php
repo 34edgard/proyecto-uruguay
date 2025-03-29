@@ -76,7 +76,7 @@ class discapacidad extends datos_medicos{
   }
 } 
 class Estado_Nutricional extends datos_medicos{
-   protected  $tabla = 'Estado_Nutricional';
+   protected  $tabla = 'estado_nutricional';
   public function __construct(){
     parent::__construct($this->tabla);
   }

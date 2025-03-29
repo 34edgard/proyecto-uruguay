@@ -30,6 +30,9 @@ class Persona_Normal implements Personas {
     if(isset($datos['valor'])){
       $where = " WHERE `".$datos['campos'][0]."` = ".$datos['valor'];
     }
+    if(isset($datos['like'])){
+      $where = " WHERE `".$datos['campos'][0]."` like '".$datos['like']."' ";
+    }
     
    $sql = $this->consultar->generar_sql($datos) .$where;
    // echo $sql;

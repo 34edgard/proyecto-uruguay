@@ -28,7 +28,7 @@ $titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : '';
   </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#"
-    hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"
+    hx-post="/Publico/Html/Inscripcion/InicioInscripcion.php" hx-target="#main" hx-swap="innerHTML"
      hx-trigger="click"
     onclick="cambiarTitulo('Nuevo Ingreso')"
     >Nuevo Ingreso</a></li>

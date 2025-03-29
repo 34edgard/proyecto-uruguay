@@ -9,12 +9,12 @@
     ];
 
     if ($_SESSION["rol"] == 2) {
-      $datos[] = ["valor" => $_SESSION["ci"]];
+      $datos["valor"] = $_SESSION["ci"];
     }
 
     $usuarios = new Personal_Administrativo();
     $lista_usuarios = $usuarios->consultar_datos($datos);
-
+$resul ='';
     foreach ($lista_usuarios as $usuario) {
       if ($usuario["estado"] == "activo") {
         $usuarioEstado = "desactivo";

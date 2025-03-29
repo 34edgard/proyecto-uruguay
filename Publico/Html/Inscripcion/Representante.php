@@ -1,10 +1,15 @@
-<form class=" d-grid">
-<h3 class="text-primary">datos del representante </h3>
+
+<form 
+hx-post="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="submit"
+hx-target="#InicioInscripcion"
+  >
+<h3 class="text-primary">Datos del representante </h3>
 <label class="col-md-6 themed-grid-col"
->Apellidos del representante:
+>Apellidos:
 <input require
 type="text"
-name="Datos_familiares_Reprecentante_Apellidos"
+name="apellidos"
 class="form-control m-1"
 />
 </label>
@@ -12,15 +17,15 @@ class="form-control m-1"
 >nombres del representante:
 <input require
 type="text"
-name="Datos_familiares_Reprecentante_Nombres"
+name="nombres"
 class="form-control m-1"
 />
 </label>
 <label class="col-md-4 themed-grid-col"
->C.I:
+>Cedula:
 <input require
-type="text"
-name="Datos_familiares_Reprecentante_Cedula"
+type="number"
+name="cedula"
 class="form-control m-1"
 />
 </label>
@@ -29,18 +34,22 @@ class="form-control m-1"
 >fecha de nacimiento
 <input require
 type="date"
-name="Datos_familiares_Reprecentante_Fecha_Nacimiento"
+name="fecha_nacimiento"
 class="form-control m-1"
 />
 </label>
 
-<label class="col-md-4 themed-grid-col"
+<label class=""
 >nacionalidad
 <select
-name="Datos_familiares_Reprecentante_Nacionalidad"
+hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="load"
+hx-target="#nacionalidad"
+id="nacionalidad"
+name="id_nacionalidad"
 class="form-control m-1"
 >
-<?php ?>
+<option value="1"></option>
 </select>
 </label>
 
@@ -48,7 +57,11 @@ class="form-control m-1"
 >nivel de instruccion:
 
 <select
-name="Datos_familiares_Reprecentante_Nivel_Instruccion"
+hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="load"
+hx-target="#Nivel_Instruccion"
+id="Nivel_Instruccion"
+name="id_nivel_instruccion"
 class="form-control m-1"
 >
 <?php ?>
@@ -57,33 +70,30 @@ class="form-control m-1"
 
 <label class="col-md-4 themed-grid-col"
 >ocupación
-<input require
-type="text"
-name="Datos_familiares_Reprecentante_Ocpacion"
+<select require
+hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="load"
+hx-target="#ocupacion"
+id="ocupacion"
+name="id_ocupacion"
 class="form-control m-1"
-/>
+>
+  </select>
 </label>
-<label class="col-md-4 themed-grid-col"
->teléfono
-<input require
-type="number"
-name="Datos_familiares_Reprecentante_Telefono"
-class="form-control m-1"
-/>
-</label>
+
 
 <h4 class="text-primary"
 hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
 id="fo"
 hx-target="#parroquia1"
-hx-trigger="click"
+hx-trigger="load"
   >direccion de habitación</h4>
 
 <label class="col-md-4 themed-grid-col">parroquia
 <select
 id="parroquia1"
 hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
-name="parroquia"
+
 hx-target="#sector1"
 hx-trigger="change"
 
@@ -109,15 +119,22 @@ class="form-control m-1"
 </label>
 <label class="col-md-4 themed-grid-col">calle
 <select
-name="calle"
+name="id_direccion_trabajo"
 id="calle1"
 
 class="form-control m-1"
 >
-<?php ?>
+<option value="1"></option>
 </select>
 </label>
-
+<label>
+  ubicación 
+  <input type="text"
+  name="descripcion_direccion_trabajo"
+  class="form-control"
+  placeholder=""
+  >
+</label>
 <h4 class="text-primary"
 
   >direccion de trabajo</h4>
@@ -125,7 +142,7 @@ class="form-control m-1"
 <label class="col-md-4 themed-grid-col"
 >calle
 <select
-name="Datos_familiares_Direccion_Trabajo_Reprecentante_Calle"
+
 class="form-control m-1"
 >
 
@@ -135,7 +152,7 @@ class="form-control m-1"
 <label class="col-md-4 themed-grid-col"
 >sector
 <select
-name="Datos_familiares_Direccion_Trabajo_Reprecentante_Sector"
+
 class="form-control m-1"
 >
 
@@ -145,36 +162,24 @@ class="form-control m-1"
 <label class="col-md-4 themed-grid-col"
 >parroquia
 <select
-name="Datos_familiares_Direccion_Trabajo_Reprecentante_Parroquia"
+name="id_direccion_habitacion"
 class="form-control m-1"
 >
-
+<option value="1"></option>
 </select>
 </label>
 
-<h4 class="text-primary">datos medicos</h4>
-
-<label class="col-md-4 themed-grid-col"
->condicion medica
-<select
-name="Datos_familiares_Reprecentante_Condicion_Medica"
-class="form-control m-1"
->
-
-</select>
-</label>
-
-<label class="col-md-4 themed-grid-col"
->discapacidad
-<select
-name="Datos_familiares_Reprecentante_Discapacidad"
-class="form-control m-1"
->
-
-</select>
+<label>
+  ubicación 
+  <input type="text"
+  name="descripcion_direccion_habitacion"
+  class="form-control"
+  placeholder=""
+  >
 </label>
 <button type="submit" class="btn btn-primary">
   registrar 
 </button>
 
 </form>
+

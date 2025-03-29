@@ -1,5 +1,10 @@
 <form class="d-flex container  ">
-          <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
+          <input
+          hx-get="/Codigo_php/Modulos/Gestionar_Docente.php"
+          hx-trigger="input"
+          hx-target="#tablaDeDocentes"
+          name="ci"
+          class="form-control me-2 w-50" type="number" placeholder="Search" aria-label="Search">
           <button class="btn btn-success" type="submit">Search</button>
         </form>
         <div class="table-responsive container">
