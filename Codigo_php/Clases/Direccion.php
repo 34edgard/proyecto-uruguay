@@ -101,3 +101,9 @@ class lugar_nacimiento extends lugar{
     parent::__construct($this->tabla);
   }
 }
+class direccion extends lugar{
+  protected $tabla = 'direccion';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+}

@@ -14,6 +14,10 @@ Peticion::metodo_get($consultarNivelInstruccion,['id_nivel_instruccion']);
 Peticion::metodo_get($consultarEstadoNutricional,['id_estado_nutricional']);
 
 Peticion::metodo_post($registrarReprecentante ,[ 
+  'nro_vivienda1',
+  'nro_vivienda2',
+  'parroquia1'  ,
+  'parroquia2'  ,
   'cedula'  ,
   'nombres' ,
   'apellidos' ,

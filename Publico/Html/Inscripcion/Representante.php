@@ -93,7 +93,7 @@ hx-trigger="load"
 <select
 id="parroquia1"
 hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
-
+name="parroquia1"
 hx-target="#sector1"
 hx-trigger="change"
 
@@ -107,25 +107,25 @@ class="form-control m-1"
 >sector
 <select
 id="sector1"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?calle"
+
 
 hx-target="#calle1"
 hx-trigger="change"
 
 class="form-control m-1"
+name="id_direccion_trabajo"
 >
 
 </select>
 </label>
-<label class="col-md-4 themed-grid-col">calle
-<select
-name="id_direccion_trabajo"
-id="calle1"
-
-class="form-control m-1"
->
-<option value="1"></option>
-</select>
+<label>
+  numero de vivienda
+  <input type="text"
+  name="nro_vivienda1"
+  class="form-control"
+  value="nimguno"
+  placeholder="si tiene numero de vivienda"
+  >
 </label>
 <label>
   ubicación 
@@ -136,38 +136,48 @@ class="form-control m-1"
   >
 </label>
 <h4 class="text-primary"
-
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
+id="fo"
+hx-target="#parroquia2"
+hx-trigger="load"
   >direccion de trabajo</h4>
 
 <label class="col-md-4 themed-grid-col"
->calle
+
+>parroquia
 <select
+id="parroquia2"
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+name="parroquia2"
+hx-target="#sector2"
+hx-trigger="change"
 
 class="form-control m-1"
 >
-
+<option value="1"></option>
 </select>
 </label>
 
 <label class="col-md-4 themed-grid-col"
 >sector
 <select
-
-class="form-control m-1"
->
-
-</select>
-</label>
-
-<label class="col-md-4 themed-grid-col"
->parroquia
-<select
 name="id_direccion_habitacion"
+id="sector2"
 class="form-control m-1"
 >
-<option value="1"></option>
+
 </select>
 </label>
+<label>
+  numero de vivienda
+  <input type="text"
+  name="nro_vivienda2"
+  class="form-control"
+  value="nimguno"
+  placeholder="si tiene numero de vivienda"
+  >
+</label>
+
 
 <label>
   ubicación 
