@@ -8,6 +8,11 @@ interface IDatosExtra{
 }
 abstract class DatosExtras implements IDatosExtra{
   protected  $tabla ;
+  public $Consultas_BD;
+  public $consultar;
+  public $registrar;
+  public $editar;
+  public $eliminar;
   public function __construct(string $tabla){
     $this->tabla = $tabla;
     $this->Consultas_BD = new ConsultasBD;

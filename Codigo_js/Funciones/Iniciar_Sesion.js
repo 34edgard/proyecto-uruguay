@@ -25,6 +25,10 @@ let pedirDatos = ()=> {
 	
 	//	caja.innerHTML =res;
 	//		return;
+        //
+        //
+     // alert(res);
+     //   return
 			if(!res.error){
 			  navigation.navigate('/Publico/Paginas/pag_1.php');
 			//caja.innerHTML =res.data;

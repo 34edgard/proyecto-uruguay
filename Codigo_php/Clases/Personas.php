@@ -13,6 +13,11 @@ interface Personal_Institucional extends Personas{
 }
 
 class Persona_Normal implements Personas {
+  public $Consultas_BD;
+  public $consultar;
+  public $registrar;
+  public $editar;
+  public $eliminar;
   public function __construct(){
     $this->Consultas_BD = new ConsultasBD;
     $this->consultar = new Consultar;
