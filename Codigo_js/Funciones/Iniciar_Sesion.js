@@ -21,7 +21,8 @@ let pedirDatos = ()=> {
 		})
 		.then(res => res.json())
 		.then(res =>{
-	//	  caja.innerHTML= res;
+			alert(JSON.stringify(res))
+	//  caja.innerHTML= res;
 	
 	//	caja.innerHTML =res;
 	//		return;

@@ -39,22 +39,14 @@ hx-target="#InicioInscripcion"
       />
   </label>
 
-  <label class="control-label m-1 p-1 "
-    >lugar de nacimiento:
-
-    <select
-      name="id_lugar_nacimiento"
-      class="form-control m-1"
-      id="procedencia"
-      id="lugar"
-      >
-      <option value=""></option>
-    </select>
-  </label>
-
+  
   <label class="m-1 p-1 "
     >procedencia:
     <select
+    hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="load"
+hx-target="#procedencia"
+id="procedencia"
       name="id_procedencia"
       class="form-control m-1"
       id="procedencia"
@@ -63,28 +55,7 @@ hx-target="#InicioInscripcion"
     </select>
   </label>
 
-  <label class="control-label m-1 p-1 "
-    >municipio:
-    <select
-      
-      class="form-control m-1"
-      id="municipio"
-      >
-      <option value=""></option>
-    </select>
-  </label>
-
-  <label class="control-label m-1 p-1 "
-    >estado:
-    <select
-      
-      class="form-control m-1"
-      id="estado"
-      >
-      <option value=""></option>
-    </select>
-  </label>
-
+ 
   <label class="control-label m-1 p-1 "
     >nacionalidad:
     <select
@@ -105,43 +76,130 @@ hx-target="#nacionalidad"
       name="sexo"
       id="sexo"
       class="form-control m-1"
+      
       hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
-     hx-trigger="click"
+      hx-target="#sexo"
+     hx-trigger="load"
       >
       
     </select>
   </label>
 
 
-<h4 class="text-primary">direccion</h4>
+<div class="contatiner">
+  <h2 class="text-center"
+  hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?pais"
+      hx-target="#estado"
+     hx-trigger="load"
+  
+  >lugar de nacimiento</h2>
 
-<label class="control-label col-md-4 themed-grid-col"
->calle
+
+  <label class="control-label m-1 p-1 "
+    >estado:
+    <select
+    hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+      hx-target="#municipio"
+     hx-trigger="change"
+     name="id_estado"
+
+      
+      class="form-control m-1"
+      id="estado"
+      >
+      <option value=""></option>
+    </select>
+  </label>
+
+  <label class="control-label m-1 p-1 "
+    >municipio:
+    <select
+      
+      class="form-control m-1"
+      id="municipio"
+      >
+      <option value=""></option>
+    </select>
+  </label>
+
+  <label class="control-label m-1 p-1  "
+    >parroquia:
+
+    <select
+      name="id_lugar_nacimiento"
+      class="form-control m-1"
+      
+      id="lugar"
+      >
+      <option value=""></option>
+    </select>
+  </label>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+  <h4 class="text-primary"
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
+id="fo"
+hx-target="#parroquia1"
+hx-trigger="load"
+  >direccion</h4>     
+
+<label class="col-md-4 themed-grid-col">parroquia
 <select
+id="parroquia1"
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+name="parroquia1"
+hx-target="#sector1"
+hx-trigger="change"
 
 class="form-control m-1"
 >
+
 </select>
 </label>
 
-<label class="control-label col-md-4 themed-grid-col"
+<label class="col-md-4 themed-grid-col"
 >sector
 <select
+id="sector1"
+
+
+hx-target="#calle1"
+hx-trigger="change"
 
 class="form-control m-1"
+name="id_direccion_trabajo"
 >
-<option value=""></option>
+
 </select>
 </label>
-
-<label class="control-label col-md-4 themed-grid-col"
->parroquia
-<select
-
-class="form-control m-1"
->
-<option value=""></option>
-</select>
+<label>
+  numero de vivienda
+  <input type="text"
+  name="nro_vivienda1"
+  class="form-control"
+  value="ninguno"
+  placeholder="si tiene numero de vivienda"
+  >
+</label>
+<label>
+  ubicación 
+  <input type="text"
+  name="descripcion_direccion_trabajo"
+  class="form-control"
+  placeholder=""
+  >
 </label>
 
 <h4 class="text-primary">datos medicos</h4>
@@ -163,6 +221,10 @@ class="form-control m-1"
 <label class="control-label col-md-4 themed-grid-col"
 >condicion medica
 <select
+hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="load"
+hx-target="#condicion_medica"
+id="condicion_medica"
 name="id_condicion_medica"
 class="form-control m-1"
 >
@@ -173,6 +235,10 @@ class="form-control m-1"
 <label class="control-label"
 >discapacidad
 <select
+hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="load"
+hx-target="#discapacidad"
+id="discapacidad"
 name="id_discapacidad"
 class="form-control m-1"
 >

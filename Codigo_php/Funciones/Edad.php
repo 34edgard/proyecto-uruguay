@@ -8,7 +8,7 @@ $dia = 0;
 
   for($i = 0 ; $i < 4 ; $i++){
     
-    $año += $fecha[$i] * $u ;
+    $año += intval($fecha[$i]) * $u ;
     $u = $u / 10;
   }
 $u = 10;

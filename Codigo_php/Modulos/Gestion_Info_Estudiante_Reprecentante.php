@@ -4,7 +4,7 @@ include './includer.php';
 print_r($_POST);
 
 //echo '<option> sexo</option>';
-//Peticion::metodo_get($optenerSexos,["Datos_Niño_Sexo"]);
+Peticion::metodo_get($optenerSexos,["sexo"]);
 //Peticion::metodo_post($optenerSexos);
 
 
@@ -12,6 +12,9 @@ Peticion::metodo_get($consultarOcupacion,['id_ocupacion']);
 Peticion::metodo_get($consultarNacionalidad,['id_nacionalidad']);
 Peticion::metodo_get($consultarNivelInstruccion,['id_nivel_instruccion']);
 Peticion::metodo_get($consultarEstadoNutricional,['id_estado_nutricional']);
+Peticion::metodo_get($consultarCondicionMedica,['id_condicion_medica']);
+Peticion::metodo_get($consultarDiscapacidad,['id_discapacidad']);
+Peticion::metodo_get($consultarProcedencia,['id_procedencia']);
 
 Peticion::metodo_post($registrarReprecentante ,[ 
   'nro_vivienda1',

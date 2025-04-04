@@ -79,7 +79,7 @@ $id_ubiHabi=(new ubicacion)->consultar_info([
    ]
  
  ]));
-
+ 
 
 
      $id_propietario = (new Reprecentante)->consultar_datos([
