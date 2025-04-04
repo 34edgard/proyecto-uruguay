@@ -1,6 +1,6 @@
 <?php
 (function (){
-  global $registrarTelefono;
+  global  $registrarTelefono;
 $registrarTelefono =function ($numero, $Propietario,$tipo,$id_Propietario){
   //echo 'ddddl';
  // $id_Propietario = ['ci_escolar','id_representante','id_docente'];

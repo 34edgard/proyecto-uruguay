@@ -79,7 +79,17 @@ $id_ubiHabi=(new ubicacion)->consultar_info([
    ]
  
  ]));
-    
-    plantilla("Inscripcion/DatosExtraRepresentante");
+
+
+
+     $id_propietario = (new Reprecentante)->consultar_datos([
+       "campos"=>['cedula','id_representante'],
+       "valor"=>$cedula
+     ])[0]['id_representante'];
+
+     $dataPlantilla = [
+"id_propietario"=>$id_propietario
+     ];
+    plantilla("Inscripcion/DatosExtraRepresentante",$dataPlantilla);
   };
 })();

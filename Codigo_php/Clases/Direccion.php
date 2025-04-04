@@ -9,6 +9,11 @@ interface Locacion {
 
 class lugar implements Locacion{
   protected  $tabla ;
+  public $Consultas_BD;
+  public $consultar;
+  public $registrar;
+  public $editar;
+  public $eliminar;
   public function __construct( $tabla){
     $this->tabla = $tabla;
     $this->Consultas_BD = new ConsultasBD;

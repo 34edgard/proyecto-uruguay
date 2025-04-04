@@ -25,7 +25,7 @@ abstract class DatosExtras implements IDatosExtra{
   public function registrarDato($dato){
     $dato['tabla'] = $this->tabla;
     $sql = $this->registrar->generar_sql($dato);
- //  echo "<br>$sql<br>";
+ // echo "<br>$sql<br>";
     $this->Consultas_BD->ejecutarConsulta($sql);
     
   }

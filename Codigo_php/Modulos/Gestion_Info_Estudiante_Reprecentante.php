@@ -30,7 +30,7 @@ Peticion::metodo_post($registrarReprecentante ,[
   'id_direccion_trabajo'  ,
   'descripcion_direccion_trabajo'
   ]);
-Peticion::metodo_post($registrarDatosExtraReprecentante ,['numero_telefono']);
+Peticion::metodo_post($registrarDatosExtraReprecentante ,['numero_telefono','id_propietario','tipo_telefono'],[ $registrarTelefono]);
 Peticion::metodo_post($registrarEstudiante ,['ci_escolar',
   'nombres',
   'apellidos',

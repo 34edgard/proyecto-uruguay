@@ -42,7 +42,7 @@ class="needs-validation container" novalidate>
   </div>
 
   <!-- Input pilihan kelas, dengan validasi -->
-  <div class="mb-3">
+   <div class="mb-3">
     <label for="tipo_telefono" class="form-label">tipo telefono</label>
     <select class="form-select w-75" id="tipo_telefono" name="tipo_telefono" required>
       <option value=""></option>  <!-- Tambah opsi kosong -->
@@ -53,7 +53,7 @@ class="needs-validation container" novalidate>
     <div class="invalid-feedback">Mohon pilih kelas.</div>
   </div>
 
-  <!-- Tombol submit, dengan validasi  -->
+ <!-- Tombol submit, dengan validasi  -->
   <button type="submit" class="btn btn-primary" id="crearDocente"
   data-bs-toggle='modal'
   data-bs-target='#firefoxModal'
