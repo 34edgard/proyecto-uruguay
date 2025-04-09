@@ -1,3 +1,13 @@
+<h3 class="text-primary">
+si el reprecentante esta registrado oprima para registrar al estudiante
+<button class="btn btn-primary"
+      hx-post="/Publico/Html/Inscripcion/Niños.php"
+hx-trigger="click"
+hx-target="#InicioInscripcion"
+      >
+registrar estudiante 
+</button>
+</h3>
 
 <form 
 hx-post="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"

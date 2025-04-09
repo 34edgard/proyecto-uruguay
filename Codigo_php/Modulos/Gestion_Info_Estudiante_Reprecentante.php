@@ -7,7 +7,7 @@ print_r($_POST);
 Peticion::metodo_get($optenerSexos,["sexo"]);
 //Peticion::metodo_post($optenerSexos);
 
-
+Peticion::metodo_get($generarCedulaEscolar,['cedula']);
 Peticion::metodo_get($consultarOcupacion,['id_ocupacion']);
 Peticion::metodo_get($consultarNacionalidad,['id_nacionalidad']);
 Peticion::metodo_get($consultarNivelInstruccion,['id_nivel_instruccion']);

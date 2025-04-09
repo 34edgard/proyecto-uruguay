@@ -86,13 +86,7 @@ $titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : '';
       onclick="cambiarTitulo('Aulas')"
       class="nav-link link-white px-2 ">Aulas</a>
       </li>
-      <li class=""
-      hx-post="/Publico/Html/Inscripcion/Niños.php"
-hx-trigger="click"
-hx-target="#InicioInscripcion"
-      >
-estudiante    
-    </li>
+     
     </ul>
     <div class="col-md-2 text-end">
       <a href="/Publico/Paginas/pag_6.php" class="btn btn-warning me-2">Administrar</a>

@@ -3,7 +3,26 @@
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
         >
-        <h3 class="legend text-primary">Datos del niño o niña:</h3>
+        <h3 class="legend text-primary">Datos del niño/a:</h3>
+        <label >cedula del reprecentante:
+
+<input require
+hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-trigger="input"
+hx-target="#cedula_escolar"
+
+tipe="text"
+name="cedula"
+placeholder="cedula escolar"
+class="form-control m-1"
+id="cedula_reprecentante"
+/>
+</label>
+       <div class="container m-2 text-center" id="cedula_escolar">
+
+       </div>
+
+
         <label >apellidos:
 
           <input require
