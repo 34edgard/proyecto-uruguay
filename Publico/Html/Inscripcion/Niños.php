@@ -133,8 +133,11 @@ hx-target="#nacionalidad"
   <label class="control-label m-1 p-1 "
     >municipio:
     <select
-      
+       hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+      hx-trigger="change"
+      hx-target="#lugar"
       class="form-control m-1"
+       name="id_municipio"
       id="municipio"
       >
       <option value=""></option>
