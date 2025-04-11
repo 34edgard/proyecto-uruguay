@@ -1,11 +1,11 @@
 <h3 class="text-primary">
-si el reprecentante esta registrado oprima para registrar al estudiante
+Si el representante esta registrado oprima para registrar al estudiante
 <button class="btn btn-primary"
       hx-post="/Publico/Html/Inscripcion/Niños.php"
 hx-trigger="click"
 hx-target="#InicioInscripcion"
       >
-registrar estudiante 
+Registrar estudiante 
 </button>
 </h3>
 
@@ -24,7 +24,7 @@ class="form-control m-1"
 />
 </label>
 <label class="col-md-6 themed-grid-col"
->nombres del representante:
+>Nombres del representante:
 <input require
 type="text"
 name="nombres"
@@ -41,7 +41,7 @@ class="form-control m-1"
 </label>
 
 <label class="col-md-3 themed-grid-col"
->fecha de nacimiento
+>Fecha de nacimiento
 <input require
 type="date"
 name="fecha_nacimiento"
@@ -50,7 +50,7 @@ class="form-control m-1"
 </label>
 
 <label class=""
->nacionalidad
+>Nacionalidad
 <select
 hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
 hx-trigger="load"
@@ -64,7 +64,7 @@ class="form-control m-1"
 </label>
 
 <label class="col-md-4 themed-grid-col"
->nivel de instruccion:
+>Nivel de instruccion:
 
 <select
 hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
@@ -79,7 +79,7 @@ class="form-control m-1"
 </label>
 
 <label class="col-md-4 themed-grid-col"
->ocupación
+>Ocupación
 <select require
 hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
 hx-trigger="load"
@@ -97,9 +97,9 @@ hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
 id="fo"
 hx-target="#parroquia1"
 hx-trigger="load"
-  >direccion de habitación</h4>
+  >Direccion de habitación</h4>
 
-<label class="col-md-4 themed-grid-col">parroquia
+<label class="col-md-4 themed-grid-col">Parroquia
 <select
 id="parroquia1"
 hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
@@ -129,7 +129,7 @@ name="id_direccion_trabajo"
 </select>
 </label>
 <label>
-  numero de vivienda
+  Numero de vivienda
   <input type="text"
   name="nro_vivienda1"
   class="form-control"
@@ -138,7 +138,7 @@ name="id_direccion_trabajo"
   >
 </label>
 <label>
-  ubicación 
+  Ubicación 
   <input type="text"
   name="descripcion_direccion_trabajo"
   class="form-control"
@@ -150,11 +150,11 @@ hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
 id="fo"
 hx-target="#parroquia2"
 hx-trigger="load"
-  >direccion de trabajo</h4>
+  >Direccion de trabajo</h4>
 
 <label class="col-md-4 themed-grid-col"
 
->parroquia
+>Parroquia
 <select
 id="parroquia2"
 hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
@@ -169,7 +169,7 @@ class="form-control m-1"
 </label>
 
 <label class="col-md-4 themed-grid-col"
->sector
+>Sector
 <select
 name="id_direccion_habitacion"
 id="sector2"
@@ -179,7 +179,7 @@ class="form-control m-1"
 </select>
 </label>
 <label>
-  numero de vivienda
+  Numero de vivienda
   <input type="text"
   name="nro_vivienda2"
   class="form-control"
@@ -190,7 +190,7 @@ class="form-control m-1"
 
 
 <label>
-  ubicación 
+  Ubicación 
   <input type="text"
   name="descripcion_direccion_habitacion"
   class="form-control"

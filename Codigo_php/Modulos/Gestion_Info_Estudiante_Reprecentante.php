@@ -5,7 +5,7 @@ print_r($_POST);
 
 //echo '<option> sexo</option>';
 Peticion::metodo_get($optenerSexos,["sexo"]);
-//Peticion::metodo_post($optenerSexos);
+
 
 Peticion::metodo_get($generarCedulaEscolar,['cedula']);
 Peticion::metodo_get($consultarOcupacion,['id_ocupacion']);
@@ -54,7 +54,17 @@ Peticion::metodo_post($registrarEstudiante ,['ci_escolar',
   'id_discapacidad',
   'id_estado_nutricional']);
 Peticion::metodo_post($registrarDatosExtraEstudiante ,[
-  'apellidos','nombres','fecha_nacimiento','id_lugar_nacimiento','id_procedencia','id_nacionalidad','id_estado_nutricional','id_condicion_medica','id_discapacidad'
+  "cedula_escolar",
+  "talla_camisa",
+  "talla_pantalon",
+  "talla_zapato",
+  "peso",
+  "circunferencia_braquial",
+  "partida_nacimiento",
+  "copia_cedula_madre",
+  "copia_cedula_padre",
+  "fotos_tipo_carnet",
+  "copia_certificado_vacuna"
   ]);
 
 

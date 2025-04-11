@@ -55,12 +55,14 @@ $id_lugar_nacimiento=(new lugar_nacimiento)->consultar_info([
 
 ]);
 
-
+      
   
 
 
 
 
-    plantilla("Inscripcion/DatosExtraNiño");
+    plantilla("Inscripcion/DatosExtraNiño" ,[
+      "cedula_escolar"=>$ci_escolar
+    ]);
   };
 })();

@@ -19,7 +19,7 @@ $titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : '';
   </div></div>
  <?php else: ?>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li ><a href="/Publico/Paginas/pag_1.php" class="nav-link px-2 link-white">inicio</a>
+      <li ><a href="/Publico/Paginas/pag_1.php" class="nav-link px-2 link-white">Inicio</a>
       </li >
       <li >
 <div class="dropdown">
@@ -81,15 +81,60 @@ $titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : '';
   </ul>
 </div>
         </li>
-      <li class=""><a 
+      <li class="">
+        
+      
+      
+      
+      
+             
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Gestion del Plantel
+  </button>
+  <ul class="dropdown-menu">
+    <li> <a 
       hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click"
       onclick="cambiarTitulo('Aulas')"
-      class="nav-link link-white px-2 ">Aulas</a>
+      class="nav-link link-white px-2 ">Aulas</a></li>
+      <li>
+      <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  Periodo Escolar
+  </button>
+  <ul class="dropdown-menu">
+    <li> <a 
+      hx-post="/Publico/Html/crearPeriodo.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click"
+      onclick="cambiarTitulo('Aulas')"
+      class="nav-link link-white px-2 ">crear</a></li>
+      <li> <a 
+      hx-post="/Publico/Html/AñoEscolar.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click"
+      onclick="cambiarTitulo('consultar periodo escolar')"
+      class="nav-link link-white px-2 ">consultar</a></li>
+   
+  </ul>
+
+  
+</div>
+      
+      
+      
+     </li>
+   
+  </ul>
+</div>
+      
+      
+      
+      
+      
+      
+     
       </li>
      
     </ul>
     <div class="col-md-2 text-end">
-      <a href="/Publico/Paginas/pag_6.php" class="btn btn-warning me-2">Administrar</a>
+      <a href="/Publico/Paginas/pag_6.php" class="btn btn-warning m-2">Administrar</a>
       <button type="button" class="btn btn-danger" id="cerrarSesion">Cerrar Sesion</button>
       <script src="/Codigo_js/Funciones/Cerrar_Sesion.js"></script>
       <script src="/Codigo_js/Funciones/CambiarTitulo.js"></script>

@@ -74,6 +74,13 @@ class prendas extends datosInscripcion{
   }
 }
 
+class peso extends datosInscripcion{
+  protected  $tabla = 'peso';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+}
+
 class parentesco extends datosInscripcion{
   protected  $tabla = 'parentesco';
   public function __construct(){
@@ -94,6 +101,29 @@ class procedencia extends datosInscripcion{
 }
 class nacionalidad extends datosInscripcion{
   protected  $tabla = 'nacionalidad';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+  
+}
+
+class documentos_inscripcion extends datosInscripcion{
+  protected  $tabla = 'documentos_inscripcion';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+  
+}
+
+class inscripciones extends datosInscripcion{
+  protected  $tabla = 'inscripciones';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+  
+}
+class inscripciones_estudiante extends datosInscripcion{
+  protected  $tabla = 'inscripciones_estudiante';
   public function __construct(){
     parent::__construct($this->tabla);
   }
