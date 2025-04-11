@@ -19,9 +19,11 @@ let pedirDatos = ()=> {
 			method: "POST",
 			body: nuevaData
 		})
-		.then(res => res.json())
+		.then(res => res.text())
 		.then(res =>{
-			alert(JSON.stringify(res))
+		//	alert(JSON.stringify(res))
+        //
+        res = JSON.parse(res);
 	//  caja.innerHTML= res;
 	
 	//	caja.innerHTML =res;
@@ -40,7 +42,7 @@ let pedirDatos = ()=> {
 			pass.value ="";
 			
 		})
-		.catch(err => caja.innerHTML = '<p class="text-center text-danger" >a ocurrido un error al conectar con el servidor</p>'+err);
+		.catch(err => caja.innerHTML = '<p class="text-center text-danger" >a ocurrido un error al conectar con el servidor</p>'+ JSON.stringify(err));
 	};
 	btn.addEventListener('click', pedirDatos
 	);

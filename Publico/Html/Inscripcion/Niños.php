@@ -12,7 +12,7 @@ hx-trigger="input"
 hx-target="#cedula_escolar"
 
 tipe="text"
-name="cedula"
+name="ci_escolar"
 placeholder="cedula escolar"
 class="form-control m-1"
 id="cedula_reprecentante"
@@ -148,7 +148,7 @@ hx-target="#nacionalidad"
     >parroquia:
 
     <select
-      name="id_lugar_nacimiento"
+      name="id_parroquia"
       class="form-control m-1"
       
       id="lugar"
@@ -201,7 +201,7 @@ hx-target="#calle1"
 hx-trigger="change"
 
 class="form-control m-1"
-name="id_direccion_trabajo"
+name="id_direccion"
 >
 
 </select>
@@ -218,7 +218,7 @@ name="id_direccion_trabajo"
 <label>
   ubicación 
   <input type="text"
-  name="descripcion_direccion_trabajo"
+  name="descripcion_direccion"
   class="form-control"
   placeholder=""
   >
