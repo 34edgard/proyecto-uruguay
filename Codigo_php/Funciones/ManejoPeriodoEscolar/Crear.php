@@ -8,13 +8,13 @@
        $anioInicio = Fecha($inicio_periodo)[0];
        $anioFin = Fecha($fin_periodo)[0];
 
-     $periodo = $anioInicio"-".$anioFin;
-    (new periodo_escola)->registraDato([
+     $periodo = $anioInicio."-".$anioFin;
+    (new periodo_escolar)->registrarDato([
       "campos"=>['periodo'],
       'valores'=>[$periodo]
     ]);
 
-
-    $extras[0][1]();
+//print_r($extras);
+    $extras[1][0]();
   };
 })();

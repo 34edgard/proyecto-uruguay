@@ -17,7 +17,7 @@ hx-target="#periodos_escolares"
         <input type="date" name="fin_periodo" class="form-control">
      </label>
 
-    <button type="button" class="btn btn-primary">crear periodo</button>
+    <button type="submit" class="btn btn-primary">crear periodo</button>
 </form>
 <div 
 hx-post="/Codigo_php/Modulos/Gestion_plantel.php"

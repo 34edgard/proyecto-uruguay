@@ -8,7 +8,12 @@ interface IDatosInscripcion{
 }
 
 abstract class datosInscripcion implements IDatosInscripcion {
-   protected  $tabla ;
+  protected  $tabla ;
+  public $Consultas_BD;
+  public $consultar;
+  public $registrar;
+  public $editar;
+  public $eliminar;
   public function __construct( $tabla){
     $this->tabla = $tabla;
     $this->Consultas_BD = new ConsultasBD;

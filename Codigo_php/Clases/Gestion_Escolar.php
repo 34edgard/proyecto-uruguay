@@ -1,7 +1,7 @@
 <?php
 
 
-class año_escolar{
+class año_escolar extends datosInscripcion{
     protected  $tabla = 'anio_escolar';
   public function __construct(){
     parent::__construct($this->tabla);
