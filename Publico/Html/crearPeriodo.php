@@ -2,7 +2,11 @@
     crear periodo
 </h2>
 
-<form action="" >
+<form 
+hx-post="/Codigo_php/Modulos/Gestion_plantel.php"
+hx-trigger="submit"
+hx-target="#periodos_escolares" 
+>
      <label for="">
         inicio del periodo
         <input type="date" name="inicio_periodo" class="form-control">
@@ -15,3 +19,10 @@
 
     <button type="button" class="btn btn-primary">crear periodo</button>
 </form>
+<div 
+hx-post="/Codigo_php/Modulos/Gestion_plantel.php"
+hx-trigger="load"
+hx-target="#periodos_escolares"
+class="container" id="periodos_escolares">
+
+</div>

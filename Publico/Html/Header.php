@@ -100,37 +100,19 @@ $titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : '';
             hx-target="#main" hx-swap="innerHTML"   
             hx-trigger="click"
             onclick="cambiarTitulo('Aulas')"
-            class="nav-link link-white px-2 "
+            class="dropdown-item "
           >Aulas</a></li>
       <li>
-      <div class="dropdown">
-  <button 
-                class="btn btn-primary dropdown-toggle"
-                type="button" data-bs-toggle="dropdown" 
-                aria-expanded="false">
-        Periodo Escolar
-  </button>
-  <ul class="dropdown-menu">
-    <li> 
-                  <a  hx-post="/Publico/Html/crearPeriodo.php" 
-                    hx-target="#main" hx-swap="innerHTML"     
-                    hx-trigger="click"
-      onclick="cambiarTitulo('Aulas')"
-      class="nav-link link-white px-2 ">crear</a>
-
-                </li>
-      <li>
-                  <a hx-post="/Publico/Html/AñoEscolar.php"
-                    hx-target="#main" hx-swap="innerHTML"  
-                    hx-trigger="click"
-      onclick="cambiarTitulo('consultar periodo escolar')"
-      class="nav-link link-white px-2 ">
-                    consultar
-                  </a>
-
-                </li>
-  </ul>
-</div>
+<a 
+class="dropdown-item"
+hx-swap="innerHTML"
+hx-post="/Publico/Html/crearPeriodo.php"
+hx-trigger="click"
+hx-target="#main"
+onclick="cambiarTitulo('Periodo Escolar')"
+>
+periodo escolar
+</a>
      </li>
   </ul>
 </div>
