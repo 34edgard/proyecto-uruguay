@@ -7,7 +7,7 @@ include './includer.php';
 Peticion::metodo_get($optenerSexos,["sexo"]);
 
 
-Peticion::metodo_get($generarCedulaEscolar,['cedula_escolar']);
+Peticion::metodo_get($generarCedulaEscolar,['ci_escolar']);
 Peticion::metodo_get($consultarOcupacion,['id_ocupacion']);
 Peticion::metodo_get($consultarNacionalidad,['id_nacionalidad']);
 Peticion::metodo_get($consultarNivelInstruccion,['id_nivel_instruccion']);

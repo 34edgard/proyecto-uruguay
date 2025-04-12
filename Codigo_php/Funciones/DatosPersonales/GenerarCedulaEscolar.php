@@ -4,13 +4,13 @@
   $generarCedulaEscolar = function (){
     $datos = (new Reprecentante)->consultar_datos([
         "campos"=>["cedula","nombres"],
-        "valor"=>$_GET["cedula"]
+        "valor"=>$_GET["ci_escolar"]
     ]);
     
 
   $estudiantes = (new Estudiante)->consultar_datos([
        "campos"=>['ci_escolar','fecha_nacimiento'],
-       "like"=> " '___".$_GET['cedula']."' ORDER BY `ci_escolar` DESC LIMIT 1"  
+       "like"=> " '___".$_GET['ci_escolar']  
  ]);
 
 
