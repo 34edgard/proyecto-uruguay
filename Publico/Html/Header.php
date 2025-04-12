@@ -89,38 +89,49 @@ $titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : '';
       
              
 <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-primary dropdown-toggle" 
+          type="button" data-bs-toggle="dropdown" 
+          aria-expanded="false">
     Gestion del Plantel
   </button>
   <ul class="dropdown-menu">
     <li> <a 
-      hx-post="/Publico/Html/EnConstruccion.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click"
-      onclick="cambiarTitulo('Aulas')"
-      class="nav-link link-white px-2 ">Aulas</a></li>
+            hx-post="/Publico/Html/EnConstruccion.php"
+            hx-target="#main" hx-swap="innerHTML"   
+            hx-trigger="click"
+            onclick="cambiarTitulo('Aulas')"
+            class="nav-link link-white px-2 "
+          >Aulas</a></li>
       <li>
       <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-  Periodo Escolar
+  <button 
+                class="btn btn-primary dropdown-toggle"
+                type="button" data-bs-toggle="dropdown" 
+                aria-expanded="false">
+        Periodo Escolar
   </button>
   <ul class="dropdown-menu">
-    <li> <a 
-      hx-post="/Publico/Html/crearPeriodo.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click"
+    <li> 
+                  <a  hx-post="/Publico/Html/crearPeriodo.php" 
+                    hx-target="#main" hx-swap="innerHTML"     
+                    hx-trigger="click"
       onclick="cambiarTitulo('Aulas')"
-      class="nav-link link-white px-2 ">crear</a></li>
-      <li> <a 
-      hx-post="/Publico/Html/AñoEscolar.php" hx-target="#main" hx-swap="innerHTML"     hx-trigger="click"
-      onclick="cambiarTitulo('consultar periodo escolar')"
-      class="nav-link link-white px-2 ">consultar</a></li>
-   
-  </ul>
+      class="nav-link link-white px-2 ">crear</a>
 
-  
+                </li>
+      <li>
+                  <a hx-post="/Publico/Html/AñoEscolar.php"
+                    hx-target="#main" hx-swap="innerHTML"  
+                    hx-trigger="click"
+      onclick="cambiarTitulo('consultar periodo escolar')"
+      class="nav-link link-white px-2 ">
+                    consultar
+                  </a>
+
+                </li>
+  </ul>
 </div>
-      
-      
-      
      </li>
-   
   </ul>
 </div>
       
