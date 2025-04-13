@@ -7,9 +7,7 @@ hx-target="#InicioInscripcion"
         <label >cedula del reprecentante:
 
 <input require
-hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
-hx-trigger="input"
-hx-target="#cedula_escolar"
+
 
 tipe="text"
 name="ci_escolar"

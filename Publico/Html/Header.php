@@ -95,8 +95,28 @@ $titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : '';
     Gestion del Plantel
   </button>
   <ul class="dropdown-menu">
+  <li> <a 
+            hx-post="/Publico/Html/Niveles.php"
+            hx-target="#main" hx-swap="innerHTML"   
+            hx-trigger="click"
+            onclick="cambiarTitulo('Niveles')"
+            class="dropdown-item "
+          >Niveles</a></li>
+      <li>
+
+
+  <li> <a 
+            hx-post="/Publico/Html/Secciones.php"
+            hx-target="#main" hx-swap="innerHTML"   
+            hx-trigger="click"
+            onclick="cambiarTitulo('Secciones')"
+            class="dropdown-item "
+          >Secciones</a></li>
+      <li>
+
+
     <li> <a 
-            hx-post="/Publico/Html/EnConstruccion.php"
+            hx-post="/Publico/Html/Aulas.php"
             hx-target="#main" hx-swap="innerHTML"   
             hx-trigger="click"
             onclick="cambiarTitulo('Aulas')"

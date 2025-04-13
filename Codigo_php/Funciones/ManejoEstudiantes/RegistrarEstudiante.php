@@ -3,7 +3,7 @@
   global $registrarEstudiante;
   $registrarEstudiante =function (){
     extract($_POST);
-   
+   $extras = func_get_args();
 
     //registrando la direccion
     
@@ -39,7 +39,7 @@ $id_lugar_nacimiento=(new lugar_nacimiento)->consultar_info([
 
 
 
- 
+ $nci_escolar = $extras[1][0]($ci_escolar,$fecha_nacimiento);
 
        $edad_ano = Edad($fecha_nacimiento);
        $edad_meses = Edad($fecha_nacimiento);
@@ -48,7 +48,7 @@ $id_lugar_nacimiento=(new lugar_nacimiento)->consultar_info([
       'id_lugar_nacimiento', 'id_nacionalidad', 'edad_ano', 'edad_meses',
       'sexo' , 'id_ubicacion' , 'id_procedencia', 'id_condicion_medica' ,      'id_discapacidad', 'id_estado_nutricional'],
       "valores"=>
-      [$ci_escolar,$nombres,$apellidos,$fecha_nacimiento,
+      [$nci_escolar,$nombres,$apellidos,$fecha_nacimiento,
       $id_lugar_nacimiento,$id_nacionalidad,$edad_ano,$edad_meses,
       $sexo,$id_ubicacion,$id_procedencia,$id_condicion_medica,
       $id_discapacidad, $id_estado_nutricional]

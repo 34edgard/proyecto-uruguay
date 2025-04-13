@@ -1,35 +1,23 @@
 <?php
 (function (){
   global $generarCedulaEscolar;
-  $generarCedulaEscolar = function (){
-    $datos = (new Reprecentante)->consultar_datos([
-        "campos"=>["cedula","nombres"],
-        "valor"=>$_GET["ci_escolar"]
-    ]);
-    
+  $generarCedulaEscolar = function ($cedula,$fecha){
+    $fh = "".(Fecha($fecha)[0]-2000);
+ //   $fh .= Fecha($fecha)[0];
+    $ci_escolar = $fh.$cedula;
 
   $estudiantes = (new Estudiante)->consultar_datos([
-       "campos"=>['ci_escolar','fecha_nacimiento'],
-       "like"=> " '___".$_GET['ci_escolar']  
+       "campos"=>['ci_escolar'],
+       "like"=> "_".$ci_escolar."' ORDER BY `ci_escolar` DESC LIMIT 1 --  "
  ]);
+$estudiantes = $estudiantes[0]['ci_escolar'];
+  if(isset($estudiantes)){
+    
+    $nuevaCiEscolar = (intval($estudiantes[0]) + 1).$ci_escolar;
+  }else{
+    $nuevaCiEscolar = "1".$ci_escolar;
+  }
 
-
-
-   if (isset($datos[0]["cedula"]) && !isset($estudiantes[0]['ci_escolar'])) {
-     echo "el reprecentante ".$datos[0]["nombres"]." existe ";
-     $fh =  $estudiantes[0]['fecha_nacimiento'][8];
-     $fh .=  $estudiantes[0]['fecha_nacimiento'][9];
-           $cedulaEscolar = "1".$fh.$estudiantes[0]['ci_escolar'];
-    echo "la cedula escolar seria ".$cedulaEscolar;
-   }else if(isset($datos[0]["cedula"]) && isset($estudiantes[0]['ci_escolar'])){
-
-     $nuevaCedulaEscolar = $estudiantes[0]['ci_escolar'][0] + 1;
-
-    echo  $nuevaCedulaEscolar;
-
-
-   }else{
-    echo "el usuario no existe";
-   }
+    return $nuevaCiEscolar;
   };
   })();

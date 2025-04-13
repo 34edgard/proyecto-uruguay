@@ -52,7 +52,7 @@ Peticion::metodo_post($registrarEstudiante ,['ci_escolar',
   'id_procedencia',
   'id_condicion_medica',
   'id_discapacidad',
-  'id_estado_nutricional']);
+  'id_estado_nutricional'],[$generarCedulaEscolar]);
 Peticion::metodo_post($registrarDatosExtraEstudiante ,[
   "cedula_escolar",
   "talla_camisa",

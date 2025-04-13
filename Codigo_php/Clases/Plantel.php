@@ -22,10 +22,14 @@ class plantel implements iPlantel{
     
   }
 }
-
-class aula extends plantel{
-  
+class aulas extends datosInscripcion{
+    protected  $tabla = 'aulas';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+ 
 }
+
 class seccion extends plantel{
   
 }

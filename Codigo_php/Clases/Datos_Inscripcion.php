@@ -40,7 +40,7 @@ abstract class datosInscripcion implements IDatosInscripcion {
     }
     
    $sql = $this->consultar->generar_sql($dato) .$where;
-   
+   //echo $sql;
   return  $this->Consultas_BD->consultarRegistro2($sql);
   }
   public function editarDato( $dato){

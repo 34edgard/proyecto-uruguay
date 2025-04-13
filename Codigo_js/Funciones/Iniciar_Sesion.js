@@ -42,7 +42,7 @@ let pedirDatos = ()=> {
 			pass.value ="";
 			
 		})
-		.catch(err => caja.innerHTML = '<p class="text-center text-danger" >a ocurrido un error al conectar con el servidor</p>'+ JSON.stringify(err));
+		.catch(err => caja.innerHTML = '<p class="text-center text-danger" >a ocurrido un error al conectar con el servidor</p>'+ err);
 	};
 	btn.addEventListener('click', pedirDatos
 	);

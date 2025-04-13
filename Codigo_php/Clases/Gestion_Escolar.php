@@ -22,3 +22,35 @@ class periodo_escolar extends datosInscripcion{
   }
  
 }
+
+class tipo_nivel extends datosInscripcion{
+    protected  $tabla = 'tipo_nivel';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+ 
+}
+
+class niveles extends datosInscripcion{
+    protected  $tabla = 'niveles';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+ 
+}
+
+class secciones extends datosInscripcion{
+    protected  $tabla = 'secciones';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+ 
+}
+
+class aula extends datosInscripcion{
+    protected  $tabla = 'aulas';
+  public function __construct(){
+    parent::__construct($this->tabla);
+  }
+ 
+}
