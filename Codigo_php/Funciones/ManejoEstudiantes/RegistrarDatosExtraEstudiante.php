@@ -18,9 +18,11 @@
    registrarTalla($cedula_escolar,4,$circunferencia_braquial);
    registrarPeso($cedula_escolar,$peso);
     
-   $id_inscripcion = registrarInscripcion($cedula_escolar, date("d-m-Y")); 
+   $id_inscripcion = registrarInscripcion($cedula_escolar, date("Y-m-d")); 
    registrarInscripcionEstudiante($cedula_escolar,$id_inscripcion);
 
-    plantilla("Inscripcion/Inscribir");
+   plantilla("Inscripcion/Inscribir",[
+     "ci_escolar"=>$cedula_escolar
+   ]);
   };
 })();

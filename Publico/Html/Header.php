@@ -37,6 +37,12 @@ $titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : '';
      hx-trigger="click"
     onclick="cambiarTitulo('Promovidos')"
     >Promovidos</a></li>
+<li><a class="dropdown-item" href="#"
+        hx-post="/Publico/Html/Inscripcion/Inscritos.php" hx-target="#main" hx-swap="innerHTML"
+     hx-trigger="click"
+    onclick="cambiarTitulo('Inscritos')"
+    >Inscritos</a></li>
+
   </ul>
 </div>
       </li >

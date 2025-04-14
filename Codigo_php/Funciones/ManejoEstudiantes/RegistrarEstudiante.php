@@ -62,7 +62,7 @@ $id_lugar_nacimiento=(new lugar_nacimiento)->consultar_info([
 
 
     plantilla("Inscripcion/DatosExtraNiño" ,[
-      "cedula_escolar"=>$ci_escolar
+      "cedula_escolar"=>$nci_escolar
     ]);
   };
 })();

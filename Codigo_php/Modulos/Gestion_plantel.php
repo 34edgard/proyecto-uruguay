@@ -16,3 +16,7 @@ Peticion::metodo_get($consultarSeccion,['id_seccion']);
 Peticion::metodo_post($crearAula,['id_seccion','nombre_aula'],[$consultarAula]);
 Peticion::metodo_get($consultarAulas,['id_aulas']);
 Peticion::metodo_get($consultarAula,['id_aula']);
+
+Peticion::metodo_post($registrarAnioEscolar,['ci_escolar','aula','periodo_escolar']);
+
+Peticion::metodo_get($consultarAnioEscolar,['id_inscritos']);

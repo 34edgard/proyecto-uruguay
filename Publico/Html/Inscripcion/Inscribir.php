@@ -4,14 +4,20 @@
     </h2>
    
 <form
-hx-get="/Codigo_php/Modulos/Gestion_plantel.php"
+hx-post="/Codigo_php/Modulos/Gestion_plantel.php"
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
 >
 
+<label>
+cedula escolar
+<input type="number" name="ci_escolar" class="form-control"
+value="<?= $ci_escolar ?>"
+>
+</label>
 <label
 
-hx-get="/Codigo_php/Modulos/Gestion_plantel.php?id_aula"
+hx-get="/Codigo_php/Modulos/Gestion_plantel.php?id_aulas"
 hx-trigger="load"
 hx-target="#aula"
 >
