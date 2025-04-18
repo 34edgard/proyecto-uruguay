@@ -6,5 +6,5 @@ M.js
 phpMyAdmin-5.2.2.zip
 /phpMyAdmin
 /vendor
-.json
-.lock
+json
+lock
