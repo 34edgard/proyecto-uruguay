@@ -3,21 +3,7 @@
   global $registrarReprecentante;
   $registrarReprecentante =function (){
     extract($_POST);
-    [ 
-  'parroquia1'  ,
-  'parroquia2'  ,
-  'cedula'  ,
-  'nombres' ,
-  'apellidos' ,
-  'fecha_nacimiento' ,
-  'id_nacionalidad'  ,
-  'id_nivel_instruccion'  ,
-  'id_ocupacion'  ,
-  'id_direccion_habitacion'  ,
-  'descripcion_direccion_habitacion',
-  'id_direccion_trabajo'  ,
-  'descripcion_direccion_trabajo'
-  ];
+  
     
     $datosDireccion = [
       "campos"=>['id_sector','nro_vivienda','calle_vereda_avenida']  ];
@@ -36,17 +22,31 @@
         
    (new ubicacion)->registrar_info($datosDireccionHabitacion);
 $id_ubiHabi=(new ubicacion)->consultar_info([
-     "campos"=>['id_sector','id_ubicacion'],
-     "valor"=>"$id_direccion_habitacion ORDER BY `id_ubicacion` DESC LIMIT 1"
+  "campos"=>['id_sector','id_ubicacion'],
+  "where"=>[
+    [
+      "campo"=>'id_sector',"operador"=>'=',"valor"=>$id_direccion_habitacion
+    ]
+  ],
+  "orderBy"=>[
+"campo"=>'id_ubicacion',"direccion"=>'DESC'
+  ],
+  "limit"=>1
      ])[0]['id_ubicacion'];
 
    (new ubicacion)->registrar_info($datosDireccionTrabajo);
  $id_ubitraba =  (new ubicacion)->consultar_info([
-     "campos"=>['id_sector','id_ubicacion'],
-     "valor"=>"$id_direccion_trabajo ORDER BY `id_ubicacion` DESC LIMIT 1"
+   "campos"=>['id_sector','id_ubicacion'],
+   "where"=>[
+     ["campo"=>'id_sector',"operador"=>'=',"valor"=>$id_direccion_trabajo]
+   ],
+   "orderBy"=>[
+     "campo"=>'id_ubicacion',"direccion"=>'DESC'
+   ],
+   "limit"=>1
      ])[0]['id_ubicacion'];
      
-     echo "el id trabajo es $id_ubitraba";
+     
     ( (new direccion)->registrar_info([
       "campos"=>[  'id_ubicacion', 
   'tipo_direccion'  ],
@@ -55,19 +55,31 @@ $id_ubiHabi=(new ubicacion)->consultar_info([
      
       
  $id_dirtraba = (new direccion)->consultar_info([
-     "campos"=>['id_ubicacion','id_direccion'],
-     "valor"=>"$id_ubitraba ORDER BY `id_direccion` DESC LIMIT 1"
+   "campos"=>['id_ubicacion','id_direccion'],
+   "where"=>[
+     ["campo"=>'id_ubicacion',"operador"=>'=',"valor"=>$id_ubitraba]
+   ],
+   "orderBy"=>[
+     "campo"=>'id_direccion',"direccion"=>'DESC'
+   ],
+   "limit"=>1
      ])[0]['id_direccion'];
-     echo "<br>";
-     echo "el id habitación es $id_ubiHabi";
+     
+     
     ( (new direccion)->registrar_info([
       "campos"=>[  'id_ubicacion', 
   'tipo_direccion'  ],
 "valores"=>[  $id_ubiHabi,'habitacion'
   ]      ]));
      $id_dirHabi = (new direccion)->consultar_info([
-     "campos"=>['id_ubicacion','id_direccion'],
-     "valor"=>"$id_ubiHabi ORDER BY `id_direccion` DESC LIMIT 1"
+       "campos"=>['id_ubicacion','id_direccion'],
+       "where"=>[
+         ["campo"=>'id_ubicacion',"operador"=>'=',"valor"=>$id_ubiHabi]
+       ],
+       "orderBy"=>[
+         ["campo"=>'id_ubicacion',"direccion"=>'DESC']
+       ],
+       "limit"=>1
      ])[0]['id_direccion'];
   //  
   // 
@@ -84,7 +96,10 @@ $id_ubiHabi=(new ubicacion)->consultar_info([
 
      $id_propietario = (new Reprecentante)->consultar_datos([
        "campos"=>['cedula','id_representante'],
-       "valor"=>$cedula
+       "where"=>[
+         ["campo"=>'cedula',"operador"=>'=',"valor"=>$cedula]
+       ]
+       
      ])[0]['id_representante'];
 
      $dataPlantilla = [

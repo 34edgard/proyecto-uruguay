@@ -8,7 +8,12 @@
   //  print_r($_GET);
     $usuarios = new Personal_Administrativo();
 
-    $usuarios->eliminar_datos(["campos" => ["cedula"], "valor" => $_GET['ci']]);
+    $usuarios->eliminar_datos(["campos" => ["cedula"], 
+      "where"=>[
+        ["campo"=>'cedula',"operador"=>'=',
+      "valor" => $_GET['ci']]
+      ]
+    ]);
    $extras[1][0]();
   };
 })();

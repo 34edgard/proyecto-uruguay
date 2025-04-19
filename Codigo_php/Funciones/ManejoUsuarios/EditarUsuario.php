@@ -10,13 +10,17 @@
       $usuarios->editar_datos([
         "campos" => ["cedula", "nombres", "apellidos", "id_rol", "contrasena"],
         "valores" => [$ci, $nombre, $apellido, $rol, $contraseña_hash],
-        "valor" => $ci,
+        "where"=>[
+          ["campo"=>'cedula',"operador"=>'=', "valor" => $ci]
+        ]
       ]);
     } else {
       $usuarios->editar_datos([
         "campos" => ["cedula", "nombres", "apellidos", "id_rol"],
         "valores" => [$ci, $nombre, $apellido, $rol],
-        "valor" => $ci,
+  "where"=>[
+          ["campo"=>'cedula',"operador"=>'=', "valor" => $ci]
+        ]
       ]);
     }
     $extras = func_get_args();

@@ -19,10 +19,13 @@
   $consultarSector = function () {
   extract($_GET);
  
-  $parametros =["campos"=>[ 'id_parroquia','id_sector','nombre_sector' ]];
-  if(isset($parroquia1)) $parametros['valor'] = $parroquia1;
-  if(isset($parroquia2)) $parametros['valor'] = $parroquia2;
-  
+  $parametros =["campos"=>[ 'id_parroquia','id_sector','nombre_sector' ],
+    "where"=>[
+      ["campo"=>'id_parroquia', "operador"=>'=']
+    ]
+  ];
+
+  $parametros['where']['valor'] = $parroquia1 ?? $parroquia2;
   $parroquiaes = (new sector)->consultar_info($parametros);
   foreach ($parroquiaes as $secto){
     

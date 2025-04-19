@@ -13,8 +13,13 @@
      ]);
     $id_niveles = (new niveles)->consultarDato([
       "campos"=>['id_tipo_nivel','id_nivel'],
-      "value"=>$id_nivel." ORDER BY `id_nivel` DESC LIMIT 1"
-
+      "where"=>[
+        ["campo"=>'id_tipo_nivel',"operador"=>'=',"valor"=>$id_nivel]
+      ],
+      "orderBy"=>[
+"campo"=>'id_nivel',"direccion"=>'DESC'
+      ],
+      "limit"=>1
     ])[0]['id_nivel'];
       
     (new secciones)->registrarDato([

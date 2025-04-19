@@ -9,10 +9,10 @@
     ];
 
     if ($_SESSION["rol"] == 2) {
-      $datos["valor"] = $_SESSION["ci"];
+      $datos["where"] = $_SESSION["ci"];
     }
 
-    $usuarios = new Personal_Administrativo();
+    $usuarios = new Personal_Administrativo;
     $lista_usuarios = $usuarios->consultar_datos($datos);
 $resul ='';
     foreach ($lista_usuarios as $usuario) {
@@ -36,7 +36,10 @@ $resul ='';
           <td>" .
         (new correo())->consultarDato([
           "campos" => ["id_correo", "email"],
-          "valor" => $usuario["id_correo"],
+          "where"=>[
+            ["campo"=>'id_correo',"operador"=>'=',"valor"=>$usuario['id_correo']]
+          ]
+        
         ])[0]["email"] .
         "</td>
           <td

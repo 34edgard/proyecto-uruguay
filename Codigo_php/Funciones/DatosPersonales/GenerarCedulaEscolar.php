@@ -7,8 +7,12 @@
     $ci_escolar = $fh.$cedula;
 
   $estudiantes = (new Estudiante)->consultar_datos([
-       "campos"=>['ci_escolar'],
-       "like"=> "_".$ci_escolar."' ORDER BY `ci_escolar` DESC LIMIT 1 --  "
+    "campos"=>['ci_escolar'],
+    "where"=>[
+["campo"=>'ci_escolar', "operador"=>'LIKE', "valor"=>'_'.$ci_escolar] ],
+     "orderBy"=>["campo"=>'ci_escolar',"direccion"=>'DESC'],
+     "limit"=>1
+    
  ]);
 $estudiantes = $estudiantes[0]['ci_escolar'];
   if(isset($estudiantes)){

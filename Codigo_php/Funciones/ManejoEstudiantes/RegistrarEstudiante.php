@@ -13,8 +13,17 @@
   ]);
     /// consultando el id de la dieccion registrada
  $id_ubicacion=(new ubicacion)->consultar_info([
-     "campos"=>['id_sector','id_ubicacion'],
-     "valor"=>"$id_direccion ORDER BY `id_ubicacion` DESC LIMIT 1"
+   "campos"=>['id_sector','id_ubicacion'],
+   "where"=>[
+     [
+       "campo"=>'id_sector',"operador"=>'=',"valor"=>$id_direccion
+     ]
+   ],
+   "orderBy"=>[
+     "campo"=>'id_ubicacion',"direccion"=>'DESC'
+   ],
+   "limit"=>1
+
      ])[0]['id_ubicacion'];
 
 
@@ -32,8 +41,14 @@
       
 
 $id_lugar_nacimiento=(new lugar_nacimiento)->consultar_info([
-     "campos"=>['id_estado','id_lugar_nacimiento'],
-     "valor"=>"$id_estado ORDER BY `id_lugar_nacimiento` DESC LIMIT 1"
+  "campos"=>['id_estado','id_lugar_nacimiento'],
+  "where"=>[
+    ["campo"=>'id_estado',"operador"=>'=',"valor"=>$id_estado ]
+  ],
+  "orderBy"=>[
+"campo"=>'id_lugar_nacimiento',"direccion"=>'DESC'
+  ],
+  "limit"=>1
      ])[0]['id_lugar_nacimiento'];
 
 

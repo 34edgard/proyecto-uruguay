@@ -18,7 +18,9 @@
       ]
     ]);
     $id_docente = (new Docente)->consultar_datos(['campos'=>['cedula','id_docente'],
-    'valor'=>$cedula
+      "where"=>[
+        ["campo"=>'cedula',"operador"=>'=',"valor"=>$cedula     ]
+      ]
     ])[0]['id_docente'];
     
   $extras[1][0]($telefono,$formulario,$tipo_telefono,$id_docente);

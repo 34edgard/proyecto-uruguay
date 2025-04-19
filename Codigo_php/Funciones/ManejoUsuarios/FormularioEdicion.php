@@ -7,7 +7,11 @@ if(!isset($_GET['formularioEdicion'])) return;
    session_start();
    //formularioEdicion
    $campos =["campos"=>['cedula','nombres','apellidos','id_rol'],
-   "valor"=>$formularioEdicion];
+     "where"=>[
+       ["campo"=>'cedula',"operador"=>'=',
+   "valor"=>$formularioEdicion]
+     ]
+   ];
    $datos = (new Personal_Administrativo)->consultar_datos($campos)[0];
    //print_r($datos);
    plantilla("EditarUsuario",$datos);

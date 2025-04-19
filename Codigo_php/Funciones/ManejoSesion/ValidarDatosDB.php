@@ -5,7 +5,9 @@
     $PA = new Personal_Administrativo();
     $arreglo = $PA->consultar_datos([
       "campos" => ["cedula", "contrasena", "id_rol", "nombres"],
-      "valor" => $cedula
+      "where"=>[
+        ["campo"=>'cedula',"operador"=>'=',"valor"=>$cedula]
+      ]
     ]);
   //  print_r($arreglo);
     //return ;

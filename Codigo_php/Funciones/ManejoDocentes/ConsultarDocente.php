@@ -11,8 +11,11 @@
    $i=0;
     foreach ($res as $user) {
       $i++;
-    $numero_telefono= (new Telefono())->consultarDato([    "campos" => ["id_docente","numero_telefono"],
-    "valor"=>$user["id_docente"]
+      $numero_telefono= (new Telefono())->consultarDato([    "campos" => ["id_docente","numero_telefono"],
+        "where"=>[
+          "campo"=>'id_docente',"operador"=>'=',"valor"=>$user['id_docente']
+        ]  
+  
     ])[0]["numero_telefono"]; 
       echo "<tr>";
       echo "<td>".$i."</td>";

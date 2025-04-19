@@ -6,7 +6,11 @@
    extract($_POST);
     (new Docente)->editar_datos([
       "campos"=>['cedula','nombres','apellidos','fecha_nacimiento'],
-      "valores"=>[$cedula,$nombre,$apellido,$fecha_nacimiento], "valor"=>$cedula
+      "valores"=>[$cedula,$nombre,$apellido,$fecha_nacimiento], 
+      "where"=>[
+        ["campo"=>'cedula',"operador"=>'=',"valor"=>$cedula]
+      ]
+      
       ]);
     $EXTRAS[1][0]();
   };

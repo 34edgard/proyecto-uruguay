@@ -4,7 +4,11 @@
   $cambiarEstado = function () {
     extract($_GET);
 
-    $datos = ["campos" => ["cedula", "estado"], "valor" => $ci];
+    $datos = ["campos" => ["cedula", "estado"], 
+      "where"=>[
+        ["campo"=>'cedula',"operador"=>'=',"valor"=>$ci]
+      ]
+      ];
 
     $usuarios = new Personal_Administrativo();
     $estadoActual = $usuarios->consultar_datos($datos);
