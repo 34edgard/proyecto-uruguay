@@ -77,7 +77,7 @@ $id_ubiHabi=(new ubicacion)->consultar_info([
          ["campo"=>'id_ubicacion',"operador"=>'=',"valor"=>$id_ubiHabi]
        ],
        "orderBy"=>[
-         ["campo"=>'id_ubicacion',"direccion"=>'DESC']
+         "campo"=>'id_ubicacion',"direccion"=>'DESC'
        ],
        "limit"=>1
      ])[0]['id_direccion'];

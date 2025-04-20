@@ -31,30 +31,20 @@ class Persona_Normal implements Personas {
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
   public  function consultar_datos($datos){
-    $where="";
-    if(isset($datos['valor'])){
-      $where = " WHERE `".$datos['campos'][0]."` = ".$datos['valor'];
-    }
-    if(isset($datos['like'])){
-      $where = " WHERE `".$datos['campos'][0]."` like '".$datos['like']."' ";
-    }
-    
-   $sql = $this->consultar->generar_sql($datos) .$where;
+   
+   $sql = $this->consultar->generar_sql($datos) ;
     //echo $sql;
   return  $this->Consultas_BD->consultarRegistro2($sql);
   }
   public function editar_datos($datos){
-    $where = " `".$datos['campos'][0]."` = ".$datos['valor'];
-    $sql = $this->editar->generar_sql($datos);
-    $sql = $sql.$where;
-    //echo $where;
+   $sql = $this->editar->generar_sql($datos);
+    
    // echo $sql;
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
   public function eliminar_datos($datos){
     $sql = $this->eliminar->generar_sql($datos);
-   $sql = $sql." `".$datos['campos'][0]."` = ".$datos['valor'];
-  //  echo $sql;
+ //  echo $sql;
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
   

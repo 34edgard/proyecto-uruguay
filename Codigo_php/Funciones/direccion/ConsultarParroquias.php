@@ -6,7 +6,7 @@ global $consultarParroquia2;
     $pars = (new parroquia())->consultar_info([
       "campos" => ["id_municipio", "id_parroquia", "nombre_parroquia"],
       "where"=>[
-        "campo"=>'id_municipio',"operador"=>'=',"valor"=>$_GET['id_municipio']
+       [ "campo"=>'id_municipio',"operador"=>'=',"valor"=>$_GET['id_municipio']]
       ]
       
     ]);

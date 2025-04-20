@@ -28,31 +28,21 @@ class datos_medicos implements iDatos_Medicos{
   public function consultar( $dato){
     $dato['tabla'] = $this->tabla;
   
-   $where="";
-    if(isset($dato['valor'])){
-      $where = " WHERE `".$dato['campos'][0]."` = ".$dato['valor'];
-    }
-    
-   $sql = $this->consultar->generar_sql($dato) .$where;
+   $sql = $this->consultar->generar_sql($dato) ;
    
   return  $this->Consultas_BD->consultarRegistro2($sql);
   }
   public function editar( $dato){
     $dato['tabla'] = $this->tabla;
   
-   $where = " `".$datos['campos'][0]."` = ".$datos['valor'];
-    $sql = $this->editar->generar_sql($datos);
-    $sql = $sql.$where;
-    //echo $where;
-   // echo $sql;
-    $this->Consultas_BD->ejecutarConsulta($sql);
+   $sql = $this->editar->generar_sql($dato);
+   $this->Consultas_BD->ejecutarConsulta($sql);
   }
   public function eliminar( $dato){
     $dato['tabla'] = $this->tabla;
   
-   $sql = $this->eliminar->generar_sql($datos);
-   $sql = $sql." `".$datos['campos'][0]."` = ".$datos['valor'];
-    
+   $sql = $this->eliminar->generar_sql($dato);
+   
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
 }

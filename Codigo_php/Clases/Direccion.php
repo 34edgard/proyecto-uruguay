@@ -33,12 +33,8 @@ class lugar implements Locacion{
   public function consultar_info( $dato){
     $dato['tabla'] = $this->tabla;
   
-   $where="";
-    if(isset($dato['valor'])){
-      $where = " WHERE `".$dato['campos'][0]."` = ".$dato['valor'];
-    }
-    
-   $sql = $this->consultar->generar_sql($dato) .$where;
+   
+   $sql = $this->consultar->generar_sql($dato) ;
    
   return  $this->Consultas_BD->consultarRegistro2($sql);
   
@@ -46,19 +42,15 @@ class lugar implements Locacion{
   public function editar_info( $dato){
     $dato['tabla'] = $this->tabla;
   
-   $where = " `".$datos['campos'][0]."` = ".$datos['valor'];
-    $sql = $this->editar->generar_sql($datos);
-    $sql = $sql.$where;
-    //echo $where;
-   // echo $sql;
+   $sql = $this->editar->generar_sql($dato);
+  // echo $sql;
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
   public function eliminar_info( $dato){
     $dato['tabla'] = $this->tabla;
   
-   $sql = $this->eliminar->generar_sql($datos);
-   $sql = $sql." `".$datos['campos'][0]."` = ".$datos['valor'];
-    
+   $sql = $this->eliminar->generar_sql($dato);
+   
     $this->Consultas_BD->ejecutarConsulta($sql);
   }
 }

@@ -32,28 +32,20 @@ abstract class DatosExtras implements IDatosExtra{
  public function consultarDato($dato){
    $dato['tabla'] = $this->tabla;
   
-   $where="";
-    if(isset($dato['valor'])){
-      $where = " WHERE `".$dato['campos'][0]."` = ".$dato['valor'];
-    }
-    
-   $sql = $this->consultar->generar_sql($dato) .$where;
+   
+   $sql = $this->consultar->generar_sql($dato) ;
    
   return  $this->Consultas_BD->consultarRegistro2($sql);
  }
  public function editarDato($dato){
    $dato['tabla'] = $this->tabla;
   
-   $where = " `".$datos['campos'][0]."` = ".$datos['valor'];
-    $sql = $this->editar->generar_sql($datos);
-    $sql = $sql.$where;
-    //echo $where;
-   // echo $sql;
-    $this->Consultas_BD->ejecutarConsulta($sql);
+   $sql = $this->editar->generar_sql($datos);
+   $this->Consultas_BD->ejecutarConsulta($sql);
  }
  public function consultarId($dato){
    $dato['tabla'] = $this->tabla;
-    $sql = $this->consultar->generar_sql($dato) ." ORDER BY `".$dato['campos'][0]."` DESC LIMIT 1 ";
+    $sql = $this->consultar->generar_sql($dato);
    
     
     
@@ -66,9 +58,7 @@ abstract class DatosExtras implements IDatosExtra{
    $dato['tabla'] = $this->tabla;
   
    $sql = $this->eliminar->generar_sql($dato);
-   $sql = $sql." `".$dato['campos'][0]."` = ".$dato['valor'];
-   // echo $sql;
-    $this->Consultas_BD->ejecutarConsulta($sql);
+   $this->Consultas_BD->ejecutarConsulta($sql);
  }
 }
 

@@ -15,7 +15,7 @@
    (new Telefono)->eliminarDato([
      "campos"=>['id_docente'],
      "where"=>[
-        "campo"=>'id_docente',"operador"=>'=',"valor"=>$id_docente]
+       [ "campo"=>'id_docente',"operador"=>'=',"valor"=>$id_docente]
      ]
       ]);
     

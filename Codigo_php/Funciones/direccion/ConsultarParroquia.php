@@ -24,9 +24,11 @@
       ["campo"=>'id_parroquia', "operador"=>'=']
     ]
   ];
+ $id = $parroquia1 ?? $parroquia2;
 
-  $parametros['where']['valor'] = $parroquia1 ?? $parroquia2;
-  $parroquiaes = (new sector)->consultar_info($parametros);
+  $parametros['where'][0]['valor'] =$id ?? 1;
+ // print_r($parametros);
+    $parroquiaes = (new sector)->consultar_info($parametros);
   foreach ($parroquiaes as $secto){
     
     echo "<option value='".$secto['id_sector']."'>".$secto['nombre_sector']."</option>";
