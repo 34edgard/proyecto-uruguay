@@ -52,8 +52,7 @@ class="needs-validation container" novalidate>
     </select>
     <div class="invalid-feedback">Mohon pilih kelas.</div>
   </div>
-
- <!-- Tombol submit, dengan validasi  -->
+<!-- Tombol submit, dengan validasi  -->
   <button type="submit" class="btn btn-primary" id="crearDocente"
   data-bs-toggle='modal'
   data-bs-target='#firefoxModal'

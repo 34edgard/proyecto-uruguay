@@ -26,6 +26,7 @@ hx-target="#tablaDeDocentes"
     
      <!-- <td>aula</td>-->
       <td>telefono</td>
+      <td>aula asignada</td>
       <td  ></td>
       <td  ></td>
     </tr>
