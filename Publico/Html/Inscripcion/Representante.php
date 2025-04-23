@@ -93,7 +93,7 @@ class="form-control m-1"
 
 
 <h4 class="text-primary"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado=1"
 id="fo"
 hx-target="#parroquia1"
 hx-trigger="load"
@@ -146,7 +146,7 @@ name="id_direccion_trabajo"
   >
 </label>
 <h4 class="text-primary"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado=1"
 id="fo"
 hx-target="#parroquia2"
 hx-trigger="load"

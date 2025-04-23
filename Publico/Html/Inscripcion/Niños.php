@@ -169,7 +169,7 @@ hx-target="#nacionalidad"
 
 
   <h4 class="text-primary"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
+hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado=1"
 id="fo"
 hx-target="#parroquia1"
 hx-trigger="load"

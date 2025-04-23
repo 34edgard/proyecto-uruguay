@@ -5,8 +5,13 @@
   global $consultarParroquia;
 
   $consultarParroquia = function () {
+    extract($_GET);
+   $id_parro = $estado ?? 1;
     $pars = (new parroquia())->consultar_info([
       "campos" => ["id_parroquia", "nombre_parroquia"],
+      "where"=>[
+        ["campo"=>"id_municipio","operador"=>'=',"valor"=>$id_parro]
+      ]
     ]);
     foreach ($pars as $par) {
       echo "<option value='" .
