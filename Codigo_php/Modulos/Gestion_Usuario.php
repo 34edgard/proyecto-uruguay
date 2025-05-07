@@ -1,6 +1,6 @@
 <?php
 
-include './includer.php';
+include '../includer.php';
 
 Peticion::metodo_post($crear_usuario,['Crear_usuario','cedula','nombre','apellido','correo','usuario','rol','contraseña'],[$consultar_usuario]);
 Peticion::metodo_get($consultar_usuario);

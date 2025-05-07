@@ -28,6 +28,8 @@ function Enunciado($op) {
       break;
     case '6':
       return "Administración";
+    case '7':
+      return "mini php db";
       break;
   }
 }

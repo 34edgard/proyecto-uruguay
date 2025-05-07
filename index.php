@@ -6,6 +6,3 @@ include "./Publico/Html/Header.php";
 include "./Publico/Html/Inicio.php";
 include "./Publico/Html/Footer.php";  
 
-
-
-?>

@@ -1,6 +1,6 @@
 <?php
 
-include './includer.php';
+include '../includer.php';
 //print_r($_POST);
 
 //echo '<option> sexo</option>';

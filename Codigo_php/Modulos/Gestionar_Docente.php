@@ -1,6 +1,6 @@
 <?php
 
-include './includer.php';
+include '../includer.php';
 
 Peticion::metodo_get($consultarDocente);
 Peticion::metodo_get($consultarDocenteCI,['ci']);

@@ -3,4 +3,5 @@ RewriteEngine On
 
 # Redirigir la raíz a index.php
 RewriteRule ^$ index.php [L,QSA]
+RewriteRule ^p$ ./Publico/Html/Inicio.php.php [L,QSA]
 
