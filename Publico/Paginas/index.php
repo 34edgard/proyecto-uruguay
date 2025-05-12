@@ -1,10 +1,8 @@
 <?php
-
-$op = ["op"=>9];
+$op = ["op"=>0];
 include "./Publico/Paginas/enunciado.php";
 plantilla('Head',$op);
 plantilla('Header',$op);
-plantilla('Inicio_sesion');
+plantilla('Inicio');
 plantilla('Footer',$op);
-
 

@@ -15,13 +15,13 @@ let pedirDatos = ()=> {
 		caja.innerHTML =`        <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>`;
-		fetch('/Codigo_php/Modulos/Gestion_Sesion.php', {
+		fetch('/Gestion_Sesion', {
 			method: "POST",
 			body: nuevaData
 		})
 		.then(res => res.text())
 		.then(res =>{
-		//	alert(JSON.stringify(res))
+			alert(res)
         //
         res = JSON.parse(res);
 	//  caja.innerHTML= res;
@@ -33,7 +33,7 @@ let pedirDatos = ()=> {
      // alert(res);
      //   return
 			if(!res.error){
-			  navigation.navigate('/Publico/Paginas/pag_1.php');
+			  navigation.navigate('/inicio');
 			//caja.innerHTML =res.data;
 			  return;
 			}

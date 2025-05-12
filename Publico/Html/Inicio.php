@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <div class="container d-flex ">
-    <a class="btn btn-primary" href="/Publico/Paginas/pag_0.php">
+    <a class="btn btn-primary" href="/Gestion_Sesion">
       Iniciar Sesión 
     </a>
   </div>
