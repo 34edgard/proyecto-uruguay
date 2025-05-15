@@ -7,7 +7,7 @@
         data-bs-toggle='modal' data-bs-target='#firefoxModal'
         name=\"ci\"
       value=\"{$_GET['confimarEliminacion']}\"
-      hx-get=\"/Codigo_php/Modulos/Gestion_Usuario.php?eliminarUsuario\"
+      hx-get=\"/Gestion_Usuario?eliminarUsuario\"
       hx-trigger=\"click\"
       hx-target=\"#usuarios\"
         >Si</button>";

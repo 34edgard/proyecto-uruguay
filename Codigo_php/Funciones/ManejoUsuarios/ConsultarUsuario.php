@@ -26,7 +26,7 @@ $resul ='';
       }
 
       $cedula_codificada = urlencode($usuario["cedula"]);
-      $url_hx_get = "/Codigo_php/Modulos/Gestion_Usuario.php?cambiarEstadoUsuario&ci={$cedula_codificada}";
+      $url_hx_get = "/Gestion_Usuario?cambiarEstadoUsuario&ci={$cedula_codificada}";
       
       $resul .=
         "<tr >
@@ -54,7 +54,7 @@ $resul ='';
       <td><button class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#firefoxModal'
       name=\"formularioEdicion\"
       value=\"{$usuario["cedula"]}\"
-      hx-get=\"/Codigo_php/Modulos/Gestion_Usuario.php\"
+      hx-get=\"/Gestion_Usuario\"
       hx-trigger=\"click\"
       hx-target=\"#modal-form\"
       >editar</button></td>";
@@ -64,7 +64,7 @@ $resul ='';
         data-bs-toggle='modal' data-bs-target='#firefoxModal'
         name=\"confimarEliminacion\"
       value=\"{$usuario["cedula"]}\"
-      hx-get=\"/Codigo_php/Modulos/Gestion_Usuario.php\"
+      hx-get=\"/Gestion_Usuario\"
       hx-trigger=\"click\"
       hx-target=\"#modal-form\"
         >eliminar</button></td>";

@@ -1,5 +1,5 @@
 <form 
-hx-post="/Codigo_php/Modulos/Gestionar_Docente.php"
+hx-post="/Gestion_Docente"
 hx-trigger="submit"
 hx-target="#tablaDeDocentes"
 class="needs-validation container" novalidate>

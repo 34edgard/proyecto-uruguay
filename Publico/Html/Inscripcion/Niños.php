@@ -1,5 +1,5 @@
         <form 
-        hx-post="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+        hx-post="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
         >
@@ -60,7 +60,7 @@ id="cedula_reprecentante"
   <label class="m-1 p-1 "
     >procedencia:
     <select
-    hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+    hx-get="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="load"
 hx-target="#procedencia"
 id="procedencia"
@@ -76,7 +76,7 @@ id="procedencia"
   <label class="control-label m-1 p-1 "
     >nacionalidad:
     <select
-    hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+    hx-get="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="load"
 hx-target="#nacionalidad"
       name="id_nacionalidad"
@@ -94,7 +94,7 @@ hx-target="#nacionalidad"
       id="sexo"
       class="form-control m-1"
       
-      hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+      hx-get="/Gestion_Info_Estudiante_Reprecentante"
       hx-target="#sexo"
      hx-trigger="load"
       >
@@ -105,7 +105,7 @@ hx-target="#nacionalidad"
 
 <div class="contatiner">
   <h2 class="text-center"
-  hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?pais"
+  hx-get="/Gestion_Inscripcion_Estudiante?pais"
       hx-target="#estado"
      hx-trigger="load"
   
@@ -115,7 +115,7 @@ hx-target="#nacionalidad"
   <label class="control-label m-1 p-1 "
     >estado:
     <select
-    hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+    hx-get="/Gestion_Inscripcion_Estudiante"
       hx-target="#municipio"
      hx-trigger="change"
      name="id_estado"
@@ -131,7 +131,7 @@ hx-target="#nacionalidad"
   <label class="control-label m-1 p-1 "
     >municipio:
     <select
-       hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+       hx-get="/Gestion_Inscripcion_Estudiante"
       hx-trigger="change"
       hx-target="#lugar"
       class="form-control m-1"
@@ -169,7 +169,7 @@ hx-target="#nacionalidad"
 
 
   <h4 class="text-primary"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado=1"
+hx-get="/Gestion_Inscripcion_Estudiante?estado=1"
 id="fo"
 hx-target="#parroquia1"
 hx-trigger="load"
@@ -178,7 +178,7 @@ hx-trigger="load"
 <label class="col-md-4 themed-grid-col">parroquia
 <select
 id="parroquia1"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+hx-get="/Gestion_Inscripcion_Estudiante"
 name="parroquia1"
 hx-target="#sector1"
 hx-trigger="change"
@@ -227,7 +227,7 @@ name="id_direccion"
 <label class="control-label col-md-4 themed-grid-col"
 >estado nutricional
 <select
-hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-get="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="load"
 hx-target="#estado_nutricional"
 id="estado_nutricional"
@@ -241,7 +241,7 @@ class="form-control m-1"
 <label class="control-label col-md-4 themed-grid-col"
 >condicion medica
 <select
-hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-get="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="load"
 hx-target="#condicion_medica"
 id="condicion_medica"
@@ -255,7 +255,7 @@ class="form-control m-1"
 <label class="control-label"
 >discapacidad
 <select
-hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-get="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="load"
 hx-target="#discapacidad"
 id="discapacidad"

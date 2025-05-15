@@ -10,7 +10,7 @@ Registrar estudiante
 </h3>
 
 <form 
-hx-post="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-post="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
   >
@@ -52,7 +52,7 @@ class="form-control m-1"
 <label class=""
 >Nacionalidad
 <select
-hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-get="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="load"
 hx-target="#nacionalidad"
 id="nacionalidad"
@@ -67,7 +67,7 @@ class="form-control m-1"
 >Nivel de instruccion:
 
 <select
-hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-get="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="load"
 hx-target="#Nivel_Instruccion"
 id="Nivel_Instruccion"
@@ -81,7 +81,7 @@ class="form-control m-1"
 <label class="col-md-4 themed-grid-col"
 >Ocupación
 <select require
-hx-get="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-get="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="load"
 hx-target="#ocupacion"
 id="ocupacion"
@@ -93,7 +93,7 @@ class="form-control m-1"
 
 
 <h4 class="text-primary"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado=1"
+hx-get="/Gestion_Inscripcion_Estudiante?estado=1"
 id="fo"
 hx-target="#parroquia1"
 hx-trigger="load"
@@ -102,7 +102,7 @@ hx-trigger="load"
 <label class="col-md-4 themed-grid-col">Parroquia
 <select
 id="parroquia1"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+hx-get="/Gestion_Inscripcion_Estudiante"
 name="parroquia1"
 hx-target="#sector1"
 hx-trigger="change"
@@ -146,7 +146,7 @@ name="id_direccion_trabajo"
   >
 </label>
 <h4 class="text-primary"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado=1"
+hx-get="/Gestion_Inscripcion_Estudiante?estado=1"
 id="fo"
 hx-target="#parroquia2"
 hx-trigger="load"
@@ -157,7 +157,7 @@ hx-trigger="load"
 >Parroquia
 <select
 id="parroquia2"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+hx-get="/Gestion_Inscripcion_Estudiante"
 name="parroquia2"
 hx-target="#sector2"
 hx-trigger="change"

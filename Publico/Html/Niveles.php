@@ -3,7 +3,7 @@
 </h2>
 
 <form 
-hx-get="/Codigo_php/Modulos/Gestion_plantel.php"
+hx-get="/Gestion_plantel"
 hx-trigger="submit"
 hx-target="#nivel" 
 >
@@ -24,7 +24,7 @@ niveles
 </h2>
 </div>
 <div 
-hx-get="/Codigo_php/Modulos/Gestion_plantel.php?id_nivel"
+hx-get="/Gestion_plantel?id_nivel"
 hx-trigger="load"
 hx-target="#nivel"
 class="container" id="nivel">

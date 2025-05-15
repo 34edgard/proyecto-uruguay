@@ -1,5 +1,5 @@
 <form
-hx-post="/Codigo_php/Modulos/Gestion_Info_Estudiante_Reprecentante.php"
+hx-post="/Gestion_Info_Estudiante_Reprecentante"
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
   > 

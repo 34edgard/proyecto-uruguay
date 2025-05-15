@@ -3,7 +3,7 @@
 </h2>
 
 <form 
-hx-post="/Codigo_php/Modulos/Gestion_plantel.php"
+hx-post="/Gestion_plantel"
 hx-trigger="submit"
 hx-target="#secciones" 
 >
@@ -13,7 +13,7 @@ hx-target="#secciones"
      </label>
 
      <label for=""
-hx-get="/Codigo_php/Modulos/Gestion_plantel.php?id_niveles"
+hx-get="/Gestion_plantel?id_niveles"
 hx-trigger="load"
 hx-target="#niveles"
 >
@@ -34,7 +34,7 @@ secciones
 </h2>
 </div>
 <div 
-hx-get="/Codigo_php/Modulos/Gestion_plantel.php?id_secciones"
+hx-get="/Gestion_plantel?id_secciones"
 hx-trigger="load"
 hx-target="#secciones"
 class="container" id="secciones">

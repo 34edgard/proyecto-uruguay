@@ -3,7 +3,7 @@
 </h2>
 
 <form 
-hx-post="/Codigo_php/Modulos/Gestion_plantel.php"
+hx-post="/Gestion_plantel"
 hx-trigger="submit"
 hx-target="#Aulas" 
 >
@@ -13,7 +13,7 @@ hx-target="#Aulas"
      </label>
 
      <label for=""
-hx-get="/Codigo_php/Modulos/Gestion_plantel.php?id_seccion"
+hx-get="/Gestion_plantel?id_seccion"
 hx-trigger="load"
 hx-target="#secciones"
   >
@@ -29,7 +29,7 @@ hx-target="#secciones"
     <button type="submit" class="btn btn-primary">crear periodo</button>
 </form>
 <div 
-hx-get="/Codigo_php/Modulos/Gestion_plantel.php?id_aula"
+hx-get="/Gestion_plantel?id_aula"
 hx-trigger="load"
 hx-target="#Aulas"
 class="container" id="Aulas">

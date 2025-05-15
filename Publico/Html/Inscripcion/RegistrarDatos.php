@@ -1,4 +1,4 @@
-<form action="./Inscripciones_paso_2.php" method="post">
+<form  method="post">
   <h1 class="text-primary text-center m-1">Paso 1 Registrar los datos de los niños/as</h1>
   <fieldset class="container-fluid  img-thumbnail row">
 
@@ -97,7 +97,7 @@ class="form-control m-1"
 </label>
 
 <h4 class="text-primary"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?estado"
+hx-get="/Gestion_Inscripcion_Estudiante?estado"
 id="fo"
 hx-target="#parroquia1"
 hx-trigger="click"
@@ -106,7 +106,7 @@ hx-trigger="click"
 <label class="col-md-4 themed-grid-col">parroquia
 <select
 id="parroquia1"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php"
+hx-get="/Gestion_Inscripcion_Estudiante"
 name="parroquia"
 hx-target="#sector1"
 hx-trigger="change"
@@ -121,7 +121,7 @@ class="form-control m-1"
 >sector
 <select
 id="sector1"
-hx-get="/Codigo_php/Modulos/Gestion_Inscripcion_Estudiante.php?calle"
+hx-get="/Gestion_Inscripcion_Estudiante?calle"
 
 hx-target="#calle1"
 hx-trigger="change"

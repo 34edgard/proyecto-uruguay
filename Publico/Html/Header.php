@@ -19,7 +19,7 @@ $titulo = isset($_SESSION['nombre'])   ? Enunciado($op) : '';
   </div></div>
  <?php else: ?>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li ><a href="/Publico/Paginas/pag_1.php" class="nav-link px-2 link-white">Inicio</a>
+      <li ><a href="/inicio" class="nav-link px-2 link-white">Inicio</a>
       </li >
       <li >
 <div class="dropdown">
@@ -153,7 +153,7 @@ periodo escolar
      
     </ul>
     <div class="col-md-2 text-end">
-      <a href="/Publico/Paginas/pag_6.php" class="btn btn-warning m-2">Administrar</a>
+      <a href="/Administrar" class="btn btn-warning m-2">Administrar</a>
       <button type="button" class="btn btn-danger" id="cerrarSesion">Cerrar Sesion</button>
       <script src="/Codigo_js/Funciones/Cerrar_Sesion.js"></script>
       <script src="/Codigo_js/Funciones/CambiarTitulo.js"></script>

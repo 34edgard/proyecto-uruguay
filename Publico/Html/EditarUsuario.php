@@ -1,5 +1,5 @@
         <form 
-        hx-post="/Codigo_php/Modulos/Gestion_Usuario.php"
+        hx-post="/Gestion_Usuario"
         hx-trigger="submit"
         hx-target="#usuarios"
         >
@@ -34,7 +34,7 @@
 
                 <select name="rol" class="form-control w-75 "
                 id="editar_rol"
-                hx-get="/Codigo_php/Modulos/Gestion_Usuario.php"
+                hx-get="/Gestion_Usuario"
                 hx-target="#editar_rol"
                 hx-trigger="load"
                 >

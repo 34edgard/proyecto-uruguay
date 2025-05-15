@@ -17,7 +17,7 @@
       ?>
       <div class="tab-pane  table-responsive" id="general" role="tabpanel">
         <form 
-        hx-post="/Codigo_php/Modulos/Gestion_Usuario.php"
+        hx-post="/Gestion_Usuario"
         hx-trigger="submit"
         hx-target="#usuarios"
         >
@@ -51,7 +51,7 @@
                 <select name="rol" class="form-control"
                 hx-target="#crear_user_rol"
                 id="crear_user_rol"
-                hx-get="/Codigo_php/Modulos/Gestion_Usuario.php"
+                hx-get="/Gestion_Usuario"
                 hx-trigger="load"
                 >
 
@@ -85,7 +85,7 @@
           <td colspan="2"></td>
         </tr>
 <tbody id="usuarios"
-hx-get="/Codigo_php/Modulos/Gestion_Usuario.php"
+hx-get="/Gestion_Usuario"
 hx-trigger="load" 
 hx-target="#usuarios" 
 
@@ -120,9 +120,4 @@ hx-target="#usuarios"
 
 
 <div class="container" id="mesajesDelServidor"></div>
-<!--<script src="/Codigo_js/Funciones/ConsultarUsuario.js"></script>-->
-<!--<script src="/Codigo_js/Funciones/CrearUsuario.js"></script>
-<script src="/Codigo_js/Funciones/EditarUsuario.js"></script>
-<script src="/Codigo_js/Funciones/eliminarUsuario.js"></script>
 
-<script src="/Codigo_js/Funciones/estadoUsuario.js"></script>-->

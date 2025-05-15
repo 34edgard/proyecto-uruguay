@@ -9,7 +9,7 @@
    class=\"btn btn-danger\"
    name=\"eliminar\"
    value=\"{$_GET['ConfirmarEliminacion']}\"
-   hx-get=\"/Codigo_php/Modulos/Gestionar_Docente.php\"
+   hx-get=\"/Gestion_Docente\"
    data-bs-dismiss=\"modal\"
    hx-target=\"#tablaDeDocentes\"
    >";

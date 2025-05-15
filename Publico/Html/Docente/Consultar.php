@@ -1,6 +1,6 @@
 <form class="d-flex container  ">
           <input
-          hx-get="/Codigo_php/Modulos/Gestionar_Docente.php"
+          hx-get="/Gestion_Docente"
           hx-trigger="input"
           hx-target="#tablaDeDocentes"
           name="ci"
@@ -10,7 +10,7 @@
         <div class="table-responsive container">
           
 <table class="table my-auto  "
-hx-get="/Codigo_php/Modulos/Gestionar_Docente.php"
+hx-get="/Gestion_Docente"
 hx-trigger="load"
 hx-target="#tablaDeDocentes"
   >
@@ -55,6 +55,3 @@ hx-target="#tablaDeDocentes"
   </div>
 </div>
 
-
-<!--<script src="/Codigo_js/Funciones/consultarDocentes.js"></script>
--->

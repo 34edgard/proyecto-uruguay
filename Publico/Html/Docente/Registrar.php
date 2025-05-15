@@ -2,7 +2,7 @@
     
     <!-- Formulir pendaftaran dosen yang di-bootstrap -->
 <form 
-hx-post="/Codigo_php/Modulos/Gestionar_Docente.php"
+hx-post="/Gestion_Docente"
 hx-trigger="submit"
 hx-target="#modal-form"
 class="needs-validation container" novalidate>
@@ -77,7 +77,3 @@ class="needs-validation container" novalidate>
 
 
 
-<!-- JavaScript untuk validasi -->
-
-    
-<!--    <script src="/Codigo_js/Funciones/CrearDocente.js"></script>-->

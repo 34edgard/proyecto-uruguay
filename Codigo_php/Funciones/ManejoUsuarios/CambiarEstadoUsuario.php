@@ -27,6 +27,6 @@
 
    echo "<button class='btn btn-{$estilo}' 
    hx-target='#estado{$estadoActual[0]["cedula"]}'
-         hx-get='/Codigo_php/Modulos/Gestion_Usuario.php?cambiarEstadoUsuario&ci={$estadoActual[0]["cedula"]}'          hx-trigger='click'          >{$estado}</button>";
+         hx-get='/Gestion_Usuario?cambiarEstadoUsuario&ci={$estadoActual[0]["cedula"]}'          hx-trigger='click'          >{$estado}</button>";
   };
 })();

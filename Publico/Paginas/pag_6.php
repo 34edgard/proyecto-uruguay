@@ -1,10 +1,12 @@
 <?php
-$op =6;
-include "./validar_sesion.php";
-include "./enunciado.php";
-include "../Html/Head.php";
-include "../Html/Header.php";
-include "../Html/Main.php";
-include "../Html/Ajustes.php";
+$op =["op"=>6];
+include "./Publico/Paginas/validar_sesion.php";
+include "./Publico/Paginas/enunciado.php";
 
-include "../Html/Footer.php";
+plantilla('Head',$op);
+plantilla('Header',$op);
+plantilla('Main',$op);
+plantilla('Ajustes',$op);
+plantilla('Footer',$op);
+
+
