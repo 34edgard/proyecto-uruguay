@@ -4,7 +4,7 @@
   
   $consultarDocente = function () {
     $DOCENTE = new Docente();
-    $res = $DOCENTE->consultar_datos([
+    $res = $DOCENTE->consultar([
       "campos" => ["id_docente","cedula", "nombres", "apellidos", "fecha_nacimiento"]
     ]);
    
@@ -32,7 +32,7 @@ $aula_asignada = "ningina";
      class='btn btn-warning'
      data-bs-toggle='modal'
      data-bs-target='#firefoxModal'
-     hx-get='/Gestion_Docente'
+     hx-get='/docente/formulario'
      hx-trigger='click'
      hx-target=\"#modal-form\"
      name='formularioEdicion'
@@ -47,7 +47,7 @@ $aula_asignada = "ningina";
      class='btn btn-danger'
      data-bs-toggle='modal'
      data-bs-target='#firefoxModal'
-     hx-get='/Gestion_Docente'
+     hx-get='/docente/confirmar/eliminacion'
      hx-trigger='click'
      hx-target=\"#modal-form\"
      name='ConfirmarEliminacion'

@@ -1,11 +1,17 @@
 <div class="container  p-2">
-<h2>el registro a sido un éxito</h2>
-<p>desea registrar a otro representante</p>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+   <div class="card p-4 p-md-5 shadow-lg custom-card">
+     <div class="card-body text-center">
+   
+
+<h2 class="">El registro del representante a sido un éxito</h2>
+<p>Desea registrar a otro representante</p>
   <button 
   hx-get="/Publico/Html/Inscripcion/Representante.php"
   hx-trigger="click"
   hx-target="#InicioInscripcion"
-  class="btn btn-primary"
+  class="btn btn-success"
   type="button">
     si
   </button>
@@ -14,8 +20,12 @@
   hx-trigger="click"
   hx-target="#InicioInscripcion"
   
-  class="btn btn-info"
+  class="btn btn-primary"
   type="button">
      registrar niño
   </button>
+</div>
+</div>
+</div>
+</div>
 </div>

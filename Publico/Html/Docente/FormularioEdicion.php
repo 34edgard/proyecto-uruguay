@@ -1,5 +1,5 @@
 <form 
-hx-post="/Gestion_Docente"
+hx-post="/docente/editar"
 hx-trigger="submit"
 hx-target="#tablaDeDocentes"
 class="needs-validation container" novalidate>

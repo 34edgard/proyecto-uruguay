@@ -3,7 +3,7 @@
           <?= $mensajeExito ?>
         </h1>
           <button type="button"
-          class="btn-primary"
+          class="btn btn-primary"
           data-bs-toggle='modal' 
           data-bs-target='#firefoxModal'
           

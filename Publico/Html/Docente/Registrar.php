@@ -2,7 +2,8 @@
     
     <!-- Formulir pendaftaran dosen yang di-bootstrap -->
 <form 
-hx-post="/Gestion_Docente"
+
+hx-post="/docente/registrar"
 hx-trigger="submit"
 hx-target="#modal-form"
 class="needs-validation container" novalidate>

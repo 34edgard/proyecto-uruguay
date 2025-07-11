@@ -1,5 +1,5 @@
         <form 
-        hx-post="/Gestion_Info_Estudiante_Reprecentante"
+        hx-post="/estudiante/registrar"
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
         >
@@ -14,7 +14,7 @@ name="ci_escolar"
 placeholder="cedula escolar"
 class="form-control m-1"
 id="cedula_reprecentante"
-/>
+>
 </label>
        <div class="container m-2 text-center" id="cedula_escolar">
 
@@ -29,7 +29,7 @@ id="cedula_reprecentante"
           placeholder="apellidos"
           class="form-control m-1"
           id="apellidos"
-          />
+          >
       </label>
 
       <label class="control-label "
@@ -41,7 +41,7 @@ id="cedula_reprecentante"
         placeholder="nombres"
         class="form-control m-1"
         id="nombres"
-        />
+        >
     </label>
 
     <label class="control-label m-1 "
@@ -53,14 +53,14 @@ id="cedula_reprecentante"
       placeholder="fecha de nacimiento"
       class="form-control m-1"
       id="fecha"
-      />
+      >
   </label>
 
   
   <label class="m-1 p-1 "
     >procedencia:
     <select
-    hx-get="/Gestion_Info_Estudiante_Reprecentante"
+    hx-get="/estudiante/procedencia"
 hx-trigger="load"
 hx-target="#procedencia"
 id="procedencia"
@@ -76,7 +76,7 @@ id="procedencia"
   <label class="control-label m-1 p-1 "
     >nacionalidad:
     <select
-    hx-get="/Gestion_Info_Estudiante_Reprecentante"
+    hx-get="/estudiante/nacionalidad"
 hx-trigger="load"
 hx-target="#nacionalidad"
       name="id_nacionalidad"
@@ -94,7 +94,7 @@ hx-target="#nacionalidad"
       id="sexo"
       class="form-control m-1"
       
-      hx-get="/Gestion_Info_Estudiante_Reprecentante"
+      hx-get="/estudiante/sexo"
       hx-target="#sexo"
      hx-trigger="load"
       >
@@ -105,7 +105,7 @@ hx-target="#nacionalidad"
 
 <div class="contatiner">
   <h2 class="text-center"
-  hx-get="/Gestion_Inscripcion_Estudiante?pais"
+  hx-get="/direccion/estado?pais=1"
       hx-target="#estado"
      hx-trigger="load"
   
@@ -115,7 +115,7 @@ hx-target="#nacionalidad"
   <label class="control-label m-1 p-1 "
     >estado:
     <select
-    hx-get="/Gestion_Inscripcion_Estudiante"
+    hx-get="/direccion/municipio"
       hx-target="#municipio"
      hx-trigger="change"
      name="id_estado"
@@ -130,17 +130,21 @@ hx-target="#nacionalidad"
 
   <label class="control-label m-1 p-1 "
     >municipio:
-    <select
-       hx-get="/Gestion_Inscripcion_Estudiante"
+    <select     
+               
+       hx-get="/direccion/parroquia2"
       hx-trigger="change"
       hx-target="#lugar"
       class="form-control m-1"
        name="id_municipio"
+             
       id="municipio"
       >
       <option value=""></option>
     </select>
   </label>
+
+
 
   <label class="control-label m-1 p-1  "
     >parroquia:
@@ -169,7 +173,7 @@ hx-target="#nacionalidad"
 
 
   <h4 class="text-primary"
-hx-get="/Gestion_Inscripcion_Estudiante?estado=1"
+hx-get="/direccion/parroquia?estado=1"
 id="fo"
 hx-target="#parroquia1"
 hx-trigger="load"
@@ -178,7 +182,7 @@ hx-trigger="load"
 <label class="col-md-4 themed-grid-col">parroquia
 <select
 id="parroquia1"
-hx-get="/Gestion_Inscripcion_Estudiante"
+hx-get="/direccion/sector1"
 name="parroquia1"
 hx-target="#sector1"
 hx-trigger="change"
@@ -227,7 +231,7 @@ name="id_direccion"
 <label class="control-label col-md-4 themed-grid-col"
 >estado nutricional
 <select
-hx-get="/Gestion_Info_Estudiante_Reprecentante"
+hx-get="/estudiante/estado_nutricional"
 hx-trigger="load"
 hx-target="#estado_nutricional"
 id="estado_nutricional"
@@ -241,7 +245,7 @@ class="form-control m-1"
 <label class="control-label col-md-4 themed-grid-col"
 >condicion medica
 <select
-hx-get="/Gestion_Info_Estudiante_Reprecentante"
+hx-get="/estudiante/condicion_medica"
 hx-trigger="load"
 hx-target="#condicion_medica"
 id="condicion_medica"
@@ -255,7 +259,7 @@ class="form-control m-1"
 <label class="control-label"
 >discapacidad
 <select
-hx-get="/Gestion_Info_Estudiante_Reprecentante"
+hx-get="/estudiante/discapacidad"
 hx-trigger="load"
 hx-target="#discapacidad"
 id="discapacidad"

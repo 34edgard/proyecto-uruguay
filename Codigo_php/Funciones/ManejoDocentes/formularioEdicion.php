@@ -3,13 +3,13 @@
   global $formularioEdicion;
   $formularioEdicion = function(){
    //formularioEdicion
-   $datos = (new Docente)->consultar_datos([
+   $datos = (new Docente)->consultar([
      "campos"=>['cedula','nombres','apellidos','id_docente','fecha_nacimiento'],
      "where"=>[
      [  "campo"=>'cedula',"operador"=>'=',"valor"=>$_GET['formularioEdicion']]
      ]
      ])[0];
-   $datosTel = (new Telefono)->consultarDato([
+   $datosTel = (new Telefono)->consultar([
      "campos"=>['id_docente','tipo_telefono','numero_telefono'],
      "where"=>[
        ["campo"=>'id_docente',"operador"=>'=',"valor"=>$datos['id_docente']]

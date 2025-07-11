@@ -2,16 +2,20 @@
 (function(){
   global $consultarSeccion;
   $consultarSeccion = function() {
-     $niveles = (new secciones)->consultarDato([
+     $niveles = (new secciones)->consultar([
       "campos"=>['nombre_seccion','id_seccion']
     ]);
 
     
-    foreach ($niveles as $key => $nivel) {
+    foreach ($niveles as $key => $dato) {
       $num_docentes = 0;
       $num_niños =0;
-       echo "<option value=\"{$nivel['id_seccion']}\">".$nivel['nombre_seccion']."</option>";
     
+    plantilla("componentes/option",[
+        "value"=>$dato['id_seccion'],
+        "contenido"=>$dato['nombre_seccion']
+    ]);
+       
      }
     
   

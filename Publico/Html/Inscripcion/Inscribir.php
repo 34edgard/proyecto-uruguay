@@ -4,7 +4,7 @@
     </h2>
    
 <form
-hx-post="/Codigo_php/Modulos/Gestion_plantel.php"
+hx-post="/plantel/AnioEscolar/registrar"
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
 >
@@ -17,7 +17,7 @@ value="<?= $ci_escolar ?>"
 </label>
 <label
 
-hx-get="/Codigo_php/Modulos/Gestion_plantel.php?id_aulas"
+hx-get="/plantel/aulas/select"
 hx-trigger="load"
 hx-target="#aula"
 >
@@ -33,7 +33,7 @@ class="form-control m-2"
 
 
 <label
-  hx-get="/Codigo_php/Modulos/Gestion_plantel.php?periodo_escolar"
+  hx-get="/plantel/periodo/escolar?periodo_escolar"
 hx-trigger="load"
 hx-target="#periodo_escolar"
 >

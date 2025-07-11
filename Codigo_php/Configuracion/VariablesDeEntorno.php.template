@@ -1,6 +1,9 @@
 <?php
 //cra un archivo con este código 
-/*const puerto = "tu puerto";
-const usuario_BD = "tu usuario";
-const contraceña_BD = "tu contraceña";
-const nombre_BD = "tu base de datos";*/
+const puerto = "0.0.0.0:3306";
+const usuario_BD = "root";
+const contraceña_BD = "root";
+const nombre_BD = "app-uruguay";
+
+const DSN = "sqlite:app-uruguay.db";
+const tipo_bd = "sqlite";

@@ -7,11 +7,11 @@
 
 
 
-    (new niveles)->registrarDato([
+    (new niveles)->registrar([
       "campos"=>['id_tipo_nivel'],
       "valores"=>[$id_nivel]
      ]);
-    $id_niveles = (new niveles)->consultarDato([
+    $id_niveles = (new niveles)->consultar([
       "campos"=>['id_tipo_nivel','id_nivel'],
       "where"=>[
         ["campo"=>'id_tipo_nivel',"operador"=>'=',"valor"=>$id_nivel]
@@ -22,7 +22,7 @@
       "limit"=>1
     ])[0]['id_nivel'];
       
-    (new secciones)->registrarDato([
+    (new secciones)->registrar([
       "campos"=>['id_nivel','nombre_seccion'],
       "valores"=>[$id_niveles,$nombre_seccion]
 

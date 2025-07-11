@@ -1,14 +1,3 @@
- <style>
-        body {
-            background-color: #f8f9fa; /* Color de fondo suave */
-        }
-        .jumbotron {
-            background-color: #ffffff; /* Jumbotron blanco */
-            border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra sutil */
-        }
-    </style>
-
 
 <div class="container mt-5">
     <div class="jumbotron">

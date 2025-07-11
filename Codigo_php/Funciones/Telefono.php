@@ -6,7 +6,7 @@ $registrarTelefono =function ($numero, $Propietario,$tipo,$id_Propietario){
  // $id_Propietario = ['ci_escolar','id_representante','id_docente'];
   
   $TELEFONO = new Telefono;
-  $TELEFONO->registrarDato([ 'campos' => ['tipo_telefono', 'numero_telefono',$Propietario],'valores' =>[$tipo,$numero,$id_Propietario]]);
+  $TELEFONO->registrar([ 'campos' => ['tipo_telefono', 'numero_telefono',$Propietario],'valores' =>[$tipo,$numero,$id_Propietario]]);
  // $id = $TELEFONO->consultarId([ 'campos' => [ 'id_telefono']]);
   
 //  return $id[0][0];

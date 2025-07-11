@@ -10,10 +10,12 @@ Registrar estudiante
 </h3>
 
 <form 
-hx-post="/Gestion_Info_Estudiante_Reprecentante"
+ 
+
+hx-post="/reprecentante/registrar"
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
-  >
+ >
 <h3 class="text-primary">Datos del representante </h3>
 <label class="col-md-6 themed-grid-col"
 >Apellidos:
@@ -21,7 +23,7 @@ hx-target="#InicioInscripcion"
 type="text"
 name="apellidos"
 class="form-control m-1"
-/>
+>
 </label>
 <label class="col-md-6 themed-grid-col"
 >Nombres del representante:
@@ -29,7 +31,7 @@ class="form-control m-1"
 type="text"
 name="nombres"
 class="form-control m-1"
-/>
+>
 </label>
 <label class="col-md-4 themed-grid-col"
 >Cedula:
@@ -37,7 +39,7 @@ class="form-control m-1"
 type="number"
 name="cedula"
 class="form-control m-1"
-/>
+>
 </label>
 
 <label class="col-md-3 themed-grid-col"
@@ -46,13 +48,14 @@ class="form-control m-1"
 type="date"
 name="fecha_nacimiento"
 class="form-control m-1"
-/>
+>
 </label>
 
 <label class=""
 >Nacionalidad
 <select
-hx-get="/Gestion_Info_Estudiante_Reprecentante"
+
+hx-get="/estudiante/nacionalidad"
 hx-trigger="load"
 hx-target="#nacionalidad"
 id="nacionalidad"
@@ -63,11 +66,15 @@ class="form-control m-1"
 </select>
 </label>
 
+
+
+
+
 <label class="col-md-4 themed-grid-col"
 >Nivel de instruccion:
 
 <select
-hx-get="/Gestion_Info_Estudiante_Reprecentante"
+hx-get="/estudiante/nivel_instruccion"
 hx-trigger="load"
 hx-target="#Nivel_Instruccion"
 id="Nivel_Instruccion"
@@ -81,7 +88,7 @@ class="form-control m-1"
 <label class="col-md-4 themed-grid-col"
 >Ocupación
 <select require
-hx-get="/Gestion_Info_Estudiante_Reprecentante"
+hx-get="/estudiante/ocupacion"
 hx-trigger="load"
 hx-target="#ocupacion"
 id="ocupacion"
@@ -92,8 +99,10 @@ class="form-control m-1"
 </label>
 
 
+
 <h4 class="text-primary"
-hx-get="/Gestion_Inscripcion_Estudiante?estado=1"
+
+hx-get="/direccion/parroquia?estado=1"
 id="fo"
 hx-target="#parroquia1"
 hx-trigger="load"
@@ -102,7 +111,7 @@ hx-trigger="load"
 <label class="col-md-4 themed-grid-col">Parroquia
 <select
 id="parroquia1"
-hx-get="/Gestion_Inscripcion_Estudiante"
+hx-get="/direccion/sector1"
 name="parroquia1"
 hx-target="#sector1"
 hx-trigger="change"
@@ -119,12 +128,15 @@ class="form-control m-1"
 id="sector1"
 
 
-hx-target="#calle1"
-hx-trigger="change"
-
 class="form-control m-1"
 name="id_direccion_trabajo"
 >
+
+
+
+
+
+
 
 </select>
 </label>
@@ -145,8 +157,13 @@ name="id_direccion_trabajo"
   placeholder=""
   >
 </label>
+
+
+
+
 <h4 class="text-primary"
-hx-get="/Gestion_Inscripcion_Estudiante?estado=1"
+         
+hx-get="/direccion/parroquia?estado=1"
 id="fo"
 hx-target="#parroquia2"
 hx-trigger="load"
@@ -157,7 +174,7 @@ hx-trigger="load"
 >Parroquia
 <select
 id="parroquia2"
-hx-get="/Gestion_Inscripcion_Estudiante"
+hx-get="/direccion/sector"
 name="parroquia2"
 hx-target="#sector2"
 hx-trigger="change"
@@ -175,6 +192,9 @@ name="id_direccion_habitacion"
 id="sector2"
 class="form-control m-1"
 >
+
+
+
 
 </select>
 </label>
@@ -202,4 +222,3 @@ class="form-control m-1"
 </button>
 
 </form>
-

@@ -1,5 +1,5 @@
 <form
-hx-post="/Gestion_Info_Estudiante_Reprecentante"
+hx-post="/reprecentante/extra"
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
   >
@@ -9,7 +9,7 @@ hx-target="#InicioInscripcion"
 type="tel"
 name="numero_telefono"
 class="form-control m-1"
-/>
+>
 </label>
   <div class="mb-3">
     <label for="tipo_telefono" class="form-label">tipo telefono</label>

@@ -7,6 +7,9 @@
 
    extract($_POST);
    
+
+
+  
    registrarDocumentosInscripcion($cedula_escolar,1,$partida_nacimiento);
    registrarDocumentosInscripcion($cedula_escolar,2,$copia_cedula_madre);
    registrarDocumentosInscripcion($cedula_escolar,3,$copia_cedula_padre);

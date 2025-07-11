@@ -5,9 +5,12 @@
  $optenerSexos = function(){
   $datos = ['masculino', 'femenino'];
    foreach ($datos as $dato){
-     echo  "<option value='$dato'> ".$dato."</option>";
-   }
-   echo $campo;
+    plantilla("componentes/option",[
+        "value"=>$dato,
+        "contenido"=>$dato
+    ]);
+    }
+   
   };
   
   })();

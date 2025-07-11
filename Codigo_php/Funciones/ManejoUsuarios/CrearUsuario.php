@@ -4,7 +4,7 @@
 global $crear_usuario;
   $crear_usuario = function () {
     extract($_POST);
-    (new correo())->registrarDato([
+    (new correo())->registrar([
       "campos" => ["email"],
       "valores" => [$correo],
     ]);
@@ -13,7 +13,7 @@ global $crear_usuario;
     ];
     $usuarios = new Personal_Administrativo();
     $contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
-    $usuarios->registrar_datos([
+    $usuarios->registrar([
       "campos" => [
         "cedula",
         "nombres",
@@ -34,7 +34,19 @@ global $crear_usuario;
       ],
     ]);
     $extras=func_get_args();
-    $extras[1][0]();
-    echo "<script >alert('el usuario fue creado correctamente')</script>";
+    
+    
+    plantilla('componentes/h1',[
+        "contenido"=>'el usuario fue creado correctamente'
+    ]);
+    
+    plantilla('componentes/htmx',[
+        "hx"=>['trigger'=>'load',"target"=>'#usuarios',"url"=>'/usuario/list']
+    ]);
+    
+    
+   // $extras[1][0]();
+  //  scriptAlert('');
+    
   };
 })();

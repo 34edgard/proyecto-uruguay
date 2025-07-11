@@ -4,7 +4,7 @@
   $consultarPeriodoEscolar = function() {
     $extras = func_get_args();
     extract($_POST);
- $periodos   = (new periodo_escolar)->consultarDato([
+ $periodos   = (new periodo_escolar)->consultar([
       "campos"=>['periodo']
     ]);
 

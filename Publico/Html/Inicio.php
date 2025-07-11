@@ -1,3 +1,5 @@
+
+
 <div class="container mt-5">
   <div class="container d-flex ">
     <a class="btn btn-primary" href="/Gestion_Sesion">
@@ -7,7 +9,7 @@
   
   <h1 class="text-center">Bienvenida al sistema</h1>
 <div class="offcanvas-body p-3 row">
-	  <div class="col-md-10 themed-grid-col my-3">
+      <div class="col-md-10 themed-grid-col my-3">
     <div class="card">
       <img src="/Publico/Img/img-1.jpeg" class="card-img-top" alt="niños el uruguay" style="height:250px;  ">
       <div class="card-body">

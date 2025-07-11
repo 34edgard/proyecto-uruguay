@@ -5,3 +5,8 @@ function cambiarPagina(string $pagina)
   navigation.navigate('/$pagina');
   </script>";
 }
+
+function scriptAlert(string $mensage){
+ echo "<script >alert('{$mensage}')</script>";
+        
+}

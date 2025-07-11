@@ -5,26 +5,41 @@
   $editar_usuario = function () {
     extract($_POST);
     $usuarios = new Personal_Administrativo();
-    if ($contraseña != "") {
-      $contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
-      $usuarios->editar_datos([
-        "campos" => ["cedula", "nombres", "apellidos", "id_rol", "contrasena"],
-        "valores" => [$ci, $nombre, $apellido, $rol, $contraseña_hash],
-        "where"=>[
-          ["campo"=>'cedula',"operador"=>'=', "valor" => $ci]
-        ]
-      ]);
-    } else {
-      $usuarios->editar_datos([
-        "campos" => ["cedula", "nombres", "apellidos", "id_rol"],
-        "valores" => [$ci, $nombre, $apellido, $rol],
+    $correoUsuario = new correo();
+$datosActuales = [
+  "campos" => ["cedula", "nombres", "apellidos", "id_rol","usuario"],
+  "valores" => [$ci, $nombre, $apellido, $rol, $nombre_usuario],
   "where"=>[
-          ["campo"=>'cedula',"operador"=>'=', "valor" => $ci]
-        ]
-      ]);
-    }
+    ["campo"=>'cedula',"operador"=>'=', "valor" => $ci]
+  ]
+];
+
+$id_correo = $usuarios->consultar([
+    "campos"=>['id_correo'],
+       "where"=>[
+           ["campo"=>'cedula',"operador"=>'=',"valor"=>$ci]
+       ]
+])[0]['id_correo'];
+
+$nuevoCorreo = [
+    "campos"=>['email'],
+    "valores"=>[$correo],
+    "where"=>[
+        ["campo"=>'id_correo',"operador"=>'=',"valor"=>$id_correo]
+    ]
+];
+ if ($contraseña != "") {
+      $contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
+    $datosActuales["campos"][] = "contrasena";
+    $datosActuales["valores"][] = $contraseña_hash;
+    } 
+    
+    $usuarios->editar($datosActuales);
+    $correoUsuario->editar($nuevoCorreo);
+    
+  
     $extras = func_get_args();
-  //  var_dump($extras);
+
     $extras[1][0]();
   };
 

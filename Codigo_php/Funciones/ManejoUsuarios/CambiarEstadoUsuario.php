@@ -11,22 +11,30 @@
       ];
 
     $usuarios = new Personal_Administrativo();
-    $estadoActual = $usuarios->consultar_datos($datos);
-    if ($estadoActual[0]["estado"] == "activo") {
+    $estadoActual = $usuarios->consultar($datos);
+   
+   $estado = "activo";
+   $estilo = "success";
+ if ($estadoActual[0]["estado"] == "activo") {
       $estado = "inactivo";
       $estilo = "secondary";
-    } else {
-      $estado = "activo";
-      $estilo = "success";
-    }
+    } 
 
     $datos["valores"] = [$ci, $estado];
-    $usuarios->editar_datos($datos);
+    $usuarios->editar($datos);
+//echo "<button class='btn btn-{$estilo}' 
+ //  hx-target='#estado{$estadoActual[0]["cedula"]}'
+    //     hx-get='/usuario/cambiarEstadoUsuario?cambiarEstadoUsuario&ci={$estadoActual[0]["cedula"]}'          hx-trigger='click'          >{$estado}</button>";
 
+plantilla('componentes/button',[
+    "contenido"=>$estado,
+    "estilo"=>$estilo,
+    "hx"=>[
+        "url"=>"/usuario/cambiarEstadoUsuario?cambiarEstadoUsuario&ci={$estadoActual[0]['cedula']}",
+        "target"=>"#estado{$estadoActual[0]['cedula']}",
+        "trigger"=>'click'
+        ]
+]);
 
-
-   echo "<button class='btn btn-{$estilo}' 
-   hx-target='#estado{$estadoActual[0]["cedula"]}'
-         hx-get='/Gestion_Usuario?cambiarEstadoUsuario&ci={$estadoActual[0]["cedula"]}'          hx-trigger='click'          >{$estado}</button>";
-  };
+     };
 })();

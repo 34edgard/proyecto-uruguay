@@ -8,7 +8,7 @@
     $DOCENTE = new Docente();
   /*  $id_telefono = $extras[1][0]($telefono);*/
     
-    $DOCENTE->registrar_datos([
+    $DOCENTE->registrar([
       "campos" => ["cedula", "nombres", "apellidos", "fecha_nacimiento"],
       "valores" => [
         $cedula,
@@ -17,7 +17,7 @@
         $fecha_nacimiento
       ]
     ]);
-    $id_docente = (new Docente)->consultar_datos(['campos'=>['cedula','id_docente'],
+    $id_docente = (new Docente)->consultar(['campos'=>['cedula','id_docente'],
       "where"=>[
         ["campo"=>'cedula',"operador"=>'=',"valor"=>$cedula     ]
       ]

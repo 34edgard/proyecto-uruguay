@@ -1,5 +1,5 @@
 <form
-hx-post="/Gestion_Info_Estudiante_Reprecentante"
+hx-post="/estudiante/extra"
 hx-trigger="submit"
 hx-target="#InicioInscripcion"
   > 
@@ -14,7 +14,7 @@ hx-target="#InicioInscripcion"
   name="talla_camisa"
   class="form-control m-1"
   id="talla_camisa"
-  />
+  >
 </label>
 <label class="control-label m-1 p-1 ">
 pantalón
@@ -23,7 +23,7 @@ type="text"
 name="talla_pantalon"
 class="form-control m-1"
 id="pantalon"
-/>
+>
 </label>
 <label class="control-label m-1 p-1 ">
 zapato
@@ -32,7 +32,7 @@ type="text"
 name="talla_zapato"
 id="zapato"
 class="form-control m-1"
-/>
+>
 </label>
 
 <label class="control-label m-1 p-1 ">
@@ -43,7 +43,7 @@ type="text"
 name="peso"
 class="form-control m-1"
 id="peso"
-/>
+>
 </label>
 
 
@@ -56,7 +56,7 @@ type="text"
 name="circunferencia_braquial"
 class="form-control m-1"
 id="cb"
-/>
+>
 </label>
 
 
@@ -122,7 +122,7 @@ copia de la cedula del padre
 
 <label for="">
  entregado
-<input type="checkbox" name="fotos_tipo_carnet" value="entragado">
+<input type="checkbox" name="fotos_tipo_carnet" value="entregado">
 </label>
 <label for="">
  pendiente

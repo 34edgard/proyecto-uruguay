@@ -9,7 +9,7 @@
        $anioFin = Fecha($fin_periodo)[0];
 
      $periodo = $anioInicio."-".$anioFin;
-    (new periodo_escolar)->registrarDato([
+    (new periodo_escolar)->registrar([
       "campos"=>['periodo'],
       'valores'=>[$periodo]
     ]);

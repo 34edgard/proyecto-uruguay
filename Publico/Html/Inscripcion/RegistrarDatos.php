@@ -23,14 +23,14 @@
     <div class="tab-content" role="tablist">
 <div class="tab-pane table-responsive active" id="representante" role="tabpanel">
 <div class=" d-grid">
-<h3 class="text-primary">datos del representante </h3>
+<h3 class="text-primary">Datos del representante </h3>
 <label class="col-md-6 themed-grid-col"
 >Apellidos del representante:
 <input require
 type="text"
 name="Datos_familiares_Reprecentante_Apellidos"
 class="form-control m-1"
-/>
+>
 </label>
 <label class="col-md-6 themed-grid-col"
 >nombres del representante:
@@ -38,7 +38,7 @@ class="form-control m-1"
 type="text"
 name="Datos_familiares_Reprecentante_Nombres"
 class="form-control m-1"
-/>
+>
 </label>
 <label class="col-md-4 themed-grid-col"
 >C.I:

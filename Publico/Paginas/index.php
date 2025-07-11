@@ -1,8 +1,20 @@
 <?php
 $op = ["op"=>0];
-include "./Publico/Paginas/enunciado.php";
-plantilla('Head',$op);
-plantilla('Header',$op);
-plantilla('Inicio');
-plantilla('Footer',$op);
+
+
+$config = [
+    "tituloPagina"=>"República del Uruguay",
+    "estilos"=>['bootstrap.min','estilos'],
+    "estilosD"=>['estilos'],
+    
+    "scripts"=>['color-modes','htmx','bootstrap.bundle.min','main'],
+    "contenidos"=>[
+        ["componente"=>'estructura/Header',"configuracion"=>$op],
+        ["componente"=>'Inicio',"configuracion"=>$op],
+       
+    ]
+];
+
+
+plantilla('estructura/pagina',$config);
 

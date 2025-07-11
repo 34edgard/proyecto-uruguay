@@ -7,12 +7,12 @@
 
     //registrando la direccion
     
-  (new ubicacion)->registrar_info([
+  (new ubicacion)->registrar([
     "campos"=>['id_sector','nro_vivienda','calle_vereda_avenida'],  
      "valores"=>[$id_direccion,$nro_vivienda1,$descripcion_direccion]
   ]);
     /// consultando el id de la dieccion registrada
- $id_ubicacion=(new ubicacion)->consultar_info([
+ $id_ubicacion=(new ubicacion)->consultar([
    "campos"=>['id_sector','id_ubicacion'],
    "where"=>[
      [
@@ -32,7 +32,7 @@
     // registrando el lugar de nacimiento 
     //
 
-    (new lugar_nacimiento)->registrar_info([
+    (new lugar_nacimiento)->registrar([
       "campos"=>["id_estado","id_municipio","id_parroquia"],
       "valores"=>[$id_estado,$id_municipio,$id_parroquia]
     ]);
@@ -40,7 +40,7 @@
     //consultar id_lugar_nacimiento
       
 
-$id_lugar_nacimiento=(new lugar_nacimiento)->consultar_info([
+$id_lugar_nacimiento=(new lugar_nacimiento)->consultar([
   "campos"=>['id_estado','id_lugar_nacimiento'],
   "where"=>[
     ["campo"=>'id_estado',"operador"=>'=',"valor"=>$id_estado ]
@@ -58,7 +58,7 @@ $id_lugar_nacimiento=(new lugar_nacimiento)->consultar_info([
 
        $edad_ano = Edad($fecha_nacimiento);
        $edad_meses = Edad($fecha_nacimiento);
-    (new Estudiante)->registrar_datos([ "campos"=>
+    (new Estudiante)->registrar([ "campos"=>
       ['ci_escolar', 'nombres' , 'apellidos',   'fecha_nacimiento',
       'id_lugar_nacimiento', 'id_nacionalidad', 'edad_ano', 'edad_meses',
       'sexo' , 'id_ubicacion' , 'id_procedencia', 'id_condicion_medica' ,      'id_discapacidad', 'id_estado_nutricional'],

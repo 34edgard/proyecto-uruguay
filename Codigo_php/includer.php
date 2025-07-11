@@ -43,15 +43,23 @@ function incluirArchivos($archivos, $url) {
 }
 $p =__DIR__.'/';
 $urlF = $p . 'Funciones/';
+
+$urlL = $p . 'Librerias/';
 $urlConf = $p . 'Configuracion/';
-$urlC = $p . 'Clases/';
+$urlCF = $p . 'Clases/liki/';
+$urlCA = $p . 'Clases/app/';
 //echo $urlC;
-$clases = listarArchivosEnDirectorio($urlC);
+$clasesF = listarArchivosEnDirectorio($urlCF);
+$clasesA = listarArchivosEnDirectorio($urlCA);
+$Librerias = listarArchivosEnDirectorio($urlL);
+
 $conf = listarArchivosEnDirectorio($urlConf);
 $funciones = listarArchivosEnDirectorio($urlF);
 
 incluirArchivos($conf,$urlConf);
-incluirArchivos($clases,$urlC);
+incluirArchivos($Librerias,$urlL);
+incluirArchivos($clasesF,$urlCF);
+incluirArchivos($clasesA,$urlCA);
 incluirArchivos($funciones,$urlF);
 
 

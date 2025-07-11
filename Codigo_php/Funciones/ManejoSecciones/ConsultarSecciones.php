@@ -3,7 +3,7 @@
   global $consultarSecciones;
   $consultarSecciones = function() {
 
-    $niveles = (new secciones)->consultarDato([
+    $niveles = (new secciones)->consultar([
       "campos"=>['nombre_seccion']
     ]);
 

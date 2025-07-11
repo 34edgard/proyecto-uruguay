@@ -4,7 +4,7 @@
   $consultarAula  = function() {
     $extras = func_get_args();
     extract($_POST);
- $aulas   = (new aulas)->consultarDato([
+ $aulas   = (new aulas)->consultar([
       "campos"=>['id_aula','nombre_aula']
     ]);
 

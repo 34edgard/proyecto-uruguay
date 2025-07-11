@@ -7,13 +7,17 @@
     extract($_POST);
     // var_dump($extras);
     session_start();
-    $arreglo = $extras[1][0]($cedula, $contraseña);
+    $arreglo = $extras[1][0]($correo, $contraseña);
     //return;
     if ($arreglo[0]) {
-      $_SESSION["ci"] = $arreglo[1][0]['cedula'];
-      $_SESSION["contraseña"] = $arreglo[1][0]['contrasena'];
-      $_SESSION["rol"] = $arreglo[1][0]['id_rol'];
-      $_SESSION["nombre"] = $arreglo[1][0]['nombres'];
-    }
+        
+        foreach($arreglo[1][0] as $id => $campo){
+            $_SESSION[$id] = $campo;
+            
+        }
+        
+       }
+    
+    
   };
   })();

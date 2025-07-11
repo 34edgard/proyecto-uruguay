@@ -1,44 +1,62 @@
 <?php
 include "./Codigo_php/includer.php";
+
 //print_r($_POST);
-Peticion::metodo_get('/inicio',function(){
-include "./Publico/Paginas/pag_1.php";
+//print_r($_GET);
+Ruta::get('/src/{html}',function($p2){
+    plantilla($p2[0]);
 });
 
-Peticion::metodo_get('/Administrar',function(){
-  include "./Publico/Paginas/pag_6.php";
-});
-Peticion::metodo_get('/',function(){
-  include "./Publico/Paginas/index.php";
+
+
+
+
+Ruta::get('/src',function($p2){
+    plantilla($_GET['html']);
+},['html']);
+
+Ruta::get('/inicio',function(){
+ paginas('inicio');
 });
 
+Ruta::get('/Administrar',function(){
+  paginas('Administrar');
+});
+Ruta::get('/',function(){
+   paginas('index');
+});
+Ruta::get('/index.php',function(){
+paginas('index');
+});
 //Gestion_Sesion
-Peticion::metodo_get('/Gestion_Sesion',function(){
-include "./Publico/Paginas/pag_0.php";
+Ruta::get('/Gestion_Sesion',function(){
+paginas('Gestion_Sesion');
 });
 
-Peticion::metodo_get('/Gestion_Sesion',$cerrar_sesion,['cerrar_sesion']);
-Peticion::metodo_post('/Gestion_Sesion',$iniciar_sesion,['Inicio_secion','cedula','contraseña'],[$validar_datosDB]);
+Ruta::get('/Cerrar_Sesion',$cerrar_sesion);
+Ruta::post('/Gestion_Sesion',$iniciar_sesion,['Inicio_secion','correo','contraseña'],[$validar_datosDB]);
 
 //Gestion_Usuario
 //
 
 
-Peticion::metodo_post('/Gestion_Usuario',$crear_usuario,['Crear_usuario','cedula','nombre','apellido','correo','usuario','rol','contraseña'],[$consultar_usuario]);
+Ruta::post('/usuario/crear',$crear_usuario,['Crear_usuario','cedula','nombre','apellido','correo','usuario','rol','contraseña'],[$consultar_usuario]);
 
-Peticion::metodo_get('/Gestion_Usuario',$consultar_usuario);
-Peticion::metodo_get('/Gestion_Usuario',$consultar_rol,['rol']);
-Peticion::metodo_get('/Gestion_Usuario',$consultar_usuario_ci,['consultar_usuario_ci','ci']);
+Ruta::get('/usuario/list',$consultar_usuario);
+Ruta::get('/usuario/rol',$consultar_rol,['rol']);
+Ruta::get('/usuario/cedula',$consultar_usuario_ci,['consultar_usuario_ci','ci']);
 
-Peticion::metodo_get('/Gestion_Usuario',$eliminar_usuario,['eliminarUsuario','ci'],[$consultar_usuario]);
-
-
-Peticion::metodo_get('/Gestion_Usuario',$cambiarEstado,['cambiarEstadoUsuario','ci']);
+Ruta::get('/usuario/eliminar',$eliminar_usuario,['eliminarUsuario','ci'],[$consultar_usuario]);
 
 
-Peticion::metodo_get('/Gestion_Usuario',$editar_usuario_form,['formularioEdicion']);
-Peticion::metodo_get('/Gestion_Usuario',$confirmarEliminacion,['confimarEliminacion']);
-Peticion::metodo_post('/Gestion_Usuario',$editar_usuario,['EditarUsuario','ci','nombre','apellido','contraseña','rol'],[$consultar_usuario]);
+Ruta::get('/usuario/cambiarEstadoUsuario',$cambiarEstado,['cambiarEstadoUsuario','ci']);
+
+
+Ruta::get('/usuario/form/edicion',$editar_usuario_form,['formularioEdicion']);
+Ruta::get('/usuario/eliminar_confir',$confirmarEliminacion,['confimarEliminacion']);
+//"/usuario/editar
+
+Ruta::post('/usuario/editar',$editar_usuario,['EditarUsuario','ci','nombre','nombre_usuario','correo','apellido','contraseña','rol'],[$consultar_usuario]);
 
 //
 //
@@ -46,13 +64,15 @@ Peticion::metodo_post('/Gestion_Usuario',$editar_usuario,['EditarUsuario','ci','
 //
 
 
-Peticion::metodo_get('/Gestion_Docente',$consultarDocente);
-Peticion::metodo_get('/Gestion_Docente',$consultarDocenteCI,['ci']);
-Peticion::metodo_get('/Gestion_Docente',$formularioEdicion,['formularioEdicion']);
-Peticion::metodo_get('/Gestion_Docente',$eliminarDocente,['eliminar'],[$consultarDocente]);
-Peticion::metodo_get('/Gestion_Docente',$ConfirmarEliminacion,['ConfirmarEliminacion']);
-Peticion::metodo_post('/Gestion_Docente',$registrarDocente,['formulario','cedula','nombre','apellido','fecha_nacimiento','telefono','tipo_telefono'],[$registrarTelefono]);
-Peticion::metodo_post('/Gestion_Docente',$editarDocente,['Editar','cedula','nombre','apellido','fecha_nacimiento','telefono','tipo_telefono'],[$consultarDocente]);
+Ruta::get('/docente',$consultarDocente);
+Ruta::get('/docente/ci',$consultarDocenteCI,['ci']);
+Ruta::get('/docente/ci/imprimir',$imprimirDocenteCI,['ci']);
+
+Ruta::get('/docente/formulario',$formularioEdicion,['formularioEdicion']);
+Ruta::get('/docente/eliminar',$eliminarDocente,['eliminar'],[$consultarDocente]);
+Ruta::get('/docente/confirmar/eliminacion',$ConfirmarEliminacion,['ConfirmarEliminacion']);
+Ruta::post('/docente/registrar',$registrarDocente,['formulario','cedula','nombre','apellido','fecha_nacimiento','telefono','tipo_telefono'],[$registrarTelefono]);
+Ruta::post('/docente/editar',$editarDocente,['Editar','cedula','nombre','apellido','fecha_nacimiento','telefono','tipo_telefono'],[$consultarDocente]);
 
 
 //
@@ -62,25 +82,25 @@ Peticion::metodo_post('/Gestion_Docente',$editarDocente,['Editar','cedula','nomb
 
 
 
-Peticion::metodo_post('/Gestion_plantel',$crearPeriodoEscolar,['inicio_periodo','fin_periodo'],[$consultarPeriodoEscolar]);
-Peticion::metodo_post('/Gestion_plantel',$consultarPeriodoEscolar,[]);
-Peticion::metodo_get('/Gestion_plantel',$consultarPeriodo,['periodo_escolar']);
-Peticion::metodo_get('/Gestion_plantel',$consultarAulas,['aula']);
-Peticion::metodo_get('/,Gestion_plantel',$crearNivel,['nombre_nivel'],[$consultarNivel]);
-Peticion::metodo_get('/Gestion_plantel',$consultarNivel,['id_nivel']);
-Peticion::metodo_get('/Gestion_plantel',$consultarNiveles,['id_niveles']);
+Ruta::post('/plantel/periodo/crear',$crearPeriodoEscolar,['inicio_periodo','fin_periodo'],[$consultarPeriodoEscolar]);
+Ruta::post('/plantel/periodo/consultar',$consultarPeriodoEscolar,[]);
+Ruta::get('/plantel/periodo/escolar',$consultarPeriodo,['periodo_escolar']);
+Ruta::get('/plantel/aulas',$consultarAulas,['aula']);
+Ruta::get('/plantel/nivel/crear',$crearNivel,['nombre_nivel'],[$consultarNivel]);
+Ruta::get('/plantel/nivele',$consultarNivel,['id_nivel']);
+Ruta::get('/plantel/niveles',$consultarNiveles,['id_niveles']);
 
-Peticion::metodo_post('/Gestion_plantel',$crearSeccion,['nombre_seccion','id_nivel'],[$consultarSecciones]);
-Peticion::metodo_get('/Gestion_plantel',$consultarSecciones,['id_secciones']);
-Peticion::metodo_get('/Gestion_plantel',$consultarSeccion,['id_seccion']);
+Ruta::post('/plantel/seccion/crear',$crearSeccion,['nombre_seccion','id_nivel'],[$consultarSecciones]);
+Ruta::get('/plantel/secciones',$consultarSecciones,['id_secciones']);
+Ruta::get('/plantel/seccion',$consultarSeccion,['id_seccion']);
 
-Peticion::metodo_post('/Gestion_plantel',$crearAula,['id_seccion','nombre_aula'],[$consultarAula]);
-Peticion::metodo_get('/Gestion_plantel',$consultarAulas,['id_aulas']);
-Peticion::metodo_get('/Gestion_plantel',$consultarAula,['id_aula']);
+Ruta::post('/plantel/aula/crear',$crearAula,['id_seccion','nombre_aula'],[$consultarAula]);
+Ruta::get('/plantel/aulas/select',$consultarAulas);
+Ruta::get('/plantel/aula',$consultarAula,['id_aula']);
 
-Peticion::metodo_post('Gestion_plantel',$registrarAnioEscolar,['ci_escolar','aula','periodo_escolar']);
+Ruta::post('/plantel/AnioEscolar/registrar',$registrarAnioEscolar,['ci_escolar','aula','periodo_escolar']);
 
-Peticion::metodo_get('/Gestion_plantel',$consultarAnioEscolar,['id_inscritos']);
+Ruta::get('/plantel/AnioEscolar',$consultarAnioEscolar,['id_inscritos']);
 
 //
 //
@@ -91,19 +111,20 @@ Peticion::metodo_get('/Gestion_plantel',$consultarAnioEscolar,['id_inscritos']);
 
 
 
-Peticion::metodo_get('/Gestion_Info_Estudiante_Reprecentante',$optenerSexos,["sexo"]);
+Ruta::get('/estudiante/sexo',$optenerSexos,["sexo"]);
 
 
-Peticion::metodo_get('/Gestion_Info_Estudiante_Reprecentante',$generarCedulaEscolar,['ci_escolar']);
-Peticion::metodo_get('/Gestion_Info_Estudiante_Reprecentante',$consultarOcupacion,['id_ocupacion']);
-Peticion::metodo_get('Gestion_Info_Estudiante_Reprecentante',$consultarNacionalidad,['id_nacionalidad']);
-Peticion::metodo_get('/Gestion_Info_Estudiante_Reprecentante',$consultarNivelInstruccion,['id_nivel_instruccion']);
-Peticion::metodo_get('/Gestion_Info_Estudiante_Reprecentante',$consultarEstadoNutricional,['id_estado_nutricional']);
-Peticion::metodo_get('/Gestion_Info_Estudiante_Reprecentante',$consultarCondicionMedica,['id_condicion_medica']);
-Peticion::metodo_get('/Gestion_Info_Estudiante_Reprecentante',$consultarDiscapacidad,['id_discapacidad']);
-Peticion::metodo_get('Gestion_Info_Estudiante_Reprecentante',$consultarProcedencia,['id_procedencia']);
+Ruta::get('/estudiante/cedula',$generarCedulaEscolar,['ci_escolar']);
+Ruta::get('/estudiante/ocupacion',$consultarOcupacion,['id_ocupacion']);
+Ruta::get('/estudiante/nacionalidad',$consultarNacionalidad,['id_nacionalidad']);
+Ruta::get('/estudiante/nivel_instruccion',$consultarNivelInstruccion,['id_nivel_instruccion']);
+Ruta::get('/estudiante/estado_nutricional',$consultarEstadoNutricional,['id_estado_nutricional']);
+Ruta::get('/estudiante/condicion_medica',$consultarCondicionMedica,['id_condicion_medica']);
+Ruta::get('/estudiante/discapacidad',$consultarDiscapacidad,['id_discapacidad']);
+Ruta::get('/estudiante/procedencia',$consultarProcedencia,['id_procedencia']);
 
-Peticion::metodo_post('/Gestion_Info_Estudiante_Reprecentante',$registrarReprecentante ,[ 
+
+Ruta::post('/reprecentante/registrar',$registrarReprecentante ,[ 
   'nro_vivienda1',
   'nro_vivienda2',
   'parroquia1'  ,
@@ -120,8 +141,8 @@ Peticion::metodo_post('/Gestion_Info_Estudiante_Reprecentante',$registrarReprece
   'id_direccion_trabajo'  ,
   'descripcion_direccion_trabajo'
   ]);
-Peticion::metodo_post('/Gestion_Info_Estudiante_Reprecentante',$registrarDatosExtraReprecentante ,['numero_telefono','id_propietario','tipo_telefono'],[ $registrarTelefono]);
-Peticion::metodo_post('/Gestion_Info_Estudiante_Reprecentante',$registrarEstudiante ,['ci_escolar',
+Ruta::post('/reprecentante/extra',$registrarDatosExtraReprecentante ,['numero_telefono','id_propietario','tipo_telefono'],[ $registrarTelefono]);
+Ruta::post('/estudiante/registrar',$registrarEstudiante ,['ci_escolar',
   'nombres',
   'apellidos',
   'fecha_nacimiento',
@@ -140,7 +161,8 @@ Peticion::metodo_post('/Gestion_Info_Estudiante_Reprecentante',$registrarEstudia
   'id_condicion_medica',
   'id_discapacidad',
   'id_estado_nutricional'],[$generarCedulaEscolar]);
-Peticion::metodo_post('/Gestion_Info_Estudiante_Reprecentante',$registrarDatosExtraEstudiante ,[
+
+Ruta::post('/estudiante/extra',$registrarDatosExtraEstudiante ,[
   "cedula_escolar",
   "talla_camisa",
   "talla_pantalon",
@@ -162,13 +184,17 @@ Peticion::metodo_post('/Gestion_Info_Estudiante_Reprecentante',$registrarDatosEx
 
 //Peticion::metodo_get('/Gestion_Inscripcion_Estudiante',$registrarNiños,$valoresParaInscrion);
 
-Peticion::metodo_get('/Gestion_Inscripcion_Estudiante',$consultarEstado,['pais']);
-Peticion::metodo_get('/Gestion_Inscripcion_Estudiante',$consultarMunicipio,['id_estado']);
+Ruta::get('/direccion/estado',$consultarEstado,['pais']);
+Ruta::get('/direccion/municipio',$consultarMunicipio,['id_estado']);
 
 
-Peticion::metodo_get('/Gestion_Inscripcion_Estudiante',$consultarParroquia2,['id_municipio']);
-Peticion::metodo_get('/Gestion_Inscripcion_Estudiante',$consultarParroquia,['estado']);
+Ruta::get('/direccion/parroquia2',$consultarParroquia2,['id_municipio']);
+Ruta::get('/direccion/parroquia',$consultarParroquia,['estado']);
 
-Peticion::metodo_get('/Gestion_Inscripcion_Estudiante',$consultarSector,['parroquia1']);
-Peticion::metodo_get('Gestion_Inscripcion_Estudiante',$consultarSector,['parroquia2']);
-Peticion::metodo_get('/Gestion_Inscripcion_Estudiante',$consultarCalle,['calle']);
+Ruta::get('/direccion/sector1',$consultarSector,['parroquia1']);
+Ruta::get('/direccion/sector',$consultarSector,['parroquia2']);
+//Ruta::get('/Gestion_Inscripcion_Estudiante',$consultarCalle,['calle']);
+
+
+// Run the router 
+Ruta::dispatch();

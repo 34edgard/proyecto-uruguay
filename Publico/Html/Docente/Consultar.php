@@ -1,16 +1,18 @@
-<form class="d-flex container  ">
+<form class="d-flex container  "
+action="/docente/ci/imprimir"
+>
           <input
-          hx-get="/Gestion_Docente"
+          hx-get="/docente/ci"
           hx-trigger="input"
           hx-target="#tablaDeDocentes"
           name="ci"
           class="form-control me-2 w-50" type="number" placeholder="Search" aria-label="Search">
-          <button class="btn btn-success" type="submit">Search</button>
+        <button type="submit" class="btn btn-success">imprimir</button>
         </form>
         <div class="table-responsive container">
           
 <table class="table my-auto  "
-hx-get="/Gestion_Docente"
+hx-get="/docente"
 hx-trigger="load"
 hx-target="#tablaDeDocentes"
   >

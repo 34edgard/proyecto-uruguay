@@ -3,19 +3,19 @@
 
 global $consultarParroquia2;
  $consultarParroquia2 = function () {
-    $pars = (new parroquia())->consultar_info([
+    $pars = (new parroquia())->consultar([
       "campos" => ["id_municipio", "id_parroquia", "nombre_parroquia"],
       "where"=>[
        [ "campo"=>'id_municipio',"operador"=>'=',"valor"=>$_GET['id_municipio']]
       ]
       
     ]);
-    foreach ($pars as $par) {
-      echo "<option value='" .
-        $par["id_parroquia"] .
-        "'> " .
-        $par["nombre_parroquia"] .
-        "</option>";
+    foreach ($pars as $dato) {
+        plantilla("componentes/option",[
+            "value"=>$dato['id_parroquia'],
+            "contenido"=>$dato['nombre_parroquia']
+        ]);
+        
     }
 
   };

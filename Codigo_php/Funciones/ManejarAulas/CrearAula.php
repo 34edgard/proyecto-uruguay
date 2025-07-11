@@ -7,7 +7,7 @@
 
 
 
-    (new aulas)->registrarDato([
+    (new aulas)->registrar([
       "campos"=>['id_seccion','nombre_aula'],
       "valores"=>[$id_seccion,$nombre_aula]
     ]);

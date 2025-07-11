@@ -3,7 +3,7 @@
   global $consultarNivel;
   $consultarNivel = function() {
 
-    $niveles = (new tipo_nivel)->consultarDato([
+    $niveles = (new tipo_nivel)->consultar([
       "campos"=>['nombre_nivel']
     ]);
 

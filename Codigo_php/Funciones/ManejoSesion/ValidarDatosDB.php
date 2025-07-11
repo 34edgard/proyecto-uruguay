@@ -1,40 +1,46 @@
 <?php
 (function (){
   global $validar_datosDB;
-  $validar_datosDB = function ($cedula, $contraseña) {
+  $validar_datosDB = function ($correo, $contraseña) {
     $PA = new Personal_Administrativo();
-    $arreglo = $PA->consultar_datos([
-      "campos" => ["cedula", "contrasena", "id_rol", "nombres"],
+    $correoElectronico = new correo();
+ 
+ $id_correo = $correoElectronico->consultar(  [
+        "campos" => ["email","id_correo"],
+          "where"=>[
+    ["campo"=>'email',"operador"=>'=',"valor"=>$correo]
+    ]
+    ]);
+    //print_r($id_correo);
+    
+    if (!isset($id_correo[0]['id_correo'])) {
+        plantilla('sesiones/alert',[
+            'mensaje'=>'el usuario no existe'
+        ]);
+        return [false];
+    }
+    $id_correo = $id_correo[0]['id_correo'];
+    $arreglo = $PA->consultar([
+      "campos" => ["cedula", "contrasena", "id_rol", "nombres","id_correo"],
       "where"=>[
-        ["campo"=>'cedula',"operador"=>'=',"valor"=>$cedula]
+        ["campo"=>'id_correo',"operador"=>'=',"valor"=>$id_correo]
       ]
     ]);
-  //  print_r($arreglo);
-    //return ;
-    //if($contraseña == $arreglo[0][1]){
- //   print_r($arreglo);
-    if (!isset($arreglo[0]['cedula'])) {
-      echo json_encode([
-        "error" => true,
-        "data" =>
-          '<h2 class="text-center text-danger">el usuario no existe </h2>',
-      ]);
-      return [false, $arreglo];
-    }
+
     if (
-      password_verify($contraseña, $arreglo[0]['contrasena']) ||
-      $contraseña == $arreglo[0]['contrasena']
+     !password_verify($contraseña, $arreglo[0]['contrasena']) 
     ) {
-      //
-      echo json_encode(["error" => false, "data" => ""]);
-      return [true, $arreglo];
+      plantilla('sesiones/alert',[
+          'mensaje'=>'el usuario o la contraseña son incorrectos'
+      ]);
+     return [false];
     }
-    echo json_encode([
-      "error" => true,
-      "data" =>
-        '<h2 class="text-center text-danger">el usuario o la contraseña son incorrectos</h2>',
-    ]);
-    return [false];
+    
+    
+    
+    cambiarPagina("inicio");
+    
+    return [true, $arreglo];
   };
   
   })();

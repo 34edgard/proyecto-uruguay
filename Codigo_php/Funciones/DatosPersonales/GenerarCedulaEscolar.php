@@ -6,7 +6,7 @@
  //   $fh .= Fecha($fecha)[0];
     $ci_escolar = $fh.$cedula;
 
-  $estudiantes = (new Estudiante)->consultar_datos([
+  $estudiantes = (new Estudiante)->consultar([
     "campos"=>['ci_escolar'],
     "where"=>[
 ["campo"=>'ci_escolar', "operador"=>'LIKE', "valor"=>'_'.$ci_escolar] ],
@@ -14,10 +14,10 @@
      "limit"=>1
     
  ]);
-$estudiantes = $estudiantes[0]['ci_escolar'];
-  if(isset($estudiantes)){
+//$estudiantes = $estudiantes[0]['ci_escolar'];
+  if(isset($estudiantes[0]['ci_escolar'])){
     
-    $nuevaCiEscolar = (intval($estudiantes[0]) + 1).$ci_escolar;
+    $nuevaCiEscolar = (intval($estudiantes[0]['ci_escolar'][0]) + 1).$ci_escolar;
   }else{
     $nuevaCiEscolar = "1".$ci_escolar;
   }

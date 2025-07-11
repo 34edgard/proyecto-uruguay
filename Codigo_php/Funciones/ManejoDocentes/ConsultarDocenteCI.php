@@ -5,7 +5,7 @@
   $consultarDocenteCI = function () {
     $DOCENTE = new Docente();
     extract($_GET);
-    $res = $DOCENTE->consultar_datos([
+    $res = $DOCENTE->consultar([
       "campos" => ["cedula","id_docente", "nombres", "apellidos", "fecha_nacimiento"],
       "where"=>[
         ["campo"=>'cedula',"operador"=>'LIKE',"valor"=>$ci.'%']
@@ -16,7 +16,7 @@
    $i=0;
     foreach ($res as $user) {
       $i++;
-      $numero_telefono= (new Telefono())->consultarDato([    "campos" => ["id_docente","numero_telefono"],
+      $numero_telefono= (new Telefono())->consultar([    "campos" => ["id_docente","numero_telefono"],
         "where"=>[
           ["campo"=>'id_docente',"operador"=>'=',"valor"=>$user['id_docente']]
         ]
@@ -35,7 +35,7 @@
      class='btn btn-warning'
      data-bs-toggle='modal'
      data-bs-target='#firefoxModal'
-     hx-get='/Codigo_php/Modulos/Gestionar_Docente.php'
+     hx-get='/Gestionar_Docente/formulario'
      hx-trigger='click'
      hx-target=\"#modal-form\"
      name='formularioEdicion'
@@ -50,7 +50,7 @@
      class='btn btn-danger'
      data-bs-toggle='modal'
      data-bs-target='#firefoxModal'
-     hx-get='/Codigo_php/Modulos/Gestionar_Docente.php'
+     hx-get='/Gestionar_Docente'
      hx-trigger='click'
      hx-target=\"#modal-form\"
      name='ConfirmarEliminacion'
