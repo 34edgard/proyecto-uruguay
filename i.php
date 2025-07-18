@@ -1,5 +1,5 @@
 <?php
-include "Codigo_php/includer.php";
+include "backend/includer.php";
 
 //$tablas = file_get_contents("./sql/tablas.sql");
 //$registros = file_get_contents("./sql/registros.sql");
@@ -7,10 +7,19 @@ include "Codigo_php/includer.php";
 //1255667
 $con = new ConsultasBD();
 //$con->ejecutarConsulta($tablas);
-//$con->ejecutarConsulta($registros);
+//$con->ejecutarConsulta(" ");
 $res = $con->consultarRegistro("SELECT name FROM sqlite_master WHERE type='table' ");
+$i=1;
+foreach($res as $a => $t){
+    
+    echo $i.'-'.$t['name'].'<br />';
+    $i++;
+}
+
 //print_r($res);
+
 foreach($res as $tabla){
+    
     $registroTabla = $con->consultarRegistro('SELECT * FROM '.$tabla['name']);
     echo "<h1>{$tabla['name']}</h1><hr />";
     echo "<table border='1'> ";

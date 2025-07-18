@@ -9,6 +9,11 @@ CREATE TABLE anio_escolar (
   FOREIGN KEY (ci_escolar) REFERENCES estudiante (ci_escolar)
 );
 
+
+
+
+
+
 CREATE TABLE anio_escolar_estudiante (
   ci_escolar INTEGER NOT NULL,
   id_anio_escolar INTEGER NOT NULL,
@@ -431,3 +436,15 @@ CREATE TABLE usuario (
   FOREIGN KEY (id_rol) REFERENCES roles (id_rol),
   FOREIGN KEY (id_correo) REFERENCES correo (id_correo)
 );
+
+
+CREATE TABLE parentesco (
+  id_tipo_parentesco INTEGER NOT NULL,
+  cedula INTEGER NOT NULL,
+  ci_escolar INTEGER NOT NULL,
+  PRIMARY KEY (id_tipo_parentesco, cedula, ci_escolar),
+  FOREIGN KEY (id_tipo_parentesco) REFERENCES tipo_parentesco (id_tipo_parentesco),
+  FOREIGN KEY (cedula) REFERENCES representantes (cedula),
+  FOREIGN KEY (ci_escolar) REFERENCES estudiante (ci_escolar)
+) 
+

@@ -1,55 +1,93 @@
 # Habilitar el motor de reescritura
 RewriteEngine On
-RewriteBase /
-
-# Reglas principales para enrutamiento a index.php
-# Estas reglas manejan las URL base y las principales secciones de la aplicación.
+# RewriteBase /
+# Redirigir la raíz a index.php
 RewriteRule ^$ index.php [L,QSA]
-RewriteRule ^inicio$ index.php [L,QSA]
-RewriteRule ^Administrar$ index.php [L,QSA]
+RewriteRule ^inicio$ index.php  [L,QSA]
+RewriteRule ^Administrar$ index.php  [L,QSA]
+
 RewriteRule ^Gestion_Sesion$ index.php [L,QSA]
+  
+RewriteRule ^src/{html}$ index.php [L,QSA]
+
+
+
+
+
+RewriteRule ^src$ index.php [L,QSA]
+
+RewriteRule ^inicio$ index.php [L,QSA]
+
+RewriteRule ^Administrar$ index.php [L,QSA]
+
+RewriteRule ^$ index.php [L,QSA]
+
+RewriteRule ^index.php$ index.php [L,QSA]
+
+RewriteRule ^Gestion_Sesion$ index.php [L,QSA]
+
 RewriteRule ^Cerrar_Sesion$ index.php [L,QSA]
 
-# Reglas para la gestión de usuarios
+# RewriteRule ^Gestion_Sesion$ index.php [L,QSA]
+
+
+
 RewriteRule ^usuario/crear$ index.php [L,QSA]
+
+
 RewriteRule ^usuario/list$ index.php [L,QSA]
 RewriteRule ^usuario/rol$ index.php [L,QSA]
 RewriteRule ^usuario/cedula$ index.php [L,QSA]
+
 RewriteRule ^usuario/eliminar$ index.php [L,QSA]
+
+
 RewriteRule ^usuario/cambiarEstadoUsuario$ index.php [L,QSA]
+
+
 RewriteRule ^usuario/form/edicion$ index.php [L,QSA]
 RewriteRule ^usuario/eliminar_confir$ index.php [L,QSA]
+
 RewriteRule ^usuario/editar$ index.php [L,QSA]
 
-# Reglas para la gestión de docentes
 RewriteRule ^docente$ index.php [L,QSA]
 RewriteRule ^docente/ci$ index.php [L,QSA]
 RewriteRule ^docente/ci/imprimir$ index.php [L,QSA]
+
 RewriteRule ^docente/formulario$ index.php [L,QSA]
 RewriteRule ^docente/eliminar$ index.php [L,QSA]
 RewriteRule ^docente/confirmar/eliminacion$ index.php [L,QSA]
 RewriteRule ^docente/registrar$ index.php [L,QSA]
 RewriteRule ^docente/editar$ index.php [L,QSA]
 
-# Reglas para la gestión del plantel
+
+
 RewriteRule ^plantel/periodo/crear$ index.php [L,QSA]
 RewriteRule ^plantel/periodo/consultar$ index.php [L,QSA]
 RewriteRule ^plantel/periodo/escolar$ index.php [L,QSA]
 RewriteRule ^plantel/aulas$ index.php [L,QSA]
 RewriteRule ^plantel/nivel/crear$ index.php [L,QSA]
-RewriteRule ^plantel/nivele$ index.php [L,QSA] # Posible typo, considerar si debería ser 'niveles'
+RewriteRule ^plantel/nivele$ index.php [L,QSA]
 RewriteRule ^plantel/niveles$ index.php [L,QSA]
+
 RewriteRule ^plantel/seccion/crear$ index.php [L,QSA]
 RewriteRule ^plantel/secciones$ index.php [L,QSA]
 RewriteRule ^plantel/seccion$ index.php [L,QSA]
+
 RewriteRule ^plantel/aula/crear$ index.php [L,QSA]
 RewriteRule ^plantel/aulas/select$ index.php [L,QSA]
 RewriteRule ^plantel/aula$ index.php [L,QSA]
+
 RewriteRule ^plantel/AnioEscolar/registrar$ index.php [L,QSA]
+
 RewriteRule ^plantel/AnioEscolar$ index.php [L,QSA]
 
-# Reglas para la gestión de estudiantes
+
+
+
 RewriteRule ^estudiante/sexo$ index.php [L,QSA]
+
+
 RewriteRule ^estudiante/cedula$ index.php [L,QSA]
 RewriteRule ^estudiante/ocupacion$ index.php [L,QSA]
 RewriteRule ^estudiante/nacionalidad$ index.php [L,QSA]
@@ -58,26 +96,24 @@ RewriteRule ^estudiante/estado_nutricional$ index.php [L,QSA]
 RewriteRule ^estudiante/condicion_medica$ index.php [L,QSA]
 RewriteRule ^estudiante/discapacidad$ index.php [L,QSA]
 RewriteRule ^estudiante/procedencia$ index.php [L,QSA]
+
+
+RewriteRule ^reprecentante/registrar$ index.php [L,QSA]
+RewriteRule ^reprecentante/extra$registrarDatosExtraReprecentante ,['numero_telefono','id_propietario','tipo_telefono'],[ $registrarTelefono]);
 RewriteRule ^estudiante/registrar$ index.php [L,QSA]
+
 RewriteRule ^estudiante/extra$ index.php [L,QSA]
 
-# Reglas para la gestión de representantes (corregido "reprecentante" a "representante")
-RewriteRule ^representante/registrar$ index.php [L,QSA]
-# La regla ^reprecentante/extra$ que contenía código PHP inválido ha sido eliminada o simplificada
-# Si necesitas pasar datos adicionales, esto debe manejarse en el script PHP (index.php) después de la reescritura.
-# Ejemplo: si se accede a /representante/extra, tu index.php debería procesar 'extra' como un parámetro o ruta.
 
-# Reglas para la gestión de direcciones
+
+
 RewriteRule ^direccion/estado$ index.php [L,QSA]
 RewriteRule ^direccion/municipio$ index.php [L,QSA]
+
+
 RewriteRule ^direccion/parroquia2$ index.php [L,QSA]
 RewriteRule ^direccion/parroquia$ index.php [L,QSA]
+
 RewriteRule ^direccion/sector1$ index.php [L,QSA]
 RewriteRule ^direccion/sector$ index.php [L,QSA]
-
-# Otras reglas específicas
-# Se elimina la regla src/{html} ya que {html} no es una expresión regular válida.
-# Si el propósito es evitar el acceso directo a una carpeta 'src', se puede usar:
-# RewriteRule ^src/?(.*)$ index.php [L,QSA]
-# O una regla más específica si 'src' debe ser manejado de una forma particular.
-
+# RewriteRule ^Gestion_Inscripcion_Estudiante$ index.php [L,QSA]

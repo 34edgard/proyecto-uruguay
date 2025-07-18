@@ -1,5 +1,5 @@
 <?php
-include "./Codigo_php/includer.php";
+include "./backend/includer.php";
 
 //print_r($_POST);
 //print_r($_GET);
@@ -7,8 +7,12 @@ Ruta::get('/src/{html}',function($p2){
     plantilla($p2[0]);
 });
 
-
-
+Ruta::get('/editor',function($p2){
+    include "./editor.php";
+});
+Ruta::get('/imprimir/planilla',function(){
+    imprimirPlanilla();
+});
 
 
 Ruta::get('/src',function($p2){
@@ -34,7 +38,7 @@ paginas('Gestion_Sesion');
 });
 
 Ruta::get('/Cerrar_Sesion',$cerrar_sesion);
-Ruta::post('/Gestion_Sesion',$iniciar_sesion,['Inicio_secion','correo','contraseña'],[$validar_datosDB]);
+Ruta::post('/iniciar/sesion',$iniciar_sesion,['Inicio_secion','correo','contraseña'],[$validar_datosDB]);
 
 //Gestion_Usuario
 //
@@ -86,7 +90,7 @@ Ruta::post('/plantel/periodo/crear',$crearPeriodoEscolar,['inicio_periodo','fin_
 Ruta::post('/plantel/periodo/consultar',$consultarPeriodoEscolar,[]);
 Ruta::get('/plantel/periodo/escolar',$consultarPeriodo,['periodo_escolar']);
 Ruta::get('/plantel/aulas',$consultarAulas,['aula']);
-Ruta::get('/plantel/nivel/crear',$crearNivel,['nombre_nivel'],[$consultarNivel]);
+Ruta::post('/plantel/nivel/crear',$crearNivel,['nombre_nivel'],[$consultarNivel]);
 Ruta::get('/plantel/nivele',$consultarNivel,['id_nivel']);
 Ruta::get('/plantel/niveles',$consultarNiveles,['id_niveles']);
 
@@ -130,6 +134,7 @@ Ruta::post('/reprecentante/registrar',$registrarReprecentante ,[
   'parroquia1'  ,
   'parroquia2'  ,
   'cedula'  ,
+   'trabaja',
   'nombres' ,
   'apellidos' ,
   'fecha_nacimiento' ,
