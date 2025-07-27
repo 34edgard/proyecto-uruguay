@@ -10,7 +10,8 @@ function bdSQLWeb(){
 $con = new ConsultasBD();
 //$con->ejecutarConsulta($tablas);
 //$con->ejecutarConsulta(" ");
-$res = $con->consultarRegistro("SELECT name FROM sqlite_master WHERE type='table' ");
+//$res = $con->consultarRegistro("SELECT name FROM sqlite_master WHERE type='table' ");
+$res = $con->consultarRegistro("SHOW TABLES");
 //$res = $con->consultarRegistro("SELECT COUNT(sexo) FROM estudiante WHERE sexo = 'masculino' AND  ");
 /*foreach($res as $r){
     print_r($r);
