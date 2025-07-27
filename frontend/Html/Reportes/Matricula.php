@@ -19,7 +19,11 @@
       >
         <div class="col-md-4">
           <label for="periodoMatricula" class="form-label">Periodo Académico</label>
-          <select id="periodoMatricula" name="periodo" class="form-select" required>
+          <select
+        hx-get="/plantel/periodo/escolar?periodo_escolar"
+        hx-trigger="load"
+        hx-target="#periodoMatricula"
+         id="periodoMatricula" name="periodo" class="form-select" required>
             <option value="" disabled selected>Seleccione un periodo</option>
             <option value="2024-2025">2024-2025</option>
             <option value="2023-2024">2023-2024</option>
@@ -31,30 +35,30 @@
           </select>
           <div class="invalid-feedback">Por favor, seleccione un periodo.</div>
         </div>
+        
         <div class="col-md-4">
           <label for="edadMatricula" class="form-label">Edad</label>
           <select id="edadMatricula" name="edad" class="form-select" required>
             <option value="" disabled selected>Seleccione la edad</option>
+            <option value="" >...</option>
+            
             <option value="2">2 años</option>
             <option value="3">3 años</option>
             <option value="4">4 años</option>
             <option value="5">5 años</option>
             <option value="6">6 años</option>
-            <option value="7">7 años</option>
-            <option value="8">8 años</option>
-            <option value="9">9 años</option>
-            <option value="10">10 años</option>
-          </select>
+             </select>
           <div class="invalid-feedback">Por favor, seleccione una edad.</div>
         </div>
+        
         <div class="col-md-4">
           <label for="sexoMatricula" class="form-label">Sexo</label>
           <select id="sexoMatricula" name="sexo" class="form-select" required>
             <option value="" disabled selected>Seleccione el sexo</option>
+            <option value="todos">todos</option>
             <option value="masculino">Masculino</option>
             <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
-          </select>
+           </select>
           <div class="invalid-feedback">Por favor, seleccione el sexo.</div>
         </div>
         <div class="col-12 mt-4 d-grid">
@@ -79,7 +83,7 @@
   </div>
 
   <!-- HTMX Target for Table Results -->
-  <div id="matriculaResults" class="table-responsive p-4 border rounded shadow-sm ">
+  <div id="" class="table-responsive p-4 border rounded shadow-sm ">
     <p class="text-center text-muted">
       La tabla de matrícula generada aparecerá aquí.
     </p>
@@ -90,20 +94,30 @@
           <th colspan="11" class="text-center">Matrícula General</th>
         </tr>
         <tr>
-          <th>Cédula Estudiante</th>
-          <th>Nombres y Apellidos Estudiante</th>
-          <th>Sexo Estudiante</th>
-          <th>Fecha de Nacimiento</th>
-          <th>Edad</th>
-          <th>Lugar de Nacimiento</th>
-          <th>Plantel</th>
-          <th>Cédula Representante</th>
-          <th>Nombres y Apellidos Representante</th>
-          <th>Teléfono Representante</th>
-          <th>Dirección Representante</th>
+        <th colspan="7" class="text-center">Datos del Estudiante</th>
+        <th colspan="4" class="text-center">Datos del Representante</th>
+        
+        </tr>
+        <tr>
+          <th class="text-center">Cédula </th>
+          <th class="text-center">Nombres y Apellidos </th>
+          <th class="text-center">Sexo Estudiante</th>
+          <th class="text-center">Fecha de Nacimiento</th>
+          <th class="text-center">Edad</th>
+          <th class="text-center">Lugar de Nacimiento</th>
+          <th class="text-center">Plantel</th>
+          <th class="text-center">Cédula </th>
+          <th class="text-center">Nombres y Apellidos </th>
+          <th class="text-center">Teléfono </th>
+          <th class="text-center">Dirección</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody  
+    
+    id="matriculaResults"
+      hx-get="/reportes/matricula"
+     hx-trigger="load"
+      >
         <!-- Aquí se agregarán las filas dinámicamente por HTMX -->
       </tbody>
     </table>
@@ -114,6 +128,14 @@
     </div>
   </div>
 </div>
+
+
+<script
+src="/frontend/js/NiñosPorSexo.php"
+
+></script>
+
+
 
 <script>
   // JavaScript for Bootstrap form validation

@@ -7,4 +7,11 @@ function plantilla(string $nombre ,array $datos =[]){
 
 }
 
+function script(string $nombre ,array $datos =[]){
+  extract($datos);
+  $nombre = str_replace('—','/',$nombre);
+//echo $nombre;
+  include "./frontend/js/{$nombre}.php";
+
+}
 

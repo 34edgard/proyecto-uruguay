@@ -20,7 +20,13 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="periodoDiploma" class="form-label">Periodo Académico</label>
-            <select id="periodoDiploma" name="periodo" class="form-select" required>
+            <select 
+            hx-get="/plantel/periodo/escolar?periodo_escolar"
+               hx-trigger="load"
+               hx-target="#periodoDiploma"
+            
+            
+            id="periodoDiploma" name="periodo" class="form-select" required>
               <option value="" disabled selected>Seleccione un periodo</option>
               <option value="2024-2025">2024-2025</option>
               <option value="2023-2024">2023-2024</option>
@@ -34,15 +40,22 @@
           </div>
           <div class="col-md-6">
             <label for="edadDiploma" class="form-label">Edad (años)</label>
-            <input
-              type="number"
-              id="edadDiploma"
-              name="edad"
-              class="form-control"
-              min="0"
-              placeholder="Ingrese la edad"
-              required
-            >
+            
+            
+            <select id="edadDiploma" name="edad" class="form-select" required>
+                  <option value="" disabled selected>Seleccione la edad</option>
+                  <option value="" >todas</option>
+                  
+                  <option value="2">2 años</option>
+                  <option value="3">3 años</option>
+                  <option value="4">4 años</option>
+                  <option value="5">5 años</option>
+                  <option value="6">6 años</option>
+                   </select>
+            
+            
+            
+            
             <div class="invalid-feedback">Por favor, ingrese una edad válida (mínimo 0).</div>
           </div>
         </div>
@@ -54,7 +67,7 @@
               <option value="" disabled selected>Seleccione el sexo</option>
               <option value="masculino">Masculino</option>
               <option value="femenino">Femenino</option>
-              <option value="otro">Otro</option>
+              <option value="todo">Todos</option>
             </select>
             <div class="invalid-feedback">Por favor, seleccione el sexo.</div>
           </div>

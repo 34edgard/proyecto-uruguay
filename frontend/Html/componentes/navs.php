@@ -58,7 +58,7 @@ $menu = 'componentes/menu-desplegable';
     </li>
     <li>
         <div class="dropdown">
-            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <a href="#" class="d-block link-body-emphasis link-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="frontend/Img/images.png" alt="mdo" width="32" height="32" class="rounded-circle border border-white">
             </a>
             <ul class="dropdown-menu text-small shadow dropdown-menu-end ">

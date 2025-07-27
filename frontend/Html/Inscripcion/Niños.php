@@ -122,6 +122,11 @@
               <option value=""></option>
             </select>
           </div>
+        <div
+        hx-get="/direccion/municipio?id_estado=1"
+        hx-target="#municipio"
+        hx-trigger="load"
+        ></div>
           <div class="col-md-4">
             <label for="municipio" class="form-label">Municipio:</label>
             <select
@@ -136,6 +141,13 @@
               <option value=""></option>
             </select>
           </div>
+        
+        <div
+          hx-get="/direccion/parroquia2?id_municipio=1"
+          hx-trigger="load"
+          hx-target="#lugar"
+        ></div>
+        
           <div class="col-md-4">
             <label for="lugar" class="form-label">Parroquia:</label>
             <select
@@ -172,6 +184,14 @@
               <option value=""></option>
             </select>
           </div>
+        
+        <div
+        hx-get="/direccion/sector1?parroquia1=1"
+         
+         hx-target="#sector1"
+         hx-trigger="load"
+        
+        ></div>
           <div class="col-md-6">
             <label for="sector1" class="form-label">Sector:</label>
             <select

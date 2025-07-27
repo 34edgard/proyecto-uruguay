@@ -45,7 +45,7 @@ $p =__DIR__.'/';
 $urlF = $p . 'Funciones/';
 
 $urlL = $p . 'Librerias/';
-$urlConf = $p . 'Configuracion/';
+//$urlConf = $p . 'Configuracion/';
 $urlCF = $p . 'Clases/liki/';
 $urlCA = $p . 'Clases/app/';
 //echo $urlC;
@@ -53,10 +53,10 @@ $clasesF = listarArchivosEnDirectorio($urlCF);
 $clasesA = listarArchivosEnDirectorio($urlCA);
 $Librerias = listarArchivosEnDirectorio($urlL);
 
-$conf = listarArchivosEnDirectorio($urlConf);
+//$conf = listarArchivosEnDirectorio($urlConf);
 $funciones = listarArchivosEnDirectorio($urlF);
 
-incluirArchivos($conf,$urlConf);
+//incluirArchivos($conf,$urlConf);
 incluirArchivos($Librerias,$urlL);
 incluirArchivos($clasesF,$urlCF);
 incluirArchivos($clasesA,$urlCA);

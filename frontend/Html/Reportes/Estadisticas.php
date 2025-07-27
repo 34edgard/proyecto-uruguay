@@ -1,3 +1,4 @@
+
 <div class="container mt-5">
   <div class="card shadow-lg p-4 mb-5  rounded">
     <div class="card-body">
@@ -19,7 +20,11 @@
       >
         <div class="col-md-4">
           <label for="periodoEstadistica" class="form-label">Periodo Académico</label>
-          <select id="periodoEstadistica" name="periodo" class="form-select" required>
+          <select 
+             hx-get="/plantel/periodo/escolar?periodo_escolar"
+               hx-trigger="load"
+            hx-target="#periodoEstadistica"
+        id="periodoEstadistica" name="periodo" class="form-select" required>
             <option value="" disabled selected>Seleccione un periodo</option>
             <option value="2024-2025">2024-2025</option>
             <option value="2023-2024">2023-2024</option>
@@ -40,10 +45,6 @@
             <option value="4">4 años</option>
             <option value="5">5 años</option>
             <option value="6">6 años</option>
-            <option value="7">7 años</option>
-            <option value="8">8 años</option>
-            <option value="9">9 años</option>
-            <option value="10">10 años</option>
           </select>
           <div class="invalid-feedback">Por favor, seleccione una edad.</div>
         </div>
@@ -53,7 +54,7 @@
             <option value="" disabled selected>Seleccione el sexo</option>
             <option value="masculino">Masculino</option>
             <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
+            <option value="todos">Todos</option>
           </select>
           <div class="invalid-feedback">Por favor, seleccione el sexo.</div>
         </div>
@@ -101,101 +102,36 @@
   </div>
 
   <!-- HTMX Target for all Statistical Results -->
-  <div id="estadisticaResults" class="p-4 border rounded shadow-sm ">
+  <div
+
+hx-get="/estadistica/general"
+hx-target="#estadisticaResults"
+hx-trigger="load"
+
+ id="estadisticaResults" class="p-4 border rounded shadow-sm ">
     <p class="text-center text-muted mb-4">
       Los resultados de las estadísticas aparecerán aquí.
     </p>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div 
+    
+    class="row row-cols-1 row-cols-md-2 g-4">
       <!-- Card for Niños/ñas Inscritos -->
-      <div class="col">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title text-primary"><i class="fas fa-user-check me-2"></i> Niños/ñas Inscritos</h5>
-            <table class="table table-striped table-hover table-bordered" id="tablaInscritos">
-              <thead class="table-primary">
-                <tr>
-                  <th>Inscritos</th>
-                  <th>Cantidad</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Data will be added here dynamically by HTMX -->
-                <tr><td colspan="2" class="text-center text-muted">No hay datos para mostrar.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card for Promovidos -->
-      <div class="col">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title text-primary"><i class="fas fa-trophy me-2"></i> Promovidos</h5>
-            <table class="table table-striped table-hover table-bordered" id="tablaPromovidos">
-              <thead class="table-primary">
-                <tr>
-                  <th>Promovidos</th>
-                  <th>Cantidad</th>
-                  <th>M</th>
-                  <th>F</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Data will be added here dynamically by HTMX -->
-                <tr><td colspan="4" class="text-center text-muted">No hay datos para mostrar.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card for Niños por edad -->
-      <div class="col">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title text-primary"><i class="fas fa-birthday-cake me-2"></i> Niños por Edad</h5>
-            <table class="table table-striped table-hover table-bordered" id="tablaEdad">
-              <thead class="table-primary">
-                <tr>
-                  <th>Edad</th>
-                  <th>Total</th>
-                  <th>M</th>
-                  <th>F</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Data will be added here dynamically by HTMX -->
-                <tr><td colspan="4" class="text-center text-muted">No hay datos para mostrar.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card for Planteles -->
-      <div class="col">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title text-primary"><i class="fas fa-school me-2"></i> Estadísticas por Plantel</h5>
-            <table class="table table-striped table-hover table-bordered" id="tablaPlanteles">
-              <thead class="table-primary">
-                <tr>
-                  <th>Plantel</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Data will be added here dynamically by HTMX -->
-                <tr><td colspan="2" class="text-center text-muted">No hay datos para mostrar.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+        
+    
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
   // JavaScript for Bootstrap form validation

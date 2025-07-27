@@ -1,10 +1,1 @@
-/backend/Configuracion/VariablesDeEntorno.php
-.html
-M.js
-.pdf
-.zip
-phpMyAdmin-5.2.2.zip
-/phpMyAdmin
-/vendor
-composer.json
-composer.lock
+conf.php

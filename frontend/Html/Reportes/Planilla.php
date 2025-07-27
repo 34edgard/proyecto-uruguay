@@ -8,11 +8,25 @@
         Seleccione los criterios para generar la planilla de estudiantes.
       </p>
 
-      <form id="planillaForm" class="needs-validation" novalidate>
+      <form
+    
+    hx-post="/planillas/tablas"
+           hx-trigger="submit"
+           hx-target="#planillaTable"
+        
+    
+     id="planillaForm" class="needs-validation" novalidate>
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="periodo" class="form-label">Periodo Académico</label>
-            <select id="periodo" name="periodo" class="form-select" required>
+            <select 
+            
+            hx-get="/plantel/periodo/escolar?periodo_escolar"
+               hx-trigger="load"
+               hx-target="#periodo"
+            
+            
+            id="periodo" name="periodo" class="form-select" required>
               <option value="" disabled selected>Seleccione un periodo</option>
               <option value="2024-2025">2024-2025</option>
               <option value="2023-2024">2023-2024</option>
@@ -26,19 +40,27 @@
           </div>
           <div class="col-md-6">
             <label for="edad" class="form-label">Edad (años)</label>
-            <input
-              type="number"
-              id="edad"
-              name="edad"
-              class="form-control"
-              min="0"
-              placeholder="Ingrese la edad"
-              required
-            >
+           
+        
+            
+            <select id="edad" name="edad" class="form-select" required>
+                  <option value="" disabled selected>Seleccione la edad</option>
+                  <option value="" >todas</option>
+                  
+                  <option value="2">2 años</option>
+                  <option value="3">3 años</option>
+                  <option value="4">4 años</option>
+                  <option value="5">5 años</option>
+                  <option value="6">6 años</option>
+                   </select>
+            
+            
+            
+            
             <div class="invalid-feedback">Por favor, ingrese una edad válida (mínimo 0).</div>
           </div>
         </div>
-
+        
         <div class="row mb-4">
           <div class="col-md-6">
             <label for="sexo" class="form-label">Sexo</label>
@@ -46,12 +68,12 @@
               <option value="" disabled selected>Seleccione el sexo</option>
               <option value="masculino">Masculino</option>
               <option value="femenino">Femenino</option>
-              <option value="otro">Otro</option>
+              <option value="todo">Todos</option>
             </select>
             <div class="invalid-feedback">Por favor, seleccione el sexo.</div>
           </div>
           <div class="col-md-6">
-            <label for="numeroEstudiantes" class="form-label">Número de Estudiantes a Mostrar</label>
+       <label for="numeroEstudiantes" class="form-label">Número de Estudiantes a Mostrar</label>
             <select id="numeroEstudiantes" name="numeroEstudiantes" class="form-select" required>
               <option value="" disabled selected>Seleccione cantidad</option>
               <option value="1">1</option>
@@ -78,7 +100,39 @@
   <h3 class="text-center mt-5 mb-3 text-secondary">
     <i class="fas fa-table me-2"></i> Resultados de la Planilla
   </h3>
-  <div id="planillaTable" class="table-responsive p-4 border rounded shadow-sm ">
+  <div
+hx-get="/planillas"
+hx-target="#planillaTable"
+hx-trigger="load"
+
+  class="table-responsive p-4 border rounded shadow-sm ">
+    <table class="table table-striped table-hover table-bordered" id="tablaMatricula">
+    <thead class="table-primary">
+      <tr>
+        <th colspan="6" class="text-center"> Estudiantes</th>
+      </tr>
+        <tr>
+        <th class="text-center">Cédula </th>
+        <th class="text-center">Nombres y Apellidos </th>
+        <th class="text-center">Sexo Estudiante</th>
+        <th class="text-center">Fecha de Nacimiento</th>
+        <th class="text-center">Edad</th>
+        <th class="text-center"></th>
+            
+           </tr>
+    </thead>
+    <tbody id="planillaTable" >
+    
+    
+    
+    </tbody>
+    
+    </table>
+    
+    
+    
+    
+    
     <p class="text-center text-muted">
       La tabla de estudiantes generada aparecerá aquí.
     </p>

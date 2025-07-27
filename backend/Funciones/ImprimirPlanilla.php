@@ -4,7 +4,8 @@
 
 
 
-function imprimirPlanilla(){
+function imprimirPlanilla($estudiante){
+    extract($estudiante);
 // Creación del objeto PDF
 $pdf = new Planilla();
 $pdf->AddPage();
@@ -38,16 +39,16 @@ $pdf->AddSectionTitle('2-DATOS DEL NIÑO O NIÑA:');
 $pdf->AddInlineField('Apellidos', '', 30, 80); 
 $pdf->AddInlineField('Nombres', '', 30, 0); 
 $pdf->Ln(7);
-$pdf->AddInlineField('Fecha De Nacimiento', '', 50, 50);
-$pdf->AddInlineField('Edad', '', 20, 20); 
+$pdf->AddInlineField('Fecha De Nacimiento', $fecha_nacimiento, 50, 50);
+$pdf->AddInlineField('Edad', Edad($fecha_nacimiento), 20, 20); 
 $pdf->AddInlineField('Meses', '', 20, 0); 
 $pdf->Ln(7);
 $pdf->AddInlineField('Lugar', '', 20, 70); 
 $pdf->AddInlineField('Municipio', '', 30, 50); 
 $pdf->AddInlineField('Estado', '', 20, 0); 
 $pdf->Ln(7);
-$pdf->AddInlineField('Nacionalidad', '', 30, 60); 
-$pdf->AddInlineField('Sexo', '', 20, 0); 
+$pdf->AddInlineField('Nacionalidad', $nacionalidad, 30, 60); 
+$pdf->AddInlineField('Sexo', $sexo, 20, 0); 
 $pdf->Ln(7);
 $pdf->AddField('Dirección', ''); 
 $pdf->AddInlineField('Teléfono', '', 25, 60); 

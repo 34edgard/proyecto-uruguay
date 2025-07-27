@@ -1,15 +1,23 @@
 <?php
+include "./conf.php";
 include "./backend/includer.php";
 
 //print_r($_POST);
 //print_r($_GET);
-Ruta::get('/src/{html}',function($p2){
-    plantilla($p2[0]);
+Ruta::get('/bdSQLWeb',function(){
+    bdSQLWeb();
 });
 
-Ruta::get('/editor',function($p2){
-    include "./editor.php";
+Ruta::get("/webEditor",function(){
+    webEditor();
 });
+
+Ruta::get("/file",function(){
+    filesGet();
+},['f']);
+
+
+
 Ruta::get('/imprimir/planilla',function(){
     imprimirPlanilla();
 });
@@ -105,6 +113,30 @@ Ruta::get('/plantel/aula',$consultarAula,['id_aula']);
 Ruta::post('/plantel/AnioEscolar/registrar',$registrarAnioEscolar,['ci_escolar','aula','periodo_escolar']);
 
 Ruta::get('/plantel/AnioEscolar',$consultarAnioEscolar,['id_inscritos']);
+
+
+
+/*
+ * 
+ * 
+ * reportes
+ * 
+ */
+
+Ruta::get("/reportes/matricula",$consultarMatriculaEscolar);
+Ruta::post("/matricula/generar",$GenerarMatriculaEscolar,['periodo','edad','sexo']);
+Ruta::get("/estadistica/general",$estadisticaGeneral);
+//Ruta::post("/estadistica/generar")
+
+
+Ruta::get("/planillas",$consultarPlanilla);
+Ruta::post("/planillas/tablas",$generarPlanilla,['periodo','edad','sexo','numeroEstudiantes']);
+
+
+
+
+Ruta::get("/planilla/imprimir",$imprimirPlanilla,['ci_escolar']);
+
 
 //
 //

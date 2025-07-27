@@ -1,5 +1,7 @@
 <?php
-include "backend/includer.php";
+//include "backend/includer.php";
+function bdSQLWeb(){
+    
 
 //$tablas = file_get_contents("./sql/tablas.sql");
 //$registros = file_get_contents("./sql/registros.sql");
@@ -9,6 +11,14 @@ $con = new ConsultasBD();
 //$con->ejecutarConsulta($tablas);
 //$con->ejecutarConsulta(" ");
 $res = $con->consultarRegistro("SELECT name FROM sqlite_master WHERE type='table' ");
+//$res = $con->consultarRegistro("SELECT COUNT(sexo) FROM estudiante WHERE sexo = 'masculino' AND  ");
+/*foreach($res as $r){
+    print_r($r);
+    echo "<hr >";
+}
+
+*/
+
 $i=1;
 foreach($res as $a => $t){
     
@@ -18,6 +28,9 @@ foreach($res as $a => $t){
 
 //print_r($res);
 
+ 
+ 
+ 
 foreach($res as $tabla){
     
     $registroTabla = $con->consultarRegistro('SELECT * FROM '.$tabla['name']);
@@ -48,4 +61,6 @@ foreach($res as $tabla){
     echo " </table>";
 
     
+}
+
 }

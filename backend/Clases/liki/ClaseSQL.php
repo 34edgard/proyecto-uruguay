@@ -11,7 +11,7 @@ abstract class SentenciasSql {
     protected array $parametros = []; // Nuevo array para almacenar los parámetros
 
     protected function añadirCampo(string $campo): void {
-        $this->sql .= " `$campo` ";
+        $this->sql .= " $campo ";
     }
 
     // Este método ya no es necesario para construir SQL directamente
@@ -278,7 +278,7 @@ class Consultar extends SentenciasSql implements iSql {
 
         // Pasa los parámetros generados por referencia al array de parámetros global
         $parametros = $this->parametros;
-
+           //echo $this->sql;
         return trim($this->sql);
     }
 }
