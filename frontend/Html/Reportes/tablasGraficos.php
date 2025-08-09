@@ -132,7 +132,7 @@
     ></script>
     
   <script>
- <!--   -->
+ 
 
 
     pastel( <?= $porcentajeNinos ?>,<?= $porcentajeNinas ?>);

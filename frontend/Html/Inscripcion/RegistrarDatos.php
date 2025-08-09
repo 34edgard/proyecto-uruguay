@@ -46,7 +46,7 @@ class="form-control m-1"
 type="text"
 name="Datos_familiares_Reprecentante_Cedula"
 class="form-control m-1"
-/>
+>
 </label>
 
 <label class="col-md-3 themed-grid-col"
@@ -55,7 +55,7 @@ class="form-control m-1"
 type="date"
 name="Datos_familiares_Reprecentante_Fecha_Nacimiento"
 class="form-control m-1"
-/>
+>
 </label>
 
 <label class="col-md-4 themed-grid-col"

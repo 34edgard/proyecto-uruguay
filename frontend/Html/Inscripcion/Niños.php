@@ -17,6 +17,24 @@
               required
             >
           </div>
+         <div class="col-md-6">
+           <label
+        
+         for="cedulas_representante" class="form-label">escoja el reprecentante:</label>
+          
+        
+         
+                   
+           <select
+        hx-get='/reprecentantes/ci'
+        hx-trigger='load'
+        hx-target='#cedulas_representante'
+        id='cedulas_representante'
+        class="form-control"
+        onchange="inserValue('cedulas_representante','cedula_representante')"
+        >
+        </select>
+         </div>
           <div class="col-12">
             <div class="container text-center" id="cedula_escolar">
               </div>
@@ -161,14 +179,67 @@
           </div>
         </div>
 
-        <h4
+        <div
           class="text-primary mt-4 mb-3"
-          hx-get="/direccion/parroquia?estado=1"
+          hx-get="/direccion/parroquia?estado=2"
           hx-target="#parroquia1"
           hx-trigger="load"
         >
-          Dirección de habitación
-        </h4>
+      </div>
+        
+        
+        
+        
+                <h4
+                          class="text-primary mt-4 mb-3"
+                          hx-get="/direccion/estado?pais=1"
+                          hx-target="#estado1"
+                          hx-trigger="load"
+                        >
+                          Dirección de Habitación
+                        </h4>
+                        
+                
+                <div class="col-md-4">
+                  <label for="estado" class="form-label">Estado:</label>
+                  <select
+                    hx-get="/direccion/municipio1"
+                    hx-target="#municipio1"
+                    hx-trigger="change"
+                    name='estado1'
+                    class="form-control"
+                    id="estado1"
+                    required
+                  >
+                    <option value=""></option>
+                  </select>
+                </div>
+                
+                
+                <div
+                hx-get="/direccion/municipio?id_estado=1"
+                hx-target="#municipio1"
+                hx-trigger="load"
+                
+                ></div>
+                <div class="col-md-4">
+                  <label for="municipio" class="form-label">Municipio:</label>
+                  <select
+                    hx-get="/direccion/parroquia_1"
+                    name='Municipio1'
+                    hx-trigger="change"
+                    hx-target="#parroquia1"
+                    class="form-control"
+                    
+                    id="municipio1"
+                    required
+                  >
+                    <option value=""></option>
+                  </select>
+                </div>
+                
+        
+        
         <div class="row g-3">
           <div class="col-md-6">
             <label for="parroquia1" class="form-label">Parroquia:</label>

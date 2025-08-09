@@ -8,7 +8,7 @@
 <h2 class="">El registro del representante a sido un éxito</h2>
 <p>Desea registrar a otro representante</p>
   <button 
-  hx-get="/Publico/Html/Inscripcion/Representante.php"
+  hx-get="/frontend/Html/Inscripcion/Representante.php"
   hx-trigger="click"
   hx-target="#InicioInscripcion"
   class="btn btn-success"
@@ -16,7 +16,7 @@
     si
   </button>
   <button
-  hx-get="/Publico/Html/Inscripcion/Niños.php"
+  hx-get="/frontend/Html/Inscripcion/Niños.php"
   hx-trigger="click"
   hx-target="#InicioInscripcion"
   

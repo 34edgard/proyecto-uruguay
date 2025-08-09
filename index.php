@@ -35,9 +35,11 @@ Ruta::get('/Administrar',function(){
   paginas('Administrar');
 });
 Ruta::get('/',function(){
+    
    paginas('index');
 });
 Ruta::get('/index.php',function(){
+//bdSQLWeb();
 paginas('index');
 });
 //Gestion_Sesion
@@ -160,11 +162,19 @@ Ruta::get('/estudiante/discapacidad',$consultarDiscapacidad,['id_discapacidad'])
 Ruta::get('/estudiante/procedencia',$consultarProcedencia,['id_procedencia']);
 
 
+
+Ruta::get('/reprecentantes/ci',$consultarReprecentanteCi);
+
+
 Ruta::post('/reprecentante/registrar',$registrarReprecentante ,[ 
   'nro_vivienda1',
   'nro_vivienda2',
   'parroquia1'  ,
   'parroquia2'  ,
+   'estado1',
+   'estado2',
+   'Municipio1',
+   'Municipio2',
   'cedula'  ,
    'trabaja',
   'nombres' ,
@@ -183,9 +193,9 @@ Ruta::post('/estudiante/registrar',$registrarEstudiante ,['ci_escolar',
   'nombres',
   'apellidos',
   'fecha_nacimiento',
-  
+  'Municipio1',
   'id_nacionalidad',
-    
+    'estado1',
   'sexo',
   'id_estado',
   'id_municipio',
@@ -223,10 +233,22 @@ Ruta::post('/estudiante/extra',$registrarDatosExtraEstudiante ,[
 
 Ruta::get('/direccion/estado',$consultarEstado,['pais']);
 Ruta::get('/direccion/municipio',$consultarMunicipio,['id_estado']);
+Ruta::get('/direccion/municipio1',$consultarMunicipio,['estado1']);
+Ruta::get('/direccion/municipio2',$consultarMunicipio,['estado2']);
+
+
+
+
 
 
 Ruta::get('/direccion/parroquia2',$consultarParroquia2,['id_municipio']);
 Ruta::get('/direccion/parroquia',$consultarParroquia,['estado']);
+
+Ruta::get('/direccion/parroquia_1',$consultarParroquia2,['Municipio1']);
+
+Ruta::get('/direccion/parroquia_2',$consultarParroquia2,['Municipio2']);
+
+
 
 Ruta::get('/direccion/sector1',$consultarSector,['parroquia1']);
 Ruta::get('/direccion/sector',$consultarSector,['parroquia2']);

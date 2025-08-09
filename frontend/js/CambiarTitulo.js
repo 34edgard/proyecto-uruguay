@@ -19,3 +19,9 @@ function visibleOn(id){
 function visibleOff(id){
     document.getElementById(id).hidden=true;
 }
+
+
+
+function inserValue(inputExtractValue,inputInsertValue){
+  document.getElementById(inputInsertValue).value =  document.getElementById(inputExtractValue).value;
+}

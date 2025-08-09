@@ -15,7 +15,7 @@
               class="form-control"
               id="talla_camisa"
               required
-            />
+            >
           </div>
           <div class="col-md-4">
             <label for="pantalon" class="form-label">Talla de pantalón:</label>
@@ -25,7 +25,7 @@
               class="form-control"
               id="pantalon"
               required
-            />
+            >
           </div>
           <div class="col-md-4">
             <label for="zapato" class="form-label">Talla de zapato:</label>
@@ -35,7 +35,7 @@
               id="zapato"
               class="form-control"
               required
-            />
+            >
           </div>
           <div class="col-md-6">
             <label for="peso" class="form-label">Peso:</label>
@@ -45,7 +45,7 @@
               class="form-control"
               id="peso"
               required
-            />
+            >
           </div>
           <div class="col-md-6">
             <label for="cb" class="form-label">Circunferencia braquial:</label>
@@ -55,7 +55,7 @@
               class="form-control"
               id="cb"
               required
-            />
+            >
           </div>
         </div>
 
@@ -70,7 +70,7 @@
               name="partida_nacimiento"
               id="partidaEntregado"
               value="entregado"
-            />
+            >
             <label class="form-check-label" for="partidaEntregado">Entregado</label>
           </div>
           <div class="form-check form-check-inline">
@@ -80,7 +80,7 @@
               name="partida_nacimiento"
               id="partidaPendiente"
               value="pendiente"
-            />
+            >
             <label class="form-check-label" for="partidaPendiente">Pendiente</label>
           </div>
         </div>
@@ -94,7 +94,7 @@
               name="copia_cedula_madre"
               id="cedulaMadreEntregado"
               value="entregado"
-            />
+            >
             <label class="form-check-label" for="cedulaMadreEntregado">Entregado</label>
           </div>
           <div class="form-check form-check-inline">
@@ -104,7 +104,7 @@
               name="copia_cedula_madre"
               id="cedulaMadrePendiente"
               value="pendiente"
-            />
+            >
             <label class="form-check-label" for="cedulaMadrePendiente">Pendiente</label>
           </div>
         </div>
@@ -118,7 +118,7 @@
               name="copia_cedula_padre"
               id="cedulaPadreEntregado"
               value="entregado"
-            />
+            >
             <label class="form-check-label" for="cedulaPadreEntregado">Entregado</label>
           </div>
           <div class="form-check form-check-inline">
@@ -128,7 +128,7 @@
               name="copia_cedula_padre"
               id="cedulaPadrePendiente"
               value="pendiente"
-            />
+            >
             <label class="form-check-label" for="cedulaPadrePendiente">Pendiente</label>
           </div>
         </div>
@@ -142,7 +142,7 @@
               name="fotos_tipo_carnet"
               id="fotosEntregado"
               value="entregado"
-            />
+            >
             <label class="form-check-label" for="fotosEntregado">Entregado</label>
           </div>
           <div class="form-check form-check-inline">
@@ -152,7 +152,7 @@
               name="fotos_tipo_carnet"
               id="fotosPendiente"
               value="pendiente"
-            />
+            >
             <label class="form-check-label" for="fotosPendiente">Pendiente</label>
           </div>
         </div>
@@ -166,7 +166,7 @@
               name="copia_certificado_vacuna"
               id="vacunaEntregado"
               value="entregado"
-            />
+            >
             <label class="form-check-label" for="vacunaEntregado">Entregado</label>
           </div>
           <div class="form-check form-check-inline">
@@ -176,7 +176,7 @@
               name="copia_certificado_vacuna"
               id="vacunaPendiente"
               value="pendiente"
-            />
+            >
             <label class="form-check-label" for="vacunaPendiente">Pendiente</label>
           </div>
         </div>

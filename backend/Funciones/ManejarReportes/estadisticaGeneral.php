@@ -23,7 +23,7 @@
        if($niño['sexo'] =='masculino') $nNiños++;
     }
     $nTotalNiños = count($totalNiños);
-   
+ // echo round(calcularPorcentaje($nTotalNiños,$nNiños));
 $porcentajeNinas = round(calcularPorcentaje($nTotalNiños,$nNiñas));
 $porcentajeNinos = round(calcularPorcentaje($nTotalNiños,$nNiños));
     

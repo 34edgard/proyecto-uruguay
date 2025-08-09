@@ -446,5 +446,5 @@ CREATE TABLE parentesco (
   FOREIGN KEY (id_tipo_parentesco) REFERENCES tipo_parentesco (id_tipo_parentesco),
   FOREIGN KEY (cedula) REFERENCES representantes (cedula),
   FOREIGN KEY (ci_escolar) REFERENCES estudiante (ci_escolar)
-) 
+) ;
 

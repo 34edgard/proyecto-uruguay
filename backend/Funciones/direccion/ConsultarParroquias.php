@@ -3,10 +3,13 @@
 
 global $consultarParroquia2;
  $consultarParroquia2 = function () {
+    extract($_GET);
+    
+    $id = $Municipio1 ?? $Municipio2 ?? $id_municipio;
     $pars = (new parroquia())->consultar([
       "campos" => ["id_municipio", "id_parroquia", "nombre_parroquia"],
       "where"=>[
-       [ "campo"=>'id_municipio',"operador"=>'=',"valor"=>$_GET['id_municipio']]
+       [ "campo"=>'id_municipio',"operador"=>'=',"valor"=>$id]
       ]
       
     ]);

@@ -125,10 +125,10 @@
 <div class="col-md-4">
   <label for="estado" class="form-label">Estado:</label>
   <select
-    hx-get="/direccion/municipio?id_estado=1"
+    hx-get="/direccion/municipio1"
     hx-target="#municipio1"
     hx-trigger="change"
-    
+    name='estado1'
     class="form-control"
     id="estado1"
     required
@@ -147,7 +147,8 @@ hx-trigger="load"
 <div class="col-md-4">
   <label for="municipio" class="form-label">Municipio:</label>
   <select
-    hx-get="/direccion/parroquia2?id_municipio=1"
+    hx-get="/direccion/parroquia_1"
+    name='Municipio1'
     hx-trigger="change"
     hx-target="#parroquia1"
     class="form-control"
@@ -266,10 +267,10 @@ hx-target="#parroquia1"
         <div class="col-md-4">
           <label for="estado" class="form-label">Estado:</label>
           <select
-            hx-get="/direccion/municipio?id_estado=1"
+            hx-get="/direccion/municipio2"
             hx-target="#municipio2"
             hx-trigger="change"
-            
+            name='estado2'
             class="form-control"
             id="estado2"
             required
@@ -285,7 +286,8 @@ hx-target="#parroquia1"
         <div class="col-md-4">
           <label for="municipio2" class="form-label">Municipio:</label>
           <select
-            hx-get="/direccion/parroquia2?id_municipio=1"
+            hx-get="/direccion/parroquia_2"
+            name='Municipio2'
             hx-trigger="change"
             hx-target="#parroquia2"
             class="form-control"
