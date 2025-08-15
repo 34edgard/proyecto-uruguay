@@ -23,5 +23,17 @@ function visibleOff(id){
 
 
 function inserValue(inputExtractValue,inputInsertValue){
-  document.getElementById(inputInsertValue).value =  document.getElementById(inputExtractValue).value;
+    let i = document.getElementById('parentesco').value;
+  document.getElementById(inputInsertValue+i).value =  document.getElementById(inputExtractValue).value;
 }
+
+function cambiarFuncion(input,valueInputFuncionChange){
+  let e =  document.getElementById(input);
+  let i =  document.getElementById(valueInputFuncionChange).value;
+  
+e.onChange = `
+inserValue('cedulas_representante','cedula_${i}')`;
+
+}
+
+

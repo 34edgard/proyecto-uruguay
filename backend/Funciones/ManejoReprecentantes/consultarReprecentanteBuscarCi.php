@@ -1,15 +1,11 @@
 <?php
 (function (){
-  global $consultarReprecentanteBuscarCi;
-  $consultarReprecentanteBuscarCi  = function() {
+  global $consultarReprecentanteCi;
+  $consultarReprecentanteCi  = function() {
     $extras = func_get_args();
     extract($_POST);
  $r   = (new Reprecentante)->consultar([
-      "campos"=>['cedula'],
-    "where"=>[
-        ["campo"=>'cedula',"operador"=>'LIKE',
-        "valor"=>$buscar_ci.'%']
-    ]
+      "campos"=>['cedula']
     ]);
 
     

@@ -164,6 +164,7 @@ Ruta::get('/estudiante/procedencia',$consultarProcedencia,['id_procedencia']);
 
 
 Ruta::get('/reprecentantes/ci',$consultarReprecentanteCi);
+Ruta::post('/reprecentantes/buscar/ci',$consultarReprecentanteBuscarCi,['buscar_ci']);
 
 
 Ruta::post('/reprecentante/registrar',$registrarReprecentante ,[ 
@@ -189,7 +190,11 @@ Ruta::post('/reprecentante/registrar',$registrarReprecentante ,[
   'descripcion_direccion_trabajo'
   ]);
 Ruta::post('/reprecentante/extra',$registrarDatosExtraReprecentante ,['numero_telefono','id_propietario','tipo_telefono'],[ $registrarTelefono]);
-Ruta::post('/estudiante/registrar',$registrarEstudiante ,['ci_escolar',
+Ruta::post('/estudiante/registrar',$registrarEstudiante ,[
+    'ci_escolar',
+    'ci_madre',
+    'ci_padre',
+    'buscar_ci',
   'nombres',
   'apellidos',
   'fecha_nacimiento',

@@ -1,4 +1,6 @@
 <?php
+
+
 (function(){
   global $consultarMatriculaEscolar;
 $consultarMatriculaEscolar = function(){
@@ -9,8 +11,13 @@ $consultarMatriculaEscolar = function(){
        'sexo' , 'id_ubicacion' , 'id_procedencia', 'id_condicion_medica' ,      'id_discapacidad', 'id_estado_nutricional']
     ]);
     
+    
+    
+    
     foreach($estudiantes as $estudiante){
         
+       // print_r($estudiante);
+     $estudiante['lugar_nacimiento']  = consultar_lugar_nacimiento($estudiante['id_lugar_nacimiento']);
     
     plantilla('Reportes/tablaMatricula',$estudiante);
     }

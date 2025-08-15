@@ -2,7 +2,7 @@
 INSERT INTO anio_escolar (id_anio_escolar, anio, id_periodo_escolar, id_aula, ci_escolar) VALUES ('1', '2025', '1', '1', '525309309');
 INSERT INTO anio_escolar (id_anio_escolar, anio, id_periodo_escolar, id_aula, ci_escolar) VALUES ('2', '2025', '1', '1', '625309309');
 INSERT INTO anio_escolar (id_anio_escolar, anio, id_periodo_escolar, id_aula, ci_escolar) VALUES ('3', '2025', '4', '1', '725309');
-
+INSERT INTO tipo_parentesco (nombre) VALUES ('representante'),('madre'),('padre');
 
 INSERT INTO aulas (id_aula, nombre_aula, id_seccion) VALUES ('1', 'Aula 1', '2');
 INSERT INTO aulas (id_aula, nombre_aula, id_seccion) VALUES ('2', 'Aula 2', '4');

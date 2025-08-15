@@ -70,9 +70,29 @@ $id_lugar_nacimiento=(new lugar_nacimiento)->consultar([
 
 ]);
 
-      
-  
+$reprecentantes = [
+    [
+        "parentesco"=>1,
+        "cedula"=>$ci_escolar
+    ],
+    [
+        "parentesco"=>2,
+        "cedula"=>$ci_madre
+    ],
+    [
+        "parentesco"=>3,
+        "cedula"=>$ci_padre
+    ]
+];
 
+
+foreach($reprecentantes as $reprecentante){
+      
+ (new parentesco)->registrar([
+     "campos"=>['id_tipo_parentesco','cedula','ci_escolar'],
+    "valores"=>[$reprecentante['parentesco'],$reprecentante['cedula'],$nci_escolar]
+ ]);
+}
 
 
 

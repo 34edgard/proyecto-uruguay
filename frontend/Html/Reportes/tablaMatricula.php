@@ -7,7 +7,7 @@
    <td><?= $sexo ?></td>
    <td><?= $fecha_nacimiento ?></td>
    <td><?= Edad($fecha_nacimiento) ?></td>
-   <th>Lugar de Nacimiento</th>
+   <th><?= $lugar_nacimiento ?></th>
    <th>Plantel</th>
    <th>Cédula Representante</th>
    <th>Nombres y Apellidos Representante</th>

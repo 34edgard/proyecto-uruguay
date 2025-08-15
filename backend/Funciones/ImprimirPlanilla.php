@@ -36,14 +36,14 @@ $pdf->Ln(5);
 
 // 2-DATOS DEL NIÑO O NIÑA
 $pdf->AddSectionTitle('2-DATOS DEL NIÑO O NIÑA:'); 
-$pdf->AddInlineField('Apellidos', '', 30, 80); 
-$pdf->AddInlineField('Nombres', '', 30, 0); 
+$pdf->AddInlineField('Apellidos', $apellidos, 30, 80); 
+$pdf->AddInlineField('Nombres', $nombres, 30, 0); 
 $pdf->Ln(7);
 $pdf->AddInlineField('Fecha De Nacimiento', $fecha_nacimiento, 50, 50);
 $pdf->AddInlineField('Edad', Edad($fecha_nacimiento), 20, 20); 
 $pdf->AddInlineField('Meses', '', 20, 0); 
 $pdf->Ln(7);
-$pdf->AddInlineField('Lugar', '', 20, 70); 
+$pdf->AddInlineField('Lugar',consultar_lugar_nacimiento($id_lugar_nacimiento) , 20, 70); 
 $pdf->AddInlineField('Municipio', '', 30, 50); 
 $pdf->AddInlineField('Estado', '', 20, 0); 
 $pdf->Ln(7);
