@@ -3,7 +3,8 @@
   
   global $editar_usuario;
   $editar_usuario = function () {
-    extract($_POST);
+    $Extras = func_get_args();
+    extract($Extras[0]);
     $usuarios = new Personal_Administrativo();
     $correoUsuario = new correo();
 $datosActuales = [

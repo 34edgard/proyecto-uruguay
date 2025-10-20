@@ -3,7 +3,9 @@
   
 global $crear_usuario;
   $crear_usuario = function () {
-    extract($_POST);
+    
+    $Extras = func_get_args();
+    extract($Extras[0]);
     (new correo())->registrar([
       "campos" => ["email"],
       "valores" => [$correo],

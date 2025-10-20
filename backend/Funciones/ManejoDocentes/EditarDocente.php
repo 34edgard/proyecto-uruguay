@@ -3,7 +3,7 @@
   global $editarDocente;
   $editarDocente = function (){
     $EXTRAS = func_get_args();
-   extract($_POST);
+   extract($EXTRAS[0]);
     (new Docente)->editar([
       "campos"=>['cedula','nombres','apellidos','fecha_nacimiento'],
       "valores"=>[$cedula,$nombre,$apellido,$fecha_nacimiento], 

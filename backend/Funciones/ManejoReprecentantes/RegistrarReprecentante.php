@@ -2,7 +2,9 @@
 (function (){
   global $registrarReprecentante;
   $registrarReprecentante =function (){
-    extract($_POST);
+    
+    $Extras = func_get_args();
+    extract($Extras[0]);
   
    // print_r($_POST);
     $datosDireccion = [

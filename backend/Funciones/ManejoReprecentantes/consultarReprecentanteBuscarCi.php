@@ -3,7 +3,7 @@
   global $consultarReprecentanteCi;
   $consultarReprecentanteCi  = function() {
     $extras = func_get_args();
-    extract($_POST);
+    extract( $extras[0]);
  $r   = (new Reprecentante)->consultar([
       "campos"=>['cedula']
     ]);

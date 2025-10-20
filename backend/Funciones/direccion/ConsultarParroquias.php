@@ -3,7 +3,8 @@
 
 global $consultarParroquia2;
  $consultarParroquia2 = function () {
-    extract($_GET);
+    $Extras = func_get_args();
+    extract($Extras[0]);
     
     $id = $Municipio1 ?? $Municipio2 ?? $id_municipio;
     $pars = (new parroquia())->consultar([

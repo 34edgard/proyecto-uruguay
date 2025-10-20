@@ -2,9 +2,9 @@
 (function(){
   global $crearSeccion;
   $crearSeccion = function() {
-    extract($_POST);
+    
     $EXTRAS = func_get_args();
-
+    extract($EXTRAS[0]);
 
 
     (new niveles)->registrar([

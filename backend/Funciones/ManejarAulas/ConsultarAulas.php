@@ -3,7 +3,7 @@
   global $consultarAulas;
   $consultarAulas  = function() {
     $extras = func_get_args();
-    extract($_POST);
+    extract($extras[0]);
  $periodos   = (new aulas)->consultar([
       "campos"=>['id_aula','nombre_aula']
     ]);

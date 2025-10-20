@@ -3,7 +3,9 @@
   global $consultarAula;
   $consultarAula  = function() {
     $extras = func_get_args();
-    extract($_POST);
+   extract($extras[0]);
+    
+    
  $aulas   = (new aulas)->consultar([
       "campos"=>['id_aula','nombre_aula']
     ]);

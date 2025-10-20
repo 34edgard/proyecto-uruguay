@@ -4,7 +4,7 @@
   global $iniciar_sesion;
   $iniciar_sesion = function () {
     $extras = func_get_args();
-    extract($_POST);
+    extract( $extras[0]);
     // var_dump($extras);
     session_start();
     $arreglo = $extras[1][0]($correo, $contraseña);

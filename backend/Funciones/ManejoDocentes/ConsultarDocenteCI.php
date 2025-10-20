@@ -4,7 +4,8 @@
   
   $consultarDocenteCI = function () {
     $DOCENTE = new Docente();
-    extract($_GET);
+    $Extras = func_get_args();
+    extract($Extras[0]);
     $res = $DOCENTE->consultar([
       "campos" => ["cedula","id_docente", "nombres", "apellidos", "fecha_nacimiento"],
       "where"=>[

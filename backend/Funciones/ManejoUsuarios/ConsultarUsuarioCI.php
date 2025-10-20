@@ -3,7 +3,8 @@
   global $consultar_usuario_ci;
   $consultar_usuario_ci = function () {
     session_start();
-    extract($_GET);
+    $Extras = func_get_args();
+    extract($Extras[0]);
     $datos = [
       "campos" => ["cedula", "nombres", "apellidos", "id_correo", "estado"],
     ];

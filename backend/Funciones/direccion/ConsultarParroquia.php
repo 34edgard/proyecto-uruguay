@@ -5,7 +5,8 @@
   global $consultarParroquia;
 
   $consultarParroquia = function () {
-    extract($_GET);
+    $Extras = func_get_args();
+    extract($Extras[0]);
    $id_parro = $estado ?? 1;
     $pars = (new parroquia())->consultar([
       "campos" => ["id_parroquia", "nombre_parroquia"],
@@ -22,7 +23,7 @@
     }
   };
   $consultarSector = function () {
-  extract($_GET);
+  
  
   $parametros =["campos"=>[ 'id_parroquia','id_sector','nombre_sector' ],
     "where"=>[

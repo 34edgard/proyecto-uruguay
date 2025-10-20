@@ -2,8 +2,10 @@
 (function (){
   global $editar_usuario_form;
   $editar_usuario_form =function (){
-if(!isset($_GET['formularioEdicion'])) return;
-   extract($_GET);
+    $Extras = func_get_args();
+    extract($Extras[0]);
+if(!isset($formularioEdicion)) return;
+   
    session_start();
    //formularioEdicion
    $campos =["campos"=>['cedula','nombres','apellidos','id_rol','usuario','id_correo'],

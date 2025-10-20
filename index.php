@@ -35,17 +35,18 @@ Ruta::get('/Administrar',function(){
   paginas('Administrar');
 });
 Ruta::get('/',function(){
-    
-   paginas('index');
+    paginas('Gestion_Sesion');
+  // paginas('index');
 });
 Ruta::get('/index.php',function(){
 //bdSQLWeb();
-paginas('index');
+paginas('Gestion_Sesion');
+//paginas('index');
 });
 //Gestion_Sesion
-Ruta::get('/Gestion_Sesion',function(){
-paginas('Gestion_Sesion');
-});
+//Ruta::get('/Gestion_Sesion',function(){
+//paginas('Gestion_Sesion');
+//});
 
 Ruta::get('/Cerrar_Sesion',$cerrar_sesion);
 Ruta::post('/iniciar/sesion',$iniciar_sesion,['Inicio_secion','correo','contraseña'],[$validar_datosDB]);
@@ -112,7 +113,7 @@ Ruta::post('/plantel/aula/crear',$crearAula,['id_seccion','nombre_aula'],[$consu
 Ruta::get('/plantel/aulas/select',$consultarAulas);
 Ruta::get('/plantel/aula',$consultarAula,['id_aula']);
 
-Ruta::post('/plantel/AnioEscolar/registrar',$registrarAnioEscolar,['ci_escolar','aula','periodo_escolar']);
+Ruta::post('/plantel/AnioEscolar/registrar',$registrarAnioEscolar,['tipo_plantel','ci_escolar','aula','periodo_escolar']);
 
 Ruta::get('/plantel/AnioEscolar',$consultarAnioEscolar,['id_inscritos']);
 

@@ -9,6 +9,17 @@ hx-trigger="submit"
 hx-target="#InicioInscripcion"
 >
 
+
+<label>
+tipo de plantel 
+
+<select name="tipo_plantel" class="form-control">
+<option value="publico">publico</option>
+<option value="privado">privado</option>
+
+</select>
+</label>
+
 <label>
 cedula escolar
 <input type="number" name="ci_escolar" class="form-control"
@@ -30,6 +41,8 @@ class="form-control m-2"
 
 </select>
 </label>
+
+
 
 
 <label

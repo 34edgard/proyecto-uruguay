@@ -75,6 +75,46 @@ class Ruta implements Rutas_Server {
         ];
     }
 
+
+
+private static function sanitizar_entrada( array $datos =[]):array {
+if(MODO_SANITIZACION === 'NINGUNO'){
+return $datos;
+}
+
+ $datos_limpios = [];
+foreach($datos as $clave => $valor){ 
+if(is_array($valor)){
+ $datos_limpios[$clave]=self::sanitizar_entrada($valor);
+}else{
+$datos_limpios[$clave]=self::aplicar_sanitizacion($valor);
+}
+}
+return $datos_limpios;
+}
+
+private static function aplicar_sanitizacion(string $valor): string {
+switch (MODO_SANITIZACION){
+case 'ESTRICTO':
+// Elimina todo código HTML/JS  
+return htmlspecialchars(strip_tags($valor), ENT_QUOTES, 'UTF-8');
+
+case'MODERADO':
+// Solo escapa caracteres peligrosos  
+ return htmlspecialchars($valor,ENT_QUOTES,'UTF-8');
+
+default:
+return $valor;
+}
+}
+
+
+
+
+
+
+
+
     /**
      * Registra una ruta para solicitudes GET.
      */
@@ -136,6 +176,9 @@ class Ruta implements Rutas_Server {
                     echo "Error: Faltan parámetros requeridos.";
                     return;
                 }
+                
+                //sanitización
+                $all_params=self::sanitizar_entrada($all_params);
 
                 try {
                     // Prepara los argumentos para la función de callback
@@ -164,5 +207,15 @@ class Ruta implements Rutas_Server {
         http_response_code(404);
         echo "404 Not Found";
     }
+    
+    
+
+
+
+
+
+    
+    
+    
 }
 

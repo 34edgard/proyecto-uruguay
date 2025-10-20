@@ -2,8 +2,10 @@
 (function(){
   global $crearNivel;
   $crearNivel = function() {
-    extract($_POST);
+    
     $EXTRAS = func_get_args();
+    extract($EXTRAS[0]);
+    
     (new tipo_nivel)->registrar([
       "campos"=>['nombre_nivel'],
       "valores"=>[$nombre_nivel]

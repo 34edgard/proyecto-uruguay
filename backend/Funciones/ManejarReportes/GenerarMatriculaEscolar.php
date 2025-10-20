@@ -2,15 +2,11 @@
 (function(){
   global $GenerarMatriculaEscolar;
 $GenerarMatriculaEscolar = function(){
-    extract($_POST);
-//periodo','edad','sexo
-/*
- * id_anio_escolar INTEGER PRIMARY KEY AUTOINCREMENT,
- anio INTEGER NOT NULL,
- id_periodo_escolar INTEGER NOT NULL,
- id_aula INTEGER NOT NULL,
- ci_escolar INTEGER NOT NULL,
- */
+   
+$Extras = func_get_args();
+ extract($Extras[0]);
+    
+
 
 
 $data = [ "campos"=>

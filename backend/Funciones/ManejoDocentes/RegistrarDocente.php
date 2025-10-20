@@ -4,7 +4,7 @@
 
   $registrarDocente = function () {
    $extras = func_get_args();
-    extract($_POST);
+    extract( $extras[0]);
     $DOCENTE = new Docente();
   /*  $id_telefono = $extras[1][0]($telefono);*/
     

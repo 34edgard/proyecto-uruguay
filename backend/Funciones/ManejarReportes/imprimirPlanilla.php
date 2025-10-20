@@ -2,7 +2,10 @@
 (function(){
     global $imprimirPlanilla;
     $imprimirPlanilla =function(){
-        extract($_GET);
+        $Extras = func_get_args();
+        extract($Extras[0]);
+        
+        
           $estudiantes =  (new Estudiante)->consultar([ "campos"=>
              ['ci_escolar', 'nombres' , 'apellidos',   'fecha_nacimiento',
              'id_lugar_nacimiento', 'id_nacionalidad', 'edad_ano', 'edad_meses',

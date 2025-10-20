@@ -12,8 +12,8 @@
 //print_r($_GET);
 //id_estado
   $consultarMunicipio = function (){
-    
-    extract($_GET);
+    $Extras = func_get_args();
+    extract($Extras[0]);
     $id = $estado1 ?? $estado2 ?? $id_estado;
     
     $datos = (new municipio)->consultar(["campos"=>['id_estado','id_municipio','nombre_municipio'],

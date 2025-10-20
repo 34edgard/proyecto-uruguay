@@ -2,9 +2,9 @@
 (function(){
   global $crearAula;
   $crearAula = function() {
-    extract($_POST);
+    
     $EXTRAS = func_get_args();
-
+   extract($EXTRAS[0]);
 
 
     (new aulas)->registrar([

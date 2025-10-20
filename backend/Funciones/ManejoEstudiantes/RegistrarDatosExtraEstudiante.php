@@ -4,8 +4,8 @@
   $registrarDatosExtraEstudiante =function (){
 
  
-
-   extract($_POST);
+   $Estras = func_get_args();
+   extract($Estras[0]);
    
 
 

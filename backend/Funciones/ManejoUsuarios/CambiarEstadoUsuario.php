@@ -2,7 +2,8 @@
 (function (){
   global $cambiarEstado;
   $cambiarEstado = function () {
-    extract($_GET);
+    $Extras = func_get_args();
+    extract($Extras[0]);
 
     $datos = ["campos" => ["cedula", "estado"], 
       "where"=>[
@@ -22,9 +23,6 @@
 
     $datos["valores"] = [$ci, $estado];
     $usuarios->editar($datos);
-//echo "<button class='btn btn-{$estilo}' 
- //  hx-target='#estado{$estadoActual[0]["cedula"]}'
-    //     hx-get='/usuario/cambiarEstadoUsuario?cambiarEstadoUsuario&ci={$estadoActual[0]["cedula"]}'          hx-trigger='click'          >{$estado}</button>";
 
 plantilla('componentes/button',[
     "contenido"=>$estado,

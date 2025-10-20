@@ -3,7 +3,7 @@
   global $crearPeriodoEscolar;
   $crearPeriodoEscolar = function() {
     $extras = func_get_args();
-    extract($_POST);
+    extract(  $extras[0]);
        
        $anioInicio = Fecha($inicio_periodo)[0];
        $anioFin = Fecha($fin_periodo)[0];

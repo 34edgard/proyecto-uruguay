@@ -3,7 +3,9 @@
     global $generarPlanilla;
     $generarPlanilla =function(){
  // periodo,edad,sexo,numeroEstudiantes
-extract($_POST);
+$Estras = func_get_args();
+
+extract($Estras[0]);
 
 $data = [ "campos"=>
  ['ci_escolar', 'nombres' , 'apellidos',   'fecha_nacimiento',

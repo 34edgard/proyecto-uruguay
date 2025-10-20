@@ -4,7 +4,11 @@
    global $imprimirDocenteCI;
    $imprimirDocenteCI =function(){
           $DOCENTE = new Docente();
-          extract($_GET);
+        $Extras = func_get_args();
+          extract($Extras[0]);
+        
+        
+        
         $pdf = new PDF();
           $res = $DOCENTE->consultar([
             "campos" => ["cedula","id_docente", "nombres", "apellidos", "fecha_nacimiento"],

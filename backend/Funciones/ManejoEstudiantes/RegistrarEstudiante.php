@@ -2,9 +2,9 @@
 (function (){
   global $registrarEstudiante;
   $registrarEstudiante =function (){
-    extract($_POST);
+    
    $extras = func_get_args();
-
+extract($extras[0]);
     //registrando la direccion
     
   (new ubicacion)->registrar([
