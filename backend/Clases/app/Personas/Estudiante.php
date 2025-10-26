@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Personas;
 use Liki\Database\Tabla;
 
-
-class Personal_Administrativo extends Tabla{
+class Estudiante extends Tabla{
   public function __construct(){
-    parent::__construct('usuario');
+    parent::__construct('estudiante');
   }
 }
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Plantel;
 use Liki\Database\Tabla;
 
 
