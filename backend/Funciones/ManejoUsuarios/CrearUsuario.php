@@ -1,7 +1,7 @@
 <?php
 
 namespace Funciones\ManejoUsuarios;
-use App\Correo;
+use App\DatosExtra\Correo;
 use App\Personas\Usuario;
 use Liki\Plantillas\Plantilla;
 

@@ -2,7 +2,7 @@
 
 namespace Funciones\ManejoUsuarios;
 use App\Personas\Usuario;
-use App\Correo;
+use App\DatosExtra\Correo;
 
 
 class EditarUsuario{

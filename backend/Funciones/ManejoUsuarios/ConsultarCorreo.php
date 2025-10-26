@@ -1,7 +1,7 @@
 <?php
 
 namespace Funciones\ManejoUsuarios;
-use App\Correo;
+use App\DatosExtra\Correo;
 
 class ConsultarCorreo{
 public static function optenerEmail($id_correo){

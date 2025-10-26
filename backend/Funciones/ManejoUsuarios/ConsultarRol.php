@@ -1,6 +1,6 @@
 <?php
 namespace Funciones\ManejoUsuarios;
-use App\Rol;
+use App\DatosExtra\Rol;
 use Liki\Plantillas\Plantilla;
 
   class ConsultarRol{

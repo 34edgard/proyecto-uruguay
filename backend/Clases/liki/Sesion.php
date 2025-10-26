@@ -3,7 +3,7 @@
 namespace Liki;
 
 use App\Personas\Usuario;
-use App\Correo;
+use App\DatosExtra\Correo;
 use Liki\Routing\ControlInterfaz;
 use Liki\Plantillas\Plantilla;
 

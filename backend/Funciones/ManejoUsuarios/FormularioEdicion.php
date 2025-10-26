@@ -2,7 +2,7 @@
 
 namespace Funciones\ManejoUsuarios;
 use App\Personal_Administrativo;
-use App\Correo;
+use App\DatosExtra\Correo;
 use Liki\Plantillas\Plantilla;
       
 class FormularioEdicion{
