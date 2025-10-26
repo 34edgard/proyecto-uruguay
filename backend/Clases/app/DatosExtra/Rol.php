@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\DatosExtra;
 use Liki\Database\Tabla;
 class Rol extends Tabla{
   
