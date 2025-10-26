@@ -133,19 +133,6 @@ hx-trigger="load"
 
 
 
-<script>
-  // JavaScript for Bootstrap form validation
-  (function () {
-    'use strict';
-    var form = document.getElementById('estadisticaForm');
-    if (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    }
-  })();
+<script src="/frontend/js/validarFormulario.js">
+
 </script>

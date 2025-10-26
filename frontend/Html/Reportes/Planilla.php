@@ -140,3 +140,8 @@ hx-trigger="load"
   </div>
 </div>
 
+
+
+<script src="/frontend/js/validarFormulario.js">
+
+</script>

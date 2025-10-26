@@ -135,23 +135,11 @@ src="/frontend/js/NiñosPorSexo.php"
 
 ></script>
 
+<script src="/frontend/js/validarFormulario.js">
 
+</script>
 
 <script>
-  // JavaScript for Bootstrap form validation
-  (function () {
-    'use strict';
-    var form = document.getElementById('matriculaForm');
-    if (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    }
-  })();
 
   // You might still want some JS for the print button,
   // though printing usually involves server-side rendering or a dedicated print stylesheet.
