@@ -1,0 +1,9 @@
+<?php
+//crear un archivo con este código 
+const puerto = "";
+const usuario_BD = "";
+const contraceña_BD = "";
+const nombre_BD = "";
+const MODO_SANITIZACION = "ESTRICTO";
+const DSN = "sqlite:app-uruguay.db";
+//const DSN = "mysql:host=".puerto.";dbname=".nombre_BD.";charset=utf8";
