@@ -1,6 +1,6 @@
 <?php
  namespace Funciones\ManejoUsuarios;
-use App\Personal_Administrativo;
+use App\Personas\Personal_Administrativo;
 
 class EliminarUsuario{
   

@@ -2,7 +2,7 @@
 
 namespace Funciones\ManejoUsuarios;
 use App\Correo;
-use App\Personal_Administrativo;
+use App\Personas\Personal_Administrativo;
 use Liki\Plantillas\Plantilla;
 
 
