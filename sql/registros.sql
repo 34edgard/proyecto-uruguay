@@ -24,17 +24,6 @@ INSERT INTO condicion_medica (id_condicion_medica, nombre_condicion_medica) VALU
 
 INSERT INTO correo (id_correo, email) VALUES ('1', 'correoDePrueva_1@gmail.com');
 INSERT INTO correo (id_correo, email) VALUES ('2', 'correoDePrueva_2@gmail.com');
-INSERT INTO correo (id_correo, email) VALUES ('3', 'phjhv@gmail.com');
-INSERT INTO correo (id_correo, email) VALUES ('4', 'vjjvj');
-INSERT INTO correo (id_correo, email) VALUES ('5', 'hchjjb');
-INSERT INTO correo (id_correo, email) VALUES ('6', 'hchjjb');
-INSERT INTO correo (id_correo, email) VALUES ('7', 'jokkl');
-INSERT INTO correo (id_correo, email) VALUES ('8', 'jokkl');
-INSERT INTO correo (id_correo, email) VALUES ('9', 'jokkl@ff');
-INSERT INTO correo (id_correo, email) VALUES ('10', 'ghh@ghh');
-INSERT INTO correo (id_correo, email) VALUES ('11', 'djj@hh');
-INSERT INTO correo (id_correo, email) VALUES ('12', 'pelo@gmail.com');
-INSERT INTO correo (id_correo, email) VALUES ('13', 'jokkl@ff');
 
 
 

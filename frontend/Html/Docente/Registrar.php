@@ -17,7 +17,7 @@
         name="nombre"
         placeholder="Nombre"
         required
-      />
+      >
       <div class="invalid-feedback">Por favor, ingrese un nombre válido.</div>
     </div>
     <div class="col-md-6">
@@ -29,7 +29,7 @@
         name="apellido"
         placeholder="Apellido"
         required
-      />
+      >
       <div class="invalid-feedback">Por favor, ingrese el apellido.</div>
     </div>
   </div>
@@ -44,7 +44,7 @@
         name="cedula"
         placeholder="Cédula"
         required
-      />
+      >
       <div class="invalid-feedback">Por favor, ingrese el número de cédula.</div>
     </div>
     <div class="col-md-6">
@@ -55,7 +55,7 @@
         id="fecha_nacimiento"
         name="fecha_nacimiento"
         required
-      />
+      >
       <div class="invalid-feedback">Por favor, ingrese la fecha de nacimiento.</div>
     </div>
   </div>
@@ -70,7 +70,7 @@
         name="telefono"
         placeholder="Número de teléfono"
         required
-      />
+      >
       <div class="invalid-feedback">Por favor, ingrese un número de teléfono.</div>
     </div>
     <div class="col-md-6">

@@ -1,7 +1,10 @@
 <?php
-(function (){
-  global $confirmarEliminacion;
-  $confirmarEliminacion = function (){
+
+namespace Funciones\ManejoUsuarios;
+
+class ConfirmarEliminacion{
+  
+  public static function confirmarEliminacion(){
   $Extras = func_get_args();
   extract($Extras[0]);
 
@@ -14,5 +17,5 @@ echo "<h2>Realmente desea eliminar al usuario  {$confimarEliminacion}</h2>";
       hx-trigger=\"click\"
       hx-target=\"#usuarios\"
         >Si</button>";
-};
-})();
+}
+}

@@ -1,5 +1,10 @@
 <?php
 
+
+namespace Liki\Files;
+use Librerias\FPDF;
+
+
 class Planilla extends FPDF
 {
     // Cabecera de página

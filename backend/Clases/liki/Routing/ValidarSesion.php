@@ -1,5 +1,9 @@
 <?php
-function validar_sesion($name = 'cedula'){
+namespace Liki\Routing;
+use Liki\Routing\ControlInterfaz;
+
+class ValidarSesion{
+public static function validar_sesion($name = 'cedula'){
     
 
 if (session_id() == "") {
@@ -10,9 +14,10 @@ if (session_id() == "") {
  //print_r($_SESSION);
   //print_r($_SERVER['REQUEST_URI']);
  //include "./Publico/Paginas/index.php";
-cambiarPagina('');
+ControlInterfaz::cambiarPagina('');
    exit();
   }
 }
 
+}
 }

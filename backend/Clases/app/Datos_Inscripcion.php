@@ -3,11 +3,7 @@
 
 
 
-class tallas extends Tabla{
-  public function __construct(){
-    parent::__construct('tallas');
-  }
-}
+
 class prendas extends Tabla{
   public function __construct(){
     parent::__construct('prendas');

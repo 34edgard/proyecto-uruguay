@@ -1,4 +1,6 @@
 <?php
+namespace Funciones\Docentes;
+
 (function (){
   global $consultarDocente;
   

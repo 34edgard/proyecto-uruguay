@@ -1,6 +1,6 @@
 
 <?php
-
+use Liki\Plantillas\Plantilla;
 $op = ["op"=>9];
 
 
@@ -18,7 +18,7 @@ $config = [
 ];
 
 
-plantilla('estructura/pagina',$config);
+Plantilla::HTML('estructura/pagina',$config);
 
 
 

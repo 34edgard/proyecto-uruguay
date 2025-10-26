@@ -1,6 +1,6 @@
 <?php
 
-
+namespace Liki\Routing;
 
 interface Rutas_Server {
     public static function validar_metodo(string $metodo): bool;

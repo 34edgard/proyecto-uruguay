@@ -1,6 +1,7 @@
 <?php
-
-$titulo =  Enunciado($op) ?? "";
+use Funciones\enunciado as e;
+use Liki\Plantillas\Plantilla;
+$titulo =  e::enunciado($op) ?? "";
 
 // $op should be set before calling Enunciado() if it's used for the initial title
 // For demonstration, let's assume $op is 'login' if not logged in
@@ -19,12 +20,12 @@ $titulo =  Enunciado($op) ?? "";
 
     <?php if (isset($_SESSION["nombres"])): ?>
        
-        <?php plantilla('componentes/navs'); ?>
+        <?php Plantilla::HTML('componentes/navs'); ?>
     <?php endif; ?>
 
 </header>
 
-<?php plantilla('componentes/modo-oscuro'); // Assuming this component exists ?>
+<?php Plantilla::HTML('componentes/modo-oscuro'); // Assuming this component exists ?>
 
 <main id="main" class="container">
   

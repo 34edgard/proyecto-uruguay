@@ -1,6 +1,10 @@
 <?php
+
+use Liki\Plantillas\Plantilla;
+use Liki\Routing\ValidarSesion;
+ValidarSesion::validar_sesion();
 $op =["op"=>6];
-validar_sesion();
+
 
 
 $config = [
@@ -16,7 +20,7 @@ $config = [
 ];
 
 
-plantilla('estructura/pagina',$config);
+Plantilla::HTML('estructura/pagina',$config);
 
 
 

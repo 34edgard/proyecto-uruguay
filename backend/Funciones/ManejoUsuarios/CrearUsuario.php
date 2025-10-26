@@ -1,16 +1,23 @@
 <?php
-(function (){
+
+namespace Funciones\ManejoUsuarios;
+use App\Correo;
+use App\Personal_Administrativo;
+use Liki\Plantillas\Plantilla;
+
+
+class CrearUsuario{
   
-global $crear_usuario;
-  $crear_usuario = function () {
+
+  public static function crear_usuario() {
     
     $Extras = func_get_args();
     extract($Extras[0]);
-    (new correo())->registrar([
+    (new Correo())->registrar([
       "campos" => ["email"],
       "valores" => [$correo],
     ]);
-    $id_correo = (new correo())->consultarId(["campos" => ["id_correo"]])[0][
+    $id_correo = (new Correo())->consultarId(["campos" => ["id_correo"]])[0][
       "id_correo"
     ];
     $usuarios = new Personal_Administrativo();
@@ -35,14 +42,14 @@ global $crear_usuario;
         $contraseña_hash,
       ],
     ]);
-    $extras=func_get_args();
+   // $extras=func_get_args();
     
     
-    plantilla('componentes/h1',[
+    Plantilla::HTML('componentes/h1',[
         "contenido"=>'el usuario fue creado correctamente'
     ]);
     
-    plantilla('componentes/htmx',[
+    Plantilla::HTML('componentes/htmx',[
         "hx"=>['trigger'=>'load',"target"=>'#usuarios',"url"=>'/usuario/list']
     ]);
     
@@ -50,5 +57,5 @@ global $crear_usuario;
    // $extras[1][0]();
   //  scriptAlert('');
     
-  };
-})();
+  }
+}

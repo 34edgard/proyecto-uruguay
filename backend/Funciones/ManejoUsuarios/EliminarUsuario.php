@@ -1,8 +1,11 @@
 <?php
-(function (){
+ namespace Funciones\ManejoUsuarios;
+use App\Personal_Administrativo;
+
+class EliminarUsuario{
   
-  global $eliminar_usuario;
-  $eliminar_usuario = function () {
+  
+  public static function eliminar_usuario() {
     $extras = func_get_args();
     extract( $extras[0]);
   //  print_r($_GET);
@@ -15,5 +18,5 @@
       ]
     ]);
    $extras[1][0]();
-  };
-})();
+  }
+}

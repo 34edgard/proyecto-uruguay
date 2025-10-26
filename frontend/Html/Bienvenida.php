@@ -62,20 +62,5 @@
       <small class="text-muted d-block mt-2">Imagen de una comunidad educativa colaborando.</small>
     </div>
   </div>
-<!--
-  <div class="row mt-5">
-    <div class="col-12 text-center animate__animated animate__fadeInUp animate__delay-2s">
-      <h2 class="text-primary mb-4">¿Listo para comenzar?</h2>
-      <p class="lead">
-        ¡Regístrate hoy y transforma la experiencia educativa en tu institución!
-      </p>
-      <a class="btn btn-outline-primary btn-lg mt-3" href="/registro-estudiante" role="button">
-        <i class="fas fa-plus-circle me-2"></i> Registrar Nuevo Estudiante
-      </a>
-      <a class="btn btn-outline-secondary btn-lg mt-3 ms-3" href="/contacto" role="button">
-        <i class="fas fa-question-circle me-2"></i> Contáctanos
-      </a>
-    </div>
-  </div>
--->
+
 </div>

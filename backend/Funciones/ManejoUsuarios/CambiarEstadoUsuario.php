@@ -1,7 +1,12 @@
 <?php
-(function (){
-  global $cambiarEstado;
-  $cambiarEstado = function () {
+namespace Funciones\ManejoUsuarios;
+use App\Personal_Administrativo;
+use Liki\Plantillas\Plantilla;
+
+
+
+class CambiarEstadoUsuario{
+  public static function cambiarEstado() {
     $Extras = func_get_args();
     extract($Extras[0]);
 
@@ -24,7 +29,7 @@
     $datos["valores"] = [$ci, $estado];
     $usuarios->editar($datos);
 
-plantilla('componentes/button',[
+Plantilla::HTML('componentes/button',[
     "contenido"=>$estado,
     "estilo"=>$estilo,
     "hx"=>[
@@ -34,5 +39,5 @@ plantilla('componentes/button',[
         ]
 ]);
 
-     };
-})();
+     }
+}

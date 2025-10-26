@@ -4,20 +4,24 @@
   $registrarEstudiante =function (){
     
    $extras = func_get_args();
-extract($extras[0]);
+   extract($extras[0]);
+
+
+
     //registrando la direccion
     
   (new ubicacion)->registrar([
     "campos"=>['id_sector','nro_vivienda','calle_vereda_avenida'],  
      "valores"=>[$id_direccion,$nro_vivienda1,$descripcion_direccion]
   ]);
+
+
+
     /// consultando el id de la dieccion registrada
  $id_ubicacion=(new ubicacion)->consultar([
    "campos"=>['id_sector','id_ubicacion'],
    "where"=>[
-     [
-       "campo"=>'id_sector',"operador"=>'=',"valor"=>$id_direccion
-     ]
+     ["campo"=>'id_sector',"operador"=>'=',"valor"=>$id_direccion]
    ],
    "orderBy"=>[
      "campo"=>'id_ubicacion',"direccion"=>'DESC'
@@ -54,36 +58,55 @@ $id_lugar_nacimiento=(new lugar_nacimiento)->consultar([
 
 
 
- $nci_escolar = $extras[1][0]($ci_escolar,$fecha_nacimiento);
+       $nci_escolar = $extras[1][0]($ci_escolar,$fecha_nacimiento);
 
        $edad_ano = Edad($fecha_nacimiento);
        $edad_meses = Edad($fecha_nacimiento);
+    
+    
     (new Estudiante)->registrar([ "campos"=>
-      ['ci_escolar', 'nombres' , 'apellidos',   'fecha_nacimiento',
-      'id_lugar_nacimiento', 'id_nacionalidad', 'edad_ano', 'edad_meses',
-      'sexo' , 'id_ubicacion' , 'id_procedencia', 'id_condicion_medica' ,      'id_discapacidad', 'id_estado_nutricional'],
+      ['ci_escolar',
+       'nombres' , 
+       'apellidos',   
+       'fecha_nacimiento',
+       'id_lugar_nacimiento', 
+       'id_nacionalidad', 
+       'edad_ano', 
+       'edad_meses',
+       'sexo' , 
+       'id_ubicacion' , 
+       'id_procedencia', 
+       'id_condicion_medica' ,
+       'id_discapacidad', 
+       'id_estado_nutricional'],
       "valores"=>
-      [$nci_escolar,$nombres,$apellidos,$fecha_nacimiento,
-      $id_lugar_nacimiento,$id_nacionalidad,$edad_ano,$edad_meses,
-      $sexo,$id_ubicacion,$id_procedencia,$id_condicion_medica,
-      $id_discapacidad, $id_estado_nutricional]
+      [$nci_escolar,
+       $nombres,
+       $apellidos,
+       $fecha_nacimiento,
+       $id_lugar_nacimiento,
+       $id_nacionalidad,
+       $edad_ano,$edad_meses,
+       $sexo,$id_ubicacion,
+       $id_procedencia,
+       $id_condicion_medica,
+       $id_discapacidad, 
+       $id_estado_nutricional]
 
 ]);
 
-$reprecentantes = [
-    [
-        "parentesco"=>1,
-        "cedula"=>$ci_escolar
-    ],
-    [
-        "parentesco"=>2,
-        "cedula"=>$ci_madre
-    ],
-    [
-        "parentesco"=>3,
-        "cedula"=>$ci_padre
-    ]
-];
+
+
+
+
+$cedulas = [$ci_escolar,$ci_madre,$ci_padre];
+
+foreach($cedulas as $id => $cedula){
+    $reprecentantes[] = [
+         "parentesco"=>$id,
+         "cedula"=>$cedula
+    ];
+}
 
 
 foreach($reprecentantes as $reprecentante){

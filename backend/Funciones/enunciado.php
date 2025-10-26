@@ -1,7 +1,9 @@
 <?php
 
+namespace Funciones;
+class Enunciado{
 
-function Enunciado($op) {
+public static function enunciado($op) {
   switch ($op) {
     case '0':
       return "App-Uruguay";
@@ -32,4 +34,6 @@ function Enunciado($op) {
       return "mini php db";
       break;
   }
+}
+
 }

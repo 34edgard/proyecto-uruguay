@@ -1,4 +1,5 @@
 <?php
+use Liki\Plantillas\Plantilla;
 // This component handles the main navigation when logged in
 
 $menu = 'componentes/menu-desplegable';
@@ -9,7 +10,7 @@ $menu = 'componentes/menu-desplegable';
     </li>
     <li>
         <?php
-        plantilla($menu, [
+        Plantilla::HTML($menu, [
             'title' => 'Inscripciones',
             'items' => [
                 ['label' => 'Nuevo Ingreso', 'hx_post' => '/frontend/Html/Inscripcion/InicioInscripcion.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' =>"Inscripciones','Nuevo Ingreso"],
@@ -21,7 +22,7 @@ $menu = 'componentes/menu-desplegable';
     </li>
     <li>
         <?php
-        plantilla($menu, [
+        Plantilla::HTML($menu, [
             'title' => 'Docentes',
             'items' => [
                 ['label' => 'Registrar', 'hx_post' => '/frontend/Html/Docente/Registrar.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Docentes','Registrar"],
@@ -32,7 +33,7 @@ $menu = 'componentes/menu-desplegable';
     </li>
     <li>
         <?php
-        plantilla($menu, [
+        Plantilla::HTML($menu, [
             'title' => 'Reportes',
             'items' => [
                 ['label' => 'Matrícula', 'hx_get' => '/frontend/Html/Reportes/Matricula.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Matricula"],
@@ -45,7 +46,7 @@ $menu = 'componentes/menu-desplegable';
     </li>
     <li>
         <?php
-        plantilla($menu, [
+        Plantilla::HTML($menu, [
             'title' => 'Plantel',
             'items' => [
                 ['label' => 'Niveles', 'hx_post' => '/frontend/Html/plantel/Niveles.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Plantel','Niveles"],

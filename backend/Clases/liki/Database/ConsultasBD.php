@@ -1,37 +1,11 @@
 <?php
 
+namespace Liki\Database;
 
-interface ConexionesBaseDatos {
-    public function crearConexion(): ?PDO;
-    public function validarConexion(PDO $conexion): ?PDO;
-    public function cerrarConexion(PDO $conexion): void;
-}
+use Liki\Database\ConexionesBD;
 
-class ConexionesBD implements ConexionesBaseDatos {
-    protected $dsn = DSN; // Suponiendo que DSN está definido globalmente o en un archivo de configuración
-    protected $usuario = usuario_BD; // Suponiendo que usuario_BD está definido
-    protected $contrasena = contraceña_BD; // Suponiendo que contraceña_BD está definido
-
-    public function crearConexion(): ?PDO {
-        try {
-            $conexion = new PDO($this->dsn, $this->usuario, $this->contrasena);
-            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $conexion->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // Desactivar la emulación de prepares para mayor seguridad
-            return $this->validarConexion($conexion);
-        } catch (PDOException $e) {
-            throw new Exception("Error conectando a la base de datos: " . $e->getMessage());
-        }
-    }
-
-    public function validarConexion(PDO $conexion): ?PDO {
-        // En este caso, no se necesita validar la conexión adicionalmente.
-        return $conexion;
-    }
-
-    public function cerrarConexion(PDO $conexion): void {
-        $conexion = null;
-    }
-}
+use PDO;
+use PDOException;
 
 class ConsultasBD extends ConexionesBD {
 

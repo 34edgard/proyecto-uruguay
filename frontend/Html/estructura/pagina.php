@@ -1,3 +1,7 @@
+<?php
+use Liki\Plantillas\Plantilla;
+?>
+
 <!DOCTYPE html>
   <html lang="es">
 <head>
@@ -31,7 +35,7 @@ foreach($estilosD as $estiloD): ?>
 
 <?php foreach($contenidos as $contenido){
 
-plantilla($contenido['componente'],$contenido['configuracion']);
+Plantilla::HTML($contenido['componente'],$contenido['configuracion']);
 
  } ?>
 

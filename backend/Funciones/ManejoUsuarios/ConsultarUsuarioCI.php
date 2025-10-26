@@ -1,7 +1,11 @@
 <?php
-(function (){
-  global $consultar_usuario_ci;
-  $consultar_usuario_ci = function () {
+namespace Funciones\ManejoUsuarios;
+use App\Personal_Administrativo;
+use Liki\Plantillas\Plantilla;
+
+
+class ConsultarUsuarioCI{
+  public static function consultar_usuario_ci() {
     session_start();
     $Extras = func_get_args();
     extract($Extras[0]);
@@ -18,7 +22,7 @@
 
     foreach ($lista_usuarios as $usuario) {
       
-  plantilla("usuario/lista-usuarios",$usuario);
+  Plantilla::HTML("usuario/lista-usuarios",$usuario);
     }
-  };
-})();
+  }
+}

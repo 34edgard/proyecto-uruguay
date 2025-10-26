@@ -1,12 +1,16 @@
 <?php
-(function (){
-  
-  global $editar_usuario;
-  $editar_usuario = function () {
+
+namespace Funciones\ManejoUsuarios;
+use App\Personal_Administrativo;
+use App\Correo;
+
+
+class EditarUsuario{
+  public static function editar_usuario() {
     $Extras = func_get_args();
     extract($Extras[0]);
     $usuarios = new Personal_Administrativo();
-    $correoUsuario = new correo();
+    $correoUsuario = new Correo();
 $datosActuales = [
   "campos" => ["cedula", "nombres", "apellidos", "id_rol","usuario"],
   "valores" => [$ci, $nombre, $apellido, $rol, $nombre_usuario],
@@ -42,7 +46,7 @@ $nuevoCorreo = [
     $extras = func_get_args();
 
     $extras[1][0]();
-  };
+  }
 
   
-})();
+}

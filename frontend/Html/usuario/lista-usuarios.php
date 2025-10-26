@@ -1,5 +1,5 @@
 <?php
-
+use Funciones\ManejoUsuarios\ConsultarCorreo;
 $usuarioEstado = "activo";
 $estadoEstilo = "secondary";
   if ($estado == "activo") {
@@ -18,7 +18,7 @@ $estadoEstilo = "secondary";
       <td><?= $cedula ?></td>
       <td><?= $nombres ?></td>
       <td><?= $apellidos ?></td>
-      <td><?= optenerEmail($id_correo) ?></td>
+      <td><?= ConsultarCorreo::optenerEmail($id_correo) ?></td>
       <td
       id="estado<?= $cedula ?>" 
       ><button class="btn btn-<?= $estadoEstilo ?>" 

@@ -2,8 +2,7 @@
 (function (){
   global $consultarPeriodoEscolar;
   $consultarPeriodoEscolar = function() {
-    $extras = func_get_args();
-    extract( $extras[0]);
+   
  $periodos   = (new periodo_escolar)->consultar([
       "campos"=>['periodo']
     ]);

@@ -105,7 +105,14 @@
     </div>
     <p class="mt-2 text-muted">Generando diplomas...</p>
   </div>
-  <div id="diplomaTable" class="table-responsive p-4 border rounded shadow-sm ">
+  <div 
+hx-post="/diploma/tabla"
+hx-target="#diplomaTable"
+hx-trigger="load"
+
+
+
+ id="diplomaTable" class="table-responsive p-4 border rounded shadow-sm ">
     <p class="text-center text-muted">
       Los diplomas generados aparecerán aquí en formato de tabla.
     </p>
