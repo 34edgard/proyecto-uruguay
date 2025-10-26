@@ -1,7 +1,6 @@
 <?php
 include "./conf.php";
 include "./backend/autoload.php";
-//include "./backend/includer.php";
 
 use Liki\Routing\Ruta;
 use Liki\Plantillas\Plantilla;
