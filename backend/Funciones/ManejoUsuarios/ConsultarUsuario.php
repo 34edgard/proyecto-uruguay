@@ -2,7 +2,7 @@
 
 namespace Funciones\ManejoUsuarios;
 use Liki\Plantillas\Plantilla;
-use App\Personas\Personal_Administrativo;
+use App\Personas\Usuario;
 
 
 class ConsultarUsuario{

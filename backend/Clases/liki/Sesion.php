@@ -2,7 +2,7 @@
 
 namespace Liki;
 
-use App\Personas\Personal_Administrativo;
+use App\Personas\Usuario;
 use App\Correo;
 use Liki\Routing\ControlInterfaz;
 use Liki\Plantillas\Plantilla;

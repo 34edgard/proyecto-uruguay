@@ -4,9 +4,12 @@ namespace App\Plantel;
 use Liki\Database\Tabla;
 
 
-class Niveles extends Tabla{
+class TipoNivel extends Tabla{
   public function __construct(){
-    parent::__construct('niveles');
+    parent::__construct('tipo_nivel');
   }
  
 }
+
+
+

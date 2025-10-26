@@ -65,6 +65,7 @@ CREATE TABLE condicion_medica_estudiante (
   FOREIGN KEY (id_condicion_medica) REFERENCES condicion_medica (id_condicion_medica)
 );
 
+
 CREATE TABLE configuracion (
   id_configuracion INTEGER PRIMARY KEY AUTOINCREMENT,
   clave VARCHAR(50) NOT NULL,

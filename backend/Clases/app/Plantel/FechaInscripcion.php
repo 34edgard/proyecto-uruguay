@@ -4,9 +4,9 @@ namespace App\Plantel;
 use Liki\Database\Tabla;
 
 
-class Niveles extends Tabla{
+class FechaInscripcion extends Tabla{
   public function __construct(){
-    parent::__construct('niveles');
+    parent::__construct('inscripciones_estudiante');
   }
  
 }

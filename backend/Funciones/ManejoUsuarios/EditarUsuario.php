@@ -1,7 +1,7 @@
 <?php
 
 namespace Funciones\ManejoUsuarios;
-use App\Personas\Personal_Administrativo;
+use App\Personas\Usuario;
 use App\Correo;
 
 
