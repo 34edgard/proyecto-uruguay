@@ -1,8 +1,11 @@
 <?php
+
+use App\DatosExtra\NivelInstruccion;
+
 (function (){
   global $consultarNivelInstruccion;
   $consultarNivelInstruccion =function (){
-    $datos = (new nivel_instruccion)->consultar(["campos"=>['id_nivel_instruccion','nombre_nivel_instruccion']]);
+    $datos = (new NivelInstruccion)->consultar(["campos"=>['id_nivel_instruccion','nombre_nivel_instruccion']]);
   // print_r($datos);
     foreach ($datos as $dato){
         plantilla("componentes/option",[

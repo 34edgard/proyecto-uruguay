@@ -1,8 +1,12 @@
 <?php
+
+use App\DatosExtra\Ocupacion;
+
+
 (function (){
   global $consultarOcupacion;
   $consultarOcupacion = function (){
-    $datos = (new ocupacion)->consultar(["campos"=>['id_ocupacion','nombre_ocupacion']]);
+    $datos = (new Ocupacion)->consultar(["campos"=>['id_ocupacion','nombre_ocupacion']]);
    // print_r($datos);
     foreach ($datos as $dato){
         
