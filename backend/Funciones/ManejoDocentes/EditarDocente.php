@@ -1,7 +1,10 @@
 <?php
-(function (){
-  global $editarDocente;
-  $editarDocente = function (){
+namespace Funciones\ManejoDocentes;
+use App\Personas\Docente;
+
+class EditarDocente{
+
+  public static function editarDocente(){
     $EXTRAS = func_get_args();
    extract($EXTRAS[0]);
     (new Docente)->editar([
@@ -13,5 +16,5 @@
       
       ]);
     $EXTRAS[1][0]();
-  };
-})();
+  }
+}

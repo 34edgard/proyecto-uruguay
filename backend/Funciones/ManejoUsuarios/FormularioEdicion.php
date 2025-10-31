@@ -1,7 +1,7 @@
 <?php
 
 namespace Funciones\ManejoUsuarios;
-use App\Personal_Administrativo;
+use App\Personas\Usuario;
 use App\DatosExtra\Correo;
 use Liki\Plantillas\Plantilla;
       
@@ -20,7 +20,7 @@ if(!isset($formularioEdicion)) return;
    "valor"=>$formularioEdicion]
      ]
    ];
-   $datos = (new Personal_Administrativo)->consultar($campos)[0];
+   $datos = (new Usuario)->consultar($campos)[0];
    $datos['correo'] = (new Correo)->consultar([
     "campos"=>['email'],
     "where"=>[

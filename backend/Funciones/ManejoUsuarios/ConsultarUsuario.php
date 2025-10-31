@@ -20,7 +20,7 @@ class ConsultarUsuario{
     ]];
     }
 
-    $usuarios = new Personal_Administrativo;
+    $usuarios = new Usuario;
     $lista_usuarios = $usuarios->consultar($datos);
     foreach ($lista_usuarios as $usuario) {
         //print_r($usuario);

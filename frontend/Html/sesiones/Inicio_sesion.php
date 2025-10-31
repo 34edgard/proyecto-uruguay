@@ -21,7 +21,7 @@
                                 <div class="mb-3 text-start">
                                     <label for="passwordInput" class="form-label" >Contraseña</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control custom-input" id="passwordInput" name="contraseña" placeholder="Ingrese la Contraseña" required>
+                                        <input type="password" class="form-control custom-input" id="passwordInput" name="contraseña" placeholder="Ingrese la Contraseña" minlength="8" required>
                                         <button class="btn btn-outline-secondary custom-eye-btn" type="button" id="togglePassword">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                                 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13.134 13.134 0 1 1 13.653 0A13.134 13.134 0 0 1 1.173 8"/>

@@ -1,7 +1,11 @@
 <?php
+namespace Funciones\ManejoReportes;
+use App\Personas\Estudiante;
+use Funciones\Edad;
 
 
-function niñosPorEdad($edad){
+class NiñosPorEdad{
+public static function niñosPorEdad($edad){
     $estudiantes = new Estudiante();
     $niñoEdad = $estudiantes->consultar([
        "campos"=>['fecha_nacimiento','sexo']   
@@ -11,7 +15,7 @@ function niñosPorEdad($edad){
     $total = 0;
     //print_r($niñoEdad);
     foreach($niñoEdad as $campo){
-    if(Edad($campo['fecha_nacimiento']) != $edad) continue;
+    if(Edad::Edad($campo['fecha_nacimiento']) != $edad) continue;
     if($campo['sexo'] == 'femenino') $nF++;
     if($campo['sexo'] == 'masculino') $nM++;
         $total++;
@@ -24,4 +28,6 @@ function niñosPorEdad($edad){
         "nM"=>$nM,
         "nF"=>$nF
     ];
+}
+
 }

@@ -3,8 +3,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <form hx-post="/estudiante/extra" hx-trigger="submit" hx-target="#InicioInscripcion">
-        <h2 class="text-center mb-4">Prendas</h2>
+      <form
+  
+    hx-post="/estudiante/extra" hx-trigger="submit" hx-target="#InicioInscripcion">
+      <h2 class="text-center mb-4">Prendas</h2>
 
         <div class="row g-3 mb-4">
           <div class="col-md-4">

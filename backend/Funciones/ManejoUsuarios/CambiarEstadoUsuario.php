@@ -16,7 +16,7 @@ class CambiarEstadoUsuario{
       ]
       ];
 
-    $usuarios = new Personal_Administrativo();
+    $usuarios = new Usuario();
     $estadoActual = $usuarios->consultar($datos);
    
    $estado = "activo";

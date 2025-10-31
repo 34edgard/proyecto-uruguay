@@ -61,7 +61,7 @@
          <div class="col-md-6">
            <label
         
-         for="cedulas_representante" class="form-label">escoja el reprecentante:</label>
+         for="cedulas_representante" class="form-label">cedulas de reprecentantes:</label>
           
         
          

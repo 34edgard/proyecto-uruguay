@@ -1,8 +1,12 @@
 <?php
+namespace Funciones\ManejoDocentes;
+use App\Personas\Docente;
+use App\DatosExtra\Telefono;
+use Funciones\Edad;
+use Liki\Files\PDF;
 
-(function(){
-   global $imprimirDocenteCI;
-   $imprimirDocenteCI =function(){
+class ImprimirDocentes{
+   public static function imprimirDocenteCI(){
           $DOCENTE = new Docente();
         $Extras = func_get_args();
           extract($Extras[0]);
@@ -33,7 +37,7 @@
             $data[]=[$i, $user['cedula'], $user['nombres'],
             $user['apellidos'], 
             $user['fecha_nacimiento'],
-            Edad($user['fecha_nacimiento']),
+            Edad::Edad($user['fecha_nacimiento']),
            $numero_telefono];
            
           }
@@ -46,5 +50,5 @@
          $data
          );
         $pdf->Output('D', 'docentes.pdf'); 
-   };
-})();
+   }
+}

@@ -1,7 +1,16 @@
 <?php
-(function(){
-  global $GenerarMatriculaEscolar;
-$GenerarMatriculaEscolar = function(){
+
+namespace Funciones\ManejoReportes;
+use App\Personas\Estudiante;
+
+use Liki\Plantillas\Plantilla;
+use App\Plantel\AnioEscolar;
+
+use Funciones\Edad;
+
+
+class GenerarMatriculaEscolar{
+public static function GenerarMatriculaEscolar(){
    
 $Extras = func_get_args();
  extract($Extras[0]);
@@ -17,7 +26,7 @@ $data = [ "campos"=>
 
 if($sexo != 'todos')  $data['where'][] = ["campo"=>'sexo',"operador"=>'=',"valor"=>$sexo];
 
-$añoEscolar = (new año_escolar)->consultar([
+$añoEscolar = (new AnioEscolar)->consultar([
         "campos"=>['ci_escolar'],
         "where"=>[
            [ "campo"=>'id_periodo_escolar',
@@ -58,9 +67,9 @@ return;
   
     foreach($estudiantes as $estudiante){
         
-        if(Edad($estudiante['fecha_nacimiento']) != $edad && $edad != '') continue;
+        if(Edad::Edad($estudiante['fecha_nacimiento']) != $edad && $edad != '') continue;
     
-    plantilla('Reportes/tablaMatricula',$estudiante);
+    Plantilla::HTML('Reportes/tablaMatricula',$estudiante);
     }
-};
-})();
+}
+}

@@ -1,7 +1,13 @@
 <?php
-(function (){
-  global $eliminarDocente;
-  $eliminarDocente = function (){
+
+namespace Funciones\ManejoDocentes;
+
+use App\Personas\Docente;
+use App\DatosExtra\Telefono;
+
+
+class EliminarDocente{
+  public static function eliminarDocente(){
     $EXTRAS = func_get_args();
     extract( $EXTRAS[0]);
     $id_docente = (new Docente)->consultar([
@@ -26,5 +32,5 @@
     ];
     (new Docente)->eliminar($datos);
     $EXTRAS[1][0]();
-  };
-})();
+  }
+}

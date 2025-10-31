@@ -9,7 +9,7 @@ class EditarUsuario{
   public static function editar_usuario() {
     $Extras = func_get_args();
     extract($Extras[0]);
-    $usuarios = new Personal_Administrativo();
+    $usuarios = new Usuario();
     $correoUsuario = new Correo();
 $datosActuales = [
   "campos" => ["cedula", "nombres", "apellidos", "id_rol","usuario"],

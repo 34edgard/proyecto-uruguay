@@ -27,11 +27,12 @@
          <div class="row mb-3">
            <div class="col-md-6">
              <label for="cedula" class="form-label">Cédula</label>
-             <input type="number" name="cedula" id="cedula" class="form-control" placeholder="Ingrese la cédula">
+             <input type="number" name="cedula" id="cedula" class="form-control" placeholder="Ingrese la cédula"  minlength="8"
+             maxlength="11"  required>
            </div>
            <div class="col-md-6">
              <label for="nombre" class="form-label">Nombre</label>
-             <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el nombre">
+             <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el nombre"  minlength="3"  required>
            </div>
          </div>
      
@@ -71,7 +72,7 @@
          <div class="row mb-4">
            <div class="col-12">
              <label for="contrasena" class="form-label">Contraseña</label>
-             <input type="password" name="contraseña" id="contrasena" class="form-control" placeholder="Ingrese la contraseña">
+             <input type="password" name="contraseña" id="contrasena" class="form-control" placeholder="Ingrese la contraseña"  minlength="8" required>
            </div>
          </div>
      

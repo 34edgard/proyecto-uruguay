@@ -6,7 +6,7 @@ use Liki\Database\ConexionesBD;
 
 use PDO;
 use PDOException;
-
+use Exception;
 class ConsultasBD extends ConexionesBD {
 
     /**

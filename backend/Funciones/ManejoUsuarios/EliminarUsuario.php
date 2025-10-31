@@ -1,6 +1,6 @@
 <?php
  namespace Funciones\ManejoUsuarios;
-use App\Personas\Personal_Administrativo;
+use App\Personas\Usuario;
 
 class EliminarUsuario{
   
@@ -9,7 +9,7 @@ class EliminarUsuario{
     $extras = func_get_args();
     extract( $extras[0]);
   //  print_r($_GET);
-    $usuarios = new Personal_Administrativo();
+    $usuarios = new Usuario();
 
     $usuarios->eliminar(["campos" => ["cedula"], 
       "where"=>[

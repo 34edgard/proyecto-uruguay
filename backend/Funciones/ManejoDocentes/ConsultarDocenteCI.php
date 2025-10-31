@@ -1,8 +1,11 @@
 <?php
-(function (){
-  global $consultarDocenteCI;
-  
-  $consultarDocenteCI = function () {
+namespace Funciones\ManejoDocentes;
+use Liki\Plantillas\Plantilla;
+use App\Personas\Docente;
+use App\DatosExtra\Telefono;
+
+class ConsultarDocenteCI{
+  public static function consultarDocenteCI() {
     $DOCENTE = new Docente();
     $Extras = func_get_args();
     extract($Extras[0]);
@@ -31,9 +34,9 @@
     $user['i'] = $i;
     $user['numero_telefono'] = $numero_telefono;
     $user['aula_asignada'] = $aula_asignada;
-    plantilla("Docente/tabla",$user);
+    Plantilla::HTML("Docente/tabla",$user);
     
     
     }
-  };
-})();
+  }
+}

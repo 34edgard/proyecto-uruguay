@@ -20,7 +20,7 @@ class CrearUsuario{
     $id_correo = (new Correo())->consultarId(["campos" => ["id_correo"]])[0][
       "id_correo"
     ];
-    $usuarios = new Personal_Administrativo();
+    $usuarios = new Usuario();
     $contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
     $usuarios->registrar([
       "campos" => [

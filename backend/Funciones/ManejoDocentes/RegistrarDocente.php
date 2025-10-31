@@ -1,8 +1,15 @@
 <?php
-(function (){
-  global $registrarDocente;
 
-  $registrarDocente = function () {
+namespace Funciones\ManejoDocentes;
+use Liki\Plantillas\Plantilla;
+use App\Personas\Docente;
+
+
+
+
+
+class RegistrarDocente{
+  public static function registrarDocente() {
    $extras = func_get_args();
     extract( $extras[0]);
     $DOCENTE = new Docente();
@@ -24,6 +31,6 @@
     ])[0]['id_docente'];
     
   $extras[1][0]($telefono,$formulario,$tipo_telefono,$id_docente);
-  plantilla('MensajeExito',["mensajeExito"=>'el docente se a creado correctamente']);
-  };
-})();
+  Plantilla::HTML('MensajeExito',["mensajeExito"=>'el docente se a creado correctamente']);
+  }
+}

@@ -1,23 +1,23 @@
 <?php
-(function (){
-  global $consultarPeriodo;
-  $consultarPeriodo = function() {
-    $extras = func_get_args();
-    extract( $extras[0]);
- $periodos   = (new periodo_escolar)->consultar([
-      "campos"=>['id_periodo_escolar','periodo']
+
+namespace Funciones\ManejoPeriodoEscolar;
+use App\Plantel\PeriodoEscolar;
+
+
+class ConsultarPeriodoEscolar{
+
+  public static function consultarPeriodoEscolar() {
+   
+ $periodos   = (new PeriodoEscolar)->consultar([
+      "campos"=>['periodo']
     ]);
 
-    
-      foreach ($periodos as $key => $dato) {
-        
-        plantilla("componentes/option",[
-            "value"=>$dato['id_periodo_escolar'],
-            "contenido"=>$dato['periodo']
-        ]);
-        
+    echo "<table class=\"table  \" >";
+      foreach ($periodos as $key => $value) {
+        echo "<tr><th> periodo ".$value['periodo']."</th></tr>";
+
       }
-  
+    echo "</table>";
     
-  };
-})();
+  }
+}

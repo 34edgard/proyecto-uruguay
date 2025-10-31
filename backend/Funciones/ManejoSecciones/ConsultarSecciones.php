@@ -1,9 +1,11 @@
 <?php
-(function(){
-  global $consultarSecciones;
-  $consultarSecciones = function() {
+namespace Funciones\ManejoSecciones;
+use App\Plantel\Secciones;
 
-    $niveles = (new secciones)->consultar([
+class ConsultarSecciones{
+  public static function consultarSecciones() {
+
+    $niveles = (new Secciones)->consultar([
       "campos"=>['nombre_seccion']
     ]);
 
@@ -17,5 +19,5 @@
      
      }
     echo "</table>";
-  };
-})();
+  }
+}

@@ -1,7 +1,17 @@
 <?php
-(function (){
-  global $registrarEstudiante;
-  $registrarEstudiante =function (){
+
+namespace Funciones\ManejoEstudiantes;
+
+use Liki\Plantillas\Plantilla;
+use Funciones\Edad;
+use App\Direccion\Ubicacion;
+use App\Direccion\LugarNacimiento;
+use App\Personas\Estudiante;
+use App\Inscripcion\Parentesco;
+
+
+class RegistrarEstudiante{
+  public static function registrarEstudiante(){
     
    $extras = func_get_args();
    extract($extras[0]);
@@ -10,7 +20,7 @@
 
     //registrando la direccion
     
-  (new ubicacion)->registrar([
+  (new Ubicacion)->registrar([
     "campos"=>['id_sector','nro_vivienda','calle_vereda_avenida'],  
      "valores"=>[$id_direccion,$nro_vivienda1,$descripcion_direccion]
   ]);
@@ -18,7 +28,7 @@
 
 
     /// consultando el id de la dieccion registrada
- $id_ubicacion=(new ubicacion)->consultar([
+ $id_ubicacion=(new Ubicacion)->consultar([
    "campos"=>['id_sector','id_ubicacion'],
    "where"=>[
      ["campo"=>'id_sector',"operador"=>'=',"valor"=>$id_direccion]
@@ -36,7 +46,7 @@
     // registrando el lugar de nacimiento 
     //
 
-    (new lugar_nacimiento)->registrar([
+    (new LugarNacimiento)->registrar([
       "campos"=>["id_estado","id_municipio","id_parroquia"],
       "valores"=>[$id_estado,$id_municipio,$id_parroquia]
     ]);
@@ -44,7 +54,7 @@
     //consultar id_lugar_nacimiento
       
 
-$id_lugar_nacimiento=(new lugar_nacimiento)->consultar([
+$id_lugar_nacimiento=(new LugarNacimiento)->consultar([
   "campos"=>['id_estado','id_lugar_nacimiento'],
   "where"=>[
     ["campo"=>'id_estado',"operador"=>'=',"valor"=>$id_estado ]
@@ -60,8 +70,8 @@ $id_lugar_nacimiento=(new lugar_nacimiento)->consultar([
 
        $nci_escolar = $extras[1][0]($ci_escolar,$fecha_nacimiento);
 
-       $edad_ano = Edad($fecha_nacimiento);
-       $edad_meses = Edad($fecha_nacimiento);
+       $edad_ano = Edad::Edad($fecha_nacimiento);
+       $edad_meses = Edad::Edad($fecha_nacimiento);
     
     
     (new Estudiante)->registrar([ "campos"=>
@@ -111,7 +121,7 @@ foreach($cedulas as $id => $cedula){
 
 foreach($reprecentantes as $reprecentante){
       
- (new parentesco)->registrar([
+ (new Parentesco)->registrar([
      "campos"=>['id_tipo_parentesco','cedula','ci_escolar'],
     "valores"=>[$reprecentante['parentesco'],$reprecentante['cedula'],$nci_escolar]
  ]);
@@ -119,8 +129,8 @@ foreach($reprecentantes as $reprecentante){
 
 
 
-    plantilla("Inscripcion/DatosExtraNiño" ,[
+    Plantilla::HTML("Inscripcion/DatosExtraNiño" ,[
       "cedula_escolar"=>$nci_escolar
     ]);
-  };
-})();
+  }
+}

@@ -1,3 +1,8 @@
+
+<?php
+use Funciones\Edad;
+?>
+
  <tr>
  
 
@@ -6,7 +11,7 @@
    <td><?= $nombres.' '.$apellidos ?></td>
    <td><?= $sexo ?></td>
    <td><?= $fecha_nacimiento ?></td>
-   <td><?= Edad($fecha_nacimiento) ?></td>
+   <td><?= Edad::Edad($fecha_nacimiento) ?></td>
    <th><?= $lugar_nacimiento ?></th>
    <th>Plantel</th>
    <th>Cédula Representante</th>

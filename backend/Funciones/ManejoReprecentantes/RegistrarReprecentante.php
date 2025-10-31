@@ -1,7 +1,19 @@
 <?php
-(function (){
-  global $registrarReprecentante;
-  $registrarReprecentante =function (){
+
+
+namespace Funciones\ManejoReprecentantes;
+
+use Liki\Plantillas\Plantilla;
+use App\Personas\Reprecentante;
+use App\Direccion\Ubicacion;
+use App\Direccion\Direccion;
+use Funciones\Edad;
+
+
+
+class RegistrarReprecentante{
+  
+  public static function registrarReprecentante(){
     
     $Extras = func_get_args();
     extract($Extras[0]);
@@ -26,17 +38,17 @@
         ];
   
         
-   (new ubicacion)->registrar($datosDireccionHabitacion);
-   (new ubicacion)->registrar($datosDireccionTrabajo);
+   (new Ubicacion)->registrar($datosDireccionHabitacion);
+   (new Ubicacion)->registrar($datosDireccionTrabajo);
 
 
-$id_ubiHabi = (new ubicacion)->consultar([
+$id_ubiHabi = (new Ubicacion)->consultar([
   "campos"=>['id_sector','id_ubicacion'],
   "where"=>[   [ "campo"=>'id_sector',"operador"=>'=',"valor"=>$id_direccion_habitacion ] ],
   "orderBy"=>["campo"=>'id_ubicacion',"direccion"=>'DESC'],
   "limit"=>1])[0]['id_ubicacion'];
 
- $id_ubitraba = (new ubicacion)->consultar([
+ $id_ubitraba = (new Ubicacion)->consultar([
    "campos"=>['id_sector','id_ubicacion'],
    "where"=>[ ["campo"=>'id_sector',"operador"=>'=',"valor"=>$id_direccion_trabajo] ],
    "orderBy"=>["campo"=>'id_ubicacion',"direccion"=>'DESC'],
@@ -46,17 +58,17 @@ $id_ubiHabi = (new ubicacion)->consultar([
     
     
     
-    ((new direccion)->registrar([
+    ((new Direccion)->registrar([
       "campos"=>['id_ubicacion', 'tipo_direccion'],
 "valores"=>[$id_ubitraba,'trabajo' ] ]));
      
       
-  ((new direccion)->registrar([
+  ((new Direccion)->registrar([
       "campos"=>['id_ubicacion', 'tipo_direccion'],
   "valores"=>[$id_ubiHabi,'habitacion' ] ]));  
     
     
- $id_dirtraba = (new direccion)->consultar([
+ $id_dirtraba = (new Direccion)->consultar([
    "campos"=>['id_ubicacion','id_direccion'],
        "where"=>[
          ["campo"=>'id_ubicacion',"operador"=>'=',"valor"=>$id_ubitraba]
@@ -68,7 +80,7 @@ $id_ubiHabi = (new ubicacion)->consultar([
      
      
     
-     $id_dirHabi = (new direccion)->consultar([
+     $id_dirHabi = (new Direccion)->consultar([
        "campos"=>['id_ubicacion','id_direccion'],
        "where"=>[
          ["campo"=>'id_ubicacion',"operador"=>'=',"valor"=>$id_ubiHabi]
@@ -97,7 +109,7 @@ $id_ubiHabi = (new ubicacion)->consultar([
    $cedula,$nombres,
    $apellidos,
    $fecha_nacimiento,
-   Edad($fecha_nacimiento),
+   Edad::Edad($fecha_nacimiento),
    $id_nacionalidad,
    $id_nivel_instruccion,
    $id_ocupacion,
@@ -122,9 +134,9 @@ $id_ubiHabi = (new ubicacion)->consultar([
     $dataPlantilla = [
 "id_propietario"=>$id_propietario
      ];
-   plantilla("Inscripcion/DatosExtraRepresentante",$dataPlantilla);
+   Plantilla::HTML("Inscripcion/DatosExtraRepresentante",$dataPlantilla);
  
 
 
- };
-})();
+ }
+}

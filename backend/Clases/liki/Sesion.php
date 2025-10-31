@@ -37,7 +37,7 @@ class Sesion{
     
     
     private static function validar_datosDB($correo, $contraseña) {
-      $PA = new Personal_Administrativo();
+      $PA = new Usuario();
       $correoElectronico = new Correo();
      
      $id_correo = $correoElectronico->consultar(  [

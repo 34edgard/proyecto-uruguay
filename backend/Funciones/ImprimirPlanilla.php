@@ -1,10 +1,13 @@
 <?php
  // Asegúrate de que la ruta a fpdf.php sea correcta
 
+namespace Funciones;
+use liki\Files\Planilla;
 
 
 
-function imprimirPlanilla($estudiante){
+class ImprimirPlanilla{
+public static function imprimirPlanilla($estudiante){
     extract($estudiante);
 // Creación del objeto PDF
 $pdf = new Planilla();
@@ -215,4 +218,4 @@ foreach ($levels as $level) {
 // Salida del PDF
 $pdf->Output('D', 'FICHA_DE_INSCRIPCION_INICIAL_2025.pdf');
 }
-?>
+}

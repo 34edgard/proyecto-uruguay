@@ -1,6 +1,8 @@
 <?php
+namespace Funciones;
 
-function Fecha ($fecha){
+class Edad{
+public static function Fecha ($fecha){
   $año = 0 ;
  $mes =0;
 $dia = 0;
@@ -28,9 +30,9 @@ $Nfecha[2] = $dia;
 return $Nfecha;
 }
 
-function Edad($fecha,$fecha_actual = false){
+public static function Edad($fecha,$fecha_actual = false){
 
-$Nfecha = Fecha($fecha);
+$Nfecha = self::Fecha($fecha);
 $año = $Nfecha[0];
 $mes = $Nfecha[1];
 $dia = $Nfecha[2];
@@ -42,7 +44,7 @@ $mesa =date("m");
 $diasa =date("d");
 }else{
 
-  $fecha_a = Fecha($fecha_actual);
+  $fecha_a = self::Fecha($fecha_actual);
   $añoa = $fecha_a[0];
   $mesa = $fecha_a[1];
   $diasa = $fecha_a[2];
@@ -59,10 +61,12 @@ $edad ++;
 return $edad;
 }
 
-function Fecha_invertida($fecha){
+public static function Fecha_invertida($fecha){
   
-$Fecha =  Fecha($fecha);
+$Fecha =  self::Fecha($fecha);
 $Fecha_invertida = "$Fecha[2]-$Fecha[1]-$Fecha[0]";
 return $Fecha_invertida;
 }
-?>
+
+
+}
