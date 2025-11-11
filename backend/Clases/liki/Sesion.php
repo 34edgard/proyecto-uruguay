@@ -6,7 +6,7 @@ use App\Personas\Usuario;
 use App\DatosExtra\Correo;
 use Liki\Routing\ControlInterfaz;
 use Liki\Plantillas\Plantilla;
-
+use Liki\ErrorHandler;
 
 class Sesion{
     public static function cerrar_sesion(){
@@ -52,10 +52,15 @@ class Sesion{
      // print_r($id_correo);
       
       if (!isset($id_correo) ) {
-          Plantilla::HTML('sesiones/alert',[
-              'mensaje'=>'el usuario o la contraseña son incorrectas '
-          ]);
-          return [false];
+        
+        
+        ErrorHandler::getInstance()->handle(
+       ErrorHandler::AUTH_EMAIL_NOT_FOUND,
+        'Credenciales inválidas',
+        ['email'=>$correo],
+       401
+        );
+          
       }
     
     
@@ -69,6 +74,9 @@ class Sesion{
     
       
     if (!isset($arreglo[0]) ) {
+        
+        
+        
         Plantilla::HTML('sesiones/alert',[
             'mensaje'=>'el usuario o la contraseña son incorrectas '
         ]);
@@ -77,7 +85,11 @@ class Sesion{
     
     
       if ( !password_verify($contraseña, $arreglo[0]['contrasena']) ) {
-        Plantilla::HTML('sesiones/alert',[
+      
+    
+    
+    
+     Plantilla::HTML('sesiones/alert',[
             'mensaje'=>'el usuario o la contraseña son incorrectos'
         ]);
        return [false];
@@ -91,3 +103,5 @@ class Sesion{
     }
 
 }
+
+

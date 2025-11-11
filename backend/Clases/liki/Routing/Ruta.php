@@ -1,6 +1,18 @@
 <?php
 
 namespace Liki\Routing;
+use Liki\ErrorHandler;
+
+
+set_exception_handler(function($exception){
+      ErrorHandler::getInstance()->handle(
+      ErrorHandler::SERVER_ERROR,
+      'Error interno del servidor',
+     ['exception' => $exception->getMessage()],
+     500
+ );
+});
+
 
 interface Rutas_Server {
     public static function validar_metodo(string $metodo): bool;
@@ -172,8 +184,14 @@ return $valor;
                 // Validar parámetros esperados (si los hay)
                 if (!empty($route['parametros_esperados']) && !self::validar_parametros($route['parametros_esperados'], $all_params)) {
                     // Si faltan parámetros esperados, se podría lanzar una excepción o devolver un error 400
-                    http_response_code(400);
-                    echo "Error: Faltan parámetros requeridos.";
+                  
+                ErrorHandler::getInstance()->handle(
+                     ErrorHandler::VALIDATION_ERROR,
+                     'Error: Faltan parámetros requeridos',
+                    ['exception' => 'Faltan parámetros requeridos'],
+                    400
+                );
+                  
                     return;
                 }
                 
@@ -194,18 +212,29 @@ return $valor;
                     call_user_func_array($route['handler'], $args);
                     return; // Se encontró y ejecutó la ruta, salir.
                 } catch (\Exception $e) {
-                    http_response_code(500);
-                    error_log($e->getMessage()); // Registrar el error en los logs del servidor
-                    echo "Error interno del servidor.".$e->getMessage();
-                    print($e);
+                    
+                    ErrorHandler::getInstance()->handle(
+                         ErrorHandler::SERVER_ERROR,
+                         'Error: interno del servidor',
+                        ['exception' => 'Error interno del servidor.'.$e->getMessage()],
+                        500
+                    );
+                    
                     return;
                 }
             }
         }
 
         // Si ninguna ruta coincide
-        http_response_code(404);
-        echo "404 Not Found";
+        
+        ErrorHandler::getInstance()->handle(
+             ErrorHandler::ROUTE_NOT_FOUND,
+             'Error: 404 Not Found',
+            ['exception' => '404 Not Found'],
+            404
+        );
+        
+        
     }
     
     
@@ -213,7 +242,10 @@ return $valor;
 
 
 
-
+// Agregar este método a la clase Ruta
+public static function obtener_rutas(): array {
+    return self::$routes;
+}
     
     
     

@@ -1,10 +1,10 @@
 <?php
-namespace Funciones\ManejoUsuarios;
+//namespace Funciones\ManejoUsuarios;
 use App\DatosExtra\Rol;
 use Liki\Plantillas\Plantilla;
 
-  class ConsultarRol{
-  public static function consultar_rol(){
+return new class {
+  public static function run($p,$f){
     $roles = (new Rol)->consultar(["campos"=>['id_rol','nombre_rol']]);
     foreach ($roles as $dato){
         Plantilla::HTML("componentes/option",[
@@ -15,4 +15,4 @@ use Liki\Plantillas\Plantilla;
     
   }
   
-}
+};

@@ -1,12 +1,12 @@
 <?php
 
-namespace Funciones\ManejoUsuarios;
+//namespace Funciones\ManejoUsuarios;
 use Liki\Plantillas\Plantilla;
 use App\Personas\Usuario;
 
 
-class ConsultarUsuario{
-   public static function consultar_usuario() {
+return new class {
+   public static function run() {
     session_start();
     $datos = [
       "campos" => ["cedula", "nombres", "apellidos", "id_correo", "estado"],
@@ -27,4 +27,4 @@ class ConsultarUsuario{
      Plantilla::HTML("usuario/lista-usuarios",$usuario);
     }
   }
-}
+};

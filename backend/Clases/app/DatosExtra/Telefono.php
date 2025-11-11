@@ -7,5 +7,7 @@ class Telefono extends Tabla{
   public function __construct(){
     parent::__construct('telefonos');
   }
-  
+  public static function NumeroTelefono(){
+      
+  }
 }

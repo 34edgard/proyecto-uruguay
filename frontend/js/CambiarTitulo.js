@@ -37,3 +37,13 @@ inserValue('cedulas_representante','cedula_${i}')`;
 }
 
 
+
+function añadirValorPorDefecto(id,valor){
+    // Obtener el elemento select por su ID
+    const selectElement = document.getElementById(id);
+    
+    // Establecer el valor que quieres que esté seleccionado
+    selectElement.value = valor;
+    
+}
+

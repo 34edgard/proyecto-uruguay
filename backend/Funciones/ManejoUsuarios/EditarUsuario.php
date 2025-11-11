@@ -1,14 +1,14 @@
 <?php
 
-namespace Funciones\ManejoUsuarios;
+//namespace Funciones\ManejoUsuarios;
 use App\Personas\Usuario;
 use App\DatosExtra\Correo;
 
 
-class EditarUsuario{
-  public static function editar_usuario() {
-    $Extras = func_get_args();
-    extract($Extras[0]);
+return new class {
+  public static function run($p,$f) {
+    
+    extract($p);
     $usuarios = new Usuario();
     $correoUsuario = new Correo();
 $datosActuales = [
@@ -43,10 +43,10 @@ $nuevoCorreo = [
     $correoUsuario->editar($nuevoCorreo);
     
   
-    $extras = func_get_args();
+    
 
-    $extras[1][0]();
+    $f[0]();
   }
 
   
-}
+};

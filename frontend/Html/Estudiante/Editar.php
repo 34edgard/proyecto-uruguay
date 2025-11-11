@@ -1,13 +1,21 @@
+<?php
 
+use Funciones\ManejoDatosExtras\ConsultarNacionalidad;
+use Funciones\ManejoDatosExtras\ConsultarProcedencia;
+use Funciones\DatosPersonales\Sexos;
+
+use Funciones\ManejoDatosExtras\ConsultarEstadoNutricional;
+use Funciones\ManejoDatosExtras\ConsultarCondicionMedica;
+use Funciones\ManejoDatosExtras\ConsultarDiscapacidad;
+
+
+//print_r($estudiante);
+?>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <form 
-    
-    hx-post="/estudiante/registrar" hx-trigger="submit" hx-target="#InicioInscripcion">
-       
-    
-     <h3 class="legend text-primary mb-3">Datos del niño/a:</h3>
+      <form hx-post="/estudiante/registrar" hx-trigger="submit" hx-target="#InicioInscripcion">
+        <h3 class="legend text-primary mb-3">Datos del niño/a:</h3>
 
         <div class="row g-3">
           <div class="col-md-6">
@@ -110,6 +118,7 @@
           <div class="col-md-6">
             <label for="apellidos" class="form-label">Apellidos:</label>
             <input
+              value="<?= $apellidos ?>"
               type="text"
               name="apellidos"
               placeholder="Apellidos"
@@ -121,6 +130,7 @@
           <div class="col-md-6">
             <label for="nombres" class="form-label">Nombres:</label>
             <input
+              value="<?= $nombres ?>"
               type="text"
               name="nombres"
               placeholder="Nombres"
@@ -134,40 +144,56 @@
             <input
               type="date"
               name="fecha_nacimiento"
+              value="<?= $fecha_nacimiento ?>"
               placeholder="Fecha de nacimiento"
               class="form-control"
               id="fecha"
               required
             >
+            
+            
           </div>
           <div class="col-md-4">
             <label for="procedencia" class="form-label">Procedencia:</label>
             <select
-              hx-get="/estudiante/procedencia"
-              hx-trigger="load"
-              hx-target="#procedencia"
+              
               id="procedencia"
               name="id_procedencia"
               class="form-control"
               required
             >
-              <option value=""></option>
+         
+            <?php ConsultarProcedencia::consultarProcedencia(); ?>
+            
+            
             </select>
           </div>
           <div class="col-md-4">
-            <label for="nacionalidad" class="form-label">Nacionalidad:</label>
-            <select
-              hx-get="/estudiante/nacionalidad"
-              hx-trigger="load"
-              hx-target="#nacionalidad"
+            <label 
+            
+            
+            for="nacionalidad" class="form-label">Nacionalidad:</label>
+          
+         <select
+              
+              
+              
               id="nacionalidad"
               name="id_nacionalidad"
               placeholder="nacionalidad"
               class="form-control"
               required
             >
-              <option value=""></option>
+            
+            
+            
+           
+            <?php
+            ConsultarNacionalidad::consultarNacionalidad();
+            
+            ?>
             </select>
+           
           </div>
           <div class="col-md-4">
             <label for="sexo" class="form-label">Sexo:</label>
@@ -175,12 +201,11 @@
               name="sexo"
               id="sexo"
               class="form-control"
-              hx-get="/estudiante/sexo"
-              hx-target="#sexo"
-              hx-trigger="load"
+              
               required
             >
-              <option value=""></option>
+            <?php Sexos::optenerSexos(); ?>
+            
             </select>
           </div>
         </div>
@@ -372,43 +397,40 @@
           <div class="col-md-4">
             <label for="estado_nutricional" class="form-label">Estado nutricional:</label>
             <select
-              hx-get="/estudiante/estado_nutricional"
-              hx-trigger="load"
-              hx-target="#estado_nutricional"
               id="estado_nutricional"
               name="id_estado_nutricional"
               class="form-control"
               required
             >
-              <option value=""></option>
+              <?php ConsultarEstadoNutricional::consultarEstadoNutricional(); ?>
+              
             </select>
           </div>
           <div class="col-md-4">
             <label for="condicion_medica" class="form-label">Condición médica:</label>
             <select
-              hx-get="/estudiante/condicion_medica"
-              hx-trigger="load"
-              hx-target="#condicion_medica"
-              id="condicion_medica"
+               id="condicion_medica"
               name="id_condicion_medica"
               class="form-control"
               required
             >
-              <option value=""></option>
+           
+           <?php ConsultarCondicionMedica::consultarCondicionMedica(); ?>
+           
             </select>
           </div>
           <div class="col-md-4">
             <label for="discapacidad" class="form-label">Discapacidad:</label>
             <select
-              hx-get="/estudiante/discapacidad"
-              hx-trigger="load"
-              hx-target="#discapacidad"
-              id="discapacidad"
+                id="discapacidad"
               name="id_discapacidad"
+              
               class="form-control"
               required
             >
-              <option value=""></option>
+              
+              <?php ConsultarDiscapacidad::consultarDiscapacidad(); ?>
+              
             </select>
           </div>
         </div>
@@ -418,3 +440,27 @@
     </div>
   </div>
 </div>
+
+
+
+<script>
+
+
+ añadirValorPorDefecto('nacionalidad','<?= $id_nacionalidad ?>');
+ añadirValorPorDefecto('procedencia','<?= $id_procedencia ?>');
+ añadirValorPorDefecto('sexo','<?= $sexo ?>');
+
+ añadirValorPorDefecto('estado_nutricional','<?= $id_estado_nutricional ?>');
+ añadirValorPorDefecto('condicion_medica','<?= $id_condicion_medica ?>');
+ añadirValorPorDefecto('discapacidad','<?= $id_discapacidad ?>');
+</script>
+
+
+
+
+
+
+
+
+
+

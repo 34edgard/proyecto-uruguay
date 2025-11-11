@@ -40,6 +40,8 @@ $menu = 'componentes/menu-desplegable';
                 ['label' => 'Planilla', 'hx_post' => '/frontend/Html/Reportes/Planilla.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Planilla"],
                 ['label' => 'Diploma', 'hx_post' => '/frontend/Html/Reportes/Diploma.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Diploma"],
                 ['label' => 'Estadística', 'hx_post' => '/frontend/Html/Reportes/Estadisticas.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Estadistica"],
+                ['label' => 'Lista de Estudiantes', 'hx_post' => '/frontend/Html/Reportes/ListaEstudiantes.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Lista de Estudiantes"],
+            
             ]
         ]);
         ?>

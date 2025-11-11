@@ -2,20 +2,27 @@
 include "./conf.php";
 include "./backend/autoload.php";
 
+
+
+
+
+use Liki\Testing\TestingRutas;
+
 use Liki\Routing\Ruta;
 use Liki\Plantillas\Plantilla;
 use Liki\Sesion;
-use Funciones\ManejoUsuarios\ConsultarUsuario;
-use Funciones\ManejoUsuarios\ConsultarRol;
-use Funciones\ManejoUsuarios\FormularioEdicion;
-use Funciones\ManejoUsuarios\CambiarEstadoUsuario;
-use Funciones\ManejoUsuarios\CrearUsuario;
-use Funciones\ManejoUsuarios\ConfirmarEliminacion;
-use Funciones\ManejoUsuarios\EliminarUsuario;
-use Funciones\ManejoUsuarios\EditarUsuario;
-use Funciones\ManejoUsuarios\ConsultarUsuarioCI;
 
-use Funciones\ManejoDocentes\ConsultarDocente;
+use App\DatosExtra\Rol;
+use App\Personas\Usuario;
+use App\Personas\Docente;
+
+
+
+
+
+
+
+//use Funciones\ManejoDocentes\ConsultarDocente;
 use Funciones\ManejoDocentes\ConsultarDocenteCI;
 use Funciones\ManejoDocentes\ImprimirDocentes;
 use Funciones\ManejoDocentes\RegistrarDocente;
@@ -65,7 +72,9 @@ use Funciones\ManejoReprecentantes\ConsultarReprecentanteCi;
 
 use Funciones\ManejoEstudiantes\RegistrarEstudiante;
 use Funciones\ManejoEstudiantes\RegistrarDatosExtraEstudiante;
-
+use Funciones\ManejoEstudiantes\ConsultarEstudiantes;
+use Funciones\ManejoEstudiantes\FormularioEdicionEstudiante;
+use Funciones\ManejoEstudiantes\ConfirmarEliminacionEstudiante;
 
 use Funciones\ManejoPeriodoEscolar\ConsultarPeriodoEscolar;
 use Funciones\ManejoPeriodoEscolar\ConsultarPeriodo;
@@ -106,9 +115,38 @@ use Funciones\ManejoReportes\ImprimirPlanillaDeInscripcion;
 
 use Funciones\BdSQLWeb;
 
+use Liki\ErrorHandler;
+
+
+use Liki\Database\MigrationRunner;
+
+
+
+
+
+
+
+Ruta::get('/migracion',function(){
+    
+  $d = new  MigrationRunner();
+    
+});
+
+
+
+
+Ruta::get('/testing/rutas',function(){
+    TestingRutas::procesar_testing();
+    
+    // Mostrar interfaz de testing
+    TestingRutas::mostrar_rutas_disponibles();
+});
+
+
 
 Ruta::get('/',function(){
-  Plantilla::paginas('Gestion_Sesion');
+    
+  Plantilla::pagijnas('Gestion_Sesion');
   
 });
 
@@ -136,29 +174,30 @@ Ruta::post('/iniciar/sesion',[Sesion::class,'iniciar_sesion'],['Inicio_secion','
 
 //Gestion_Usuario
 
-Ruta::post('/usuario/crear',[CrearUsuario::class,'crear_usuario'],
+Ruta::post('/usuario/crear',[Usuario::class,'crear_usuario'],
 ['Crear_usuario','cedula','nombre','apellido','correo','usuario','rol','contraseña']);
 
 
-Ruta::get('/usuario/list',[ConsultarUsuario::class,'consultar_usuario']);
+Ruta::get('/usuario/list',[Usuario::class,'consultar_usuario']);
 
-Ruta::get('/usuario/rol',[ConsultarRol::class,'consultar_rol'],['rol']);
-
-Ruta::get('/usuario/cedula',[ConsultarUsuarioCI::class,'consultar_usuario_ci'],['consultar_usuario_ci','ci']);
-
-Ruta::get('/usuario/eliminar',[EliminarUsuario::class,'eliminar_usuario'],['eliminarUsuario','ci'],
-[[ConsultarUsuario::class,'consultar_usuario']]);
+Ruta::get('/usuario/rol',[Rol::class,'consultar_rol'],['rol']);
 
 
-Ruta::get('/usuario/cambiarEstadoUsuario',[CambiarEstadoUsuario::class,'cambiarEstado'],['cambiarEstadoUsuario','ci']);
+Ruta::get('/usuario/cedula',[Usuario::class,'consultar_usuario_ci'],['ci']);
+
+Ruta::get('/usuario/eliminar',[Usuario::class,'eliminar_usuario'],['eliminarUsuario','ci'],
+[[Usuario::class,'consultar_usuario']]);
 
 
-Ruta::get('/usuario/form/edicion',[FormularioEdicion::class,'editar_usuario_form'],['formularioEdicion']);
-
-Ruta::get('/usuario/eliminar_confir',[ConfirmarEliminacion::class,'confirmarEliminacion'],['confimarEliminacion']);
+Ruta::get('/usuario/cambiarEstadoUsuario',[Usuario::class,'cambiarEstado'],['cambiarEstadoUsuario','ci']);
 
 
-Ruta::post('/usuario/editar',[EditarUsuario::class,'editar_usuario'],['EditarUsuario','ci','nombre','nombre_usuario','correo','apellido','contraseña','rol'],[[ConsultarUsuario::class,'consultar_usuario']]);
+Ruta::get('/usuario/form/edicion',[Usuario::class,'editar_usuario_form'],['formularioEdicion']);
+
+Ruta::get('/usuario/eliminar_confir',[Usuario::class,'confirmarEliminacion'],['confimarEliminacion']);
+
+
+Ruta::post('/usuario/editar',[Usuario::class,'editar_usuario'],['EditarUsuario','ci','nombre','nombre_usuario','correo','apellido','contraseña','rol'],[[Usuario::class,'consultar_usuario']]);
 
 
 
@@ -209,7 +248,13 @@ Ruta::get('/estudiante/condicion_medica',[ConsultarCondicionMedica::class,'consu
 Ruta::get('/estudiante/discapacidad',[ConsultarDiscapacidad::class,'consultarDiscapacidad'],['id_discapacidad']);
 
 
+Ruta::get('/estudiante/form/edicion',[FormularioEdicionEstudiante::class,'FormularioEdicionEstudiante'],['formularioEdicion']);
 
+Ruta::get('/estudiante/eliminar_confir',[ConfirmarEliminacionEstudiante::class,'confirmarEliminacionEstudiante'],['ci_escolar']);
+
+Ruta::get('/estudiante/eliminar',function(){
+    echo 'ddddd';
+},['ci_escolar']);
 
 
 Ruta::get('/direccion/estado',[ConsultarEstados::class,'consultarEstado'],['pais']);
@@ -359,6 +404,10 @@ Ruta::post("/planillas/tablas",[GenerarPlanilla::class,'generarPlanilla'],['peri
 
 Ruta::get("/planilla/imprimir",[ImprimirPlanillaDeInscripcion::class,'imprimirPlanilla'],['ci_escolar']);
 
+
+
+
+Ruta::get('/reportes/ListaEstudiantes',[ConsultarEstudiantes::class,'ConsultarEstudiantes']);
 
 
 

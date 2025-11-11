@@ -1,18 +1,18 @@
 <?php
 
-namespace Funciones\ManejoUsuarios;
+//namespace Funciones\ManejoUsuarios;
 use App\DatosExtra\Correo;
 use App\Personas\Usuario;
 use Liki\Plantillas\Plantilla;
 
 
-class CrearUsuario{
+return new class {
   
 
-  public static function crear_usuario() {
+  public static function run($p) {
     
-    $Extras = func_get_args();
-    extract($Extras[0]);
+    extract($p);
+    
     (new Correo())->registrar([
       "campos" => ["email"],
       "valores" => [$correo],
@@ -42,8 +42,7 @@ class CrearUsuario{
         $contraseña_hash,
       ],
     ]);
-   // $extras=func_get_args();
-    
+ 
     
     Plantilla::HTML('componentes/h1',[
         "contenido"=>'el usuario fue creado correctamente'
@@ -54,8 +53,7 @@ class CrearUsuario{
     ]);
     
     
-   // $extras[1][0]();
-  //  scriptAlert('');
+   
     
   }
-}
+};

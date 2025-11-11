@@ -1,5 +1,5 @@
 <?php
-namespace Funciones\ManejoDocentes;
+//namespace Funciones\ManejoDocentes;
 use Liki\Plantillas\Plantilla;
 use App\Personas\Docente;
 use Funciones\ManejoDocentes\NumeroTelefono;
@@ -25,4 +25,4 @@ Plantilla::HTML("Docente/tabla",$user);
       
     }
   }
-}
+};

@@ -3,7 +3,7 @@
 namespace Liki\Database;
 
 use Liki\Database\ConexionesBD;
-
+use Liki\ErrorHandler;
 use PDO;
 use PDOException;
 use Exception;
@@ -29,8 +29,15 @@ class ConsultasBD extends ConexionesBD {
             $stmt->execute($parametros); // Ejecuta la consulta con los parámetros vinculados
             return $stmt->rowCount(); // Retorna el número de filas afectadas
         } catch (PDOException $e) {
-            throw new Exception("Fallo al ejecutar la consulta: " . $e->getMessage());
-        } finally {
+            
+            ErrorHandler::getInstance()->handle(
+            ErrorHandler::DB_QUERY_ERROR,
+            'Error en la consulta',
+            ['sql'=>$sql,'error'=>$e->getMessage()],
+            500
+            );
+            
+             } finally {
             $this->cerrarConexion($conexion);
         }
     }
@@ -55,7 +62,14 @@ class ConsultasBD extends ConexionesBD {
             $stmt->execute($parametros); // Ejecuta la consulta con los parámetros vinculados
             $arreglo = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtiene todos los resultados
         } catch (PDOException $e) {
-            throw new Exception("Error en la consulta: " . $e->getMessage());
+            ErrorHandler::getInstance()->handle(
+            ErrorHandler::DB_QUERY_ERROR,
+            'Error en la consulta',
+            ['sql'=>$sql,'error'=>$e->getMessage()],
+           500
+           
+            );
+            
         } finally {
             $this->cerrarConexion($conexion);
         }

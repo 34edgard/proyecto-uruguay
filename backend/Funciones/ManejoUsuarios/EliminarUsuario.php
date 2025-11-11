@@ -1,13 +1,13 @@
 <?php
- namespace Funciones\ManejoUsuarios;
+// namespace Funciones\ManejoUsuarios;
 use App\Personas\Usuario;
 
-class EliminarUsuario{
+return new class {
   
   
-  public static function eliminar_usuario() {
-    $extras = func_get_args();
-    extract( $extras[0]);
+  public static function run($p,$f) {
+    
+    extract( $p);
   //  print_r($_GET);
     $usuarios = new Usuario();
 
@@ -17,6 +17,6 @@ class EliminarUsuario{
       "valor" => $ci]
       ]
     ]);
-   $extras[1][0]();
+   $f[0]();
   }
-}
+};

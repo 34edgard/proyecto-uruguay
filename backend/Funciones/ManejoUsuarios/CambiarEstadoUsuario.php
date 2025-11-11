@@ -1,14 +1,14 @@
 <?php
-namespace Funciones\ManejoUsuarios;
+//namespace Funciones\ManejoUsuarios;
 use App\Personas\Usuario;
 use Liki\Plantillas\Plantilla;
 
 
 
-class CambiarEstadoUsuario{
-  public static function cambiarEstado() {
-    $Extras = func_get_args();
-    extract($Extras[0]);
+return new class {
+  public static function run($p) {
+    
+    extract($p);
 
     $datos = ["campos" => ["cedula", "estado"], 
       "where"=>[
@@ -40,4 +40,4 @@ Plantilla::HTML('componentes/button',[
 ]);
 
      }
-}
+};

@@ -1,15 +1,15 @@
 <?php
 
-namespace Funciones\ManejoUsuarios;
+//namespace Funciones\ManejoUsuarios;
 use App\Personas\Usuario;
 use App\DatosExtra\Correo;
 use Liki\Plantillas\Plantilla;
       
-class FormularioEdicion{
+return new class {
 
- public static function editar_usuario_form(){
-    $Extras = func_get_args();
-    extract($Extras[0]);
+ public static function run($p){
+  
+    extract($p);
 if(!isset($formularioEdicion)) return;
    
    session_start();
@@ -32,4 +32,4 @@ if(!isset($formularioEdicion)) return;
   }
 
   
-}
+};

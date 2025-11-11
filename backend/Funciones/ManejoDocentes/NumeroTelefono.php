@@ -1,11 +1,11 @@
 <?php
 
-namespace Funciones\ManejoDocentes;
+//namespace Funciones\ManejoDocentes;
 use App\DatosExtra\Telefono;
 
-class NumeroTelefono{
+return new class {
 
-public static function consultar($id_docente){
+public static function run($id_docente){
 return  (new Telefono())->consultar([
     "campos" => ["id_docente","numero_telefono"],
         "where"=>[
@@ -13,4 +13,4 @@ return  (new Telefono())->consultar([
         ]  
       ])[0]["numero_telefono"]; 
 }
-}
+};

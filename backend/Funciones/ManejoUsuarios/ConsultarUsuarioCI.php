@@ -1,19 +1,19 @@
 <?php
-namespace Funciones\ManejoUsuarios;
+//namespace Funciones\ManejoUsuarios;
 use App\Personas\Usuario;
 use Liki\Plantillas\Plantilla;
 
 
-class ConsultarUsuarioCI{
-  public static function consultar_usuario_ci() {
+return new class {
+  public static function run($p) {
     session_start();
-    $Extras = func_get_args();
-    extract($Extras[0]);
+   
+    extract($p);
     $datos = [
       "campos" => ["cedula", "nombres", "apellidos", "id_correo", "estado"],
     ];
 
-    if ($_SESSION["rol"] == 2) {
+    if ($_SESSION["id_rol"] == 2) {
       $datos["valor"] = $_SESSION["ci"];
     }
 
@@ -25,4 +25,4 @@ class ConsultarUsuarioCI{
   Plantilla::HTML("usuario/lista-usuarios",$usuario);
     }
   }
-}
+};
