@@ -3,7 +3,7 @@
 
 namespace App\Direccion;
 use Liki\Database\Tabla;
-
+use Liki\ExecFunc;
 
 
 class LugarNacimiento extends Tabla{

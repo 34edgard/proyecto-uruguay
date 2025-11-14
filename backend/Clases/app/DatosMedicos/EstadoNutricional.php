@@ -2,7 +2,7 @@
 
 namespace App\DatosMedicos;
 use Liki\Database\Tabla;
-
+use Liki\ExecFunc;
 
 class EstadoNutricional extends Tabla{
   public function __construct(){

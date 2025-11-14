@@ -2,7 +2,7 @@
 
 namespace App\Plantel;
 use Liki\Database\Tabla;
-
+use Liki\ExecFunc;
 
 
 class AnioEscolarEstudiante extends Tabla{

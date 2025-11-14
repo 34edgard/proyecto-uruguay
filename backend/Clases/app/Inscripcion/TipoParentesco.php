@@ -2,6 +2,8 @@
 
 namespace App\Inscripcion;
 use Liki\Database\Tabla;
+use Liki\ExecFunc;
+
 
 class TipoParentesco extends Tabla{
   

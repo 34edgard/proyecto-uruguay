@@ -1,10 +1,10 @@
 <?php
-//namespace Funciones\ManejoDocentes;
+
 use Liki\Plantillas\Plantilla;
 use App\Personas\Docente;
 use Funciones\ManejoDocentes\NumeroTelefono;
 
-  class ConsultarDocente{
+return new  class {
   
   public static function consultarDocente(){
     $DOCENTE = new Docente();

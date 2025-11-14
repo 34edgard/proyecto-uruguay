@@ -2,6 +2,7 @@
 
 namespace App\DatosMedicos;
 use Liki\Database\Tabla;
+use Liki\ExecFunc;
 
 class Tratamiento extends Tabla{
   public function __construct(){

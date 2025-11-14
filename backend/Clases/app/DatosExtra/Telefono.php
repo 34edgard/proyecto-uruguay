@@ -2,6 +2,7 @@
 
 namespace App\DatosExtra;
 use Liki\Database\Tabla;
+use Liki\ExecFunc;
 
 class Telefono extends Tabla{
   public function __construct(){

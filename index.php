@@ -206,7 +206,7 @@ Ruta::post('/usuario/editar',[Usuario::class,'editar_usuario'],['EditarUsuario',
 
 
 
-Ruta::get('/docente',[ConsultarDocente::class,'consultarDocente']);
+Ruta::get('/docente',[Docente::class,'consultarDocente']);
 
 Ruta::get('/docente/ci',[ConsultarDocenteCI::class,'consultarDocenteCI'],['ci']);
 
