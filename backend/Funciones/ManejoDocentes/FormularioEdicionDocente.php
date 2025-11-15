@@ -1,17 +1,17 @@
 <?php
 
-namespace Funciones\ManejoDocentes;
+
 use Liki\Plantillas\Plantilla;
 use App\Personas\Docente;
 use App\DatosExtra\Telefono;
 
 
 
-  class FormularioEdicionDocente{
-  public static function formularioEdicion(){
+ return new class {
+  public static function run($p){
    //formularioEdicion
-$Extras = func_get_args();
-extract($Extras[0]);
+
+extract($p);
 
    $datos = (new Docente)->consultar([
      "campos"=>['cedula','nombres','apellidos','id_docente','fecha_nacimiento'],
@@ -32,4 +32,4 @@ extract($Extras[0]);
    //  print_r($datos);
     Plantilla::HTML('Docente/FormularioEdicion',$datos);
   }
-}
+};

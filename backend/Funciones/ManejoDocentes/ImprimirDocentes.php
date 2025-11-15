@@ -1,15 +1,14 @@
 <?php
-namespace Funciones\ManejoDocentes;
+
 use App\Personas\Docente;
 use App\DatosExtra\Telefono;
 use Funciones\Edad;
 use Liki\Files\PDF;
 
-class ImprimirDocentes{
-   public static function imprimirDocenteCI(){
+return new class {
+   public static function run($p){
           $DOCENTE = new Docente();
-        $Extras = func_get_args();
-          extract($Extras[0]);
+            extract($p);
         
         
         
@@ -51,4 +50,4 @@ class ImprimirDocentes{
          );
         $pdf->Output('D', 'docentes.pdf'); 
    }
-}
+};

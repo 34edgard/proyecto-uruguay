@@ -20,22 +20,6 @@ use App\Personas\Docente;
 
 
 
-
-
-
-use Funciones\ManejoDocentes\ConsultarDocenteCI;
-use Funciones\ManejoDocentes\ImprimirDocentes;
-use Funciones\ManejoDocentes\RegistrarDocente;
-use Funciones\ManejoDocentes\EditarDocente;
-use Funciones\ManejoDocentes\FormularioEdicionDocente;
-use Funciones\ManejoDocentes\ConfirmarEliminacionDocente;
-use Funciones\ManejoDocentes\EliminarDocente;
-
-
-
-
-
-
 use Funciones\RegistrarTelefono;
 
 
@@ -208,22 +192,22 @@ Ruta::post('/usuario/editar',[Usuario::class,'editar_usuario'],['EditarUsuario',
 
 Ruta::get('/docente',[Docente::class,'consultarDocente']);
 
-Ruta::get('/docente/ci',[ConsultarDocenteCI::class,'consultarDocenteCI'],['ci']);
+Ruta::get('/docente/ci',[Docente::class,'consultarDocenteCI'],['ci']);
 
-Ruta::get('/docente/ci/imprimir',[ImprimirDocentes::class,'imprimirDocenteCI'],['ci']);
+Ruta::get('/docente/ci/imprimir',[Docente::class,'imprimirDocenteCI'],['ci']);
 
-Ruta::get('/docente/formulario',[FormularioEdicionDocente::class,'formularioEdicion'],['formularioEdicion']);
+Ruta::get('/docente/formulario',[Docente::class,'formularioEdicion'],['formularioEdicion']);
 
-Ruta::get('/docente/eliminar',[EliminarDocente::class,'eliminarDocente'],['eliminar'],
-[[ConsultarDocente::class,'consultarDocente']]);
+Ruta::get('/docente/eliminar',[Docente::class,'eliminarDocente'],['eliminar'],
+[[Docente::class,'consultarDocente']]);
 
-Ruta::get('/docente/confirmar/eliminacion',[ConfirmarEliminacionDocente::class,'confirmarEliminacion'],['ConfirmarEliminacion']);
+Ruta::get('/docente/confirmar/eliminacion',[Docente::class,'confirmarEliminacion'],['ConfirmarEliminacion']);
 
-Ruta::post('/docente/registrar',[RegistrarDocente::class,'registrarDocente'],['formulario','cedula','nombre','apellido','fecha_nacimiento','telefono','tipo_telefono'],
+Ruta::post('/docente/registrar',[Docente::class,'registrarDocente'],['formulario','cedula','nombre','apellido','fecha_nacimiento','telefono','tipo_telefono'],
 [[RegistrarTelefono::class,'registrarTelefono']]);
 
-Ruta::post('/docente/editar',[EditarDocente::class,'editarDocente'],['Editar','cedula','nombre','apellido','fecha_nacimiento','telefono','tipo_telefono'],
-[[ConsultarDocente::class,'consultarDocente']]);
+Ruta::post('/docente/editar',[Docente::class,'editarDocente'],['Editar','cedula','nombre','apellido','fecha_nacimiento','telefono','tipo_telefono'],
+[[Docente::class,'consultarDocente']]);
 
 
 

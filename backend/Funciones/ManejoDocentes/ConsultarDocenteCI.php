@@ -1,14 +1,14 @@
 <?php
-namespace Funciones\ManejoDocentes;
+
 use Liki\Plantillas\Plantilla;
 use App\Personas\Docente;
 use App\DatosExtra\Telefono;
 
-class ConsultarDocenteCI{
-  public static function consultarDocenteCI() {
+return new class {
+  public static function run($p) {
     $DOCENTE = new Docente();
-    $Extras = func_get_args();
-    extract($Extras[0]);
+    
+    extract($p);
     $res = $DOCENTE->consultar([
       "campos" => ["cedula","id_docente", "nombres", "apellidos", "fecha_nacimiento"],
       "where"=>[
@@ -39,4 +39,4 @@ class ConsultarDocenteCI{
     
     }
   }
-}
+};

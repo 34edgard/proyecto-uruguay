@@ -1,6 +1,6 @@
 <?php
 
-namespace Funciones\ManejoDocentes;
+
 use Liki\Plantillas\Plantilla;
 use App\Personas\Docente;
 
@@ -8,10 +8,10 @@ use App\Personas\Docente;
 
 
 
-class RegistrarDocente{
-  public static function registrarDocente() {
-   $extras = func_get_args();
-    extract( $extras[0]);
+return new class {
+  public static function run($p,$f) {
+   
+    extract( $p);
     $DOCENTE = new Docente();
   /*  $id_telefono = $extras[1][0]($telefono);*/
     
@@ -30,7 +30,7 @@ class RegistrarDocente{
       ]
     ])[0]['id_docente'];
     
-  $extras[1][0]($telefono,$formulario,$tipo_telefono,$id_docente);
+  $f[0]($telefono,$formulario,$tipo_telefono,$id_docente);
   Plantilla::HTML('MensajeExito',["mensajeExito"=>'el docente se a creado correctamente']);
   }
-}
+};

@@ -1,12 +1,12 @@
 <?php
-namespace Funciones\ManejoDocentes;
+
 use App\Personas\Docente;
 
-class EditarDocente{
+return new class {
 
-  public static function editarDocente(){
-    $EXTRAS = func_get_args();
-   extract($EXTRAS[0]);
+  public static function run($p,$f){
+    
+   extract($p);
     (new Docente)->editar([
       "campos"=>['cedula','nombres','apellidos','fecha_nacimiento'],
       "valores"=>[$cedula,$nombre,$apellido,$fecha_nacimiento], 
@@ -15,6 +15,6 @@ class EditarDocente{
       ]
       
       ]);
-    $EXTRAS[1][0]();
+    $f[0]();
   }
-}
+};

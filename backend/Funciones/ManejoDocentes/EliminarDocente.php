@@ -1,15 +1,13 @@
 <?php
 
-namespace Funciones\ManejoDocentes;
-
 use App\Personas\Docente;
 use App\DatosExtra\Telefono;
 
 
-class EliminarDocente{
-  public static function eliminarDocente(){
-    $EXTRAS = func_get_args();
-    extract( $EXTRAS[0]);
+return new class {
+  public static function run($p,$f){
+    
+    extract( $p);
     $id_docente = (new Docente)->consultar([
       "campos"=>['cedula','id_docente'],
       "where"=>[
@@ -31,6 +29,6 @@ class EliminarDocente{
       ]
     ];
     (new Docente)->eliminar($datos);
-    $EXTRAS[1][0]();
+    $f[0]();
   }
-}
+};
