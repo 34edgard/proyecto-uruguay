@@ -2,7 +2,7 @@
 include "./conf.php";
 include "./backend/autoload.php";
 
-
+//phpinfo();
 
 
 
@@ -22,7 +22,7 @@ use App\Personas\Docente;
 
 
 
-//use Funciones\ManejoDocentes\ConsultarDocente;
+
 use Funciones\ManejoDocentes\ConsultarDocenteCI;
 use Funciones\ManejoDocentes\ImprimirDocentes;
 use Funciones\ManejoDocentes\RegistrarDocente;
@@ -146,7 +146,7 @@ Ruta::get('/testing/rutas',function(){
 
 Ruta::get('/',function(){
     
-  Plantilla::pagijnas('Gestion_Sesion');
+  Plantilla::paginas('Gestion_Sesion');
   
 });
 
