@@ -8,7 +8,7 @@ class Telefono extends Tabla{
   public function __construct(){
     parent::__construct('telefonos');
   }
-  public static function NumeroTelefono(){
-      
+  public static function NumeroTelefono($id){
+     return ExecFunc::exec('DatosPersonales/NumeroTelefono',$id);
   }
 }

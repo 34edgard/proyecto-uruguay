@@ -26,7 +26,7 @@ interface Rutas_Server {
 
 class Ruta implements Rutas_Server {
 
-    private static array $routes = [];
+    private static  $routes = [];
 
     /**
      * Valida si los parámetros esperados están presentes en los parámetros recibidos.
