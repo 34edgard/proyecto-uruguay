@@ -1,17 +1,17 @@
 <?php
 
-namespace Funciones\ManejoSecciones;
+
 use App\Plantel\Secciones;
 use App\Plantel\Niveles;
 
-class CrearSeccion{
-  public static function crearSeccion() {
+return new class {
+  public static function run($p,$f) {
     
-    $EXTRAS = func_get_args();
-    extract($EXTRAS[0]);
+    
+    extract($p);
 
 
-    (new Niveles)->registrar([
+    /*(new Niveles)->registrar([
       "campos"=>['id_tipo_nivel'],
       "valores"=>[$id_nivel]
      ]);
@@ -25,12 +25,14 @@ class CrearSeccion{
       ],
       "limit"=>1
     ])[0]['id_nivel'];
+      */
+     // print_r($p);
       
     (new Secciones)->registrar([
       "campos"=>['id_nivel','nombre_seccion'],
-      "valores"=>[$id_niveles,$nombre_seccion]
+      "valores"=>[$id_nivel,$nombre_seccion]
 
     ]);
-    $EXTRAS[1][0]();
+    $f[0]();
   }
-}
+};

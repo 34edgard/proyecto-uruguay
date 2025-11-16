@@ -1,10 +1,10 @@
 <?php
-namespace Funciones\ManejoSecciones;
+
 use App\Plantel\Secciones;
 use Liki\Plantillas\Plantilla;
 
-class ConsultarSeccion{
-  public static function consultarSeccion() {
+return new class {
+  public static function run() {
      $niveles = (new Secciones)->consultar([
       "campos"=>['nombre_seccion','id_seccion']
     ]);
@@ -23,4 +23,4 @@ class ConsultarSeccion{
     
   
   }
-}
+};

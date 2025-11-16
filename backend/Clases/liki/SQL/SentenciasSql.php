@@ -1,7 +1,7 @@
 <?php
 
 namespace Liki\SQL;
-
+use Exception;
 
 
 abstract class SentenciasSql {

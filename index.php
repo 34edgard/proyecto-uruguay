@@ -15,6 +15,7 @@ use Liki\Sesion;
 use App\DatosExtra\Rol;
 use App\Personas\Usuario;
 use App\Personas\Docente;
+use App\Plantel\Secciones;
 
 
 
@@ -69,10 +70,6 @@ use Funciones\ManejoNiveles\ConsultarNivel;
 use Funciones\ManejoNiveles\ConsultarNiveles;
 use Funciones\ManejoNiveles\CrearNivel;
 
-
-use Funciones\ManejoSecciones\ConsultarSecciones;
-use Funciones\ManejoSecciones\ConsultarSeccion;
-use Funciones\ManejoSecciones\CrearSeccion;
 
 
 
@@ -352,9 +349,9 @@ Ruta::post('/plantel/nivel/crear',[CrearNivel::class,'crearNivel'],['nombre_nive
 Ruta::get('/plantel/nivele',[ConsultarNivel::class,'consultarNivel'],['id_nivel']);
 Ruta::get('/plantel/niveles',[ConsultarNiveles::class,'consultarNiveles'],['id_niveles']);
 
-Ruta::post('/plantel/seccion/crear',[CrearSeccion::class,'crearSeccion'],['nombre_seccion','id_nivel'],[[ConsultarSecciones::class,'consultarSecciones']]);
-Ruta::get('/plantel/secciones',[ConsultarSecciones::class,'consultarSecciones'],['id_secciones']);
-Ruta::get('/plantel/seccion',[ConsultarSeccion::class,'consultarSeccion'],['id_seccion']);
+Ruta::post('/plantel/seccion/crear',[Secciones::class,'crearSeccion'],['nombre_seccion','id_nivel'],[[Secciones::class,'consultarSecciones']]);
+Ruta::get('/plantel/secciones',[Secciones::class,'consultarSecciones'],['id_secciones']);
+Ruta::get('/plantel/seccion',[Secciones::class,'consultarSeccion'],['id_seccion']);
 
 Ruta::post('/plantel/aula/crear',[CrearAula::class,'crearAula'],['id_seccion','nombre_aula'],[[ConsultoAula::class,'consultarAula']]);
 Ruta::get('/plantel/aulas/select',[ConsultarAulas::class,'consultarAulas']);

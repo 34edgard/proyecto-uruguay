@@ -1,9 +1,9 @@
 <?php
-namespace Funciones\ManejoSecciones;
+
 use App\Plantel\Secciones;
 
-class ConsultarSecciones{
-  public static function consultarSecciones() {
+return new class {
+  public static function run() {
 
     $niveles = (new Secciones)->consultar([
       "campos"=>['nombre_seccion']
@@ -20,4 +20,4 @@ class ConsultarSecciones{
      }
     echo "</table>";
   }
-}
+};
