@@ -1,14 +1,13 @@
 <?php
-namespace Funciones\ManejoAulas;
 
 use Liki\Plantillas\Plantilla;
 use App\Plantel\Aulas;
 
-class ConsultoAula{
+return new class {
 
-  public static function consultarAula() {
-    $extras = func_get_args();
-   extract($extras[0]);
+  public static function run($p) {
+    
+   extract($p);
     
     
  $aulas   = (new Aulas)->consultar([
@@ -18,4 +17,4 @@ class ConsultoAula{
     Plantilla::HTML('componentes/tabla',['aulas'=>$aulas]);
       
     }
-}
+};

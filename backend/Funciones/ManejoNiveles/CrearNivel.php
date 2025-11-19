@@ -1,21 +1,20 @@
 <?php
 
-namespace Funciones\ManejoNiveles;
 
 use App\Plantel\TipoNivel;
 
 
-class CrearNivel{
-  public static function crearNivel() {
+return new class {
+  public static function run($p,$f) {
     
-    $EXTRAS = func_get_args();
-    extract($EXTRAS[0]);
+    
+    extract($p);
     
     (new TipoNivel)->registrar([
       "campos"=>['nombre_nivel'],
       "valores"=>[$nombre_nivel]
 
     ]);
-    $EXTRAS[1][0]();
+    $f[0]();
   }
-}
+};

@@ -15,8 +15,9 @@ use Liki\Sesion;
 use App\DatosExtra\Rol;
 use App\Personas\Usuario;
 use App\Personas\Docente;
+use App\Plantel\Niveles;
 use App\Plantel\Secciones;
-
+use App\Plantel\Aulas;
 
 
 
@@ -64,18 +65,6 @@ use Funciones\ManejoEstudiantes\ConfirmarEliminacionEstudiante;
 use Funciones\ManejoPeriodoEscolar\ConsultarPeriodoEscolar;
 use Funciones\ManejoPeriodoEscolar\ConsultarPeriodo;
 use Funciones\ManejoPeriodoEscolar\CrearPeriodoEscolar;
-
-
-use Funciones\ManejoNiveles\ConsultarNivel;
-use Funciones\ManejoNiveles\ConsultarNiveles;
-use Funciones\ManejoNiveles\CrearNivel;
-
-
-
-
-use Funciones\ManejoAulas\ConsultarAulas;
-use Funciones\ManejoAulas\ConsultoAula;
-use Funciones\ManejoAulas\CrearAula;
 
 
 
@@ -344,18 +333,22 @@ Ruta::post('/estudiante/extra',[RegistrarDatosExtraEstudiante::class,'registrarD
 Ruta::post('/plantel/periodo/crear',[CrearPeriodoEscolar::class,'crearPeriodoEscolar'],['inicio_periodo','fin_periodo'],[[ConsultarPeriodoEscolar::class,'consultarPeriodoEscolar']]);
 Ruta::post('/plantel/periodo/consultar',[ConsultarPeriodoEscolar::class,'consultarPeriodoEscolar']);
 Ruta::get('/plantel/periodo/escolar',[ConsultarPeriodo::class,'consultarPeriodo'],['periodo_escolar']);
-Ruta::get('/plantel/aulas',[ConsultarAulas::class,'consultarAulas'],['aula']);
-Ruta::post('/plantel/nivel/crear',[CrearNivel::class,'crearNivel'],['nombre_nivel'],[[ConsultarNivel::class,'consultarNivel']]);
-Ruta::get('/plantel/nivele',[ConsultarNivel::class,'consultarNivel'],['id_nivel']);
-Ruta::get('/plantel/niveles',[ConsultarNiveles::class,'consultarNiveles'],['id_niveles']);
+
+
+Ruta::get('/plantel/aulas',[Aulas::class,'consultarAulas'],['aula']);
+
+
+Ruta::post('/plantel/nivel/crear',[Niveles::class,'crearNivel'],['nombre_nivel'],[[Niveles::class,'consultarNivel']]);
+Ruta::get('/plantel/nivele',[Niveles::class,'consultarNivel'],['id_nivel']);
+Ruta::get('/plantel/niveles',[Niveles::class,'consultarNiveles'],['id_niveles']);
 
 Ruta::post('/plantel/seccion/crear',[Secciones::class,'crearSeccion'],['nombre_seccion','id_nivel'],[[Secciones::class,'consultarSecciones']]);
 Ruta::get('/plantel/secciones',[Secciones::class,'consultarSecciones'],['id_secciones']);
 Ruta::get('/plantel/seccion',[Secciones::class,'consultarSeccion'],['id_seccion']);
 
-Ruta::post('/plantel/aula/crear',[CrearAula::class,'crearAula'],['id_seccion','nombre_aula'],[[ConsultoAula::class,'consultarAula']]);
-Ruta::get('/plantel/aulas/select',[ConsultarAulas::class,'consultarAulas']);
-Ruta::get('/plantel/aula',[ConsultoAula::class,'consultarAula'],['id_aula']);
+Ruta::post('/plantel/aula/crear',[Aulas::class,'crearAula'],['id_seccion','nombre_aula'],[[Aulas::class,'consultarAula']]);
+Ruta::get('/plantel/aulas/select',[Aulas::class,'consultarAulas']);
+Ruta::get('/plantel/aula',[Aulas::class,'consultarAula'],['id_aula']);
 
 Ruta::post('/plantel/AnioEscolar/registrar',[RegistroAnioEscolar::class,'registrarAnioEscolar'],['tipo_plantel','ci_escolar','aula','periodo_escolar']);
 
@@ -392,9 +385,8 @@ Ruta::get('/reportes/ListaEstudiantes',[ConsultarEstudiantes::class,'ConsultarEs
 
 
 
-Ruta::get('/bdSQLWeb',function(){
-    BdSQLWeb::bdSQLWeb();
-});
+Ruta::get('/bdSQLWeb',[
+    BdSQLWeb::class,'bdSQLWeb']);
 
 
 

@@ -1,14 +1,12 @@
 <?php
 
-namespace Funciones\ManejoNiveles;
-
 use App\Plantel\TipoNivel;
 use Liki\Plantillas\Plantilla;
 
 
 
-  class ConsultarNiveles{
-  public static function consultarNiveles() {
+ return new class {
+  public static function run() {
      $niveles = (new TipoNivel)->consultar([
       "campos"=>['nombre_nivel','id_tipo_nivel']
     ]);
@@ -25,4 +23,4 @@ use Liki\Plantillas\Plantilla;
     
   
   }
-}
+};

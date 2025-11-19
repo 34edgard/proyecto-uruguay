@@ -1,12 +1,9 @@
 <?php
 
-
-namespace Funciones\ManejoNiveles;
-
 use App\Plantel\TipoNivel;
 
- class ConsultarNivel{
-  public static function consultarNivel() {
+ return new class {
+  public static function run() {
 
     $niveles = (new TipoNivel)->consultar([
       "campos"=>['nombre_nivel']
@@ -23,4 +20,4 @@ use App\Plantel\TipoNivel;
      }
     echo "</table>";
   }
-}
+};

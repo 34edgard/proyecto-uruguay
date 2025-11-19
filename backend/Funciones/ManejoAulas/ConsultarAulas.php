@@ -1,12 +1,11 @@
 <?php
-namespace Funciones\ManejoAulas;
 
 use Liki\Plantillas\Plantilla;
 use App\Plantel\Aulas;
 
 
-class ConsultarAulas{
-  public static function consultarAulas() {
+return new class {
+  public static function run() {
     //$extras = func_get_args();
    // extract($extras[0]);
  $periodos   = (new Aulas)->consultar([
@@ -22,4 +21,4 @@ class ConsultarAulas{
       }
 
   }
-}
+};

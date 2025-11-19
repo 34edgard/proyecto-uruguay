@@ -1,15 +1,15 @@
 <?php
 
-namespace Funciones\ManejoAulas;
+
 
 use App\Plantel\Aulas;
 
 
-  class  CrearAula{
-  public static function crearAula() {
+return new  class  {
+  public static function run($p,$f) {
     
-    $EXTRAS = func_get_args();
-   extract($EXTRAS[0]);
+    
+   extract($p);
 
 
     (new Aulas)->registrar([
@@ -17,6 +17,6 @@ use App\Plantel\Aulas;
       "valores"=>[$id_seccion,$nombre_aula]
     ]);
 
-   $EXTRAS[1][0]();
+   $f[0]();
   }
-}
+};
