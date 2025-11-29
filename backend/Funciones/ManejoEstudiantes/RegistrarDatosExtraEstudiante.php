@@ -1,6 +1,5 @@
 <?php
 
-namespace Funciones\ManejoEstudiantes;
 
 use Liki\Plantillas\Plantilla;
 use Funciones\Edad;
@@ -17,12 +16,10 @@ use Funciones\ManejoEstudiantes\RegistrarInscripcion;
 
 
 
-class RegistrarDatosExtraEstudiante{
-  public static function registrarDatosExtraEstudiante(){
-
- 
-   $Estras = func_get_args();
-   extract($Estras[0]);
+return new class {
+  public static function run($p){
+   
+   extract($p);
    
 
 
@@ -45,4 +42,4 @@ class RegistrarDatosExtraEstudiante{
      "ci_escolar"=>$cedula_escolar
    ]);
   }
-}
+};

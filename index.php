@@ -15,6 +15,9 @@ use Liki\Sesion;
 use App\DatosExtra\Rol;
 use App\Personas\Usuario;
 use App\Personas\Docente;
+use App\Personas\Estudiante;
+use App\Personas\Reprecentante;
+
 use App\Plantel\Niveles;
 use App\Plantel\Secciones;
 use App\Plantel\Aulas;
@@ -49,18 +52,6 @@ use Funciones\ManejoDireccion\ConsultarSector;
 
 
 
-
-use Funciones\ManejoReprecentantes\RegistrarReprecentante;
-use Funciones\ManejoReprecentantes\RegistrarDatosExtraReprecentante;
-use Funciones\ManejoReprecentantes\ConsultarReprecentanteBuscarCi;
-use Funciones\ManejoReprecentantes\ConsultarReprecentanteCi;
-
-
-use Funciones\ManejoEstudiantes\RegistrarEstudiante;
-use Funciones\ManejoEstudiantes\RegistrarDatosExtraEstudiante;
-use Funciones\ManejoEstudiantes\ConsultarEstudiantes;
-use Funciones\ManejoEstudiantes\FormularioEdicionEstudiante;
-use Funciones\ManejoEstudiantes\ConfirmarEliminacionEstudiante;
 
 use Funciones\ManejoPeriodoEscolar\ConsultarPeriodoEscolar;
 use Funciones\ManejoPeriodoEscolar\ConsultarPeriodo;
@@ -218,13 +209,12 @@ Ruta::get('/estudiante/condicion_medica',[ConsultarCondicionMedica::class,'consu
 Ruta::get('/estudiante/discapacidad',[ConsultarDiscapacidad::class,'consultarDiscapacidad'],['id_discapacidad']);
 
 
-Ruta::get('/estudiante/form/edicion',[FormularioEdicionEstudiante::class,'FormularioEdicionEstudiante'],['formularioEdicion']);
+Ruta::get('/estudiante/form/edicion',[Estudiante::class,'FormularioEdicionEstudiante'],['formularioEdicion']);
 
-Ruta::get('/estudiante/eliminar_confir',[ConfirmarEliminacionEstudiante::class,'confirmarEliminacionEstudiante'],['ci_escolar']);
+Ruta::get('/estudiante/eliminar_confir',[Estudiante::class,'confirmarEliminacionEstudiante'],['ci_escolar']);
 
-Ruta::get('/estudiante/eliminar',function(){
-    echo 'ddddd';
-},['ci_escolar']);
+Ruta::get('/estudiante/eliminar',[Estudiante::class,'EliminarEstudiante'],['ci_escolar'],
+[[Estudiante::class,'ConsultarListaEstudiantes']]);
 
 
 Ruta::get('/direccion/estado',[ConsultarEstados::class,'consultarEstado'],['pais']);
@@ -244,7 +234,7 @@ Ruta::get('/direccion/sector',[ConsultarSector::class,'consultarSector'],['parro
 
 
 
-Ruta::post('/reprecentante/registrar',[RegistrarReprecentante::class,'registrarReprecentante'],[ 
+Ruta::post('/reprecentante/registrar',[Reprecentante::class,'registrarReprecentante'],[ 
   'nro_vivienda1',
   'nro_vivienda2',
   'parroquia1'  ,
@@ -269,18 +259,18 @@ Ruta::post('/reprecentante/registrar',[RegistrarReprecentante::class,'registrarR
 
 
 
-Ruta::post('/reprecentante/extra',[RegistrarDatosExtraReprecentante::class,'registrarDatosExtraReprecentante'],['numero_telefono','id_propietario','tipo_telefono'],[ [RegistrarTelefono::class,'registrarTelefono']]);
+Ruta::post('/reprecentante/extra',[Reprecentante::class,'registrarDatosExtraReprecentante'],['numero_telefono','id_propietario','tipo_telefono'],[ [RegistrarTelefono::class,'registrarTelefono']]);
 
 
 
-Ruta::get('/reprecentantes/ci',[ConsultarReprecentanteCi::class,'consultarReprecentanteCi']);
-Ruta::post('/reprecentantes/buscar/ci',[ConsultarReprecentanteBuscarCi::class,'consultarReprecentanteBuscarCi'],['buscar_ci']);
+Ruta::get('/reprecentantes/ci',[Reprecentante::class,'consultarReprecentanteCi']);
+Ruta::post('/reprecentantes/buscar/ci',[Reprecentante::class,'consultarReprecentanteBuscarCi'],['buscar_ci']);
 
 
 
 
 
-Ruta::post('/estudiante/registrar',[RegistrarEstudiante::class,'registrarEstudiante'] ,[
+Ruta::post('/estudiante/registrar',[Estudiante::class,'registrarEstudiante'] ,[
     'ci_escolar',
     'ci_madre',
     'ci_padre',
@@ -306,7 +296,7 @@ Ruta::post('/estudiante/registrar',[RegistrarEstudiante::class,'registrarEstudia
 
 
 //print_r($_POST);
-Ruta::post('/estudiante/extra',[RegistrarDatosExtraEstudiante::class,'registrarDatosExtraEstudiante'] ,[
+Ruta::post('/estudiante/extra',[Estudiante::class,'registrarDatosExtraEstudiante'] ,[
   "cedula_escolar",
   "talla_camisa",
   "talla_pantalon",
@@ -381,12 +371,11 @@ Ruta::get("/planilla/imprimir",[ImprimirPlanillaDeInscripcion::class,'imprimirPl
 
 
 
-Ruta::get('/reportes/ListaEstudiantes',[ConsultarEstudiantes::class,'ConsultarEstudiantes']);
+Ruta::get('/reportes/ListaEstudiantes',[Estudiante::class,'ConsultarListaEstudiantes']);
 
 
 
-Ruta::get('/bdSQLWeb',[
-    BdSQLWeb::class,'bdSQLWeb']);
+Ruta::get('/bdSQLWeb',[BdSQLWeb::class,'bdSQLWeb']);
 
 
 

@@ -1,6 +1,5 @@
 <?php
 
-namespace Funciones\ManejoEstudiantes;
 
 use Liki\Plantillas\Plantilla;
 use Funciones\Edad;
@@ -10,11 +9,11 @@ use App\Personas\Estudiante;
 use App\Inscripcion\Parentesco;
 
 
-class RegistrarEstudiante{
-  public static function registrarEstudiante(){
+return new class {
+  public static function run($p,$f){
     
-   $extras = func_get_args();
-   extract($extras[0]);
+   
+   extract($p);
 
 
 
@@ -68,7 +67,7 @@ $id_lugar_nacimiento=(new LugarNacimiento)->consultar([
 
 
 
-       $nci_escolar = $extras[1][0]($ci_escolar,$fecha_nacimiento);
+       $nci_escolar = $f[0]($ci_escolar,$fecha_nacimiento);
 
        $edad_ano = Edad::Edad($fecha_nacimiento);
        $edad_meses = Edad::Edad($fecha_nacimiento);
@@ -133,4 +132,4 @@ foreach($reprecentantes as $reprecentante){
       "cedula_escolar"=>$nci_escolar
     ]);
   }
-}
+};

@@ -1,19 +1,18 @@
 <?php
 
-namespace Funciones\ManejoEstudiantes;
+
 use Liki\Plantillas\Plantilla;
 use App\Personas\Estudiante;
 
 
 
 
-  class FormularioEdicionEstudiante{
-  public static function formularioEdicionEstudiante(){
-   //formularioEdicion
-$Extras = func_get_args();
-extract($Extras[0]);
+ return new class {
+  public static function run($p){
+ 
+extract($p);
 
-//print_r($Extras);
+
 
  $estudiante =  (new Estudiante)->consultar([ "campos"=>
     ['ci_escolar', 'nombres' , 'apellidos',   'fecha_nacimiento',
@@ -30,4 +29,4 @@ extract($Extras[0]);
 $datos['estudiante'] = $estudiante[0];
     Plantilla::HTML('Estudiante/MenuDeEdicion',$datos);
   }
-}
+};

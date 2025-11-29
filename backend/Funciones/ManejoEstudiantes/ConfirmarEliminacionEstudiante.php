@@ -1,13 +1,15 @@
 <?php
 
-namespace Funciones\ManejoEstudiantes;
+
 use Liki\Plantillas\Plantilla;
 use App\Personas\Estudiante;
-class ConfirmarEliminacionEstudiante{
+
+
+return new class {
     
-    public static function confirmarEliminacionEstudiante(){
-      $datos = func_get_args();
-    extract($datos[0]);
+    public static function run($p){
+      
+    extract($p);
     
     $estudiante =  (new Estudiante)->consultar([ "campos"=>
        ['ci_escolar', 'nombres' , 'apellidos'],
@@ -26,4 +28,4 @@ class ConfirmarEliminacionEstudiante{
     
      
     }
-}
+};

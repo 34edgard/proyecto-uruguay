@@ -1,15 +1,14 @@
 <?php
-namespace Funciones\ManejoReprecentantes;
 
 use Liki\Plantillas\Plantilla;
 use App\Personas\Reprecentante;
 
 
 
-class ConsultarReprecentanteBuscarCi{
-  public static function consultarReprecentanteBuscarCi() {
-    $extras = func_get_args();
-    extract( $extras[0]);
+return new class {
+  public static function run($p) {
+    
+    extract($p);
  $r   = (new Reprecentante)->consultar([
       "campos"=>['cedula'],
     "where"=>[
@@ -27,4 +26,4 @@ class ConsultarReprecentanteBuscarCi{
       }
     
   }
-}
+};

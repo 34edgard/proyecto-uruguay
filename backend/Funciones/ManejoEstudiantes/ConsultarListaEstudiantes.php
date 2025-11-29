@@ -1,6 +1,5 @@
 <?php
 
-namespace Funciones\ManejoEstudiantes;
 
 use Liki\Plantillas\Plantilla;
 use Funciones\Edad;
@@ -13,8 +12,8 @@ use Funciones\ManejoDireccion\LugarDeNacimiento;
 
 
 
-class ConsultarEstudiantes{
-public static function consultarEstudiantes(){
+return new class {
+public static function run(){
     session_start();
   $estudiantes =  (new Estudiante)->consultar([ "campos"=>
        ['ci_escolar', 'nombres' , 'apellidos',   'fecha_nacimiento',
@@ -27,11 +26,10 @@ public static function consultarEstudiantes(){
     
     foreach($estudiantes as $estudiante){
         
-       // print_r($estudiante);
      $estudiante['lugar_nacimiento']  = LugarDeNacimiento::consultar_lugar_nacimiento($estudiante['id_lugar_nacimiento']);
-      $estudiante['reprecentantes'] = [];
-    Plantilla::HTML('Reportes/listaDeEstudiantes',$estudiante);
+     $estudiante['reprecentantes'] = [];
+     Plantilla::HTML('Reportes/listaDeEstudiantes',$estudiante);
     }
 }
-}
+};
 

@@ -1,20 +1,10 @@
 <?php
 use Liki\Plantillas\Plantilla;
-$op = ["op"=>0];
+use Liki\Config\ConfigManager;
 
 
-$config = [
-    "tituloPagina"=>"República del Uruguay",
-    "estilos"=>['bootstrap.min','estilos'],
-    "estilosD"=>['estilos'],
-    
-    "scripts"=>['color-modes','htmx','bootstrap.bundle.min'],
-    "contenidos"=>[
-        ["componente"=>'estructura/Header',"configuracion"=>$op],
-        ["componente"=>'Inicio',"configuracion"=>$op],
-       
-    ]
-];
+
+$config = ConfigManager::cargarConfig('Index');
 
 
 Plantilla::HTML('estructura/pagina',$config);

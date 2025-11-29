@@ -36,7 +36,7 @@ Plantilla::HTML('Estudiante/Extras', $estudiante);
  
 
 <?php
-print_r($estudiante);
+//print_r($estudiante);
 Plantilla::HTML('Estudiante/Editar',$estudiante);
 ?>
 

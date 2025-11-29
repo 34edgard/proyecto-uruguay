@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admini;
+namespace App\Administracion;
 use Liki\Database\Tabla;
 use Liki\ExecFunc;
 

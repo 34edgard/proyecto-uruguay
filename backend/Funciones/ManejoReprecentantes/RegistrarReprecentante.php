@@ -1,7 +1,6 @@
 <?php
 
 
-namespace Funciones\ManejoReprecentantes;
 
 use Liki\Plantillas\Plantilla;
 use App\Personas\Reprecentante;
@@ -11,12 +10,12 @@ use Funciones\Edad;
 
 
 
-class RegistrarReprecentante{
+return new class {
   
-  public static function registrarReprecentante(){
+  public static function run($p){
     
-    $Extras = func_get_args();
-    extract($Extras[0]);
+    
+    extract($p);
   
    // print_r($_POST);
     $datosDireccion = [
@@ -139,4 +138,4 @@ $id_ubiHabi = (new Ubicacion)->consultar([
 
 
  }
-}
+};

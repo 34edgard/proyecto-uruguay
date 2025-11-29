@@ -1,5 +1,5 @@
 <h2 class="text-center text-danger m-2">
-desea eliminar a: <?= $nombres.' '.$apellidos ?>
+Desea eliminar a: <?= $nombres.' '.$apellidos ?>
 
 </h2>
 <p class="text-center text-danger m-2">cedula escolar: <?= $ci_escolar ?> </p>
@@ -10,6 +10,7 @@ name="ci_escolar"
 value="<?= $ci_escolar ?>"
 hx-get="/estudiante/eliminar"
 data-bs-dismiss="modal"
+hx-trigger="click"
 hx-target="#matriculaResults"
 >
 SI
