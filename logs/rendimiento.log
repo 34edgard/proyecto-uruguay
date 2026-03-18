@@ -1,0 +1,175 @@
+------------------------------------
+url: /index.php
+El proceso tomó: 0.040222 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /iniciar/sesion
+El proceso tomó: 1.454849 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /inicio
+El proceso tomó: 0.04719 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /plantel_Niveles/html?_t=1773790802974
+El proceso tomó: 0.036753 segundos.
+Memoria usada: 0.21 MB
+
+------------------------------------
+url: /plantel/nivele?id_nivel&_t=1773790803112
+El proceso tomó: 0.047873 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /plantel_Secciones/html?_t=1773790807906
+El proceso tomó: 0.041524 segundos.
+Memoria usada: 0.21 MB
+
+------------------------------------
+url: /plantel/niveles?id_niveles&id_nivel=&_t=1773790808059
+El proceso tomó: 0.077537 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /index.php
+El proceso tomó: 0.033664 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /iniciar/sesion
+El proceso tomó: 1.360789 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /inicio
+El proceso tomó: 0.030817 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /plantel_Secciones/html?_t=1773791252535
+El proceso tomó: 0.023622 segundos.
+Memoria usada: 0.21 MB
+
+------------------------------------
+url: /plantel/niveles?id_niveles&id_nivel=&_t=1773791252669
+El proceso tomó: 0.043044 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /plantel/secciones?id_secciones&_t=1773791252694
+El proceso tomó: 0.055601 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /plantel/seccion/confirm_eliminar?ConfirmarEliminacion=3&_t=1773791258805
+El proceso tomó: 0.07416 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /plantel/seccion/confirm_eliminar?ConfirmarEliminacion=3&_t=1773791260797
+El proceso tomó: 0.062018 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /plantel/seccion/confirm_eliminar?ConfirmarEliminacion=2&_t=1773791273054
+El proceso tomó: 0.058412 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /plantel_Aulas/html?_t=1773791281676
+El proceso tomó: 0.039644 segundos.
+Memoria usada: 0.21 MB
+
+------------------------------------
+url: /plantel/seccion?id_seccion&id_seccion=&_t=1773791281811
+El proceso tomó: 0.064003 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /plantel/aula?id_aula&_t=1773791281829
+El proceso tomó: 0.058114 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /Docente_Registrar/html?_t=1773791291444
+El proceso tomó: 0.038504 segundos.
+Memoria usada: 0.21 MB
+
+------------------------------------
+url: /plantel/aulas/select?_t=1773791291593
+El proceso tomó: 0.069386 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /plantel_crearPeriodo/html?_t=1773791298118
+El proceso tomó: 0.037109 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /index.php
+El proceso tomó: 0.039292 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /iniciar/sesion
+El proceso tomó: 1.406344 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /inicio
+El proceso tomó: 0.037134 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /plantel_crearPeriodo/html?_t=1773791553202
+El proceso tomó: 0.024791 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /plantel/periodo/consultar
+El proceso tomó: 0.05065 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /plantel/periodo/crear
+El proceso tomó: 0.081881 segundos.
+Memoria usada: 0.32 MB
+
+------------------------------------
+url: /Docente_Registrar/html?_t=1773791605100
+El proceso tomó: 0.031843 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /plantel/aulas/select?_t=1773791605265
+El proceso tomó: 0.05973 segundos.
+Memoria usada: 0.32 MB
+
+------------------------------------
+url: /docente/registrar
+El proceso tomó: 0.169662 segundos.
+Memoria usada: 0.34 MB
+
+------------------------------------
+url: /Docente_Consultar/html?_t=1773791639155
+El proceso tomó: 0.041605 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /docente?_t=1773791639285
+El proceso tomó: 0.115232 segundos.
+Memoria usada: 0.43 MB
+
+------------------------------------
+url: /Reportes_Matricula/html?_t=1773791655534
+El proceso tomó: 0.050619 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /plantel/periodo/escolar?periodo_escolar&periodo=&_t=1773791655772
+El proceso tomó: 0.083101 segundos.
+Memoria usada: 0.32 MB
+

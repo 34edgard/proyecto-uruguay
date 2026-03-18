@@ -25,13 +25,16 @@
         id="addPeriodoForm"
         class="needs-validation"
         novalidate
+        
+        
         hx-post="/plantel/periodo/crear"
         hx-target="#periodosListContainer"
         hx-trigger="submit"
         hx-indicator="#periodoLoadingIndicator"
         hx-swap="outerHTML"
         hx-on="htmx:afterRequest: if (event.detail.successful) { this.reset(); htmx.trigger('#periodosListContainer', 'load'); }"
-      >
+ >
+     
         <div class="mb-3">
           <label for="inicio_periodo" class="form-label">Inicio del Periodo</label>
           <input

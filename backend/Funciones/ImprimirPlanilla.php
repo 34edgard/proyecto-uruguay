@@ -2,7 +2,7 @@
  // Asegúrate de que la ruta a fpdf.php sea correcta
 
 namespace Funciones;
-use liki\Files\Planilla;
+use Liki\Files\Planilla;
 
 
 
@@ -29,8 +29,8 @@ $pdf->Ln(10);
 
 // 1- DATOS DE LA INSTITUCIÓN
 $pdf->AddSectionTitle('1- DATOS DE LA INSTITUCIÓN:'); 
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(70, 7, utf8_decode('Nombre del plantel: P.E. José Agustín Méndez García'), 0, 0, 'L'); 
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(90, 7, utf8_decode('Nombre del plantel: P.E. José Agustín Méndez García'), 0, 0, 'L'); 
 $pdf->Cell(0, 7, utf8_decode('Dirección: calle Mariño con calle Barreto, centro'), 0, 1, 'L'); 
 $pdf->Cell(50, 7, utf8_decode('Teléfono: 0291-6432889'), 0, 0, 'L');
 $pdf->Cell(50, 7, utf8_decode('Ubicación: Maturín.'), 0, 0, 'L'); 
@@ -39,14 +39,14 @@ $pdf->Ln(5);
 
 // 2-DATOS DEL NIÑO O NIÑA
 $pdf->AddSectionTitle('2-DATOS DEL NIÑO O NIÑA:'); 
-$pdf->AddInlineField('Apellidos', $apellidos, 30, 80); 
+$pdf->AddInlineField('Apellidos', $apellidos, 25, 70); 
 $pdf->AddInlineField('Nombres', $nombres, 30, 0); 
 $pdf->Ln(7);
 $pdf->AddInlineField('Fecha De Nacimiento', $fecha_nacimiento, 50, 50);
-$pdf->AddInlineField('Edad', Edad($fecha_nacimiento), 20, 20); 
+$pdf->AddInlineField('Edad', $edad, 20, 20); 
 $pdf->AddInlineField('Meses', '', 20, 0); 
 $pdf->Ln(7);
-$pdf->AddInlineField('Lugar',consultar_lugar_nacimiento($id_lugar_nacimiento) , 20, 70); 
+$pdf->AddInlineField('Lugar',$lugar_nacimiento , 20, 70); 
 $pdf->AddInlineField('Municipio', '', 30, 50); 
 $pdf->AddInlineField('Estado', '', 20, 0); 
 $pdf->Ln(7);
@@ -192,17 +192,17 @@ $pdf->Ln(10);
 $pdf->AddSectionTitle('REGISTRO DE INSCRIPCIÓN ESCOLAR DEL ESTUDIANTE'); 
 
 // Cabecera de la tabla de registro
-$pdf->SetFont('Arial', 'B', 8);
+$pdf->SetFont('Arial', 'B', 6);
 $pdf->SetFillColor(200, 220, 255);
-$pdf->Cell(20, 15, utf8_decode('NIVEL'), 1, 0, 'C', true); 
-$pdf->Cell(25, 15, utf8_decode('AÑO ESCOLAR'), 1, 0, 'C', true); 
-$pdf->Cell(30, 15, utf8_decode('FECHA DE INSCRIPCIÓN'), 1, 0, 'C', true); 
-$pdf->Cell(30, 15, utf8_decode('EDAD DEL ESTUDIANTE'), 1, 0, 'C', true); 
-$pdf->Cell(20, 15, utf8_decode('TALLAS PC Z'), 1, 0, 'C', true); 
-$pdf->Cell(30, 15, utf8_decode('FIRMA DEL REPRESENTANTE'), 1, 0, 'C', true); 
-$pdf->Cell(35, 15, utf8_decode('NOMBRE Y APELLIDO DEL DOCENTE'), 1, 1, 'C', true); 
+$pdf->Cell(20, 12, utf8_decode('NIVEL'), 1, 0, 'C', true); 
+$pdf->Cell(25, 12, utf8_decode('AÑO ESCOLAR'), 1, 0, 'C', true); 
+$pdf->Cell(30, 12, utf8_decode('FECHA DE INSCRIPCIÓN'), 1, 0, 'C', true); 
+$pdf->Cell(30, 12, utf8_decode('EDAD DEL ESTUDIANTE'), 1, 0, 'C', true); 
+$pdf->Cell(20, 12, utf8_decode('TALLAS PC Z'), 1, 0, 'C', true); 
+$pdf->Cell(30, 12, utf8_decode('FIRMA DEL REPRESENTANTE'), 1, 0, 'C', true); 
+$pdf->Cell(35, 12, utf8_decode('NOMBRE Y APELLIDO DEL DOCENTE'), 1, 1, 'C', true); 
 
-$pdf->SetFont('Arial', '', 9);
+$pdf->SetFont('Arial', '', 7);
 // Filas para los niveles
 $levels = ['1ER NIVEL', '2DO NIVEL', '3ER NIVEL']; 
 foreach ($levels as $level) {

@@ -1,5 +1,5 @@
 <?php
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 // This component handles the main navigation when logged in
 
 $menu = 'componentes/menu-desplegable';
@@ -8,39 +8,40 @@ $menu = 'componentes/menu-desplegable';
     <li>
         <a href="/inicio" class="nav-link px-2 text-white">Inicio</a>
     </li>
+
     <li>
         <?php
-        Plantilla::HTML($menu, [
+        Flow::html($menu, [
             'title' => 'Inscripciones',
             'items' => [
-                ['label' => 'Nuevo Ingreso', 'hx_post' => '/frontend/Html/Inscripcion/InicioInscripcion.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' =>"Inscripciones','Nuevo Ingreso"],
-                ['label' => 'Promovidos', 'hx_post' => '/frontend/Html/EnConstruccion.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Inscripciones','Promovidos"],
-                ['label' => 'Inscritos', 'hx_post' => '/frontend/Html/Inscripcion/Inscritos.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Inscripciones','Inscritos"],
+                ['label' => 'Nuevo Ingreso', 'hx_get' => '/Inscripcion_InicioInscripcion/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' =>"Inscripciones','Nuevo Ingreso"],
+                ['label' => 'Promovidos', 'hx_get' => '/EnConstruccion/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Inscripciones','Promovidos"],
+                ['label' => 'Inscritos', 'hx_get' => '/Inscripcion_Inscritos/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Inscripciones','Inscritos"],
             ]
         ]);
         ?>
     </li>
-    <li>
+  <li>
         <?php
-        Plantilla::HTML($menu, [
+        Flow::html($menu, [
             'title' => 'Docentes',
             'items' => [
-                ['label' => 'Registrar', 'hx_post' => '/frontend/Html/Docente/Registrar.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Docentes','Registrar"],
-                ['label' => 'Consultar', 'hx_get' => '/frontend/Html/Docente/Consultar.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Docentes','Consultar"],
+                ['label' => 'Registrar', 'hx_get' => '/Docente_Registrar/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Docentes','Registrar"],
+                ['label' => 'Consultar', 'hx_get' => '/Docente_Consultar/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Docentes','Consultar"],
             ]
         ]);
         ?>
     </li>
     <li>
         <?php
-        Plantilla::HTML($menu, [
+        Flow::html($menu, [
             'title' => 'Reportes',
             'items' => [
-                ['label' => 'Matrícula', 'hx_get' => '/frontend/Html/Reportes/Matricula.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Matricula"],
-                ['label' => 'Planilla', 'hx_post' => '/frontend/Html/Reportes/Planilla.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Planilla"],
-                ['label' => 'Diploma', 'hx_post' => '/frontend/Html/Reportes/Diploma.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Diploma"],
-                ['label' => 'Estadística', 'hx_post' => '/frontend/Html/Reportes/Estadisticas.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Estadistica"],
-                ['label' => 'Lista de Estudiantes', 'hx_post' => '/frontend/Html/Reportes/ListaEstudiantes.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Lista de Estudiantes"],
+                ['label' => 'Matrícula', 'hx_get' => '/Reportes_Matricula/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Matricula"],
+                ['label' => 'Planilla', 'hx_get' => '/Reportes_Planilla/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Planilla"],
+                ['label' => 'Diploma', 'hx_get' => '/Reportes_Diploma/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Diploma"],
+                ['label' => 'Estadística', 'hx_get' => '/Reportes_Estadisticas/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Estadistica"],
+                ['label' => 'Lista de Estudiantes', 'hx_get' => '/Reportes_ListaEstudiantes/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Reportes','Lista de Estudiantes"],
             
             ]
         ]);
@@ -48,13 +49,13 @@ $menu = 'componentes/menu-desplegable';
     </li>
     <li>
         <?php
-        Plantilla::HTML($menu, [
+        Flow::html($menu, [
             'title' => 'Plantel',
             'items' => [
-                ['label' => 'Niveles', 'hx_post' => '/frontend/Html/plantel/Niveles.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Plantel','Niveles"],
-                ['label' => 'Secciones', 'hx_post' => '/frontend/Html/plantel/Secciones.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Plantel','Secciones"],
-                ['label' => 'Aulas', 'hx_post' => '/frontend/Html/plantel/Aulas.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Plantel','Aulas"],
-                ['label' => 'Periodo Escolar', 'hx_post' => '/frontend/Html/plantel/crearPeriodo.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Plantel','Periodo Escolar"],
+                ['label' => 'Niveles', 'hx_get' => '/plantel_Niveles/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Plantel','Niveles"],
+                ['label' => 'Secciones', 'hx_get' => '/plantel_Secciones/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Plantel','Secciones"],
+                ['label' => 'Aulas', 'hx_get' => '/plantel_Aulas/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Plantel','Aulas"],
+                ['label' => 'Periodo Escolar', 'hx_get' => '/plantel_crearPeriodo/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick_title' => "Plantel','Periodo Escolar"],
             ]
         ]);
         ?>

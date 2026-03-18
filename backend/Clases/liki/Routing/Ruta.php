@@ -2,7 +2,7 @@
 
 namespace Liki\Routing;
 use Liki\ErrorHandler;
-
+use Exception;
 
 set_exception_handler(function($exception){
       ErrorHandler::getInstance()->handle(
@@ -21,6 +21,9 @@ interface Rutas_Server {
     public static function post(string $url_pattern, callable $funcion, array $parametros_extra = []);
     public static function put(string $url_pattern, callable $funcion, array $parametros_extra = []);
     public static function delete(string $url_pattern, callable $funcion, array $parametros_extra = []);
+    public static function patch(string $url_pattern, callable $funcion, array $parametros_extra = []);
+    public static function options(string $url_pattern, callable $funcion, array $parametros_extra = []);
+    public static function head(string $url_pattern, callable $funcion, array $parametros_extra = []);
     public static function dispatch(): void;
 }
 
@@ -43,6 +46,34 @@ class Ruta implements Rutas_Server {
         }
         return true;
     }
+
+
+public static function validar_parametros2(array $reglas, array $parametros_recibidos): array {  
+    $errores = [];  
+      
+    foreach ($reglas as $campo => $regla) {  
+        $reglas_array = explode('|', $regla);  
+          
+        foreach ($reglas_array as $r) {  
+            if ($r === 'required' && !isset($parametros_recibidos[$campo])) {  
+                $errores[$campo][] = "El campo $campo es requerido";  
+            }  
+            if ($r === 'email' && isset($parametros_recibidos[$campo]) && !filter_var($parametros_recibidos[$campo], FILTER_VALIDATE_EMAIL)) {  
+                $errores[$campo][] = "El campo $campo debe ser un email válido";  
+            }  
+            if (strpos($r, 'min:') === 0 && isset($parametros_recibidos[$campo])) {  
+                $min = substr($r, 4);  
+                if (strlen($parametros_recibidos[$campo]) < $min) {  
+                    $errores[$campo][] = "El campo $campo debe tener al menos $min caracteres";  
+                }  
+            }  
+        }  
+    }  
+      
+    return $errores;  
+
+}
+
 
     /**
      * Valida si el método de la solicitud actual coincide con el método dado.
@@ -108,11 +139,11 @@ return $datos_limpios;
 private static function aplicar_sanitizacion(string $valor): string {
 switch (MODO_SANITIZACION){
 case 'ESTRICTO':
-// Elimina todo código HTML/JS  
+// Elimina todo código HTML/JS  
 return htmlspecialchars(strip_tags($valor), ENT_QUOTES, 'UTF-8');
 
 case'MODERADO':
-// Solo escapa caracteres peligrosos  
+// Solo escapa caracteres peligrosos  
  return htmlspecialchars($valor,ENT_QUOTES,'UTF-8');
 
 default:
@@ -155,6 +186,30 @@ return $valor;
         self::add_route('DELETE', $url_pattern, $funcion, $parametros_esperados, $funcion_extra);
     }
 
+
+
+
+   /**
+        * Registra una ruta para solicitudes PATCH.
+        */
+       public static function patch(string $url_pattern, callable $funcion, array $parametros_esperados = [], array $funcion_extra = []): void {
+           self::add_route('PATCH', $url_pattern, $funcion, $parametros_esperados, $funcion_extra);
+       }
+   /**
+    * Registra una ruta para solicitudes OPTIONS.
+    */
+   public static function options(string $url_pattern, callable $funcion, array $parametros_esperados = [], array $funcion_extra = []): void {
+       self::add_route('OPTIONS', $url_pattern, $funcion, $parametros_esperados, $funcion_extra);
+   }
+
+/**
+ * Registra una ruta para solicitudes HEAD.
+ */
+public static function head(string $url_pattern, callable $funcion, array $parametros_esperados = [], array $funcion_extra = []): void {
+    self::add_route('HEAD', $url_pattern, $funcion, $parametros_esperados, $funcion_extra);
+}
+
+
     /**
      * Procesa la solicitud entrante y despacha a la función de callback correspondiente.
      */
@@ -164,8 +219,10 @@ return $valor;
 
         // Manejar datos de entrada para PUT/DELETE
         $input_data = [];
-        if (in_array($request_method, ['PUT', 'DELETE'])) {
+        if (in_array($request_method, ['PUT','DELETE', 'PATCH', 'OPTIONS', 'HEAD']) ){
+            
             parse_str(file_get_contents("php://input"), $input_data);
+            
         } elseif ($request_method === 'POST') {
             $input_data = $_POST;
         } elseif ($request_method === 'GET') {
@@ -187,7 +244,7 @@ return $valor;
                   
                 ErrorHandler::getInstance()->handle(
                      ErrorHandler::VALIDATION_ERROR,
-                     'Error: Faltan parámetros requeridos',
+                     'Error: Faltan parametros requeridos en la ruta '.$route['url_pattern'],
                     ['exception' => 'Faltan parámetros requeridos'],
                     400
                 );
@@ -230,7 +287,7 @@ return $valor;
         ErrorHandler::getInstance()->handle(
              ErrorHandler::ROUTE_NOT_FOUND,
              'Error: 404 Not Found',
-            ['exception' => '404 Not Found'],
+            ['exception' => '404 Not Founden no se encontro la ruta '.$request_uri ],
             404
         );
         
@@ -239,8 +296,46 @@ return $valor;
     
     
 
+public static function group( string $ruta, bool $condicion = false, array $middlewares = []){
+        $urlFile = CONTOLLER_PATH.'backend/Funciones/Rutas/'.$ruta.'.php';
+       if($condicion) return;
+        if(!file_exists($urlFile))            
+         throw new Exception('el archivo de rutas '.$urlFile.' no existe');
+        
+        
+        foreach($middlewares as $middleware){
+          if( $middleware()) return;
+        }
+        
+        
+       $f = include $urlFile;
+    $f();
+}
 
 
+
+public static function prefix(string $prefijo, callable $agregarRutas, array $middlewares =[], array $Funciones = []){
+    foreach($middlewares as $middleware){
+      if( $middleware()) return;
+    }
+    
+   $nRutas = count(self::$routes);
+   $agregarRutas();
+
+foreach(self::$routes as $index => $rutas ){
+    
+    if($index < $nRutas ) continue;
+    
+    
+    self::$routes[$index]['url_pattern'] = $prefijo.$rutas['url_pattern'];
+    self::$routes[$index]['regex_pattern'] = self::compile_route_pattern($prefijo.$rutas['url_pattern']);// Compila el patrón para regex
+     foreach($Funciones as $Funcion) {
+    self::$routes[$index]['funcion_extra'][] = $Funcion;
+     }
+ 
+
+}
+}
 
 // Agregar este método a la clase Ruta
 public static function obtener_rutas(): array {

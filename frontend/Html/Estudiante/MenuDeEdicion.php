@@ -1,5 +1,5 @@
 <?php
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 
 ?>
 
@@ -27,7 +27,7 @@ use Liki\Plantillas\Plantilla;
      
 <?php
 //print_r($estudiante);
-Plantilla::HTML('Estudiante/Extras', $estudiante);
+Flow::html('Estudiante/Extras', $estudiante);
 ?>
        </div>
      
@@ -37,7 +37,7 @@ Plantilla::HTML('Estudiante/Extras', $estudiante);
 
 <?php
 //print_r($estudiante);
-Plantilla::HTML('Estudiante/Editar',$estudiante);
+Flow::html('Estudiante/Editar',$estudiante);
 ?>
 
 

@@ -1,0 +1,81 @@
+<?php
+
+namespace Liki\Consola;
+
+
+class Gn{
+    
+public static function  generateModel($name,$file='') {
+    print_r($name);
+    $template = "<?php \n\n  return new class { \n\n  public static function run(){  // Propiedades\n\n    // Métodos}
+    \n\n};";
+    file_put_contents("./backend/Clases/app/Modelos/$file$name.php", $template);
+    echo "Modelo '$name' creado.\n";
+}
+public static function  generateManejador($name,$file='') {
+    print_r($name);
+    $template = "<?php \n\n  return new class { \n\n  public static function run(){  // Propiedades\n\n    // Métodos}
+    \n\n};";
+    file_put_contents("./backend/Clases/app/Manejadores/$file$name.php", $template);
+    echo "Modelo '$name' creado.\n";
+}
+
+// Función para generar un controlador
+public static function generateController($name,$file ='') {
+    $template = "<?php
+    \n
+ namespace App\\$name;
+    
+    \n\nclass $name {\n\n    // Métodos del controlador\n\n}";
+    file_put_contents("./backend/Clases/app/Controladores/$file$name.php", $template);
+    echo "Controlador '${name}Controller' creado.\n";
+}
+
+public static function generateClassLiki($name,$file ='') {
+    $template = "<?php
+    \n
+ namespace Liki\\$name;
+    
+    \n\nclass $name {\n\n    // Métodos del controlador\n\n}";
+    file_put_contents("./backend/Clases/liki/$file$name.php", $template);
+    echo "Controlador '${name}Controller' creado.\n";
+}
+
+public static function generateGrupoApp($name,$extras) {
+
+   mkdir("./backend/Clases/app/Controladores/$name");
+   foreach($extras as $extra){
+    self::generateController($extra,$name.'/');
+   }
+   echo "grupo de controladores creados en '${name}' creado.\n";
+}
+
+public static function generateGrupoFunc($name,$extras) {
+
+   mkdir("./backend/Clases/app/Manejadores/$name");
+   foreach($extras as $extra){
+    self::generateModel($extra,$name.'/');
+   }
+   echo "grupo de funciones creados en '${name}' creado.\n";
+}
+
+public static function generateGrupoLiki($name,$extras) {
+
+   mkdir("./backend/Clases/liki/$name");
+   foreach($extras as $extra){
+    self::generateClassLiki($extra,$name.'/');
+   }
+   echo "grupo de clases liki creados en '${name}' creado.\n";
+}
+
+
+
+
+
+public static function generateMiddleware($name,$file = ''){
+    $template = "<?php\n\nnamespace Middleware;\n\nclass {$name} {\n public function handle() {\n // Lógica del middleware \n return false; // true para continuar, false para detener\n }\n}";
+file_put_contents("./backend/Funciones/Middleware/$file$name.php", $template);
+echo "Middleware '$name' creado.\n";
+}
+
+}

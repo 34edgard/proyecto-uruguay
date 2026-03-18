@@ -1,14 +1,34 @@
 <?php
-
 namespace Liki\Database;
-
-use Liki\Database\ConexionesBD;
 use Liki\ErrorHandler;
 use PDO;
 use PDOException;
 use Exception;
-class ConsultasBD extends ConexionesBD {
+class ConsultasBD {
 
+    
+      public function crearConexion(): ?PDO {
+          
+          try {
+              $conexion = new PDO(DSN, usuario_BD, contraceña_BD);
+              $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+              $conexion->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // Desactivar la emulación de prepares para mayor seguridad
+              return $this->validarConexion($conexion);
+          } catch (PDOException $e) {
+              throw new Exception("Error conectando a la base de datos: " . $e->getMessage());
+          }
+      }
+      
+      public function validarConexion(PDO $conexion): ?PDO {
+          // En este caso, no se necesita validar la conexión adicionalmente.
+          return $conexion;
+      }
+      
+      public function cerrarConexion(PDO $conexion): void {
+          $conexion = null;
+      }
+    
+    
     /**
      * Ejecuta una consulta SQL preparada (INSERT, UPDATE, DELETE).
      *
@@ -17,15 +37,26 @@ class ConsultasBD extends ConexionesBD {
      * @return int El número de filas afectadas.
      * @throws Exception Si hay un error en la conexión o al ejecutar la consulta.
      */
+    
+    public $conexion ;
+    public function __construct(){
+        
+        $this->conexion = $this->crearConexion();
+  if (!$this->conexion) {
+      throw new Exception('Error en la conexión a la base de datos.');
+  } 
+  }
+    public function query(string $query){
+       return  $this->conexion->query($query);
+    }
+    public function prepare(string $query){
+       return  $this->conexion->prepare($query);
+    }    
     public function ejecutarConsulta(string $sql, array $parametros = []): int {
-        $conexion = $this->crearConexion();
-        if (!$conexion) {
-            throw new Exception('Error en la conexión a la base de datos.');
-        } 
-     
+       // $conexion = $this->crearConexion();     
         
         try {
-            $stmt = $conexion->prepare($sql); // Prepara la consulta
+            $stmt = $this->conexion->prepare($sql); // Prepara la consulta
             $stmt->execute($parametros); // Ejecuta la consulta con los parámetros vinculados
             return $stmt->rowCount(); // Retorna el número de filas afectadas
         } catch (PDOException $e) {
@@ -38,7 +69,7 @@ class ConsultasBD extends ConexionesBD {
             );
             
              } finally {
-            $this->cerrarConexion($conexion);
+            $this->cerrarConexion($this->conexion);
         }
     }
 
@@ -51,14 +82,10 @@ class ConsultasBD extends ConexionesBD {
      * @throws Exception Si hay un error en la consulta.
      */
     public function consultarRegistro(string $sql, array $parametros = []): array {
-        $conexion = $this->crearConexion();
-        if (!$conexion) {
-            return [];
-        }
-
+      
         $arreglo = [];
         try {
-            $stmt = $conexion->prepare($sql); // Prepara la consulta
+            $stmt = $this->conexion->prepare($sql); // Prepara la consulta
             $stmt->execute($parametros); // Ejecuta la consulta con los parámetros vinculados
             $arreglo = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtiene todos los resultados
         } catch (PDOException $e) {
@@ -71,11 +98,9 @@ class ConsultasBD extends ConexionesBD {
             );
             
         } finally {
-            $this->cerrarConexion($conexion);
+            $this->cerrarConexion($this->conexion);
         }
 
         return $arreglo;
     }
 }
-
-

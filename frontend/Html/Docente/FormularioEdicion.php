@@ -62,6 +62,30 @@ class="needs-validation container" novalidate>
     <div class="invalid-feedback">Mohon pilih kelas.</div>
   </div>
 
+ <div class="col-md-6 mb-3">
+     <label 
+         for="aula" 
+         class="form-label fw-semibold"
+         hx-get="/plantel/aulas/select"
+         hx-trigger="load"
+         hx-target="#aula"
+     >
+         <i class="fas fa-door-open me-1"></i>Aula
+     </label>
+     <select 
+         name="id_aula"
+         id="aula"
+         class="form-select"
+         required
+     >
+         <option value="" disabled selected>Cargando aulas...</option>
+     </select>
+     <div class="invalid-feedback">
+         Por favor seleccione un aula.
+     </div>
+ </div>
+
+
   <!-- Tombol submit, dengan validasi  -->
   <button type="submit"
   data-bs-toggle='modal' data-bs-target='#firefoxModal'

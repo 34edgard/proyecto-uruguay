@@ -1,15 +1,24 @@
 <?php
 
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Liki\Routing\ValidarSesion;
+
 use Liki\Config\ConfigManager;
 
+
+
 ValidarSesion::validar_sesion();
+
 
 $config = ConfigManager::cargarConfig('Inicio');
 
 
-Plantilla::HTML('estructura/pagina',$config);
+
+
+
+
+
+Flow::html('estructura/pagina',$config);
 
 
 

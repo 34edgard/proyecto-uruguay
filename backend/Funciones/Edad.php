@@ -1,72 +1,65 @@
 <?php
 namespace Funciones;
 
-class Edad{
-public static function Fecha ($fecha){
-  $año = 0 ;
- $mes =0;
-$dia = 0;
-  $u = 1000;
-
-  for($i = 0 ; $i < 4 ; $i++){
+class Edad {
     
-    $año += intval($fecha[$i]) * $u ;
-    $u = $u / 10;
-  }
-$u = 10;
- for($i = 5 ; $i < 7 ; $i++){
+    /**
+     * Convierte una fecha en formato YYYY-MM-DD a un array
+     */
+    public static function fechaToArray(string $fecha): array {
+        if (strlen($fecha) < 10) {
+            throw new \InvalidArgumentException("Formato de fecha inválido");
+        }
+        
+        return [
+            (int) substr($fecha, 0, 4), // Año
+            (int) substr($fecha, 5, 2), // Mes
+            (int) substr($fecha, 8, 2)  // Día
+        ];
+    }
     
-    $mes += $fecha[$i] * $u ;
-    $u = $u / 10;
-  }
-$u = 10;
- for($i = 8 ; $i < 10 ; $i++){
-    $dia += $fecha[$i] * $u ;
-    $u = $u / 10;
-  }
-$Nfecha[0] = $año;
-$Nfecha[1] =$mes;
-$Nfecha[2] = $dia;
-return $Nfecha;
-}
-
-public static function Edad($fecha,$fecha_actual = false){
-
-$Nfecha = self::Fecha($fecha);
-$año = $Nfecha[0];
-$mes = $Nfecha[1];
-$dia = $Nfecha[2];
-
-if(!$fecha_actual){
-
-$añoa = date("Y");
-$mesa =date("m");
-$diasa =date("d");
-}else{
-
-  $fecha_a = self::Fecha($fecha_actual);
-  $añoa = $fecha_a[0];
-  $mesa = $fecha_a[1];
-  $diasa = $fecha_a[2];
-}
-
-$edad = $añoa - $año;
-$edad =$edad -1;
-
-If($mesa >= $mes  && $diasa
->= $dia ){
-$edad ++;
-
-}
-return $edad;
-}
-
-public static function Fecha_invertida($fecha){
-  
-$Fecha =  self::Fecha($fecha);
-$Fecha_invertida = "$Fecha[2]-$Fecha[1]-$Fecha[0]";
-return $Fecha_invertida;
-}
-
-
+    /**
+     * Calcula la edad basada en una fecha de nacimiento
+     */
+    public static function calcularEdad(string $fechaNacimiento, ?string $fechaReferencia = null): int {
+        [$anoNac, $mesNac, $diaNac] = self::fechaToArray($fechaNacimiento);
+        
+        if ($fechaReferencia === null) {
+            $anoRef = (int) date("Y");
+            $mesRef = (int) date("m");
+            $diaRef = (int) date("d");
+        } else {
+            [$anoRef, $mesRef, $diaRef] = self::fechaToArray($fechaReferencia);
+        }
+        
+        $edad = $anoRef - $anoNac - 1;
+        
+        if ($mesRef > $mesNac || ($mesRef == $mesNac && $diaRef >= $diaNac)) {
+            $edad++;
+        }
+        
+        return $edad;
+    }
+    
+    /**
+     * Convierte fecha de formato YYYY-MM-DD a DD-MM-YYYY
+     */
+    public static function invertirFecha(string $fecha): string {
+        [$ano, $mes, $dia] = self::fechaToArray($fecha);
+        return sprintf("%02d-%02d-%04d", $dia, $mes, $ano);
+    }
+    
+    // Métodos estáticos con nombres anteriores para mantener compatibilidad
+    public static function Fecha(string $fecha): array {
+        return self::fechaToArray($fecha);
+    }
+    
+    public static function Edad(string $fecha, $fecha_actual = false): int {
+        $fechaRef = ($fecha_actual === false) ? null : $fecha_actual;
+        return self::calcularEdad($fecha, $fechaRef);
+    }
+    
+    public static function Fecha_invertida(string $fecha): string {
+        return self::invertirFecha($fecha);
+    }
 }

@@ -1,6 +1,8 @@
 <?php
 
 
+
+
 namespace Funciones;
 
 use Liki\Database\ConsultasBD;
@@ -8,68 +10,37 @@ use Liki\Database\ConsultasBD;
 class BdSQLWeb{
 
 public static function bdSQLWeb(){
+    $con = new ConsultasBD();
+
+
+    $sql['sqlite']= "SELECT name FROM sqlite_master WHERE type='table' ";
+    $sql['mysql']='SHOW TABLES';
     
 
-$tablas = file_get_contents("./sql/tablas.sql");
-$registros = file_get_contents("./sql/nt.sql");
-
-//1255667
-$con = new ConsultasBD();
-
-//print($tablas);
-/*
-$tables = explode(';',$tablas);
-foreach($tables as $t){
-    
-
-$con->ejecutarConsulta($t);
-}
-
-
-$rs = explode(';',$registros);
-foreach($rs as $rds){
-    
-
-$con->ejecutarConsulta($rds);
-}
-CREATE TABLE tipo_parentesco (
-  id_tipo_parentesco INTEGER PRIMARY KEY AUTOINCREMENT,
-  nombre VARCHAR(30) NOT NULL
-);
-
-*/
-
-//$con->ejecutarConsulta("INSERT INTO tipo_parentesco (nombre) VALUES ('representante'),('madre'),('padre')");
-
-
-
-
-$res = $con->consultarRegistro("SELECT name FROM sqlite_master WHERE type='table' ");
-//$res = $con->consultarRegistro("SELECT COUNT(sexo) FROM estudiante WHERE sexo = 'masculino' AND  ");
-/*foreach($res as $r){
-    print_r($r);
-    echo "<hr >";
-}
-
-*/
-
+$res = $con->consultarRegistro($sql[DB_DRIVER],[]);
+$arrayTablas =[];
 $i=1;
-foreach($res as $a => $t){
+foreach($res as   $tabla){
     
-    echo $i.'-'.$t['name'].'<br />';
+ foreach($tabla as $t){
+   echo $i.'-'.$t.'<br />';
+  $arrayTablas[]=$t;
     $i++;
+ }
 }
 
-//print_r($res);
+//
 
  
  
  
-foreach($res as $tabla){
-    
-    $registroTabla = $con->consultarRegistro('SELECT * FROM '.$tabla['name']);
-    echo "<h1>{$tabla['name']}</h1><hr />";
-    echo "<table border='1'> ";
+foreach($arrayTablas as $tabla){
+ //  foreach($tabla as $id => $nombre) 
+       
+   
+    $registroTabla = $con->consultarRegistro('SELECT * FROM '.$tabla);
+    echo "<h1>{$tabla}</h1><hr />";
+    echo "<table border='1' class='table'> ";
     
     echo "<tr>";
     //print_r($registroTabla);
@@ -94,8 +65,8 @@ foreach($res as $tabla){
 
     echo " </table>";
 
-    
-}
+ }
+
 
 }
 

@@ -88,6 +88,24 @@
   </div>
 </div>
 
+
+<div class="modal fade" id="firefoxModal" tabindex="-1" aria-labelledby="firefoxModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body " id="modal-form">
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
 <script>
   // JavaScript for Bootstrap form validation
   (function () {

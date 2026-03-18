@@ -82,6 +82,30 @@
       </select>
       <div class="invalid-feedback">Por favor, seleccione el tipo de teléfono.</div>
     </div>
+    
+         <div class="col-md-6">
+             <label 
+                 for="aula" 
+                 class="form-label fw-semibold"
+                 hx-get="/plantel/aulas/select"
+                 hx-trigger="load"
+                 hx-target="#aula"
+             >
+                 <i class="fas fa-door-open me-1"></i>Aula
+             </label>
+             <select 
+                 name="id_aula"
+                 id="aula"
+                 class="form-select"
+                 required
+             >
+                 <option value="" disabled selected>Cargando aulas...</option>
+             </select>
+             <div class="invalid-feedback">
+                 Por favor seleccione un aula.
+             </div>
+         </div>
+    
   </div>
 
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">

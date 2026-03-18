@@ -1,10 +1,6 @@
+# liki app
 
-#  Sistema de inscripcion del jardin de infancia República del Uruguay 
-
-## integrantes del proyecto
-- Edgard Patete
-- Luisana Rodrigez
-- Ashley Rivas
-
-## profesor de proyecto
-- Victor Rivas
+esta es una aplicacion de ejemplo de liki
+la documentacin de liki esta dentro de la carpeta 
+docs/liki esta carpeta se puede eliminar si no se necesita, dentro de
+la carpeta docs/app ira la documentacion de su aplicacion liki
