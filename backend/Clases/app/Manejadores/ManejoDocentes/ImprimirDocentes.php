@@ -19,6 +19,7 @@ return new class {
 ->get(['cedula'=>['LIKE',$ci.'%']]);
              
              $i=0;
+            $data =[];
           foreach ($res as $user) {
             $i++;
             $numero_telefono= FlowDB::conf('Telefono')

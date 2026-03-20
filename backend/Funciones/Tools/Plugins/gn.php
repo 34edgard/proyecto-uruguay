@@ -1,14 +1,13 @@
 <?php
 
-use Liki\Consola\Gn;
+use Liki\Consola\GeneradorCodigo;
 
 
 return [
-    'modelo'=>[Gn::class,'generateModel'],
-    'controlador'=>[Gn::class,'generateController'],
-    'manejador'=>[Gn::class,'generateManejador'],
-    'likiClass'=>[Gn::class,'generateClassLiki'],
-    'liki-grup'=>[Gn::class,'generateGrupoLiki'],
-    'app-grup'=>[Gn::class,'generateGrupoApp'],
-    'func-grup'=>[Gn::class,'generateGrupoFunc']
+    'modelo'=>[GeneradorCodigo::class,'generateModel'],
+    'controlador'=>[GeneradorCodigo::class,'generateController'],
+    'likiClass'=>[GeneradorCodigo::class,'generateClassLiki'],
+    'liki-grup'=>[GeneradorCodigo::class,'generateGrupoLiki'],
+    'app-grup'=>[GeneradorCodigo::class,'generateGrupoApp'],
+    'func-grup'=>[GeneradorCodigo::class,'generateGrupoFunc']
       ];

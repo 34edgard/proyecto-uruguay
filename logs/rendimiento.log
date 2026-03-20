@@ -173,3 +173,173 @@ url: /plantel/periodo/escolar?periodo_escolar&periodo=&_t=1773791655772
 El proceso tomó: 0.083101 segundos.
 Memoria usada: 0.32 MB
 
+------------------------------------
+url: /index.php
+El proceso tomó: 0.073402 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /iniciar/sesion
+El proceso tomó: 1.471785 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /inicio
+El proceso tomó: 0.05062 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /index.php
+El proceso tomó: 0.086693 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /iniciar/sesion
+El proceso tomó: 1.494341 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /inicio
+El proceso tomó: 0.090941 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /Docente_Consultar/html?_t=1773879015757
+El proceso tomó: 0.043657 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /docente?_t=1773879015911
+El proceso tomó: 0.098065 segundos.
+Memoria usada: 0.43 MB
+
+------------------------------------
+url: /docente/ci?ci=6&_t=1773879021650
+El proceso tomó: 0.0763 segundos.
+Memoria usada: 0.34 MB
+
+------------------------------------
+url: /docente/ci?ci=67&_t=1773879021913
+El proceso tomó: 0.063481 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /docente/ci?ci=674&_t=1773879022088
+El proceso tomó: 0.058545 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /docente/ci?ci=67&_t=1773879023693
+El proceso tomó: 0.064009 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /docente/ci?ci=6&_t=1773879024368
+El proceso tomó: 0.075249 segundos.
+Memoria usada: 0.34 MB
+
+------------------------------------
+url: /docente/ci?ci=&_t=1773879025665
+El proceso tomó: 0.080668 segundos.
+Memoria usada: 0.34 MB
+
+------------------------------------
+url: /docente/ci?ci=3&_t=1773879026644
+El proceso tomó: 0.069625 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /docente/ci?ci=&_t=1773879028031
+El proceso tomó: 0.082352 segundos.
+Memoria usada: 0.34 MB
+
+------------------------------------
+url: /docente/ci?ci=3&_t=1773879028939
+El proceso tomó: 0.060665 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /inicio
+El proceso tomó: 0.051577 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /Docente_Consultar/html?_t=1773879113034
+El proceso tomó: 0.031595 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /docente?_t=1773879113176
+El proceso tomó: 0.093257 segundos.
+Memoria usada: 0.43 MB
+
+------------------------------------
+url: /docente/ci/imprimir?ci=
+El proceso tomó: 0.1345 segundos.
+Memoria usada: 0.73 MB
+
+------------------------------------
+url: /docente/ci?ci=3&_t=1773879122145
+El proceso tomó: 0.060279 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /docente/ci/imprimir?ci=3
+El proceso tomó: 0.115344 segundos.
+Memoria usada: 0.71 MB
+
+------------------------------------
+url: /inicio
+El proceso tomó: 0.05541 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /index.php
+El proceso tomó: 0.08993 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /iniciar/sesion
+El proceso tomó: 1.454768 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /inicio
+El proceso tomó: 0.03527 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /Administrar
+El proceso tomó: 0.036042 segundos.
+Memoria usada: 0.25 MB
+
+------------------------------------
+url: /usuario/rol?rol=
+El proceso tomó: 0.051035 segundos.
+Memoria usada: 0.32 MB
+
+------------------------------------
+url: /usuario/list
+El proceso tomó: 0.062366 segundos.
+Memoria usada: 0.34 MB
+
+------------------------------------
+url: /errors/
+El proceso tomó: 0.027292 segundos.
+Memoria usada: 0.2 MB
+
+------------------------------------
+url: /testing/rutas
+El proceso tomó: 0.030263 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /bdSQLWeb/tablas
+El proceso tomó: 0.088076 segundos.
+Memoria usada: 0.21 MB
+
+------------------------------------
+url: /Terminal/interfaz
+El proceso tomó: 0.030198 segundos.
+Memoria usada: 0.22 MB
+

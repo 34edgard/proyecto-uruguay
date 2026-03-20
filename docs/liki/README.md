@@ -27,28 +27,13 @@ laravel, pero en un tamaño mas reducido y sin dependecias externas
 - ORM simple para base de datos Usuario.php:6-9
 
 ## Requisitos:
- PHP v8.2.0 o mayor (recomendada)
+PHP v7.4 (mínima) o PHP v8.2.0 o mayor (recomendada)
 
 ## Estructura del proyecto:
 Explicar brevemente frontend/ y backend/
 
 
 ## sistema de plantillas llamado Flow template
-
-este sistema de plantillas posee metodos html, css, js, json y page que se pueden usar para construir
-la interfas web donde o responder de formas diferentes los metodo resiven dos parametros el nombre del componente
-y los datos de configuracion que segun el componente pueden ser requeridos o no, ademas de esto liki usa bootstrap, htmx, servis workers y web components para crear la interfas
-todo bootstrap se usa para tener componetes ya estilosados y responsibos, htmx se usa para aser peticiones al servido, paginacion y navegacion, servis worker se usan para cache inteligente
-y complementar a htmx dandole la posivilidad  de funcionar offline y los web components se usan para manejar la respuestas json pero todavia falta para que sean completamente funcionales por ahora solo 
-se implemento una forma de crear web componets de forma facil usando una tempete que se define usando el metodo Flow::js('WebComponentes/newComponet',$datos) esto se define dentro de frontend/js/LoadComponets.php
-ese archivo se puede usar para crear los web componets o se puede crear otros similares para usalos como un builders pero con php tambi se puede aser lo mismo con los archivos css y se les usaria de la siguente forma
-/nombreDelArchivo/js
-/nombreDelArchivo/css
-/nombreDelArchivo/html
-si el archivo esta dentro de una carpeta se usa "_" en ves de un "/"
-/carpeta_archivo/js
-
-
 
 
 ## Ejemplo de uso básico: 
@@ -89,24 +74,64 @@ este permite agrupar las rutas por prefijos
 },[lista de midelware],
 [lista De Funciones que se agregaran a las rutas ]);    
 
-# bases de datos en liki hay 
+# como liki interactua con la base de datos
+
+en la carpeta app se definen los controladores
+que extienden de la clase tabla la cual posee operaciones crud
+basicas a las cuales se les pasa un arry con la siguiente estructura 
+el indice tabla se define en el constructor del controlador y no es nesesario definir a la hora de aser las consultas
 
 
+>[ 
+    "tabla"=>'nombre',
+    "campos"=>['campo1','campo2'],
+    "valores"=>['valor1','valor2'],
+    "where"=>[
+        ["campo"=>'nombre','operador'=>'=',"valor"=>$valor]
+    ]
+]
+
+la ventaja de esta sintaxis es que si se identa bien facilita 
+entender como funciona una consulta con solo verla ademas de enseñar 
+que es importante identar bien el codigo
+
+apesar de ser una sintaxis muy verbosa se puede usar una alternatiba pero solo para operaciones simples
+y para operaciones mas complejas se usaria la ya mensionada 
+
+sintaxis alternativa
+
+> use Liki\SQL\LikiQueryBuilder;
+
+$sqlArray = LikiQueryBuilder::parse("
+campos: campo1 , campo2 ;
+valores: valor1 , valor2 ;
+"where": {
+    campo: nombre , operador: = , valor: $valor 
+} ";
+
+esta sintaxis es mas limpia pero no cuenta con todas las caracter de la otra sintaxis
+la eleccion de cual usar queda a conveniencia del programador 
+
+ambas syntaxis solo se recomienda usarse para aprender como funcionan las clase Tabla o para
+practicar la logica de sql, la syntaxis que se recomienda usar para ser mas productivos 
+es la siguiente donde se usa el metodo estatico conf de la clase Tabla pasandole una clase 
+para configurarla, despues se usan metodos de encadenamiento con nombres similares a los 
+de las otras syntaxis 
 
 ## metodo para consultar
-> FlowDB::conf(user)->campos(['nombre'])->get();
+> Tabla::conf(user::class)->campos(['nombre'])->get();
 
 ## metodo para registrar
-> FlowDB::conf(user)->campos(['nombre'])->post([$nombre]);
+> Tabla::conf(user::class)->campos(['nombre'])->post([$nombre]);
 
 
 
 ## metodo para edita
->FlowDB::conf(user)->campos(['nombre'])->valores([$nombre])->put(['id' => $id]);r
+>Tabla::conf(user::class)->campos(['nombre'])->valores([$nombre])->put(['id' => $id]);r
 
 
 ## metodo para eliminar
->FlowDB::conf(user)->delete(['id'=>$id]);
+>Tabla::conf(user::class)->delete(['id'=>$id]);
 
 
 
